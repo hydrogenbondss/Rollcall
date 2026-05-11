@@ -1,13 +1,22 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router'
+import { HashRouter } from 'react-router'
 import './index.css'
 import App from './App.tsx'
+import { LanguageProvider } from './contexts/LanguageContext.tsx'
+import { CurrencyProvider } from './contexts/CurrencyContext.tsx'
+import { CompareProvider } from './contexts/CompareContext.tsx'
+import { DarkModeProvider } from './contexts/DarkModeContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
+  <HashRouter>
+    <LanguageProvider>
+      <CurrencyProvider>
+        <CompareProvider>
+          <DarkModeProvider>
+            <App />
+          </DarkModeProvider>
+        </CompareProvider>
+      </CurrencyProvider>
+    </LanguageProvider>
+  </HashRouter>,
 )

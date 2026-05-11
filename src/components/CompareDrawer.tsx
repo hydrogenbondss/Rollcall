@@ -1,0 +1,130 @@
+import { X, Star, MapPin, Layers, Ruler, Droplets, Factory, ShoppingBag, Hotel, ArrowRight, Plus } from 'lucide-react'
+import { useCompare } from '../contexts/CompareContext'
+import { useCurrency } from '../contexts/CurrencyContext'
+import { useLanguage } from '../contexts/LanguageContext'
+import { Link } from 'react-router'
+
+export default function CompareDrawer() {
+  const { compareList, removeFromCompare, clearCompare, isOpen, setIsOpen } = useCompare()
+  const { formatPrice } = useCurrency()
+  const { t } = useLanguage()
+
+  if (!isOpen || compareList.length === 0) return null
+
+  const needsMore = compareList.length < 2
+
+  const specs = [
+    { key: 'ply', label: t('plyCount'), icon: Layers, format: (v: any) => `${v}-Ply` },
+    { key: 'thickness', label: t('thickness'), icon: Ruler, format: (v: any) => v },
+    { key: 'scent', label: t('scent'), icon: Droplets, format: (v: any) => v },
+    { key: 'material', label: t('material'), icon: Factory, format: (v: any) => v },
+    { key: 'manufacturedIn', label: t('manufactured'), icon: MapPin, format: (v: any) => v },
+    { key: 'availableIn', label: t('availableIn'), icon: ShoppingBag, format: (v: any) => Array.isArray(v) ? v.join(', ') : v },
+    { key: 'rating', label: t('rating'), icon: Star, format: (v: any) => `${v} (${(v as number) > 0 ? 'verified' : 'new'})` },
+    { key: 'priceUSD', label: t('price'), icon: Star, format: (v: any) => formatPrice(v as number) },
+  ]
+
+  return (
+    <div className="fixed inset-0 z-[200] flex justify-end">
+      <div className="absolute inset-0 bg-black/30" onClick={() => setIsOpen(false)} />
+      <div className="relative w-full max-w-[900px] bg-white h-full overflow-y-auto shadow-2xl">
+        <div className="sticky top-0 bg-white border-b border-[#e5e5e5] px-6 py-4 flex items-center justify-between z-10">
+          <h2 className="font-display text-xl font-bold text-[#1A1A1A]">{t('compareProducts')}</h2>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={clearCompare}
+              className="font-body text-sm text-[#6B6B6B] hover:text-red-500 transition-colors"
+            >
+              {t('clearAll')}
+            </button>
+            <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-[#f5f5f5] rounded-full transition-colors">
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        <div className="px-6 pt-4">
+          {needsMore && (
+            <div className="bg-[#f5f2ef] rounded-xl p-4 mb-4 flex items-start gap-3">
+              <Plus className="w-4 h-4 text-[#c28223] mt-0.5 shrink-0" />
+              <div>
+                <p className="font-body text-sm text-[#f0ece8]">Add one more product</p>
+                <p className="font-body text-[11px] text-[#666] mt-0.5">Compare works best with 2 or more rolls. Browse the collection and click Compare on another product.</p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="p-6">
+          {/* Product headers */}
+          <div className="grid gap-4 mb-6" style={{ gridTemplateColumns: `150px repeat(${compareList.length}, 1fr)` }}>
+            <div />
+            {compareList.map((p) => (
+              <div key={p.id} className="text-center">
+                <div className="aspect-[3/4] rounded-xl overflow-hidden bg-[#f5f5f5] mb-3">
+                  <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+                </div>
+                <p className="font-body text-xs uppercase tracking-wide text-[#6B6B6B]">{p.brand}</p>
+                <p className="font-body text-sm font-semibold text-[#1A1A1A] line-clamp-2 mb-2">{p.name}</p>
+                <Link
+                  to={`/product/${p.id}`}
+                  className="inline-flex items-center gap-1 font-body text-xs text-[#1A1A1A] hover:underline"
+                >
+                  View <ArrowRight className="w-3 h-3" />
+                </Link>
+                <button
+                  onClick={() => removeFromCompare(p.id)}
+                  className="block mx-auto mt-2 font-body text-[10px] text-red-400 hover:text-red-600"
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {/* Spec rows */}
+          {specs.map((spec) => (
+            <div
+              key={spec.key}
+              className="grid gap-4 border-t border-[#e5e5e5] py-3"
+              style={{ gridTemplateColumns: `150px repeat(${compareList.length}, 1fr)` }}
+            >
+              <div className="flex items-center gap-2 text-[#6B6B6B]">
+                <spec.icon className="w-4 h-4" strokeWidth={1.5} />
+                <span className="font-body text-sm font-medium">{spec.label}</span>
+              </div>
+              {compareList.map((p) => {
+                const val = (p as any)[spec.key]
+                return (
+                  <div key={p.id} className="font-body text-sm text-[#1A1A1A] text-center">
+                    {spec.format(val)}
+                  </div>
+                )
+              })}
+            </div>
+          ))}
+
+          {/* Hotels row */}
+          <div
+            className="grid gap-4 border-t border-[#e5e5e5] py-3"
+            style={{ gridTemplateColumns: `150px repeat(${compareList.length}, 1fr)` }}
+          >
+            <div className="flex items-center gap-2 text-[#6B6B6B]">
+              <Hotel className="w-4 h-4" strokeWidth={1.5} />
+              <span className="font-body text-sm font-medium">{t('hotels')}</span>
+            </div>
+            {compareList.map((p) => (
+              <div key={p.id} className="flex flex-wrap gap-1 justify-center">
+                {p.hotels.map((h) => (
+                  <span key={h} className="bg-[#f0f0f0]/20 text-[#1A1A1A] font-body text-[10px] px-2 py-0.5 rounded-full">
+                    {h}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
