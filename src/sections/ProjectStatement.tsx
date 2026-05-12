@@ -34,7 +34,7 @@ export default function ProjectStatement() {
         </div>
 
         <div className="ps-body space-y-8">
-          <p className="font-serif-display text-lg sm:text-xl italic text-[#8a8279] leading-relaxed">
+          <p className="font-serif-display text-lg sm:text-xl italic text-[#a09890] leading-relaxed">
             What does a society value? Look not at its monuments, but at what it chooses to make soft.
           </p>
 
@@ -64,14 +64,14 @@ export default function ProjectStatement() {
 
           <div className="pt-4">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#b0a89e] mb-2">Practices</p>
-            <p className="font-body text-[13px] text-[#8a8279]">
+            <p className="font-body text-[13px] text-[#a09890]">
               Material Culture Research · Editorial Design · Data Visualization · Web Installation
             </p>
           </div>
 
           <div className="pt-2">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#b0a89e] mb-2">Origin</p>
-            <p className="font-body text-[13px] text-[#8a8279]">
+            <p className="font-body text-[13px] text-[#a09890]">
               Hong Kong, 2026
             </p>
           </div>

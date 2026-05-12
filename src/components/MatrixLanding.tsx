@@ -10,6 +10,7 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLParagraphElement>(null)
   const lineRef = useRef<HTMLDivElement>(null)
+  const hintRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const tl = gsap.timeline({ delay: 0.5 })
@@ -37,6 +38,25 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
       duration: 1.5,
       ease: 'power2.out',
     }, '-=0.5')
+    .fromTo(hintRef.current, {
+      opacity: 0,
+      y: 10,
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 1.5,
+      ease: 'power2.out',
+    }, '-=0.5')
+
+    // Pulsing animation for the hint
+    gsap.to(hintRef.current, {
+      opacity: 0.4,
+      duration: 1.5,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+      delay: 3,
+    })
 
     return () => { tl.kill() }
   }, [])
@@ -56,7 +76,7 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
       className="fixed inset-0 z-[150] bg-[#080808] flex flex-col items-center justify-center"
       onClick={handleEnter}
     >
-      {/* Very subtle warm glow */}
+      {/* Subtle warm glow */}
       <div className="absolute inset-0 pointer-events-none opacity-30"
         style={{
           background: 'radial-gradient(ellipse at 50% 40%, rgba(194,130,35,0.03) 0%, transparent 60%)',
@@ -85,11 +105,16 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
         </p>
       </div>
 
-      {/* Click hint */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-100">
-        <p className="font-body text-[9px] uppercase tracking-[0.4em] text-white/15">
-          Touch anywhere
-        </p>
+      {/* Click hint — prominent and animated */}
+      <div ref={hintRef} className="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-0">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5">
+            <div className="w-1 h-2 bg-[#c28223]/60 rounded-full animate-bounce" />
+          </div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#888]">
+            Click to enter
+          </p>
+        </div>
       </div>
     </div>
   )

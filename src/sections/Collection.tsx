@@ -95,14 +95,14 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
             )}
             {imgError && (
               <div className="absolute inset-0 flex items-center justify-center z-30">
-                <span className="font-body text-[10px] uppercase tracking-widest text-[#555]">Specimen unavailable</span>
+                <span className="font-body text-[10px] uppercase tracking-widest text-[#888]">Specimen unavailable</span>
               </div>
             )}
           </div>
 
           <div className="border-t border-white/[0.04] bg-[#0d0d0d] px-5 py-4">
             <div className="flex items-center justify-between mb-3">
-              <span className="font-mono text-[10px] tracking-[0.2em] text-[#555] uppercase">
+              <span className="font-mono text-[10px] tracking-[0.2em] text-[#888] uppercase">
                 {catalogNo}
               </span>
               <span className="font-mono text-[10px] tracking-wider text-[#444]">
@@ -113,23 +113,23 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
             <h3 className="font-display text-sm sm:text-base text-white/90 leading-snug mb-1">
               {highlightText(product.name, searchQuery)}
             </h3>
-            <p className="font-body text-[11px] text-[#666] mb-3">
+            <p className="font-body text-[11px] text-[#999] mb-3">
               {product.brand} · {product.country}
             </p>
 
             <div className="flex items-center gap-4 pt-3 border-t border-white/[0.04]">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#555]">Ply</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#888]">Ply</p>
                 <p className="font-display text-sm text-white/80">{product.ply}</p>
               </div>
               <div className="w-px h-6 bg-white/5" />
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#555]">Material</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#888]">Material</p>
                 <p className="font-body text-[11px] text-[#888]">{product.material}</p>
               </div>
               <div className="w-px h-6 bg-white/5" />
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#555]">Origin</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#888]">Origin</p>
                 <p className="font-body text-[11px] text-[#888]">{product.city}</p>
               </div>
             </div>
@@ -227,14 +227,14 @@ export default function Collection() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-4">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-[#555] uppercase">Gallery I</span>
+            <span className="font-mono text-[10px] tracking-[0.3em] text-[#888] uppercase">Gallery I</span>
             <span className="w-12 h-px bg-white/10" />
-            <span className="font-mono text-[10px] tracking-wider text-[#555]">{filteredProducts.length} specimens</span>
+            <span className="font-mono text-[10px] tracking-wider text-[#888]">{filteredProducts.length} specimens</span>
           </div>
           <h2 className="font-display text-5xl sm:text-6xl md:text-7xl text-[#f0ece8] tracking-tight leading-[1.0] mb-6">
             The Collection
           </h2>
-          <p className="font-body text-sm text-[#666] max-w-lg leading-relaxed">
+          <p className="font-body text-sm text-[#999] max-w-lg leading-relaxed">
             Each specimen has been photographed, catalogued, and verified. 
             Click any roll to view its full documentation.
           </p>
@@ -243,13 +243,13 @@ export default function Collection() {
         <div className="sticky top-16 z-30 bg-[#0d0d0d]/95 backdrop-blur-md py-5 mb-12 border-b border-white/5">
           <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-xs">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#555]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888]" />
               <input type="text" placeholder="Search specimens..." value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-9 pr-8 py-2.5 bg-white/5 border border-white/10 rounded-lg font-body text-[13px] focus:outline-none focus:border-[#b0a89e] text-white placeholder:text-[#555] backdrop-blur-sm transition-colors"
+                className="w-full pl-9 pr-8 py-2.5 bg-white/5 border border-white/10 rounded-lg font-body text-[13px] focus:outline-none focus:border-[#b0a89e] text-white placeholder:text-[#888] backdrop-blur-sm transition-colors"
               />
               {search && (
-                <button onClick={() => setSearch('')} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#555] hover:text-[#888]">
+                <button onClick={() => setSearch('')} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#888] hover:text-[#888]">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
@@ -292,22 +292,22 @@ export default function Collection() {
           {!showFilters && hasFilters && (
             <div className="mt-3 flex flex-wrap items-center gap-2">
               {filterRegion !== 'All' && (
-                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#666] bg-white/5 px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#999] bg-white/5 px-2.5 py-1 rounded-full">
                   {filterRegion} <button onClick={() => setFilterRegion('All')}><X className="w-3 h-3" /></button>
                 </span>
               )}
               {filterBrand !== 'All' && (
-                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#666] bg-white/5 px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#999] bg-white/5 px-2.5 py-1 rounded-full">
                   {filterBrand} <button onClick={() => setFilterBrand('All')}><X className="w-3 h-3" /></button>
                 </span>
               )}
               {filterCountry !== 'All' && (
-                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#666] bg-white/5 px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#999] bg-white/5 px-2.5 py-1 rounded-full">
                   {filterCountry} <button onClick={() => setFilterCountry('All')}><X className="w-3 h-3" /></button>
                 </span>
               )}
               {search && (
-                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#666] bg-white/5 px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#999] bg-white/5 px-2.5 py-1 rounded-full">
                   &quot;{search}&quot; <button onClick={() => setSearch('')}><X className="w-3 h-3" /></button>
                 </span>
               )}
@@ -331,7 +331,7 @@ export default function Collection() {
                   <div className="flex items-center gap-4 mb-8">
                     <span className="w-8 h-[1px]" style={{ backgroundColor: regionColors[region] }} />
                     <h3 className="font-display text-xl text-[#f0ece8]">{region}</h3>
-                    <span className="font-mono text-[10px] text-[#555]">{regionProducts.length} specimens</span>
+                    <span className="font-mono text-[10px] text-[#888]">{regionProducts.length} specimens</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {regionProducts.map((product, i) => (
@@ -356,8 +356,8 @@ export default function Collection() {
 
         {filteredProducts.length === 0 && (
           <div className="text-center py-24">
-            <p className="font-mono text-sm text-[#666]">No specimens found in this collection.</p>
-            <button onClick={clearAll} className="mt-4 font-body text-sm text-[#8a8279] hover:text-[#f0ece8] transition-colors">Clear filters</button>
+            <p className="font-mono text-sm text-[#999]">No specimens found in this collection.</p>
+            <button onClick={clearAll} className="mt-4 font-body text-sm text-[#a09890] hover:text-[#f0ece8] transition-colors">Clear filters</button>
           </div>
         )}
       </div>

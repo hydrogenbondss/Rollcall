@@ -13,6 +13,7 @@ import DataVisualization from '../sections/DataVisualization'
 import Stories from '../sections/Stories'
 import Methodology from '../sections/Methodology'
 import Community from '../sections/Community'
+import ExtinctSpecimens from '../sections/ExtinctSpecimens'
 import Exhibition from '../sections/Exhibition'
 import Footer from '../sections/Footer'
 import { products } from '../data/products'
@@ -182,12 +183,12 @@ export default function Home() {
               {/* Counter */}
               <div className="flex items-center justify-center gap-3 mb-12">
                 <span className="hero-counter font-display text-5xl sm:text-6xl text-[#c28223]">0</span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#555] mt-4">verified specimens</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mt-4">verified specimens</span>
               </div>
 
               {/* Epigraph */}
               <div className="hero-subtitle max-w-xl mx-auto">
-                <p className="font-serif-display text-base sm:text-lg italic text-[#666] leading-relaxed">
+                <p className="font-serif-display text-base sm:text-lg italic text-[#999] leading-relaxed">
                   What does a society value? Look not at its monuments,<br className="hidden sm:block" />
                   but at what it chooses to make soft.
                 </p>
@@ -202,6 +203,7 @@ export default function Home() {
 
           <ProjectStatement />
           <Collection />
+          <ExtinctSpecimens />
           <Regions />
           <DidYouKnow />
           <WorldMap />

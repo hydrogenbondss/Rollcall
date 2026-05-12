@@ -62,13 +62,13 @@ export default function RollOfTheWeek() {
 
             {/* Info */}
             <div>
-              <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#555] mb-3">
+              <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888] mb-3">
                 {roll.brand} · {roll.country}
               </p>
               <h2 className="font-display text-3xl sm:text-4xl text-[#f0ece8] tracking-tight leading-[1.1] mb-4">
                 {roll.name}
               </h2>
-              <p className="font-body text-[15px] text-[#666] leading-relaxed mb-6">
+              <p className="font-body text-[15px] text-[#999] leading-relaxed mb-6">
                 This week&apos;s spotlighted roll from our archive of 43 verified products.
                 {region && (
                   <>

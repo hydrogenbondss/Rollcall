@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router'
 import { useEffect, useRef, useState, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { MapPin, Layers, Droplets, Factory, Hotel, Globe, Package, ArrowLeft, Share2, Plus, Check, ArrowUpRight } from 'lucide-react'
+import { MapPin, Layers, Droplets, Factory, Hotel, Globe, Package, ArrowLeft, Share2, Plus, Check, ArrowUpRight, Archive, Calendar, AlertTriangle, Eye, StickyNote } from 'lucide-react'
 import { products } from '../data/products'
 import { useCurrency } from '../contexts/CurrencyContext'
 import { useCompare } from '../contexts/CompareContext'
@@ -83,11 +83,11 @@ export default function ProductDetail() {
  <div className="min-h-screen bg-[#0d0d0d] flex items-center justify-center">
  <div className="text-center px-4">
  <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
- <Package className="w-8 h-8 text-[#555]" />
+ <Package className="w-8 h-8 text-[#888]" />
  </div>
- <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#555] mb-3">Specimen Missing</p>
+ <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#888] mb-3">Specimen Missing</p>
  <h1 className="font-display text-3xl font-medium text-[#f0ece8] mb-3">Specimen not found</h1>
- <p className="font-body text-sm text-[#666] mb-6 max-w-sm mx-auto">This catalog number may have been removed, or the reference is incorrect.</p>
+ <p className="font-body text-sm text-[#999] mb-6 max-w-sm mx-auto">This catalog number may have been removed, or the reference is incorrect.</p>
  <Link to="/" className="inline-flex items-center gap-2 bg-[#f0ece8] text-[#0d0d0d] font-body text-sm px-6 py-3 rounded-full hover:opacity-80 transition-opacity">
  <ArrowLeft className="w-4 h-4" />Return to Collection
  </Link>
@@ -114,7 +114,7 @@ export default function ProductDetail() {
  <div ref={sectionRef} className="pt-20 pb-16">
  <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-12">
  {/* Back */}
- <button onClick={() => window.history.back()} className="mb-6 flex items-center gap-1.5 font-body text-sm text-[#666] hover:text-[#f0ece8] transition-colors">
+ <button onClick={() => window.history.back()} className="mb-6 flex items-center gap-1.5 font-body text-sm text-[#999] hover:text-[#f0ece8] transition-colors">
  <ArrowLeft className="w-4 h-4" />Back
  </button>
 
@@ -125,7 +125,7 @@ export default function ProductDetail() {
  <ProductImage product={product} aspectRatio="square" className="rounded-2xl" showLabel={!hasRealImage} />
  </div>
  {hasRealImage && (
- <p className="mt-3 font-body text-[11px] text-[#666] flex items-center gap-1.5">
+ <p className="mt-3 font-body text-[11px] text-[#999] flex items-center gap-1.5">
  <Check className="w-3 h-3" />Product photo verified
  </p>
  )}
@@ -134,7 +134,7 @@ export default function ProductDetail() {
  {/* Info */}
  <div ref={rightRef}>
  <div className="detail-item mb-1">
- <span className="font-body text-[11px] uppercase tracking-[0.15em] text-[#666]">{product.brand}</span>
+ <span className="font-body text-[11px] uppercase tracking-[0.15em] text-[#999]">{product.brand}</span>
  </div>
  <h1 className="detail-item font-display text-3xl sm:text-4xl font-medium text-[#f0ece8] mb-3 leading-tight">
  {product.name}
@@ -149,7 +149,7 @@ export default function ProductDetail() {
  'Eco Choice': 'bg-[#228b68]/10 text-[#228b68] border-[#228b68]/20',
  'Best Value': 'bg-[#c28223]/10 text-[#c28223] border-[#c28223]/20',
  'Softest': 'bg-[#c4728e]/10 text-[#c4728e] border-[#c4728e]/20',
- 'Editor Pick': 'bg-[#1a1614]/10 text-[#1a1614] border-[#1a1614]/20 ',
+ 'Editor Pick': 'bg-[#888]/10 text-[#888] border-[#888]/20 ',
  'Premium': 'bg-[#c28223]/10 text-[#c28223] border-[#c28223]/20',
  'Most Popular': 'bg-[#c85a32]/10 text-[#c85a32] border-[#c85a32]/20',
  'Regional Pick': 'bg-[#c85a32]/10 text-[#c85a32] border-[#c85a32]/20',
@@ -157,7 +157,7 @@ export default function ProductDetail() {
  return (
  <span
  key={badge}
- className={`inline-flex items-center gap-1 font-body text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full font-medium border ${badgeStyles[badge] || 'bg-[#e8e2d9] text-[#666] border-[#e0d9d2]'}`}
+ className={`inline-flex items-center gap-1 font-body text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full font-medium border ${badgeStyles[badge] || 'bg-white/5 text-[#888] border-white/10'}`}
  >
  <span className="w-1 h-1 rounded-full bg-current opacity-50" />
  {badge}
@@ -166,13 +166,13 @@ export default function ProductDetail() {
  })}
  </div>
  )}
- <div className="detail-item flex items-center gap-1.5 text-[#666] mb-6">
+ <div className="detail-item flex items-center gap-1.5 text-[#999] mb-6">
  <MapPin className="w-4 h-4" />
  <span className="font-body text-sm">{product.country} &middot; {product.city}</span>
  </div>
  <div className="detail-item mb-8">
  <span className="font-display text-3xl font-medium text-[#f0ece8]">{formatPrice(product.priceUSD)}</span>
- <span className="font-body text-sm text-[#666] ml-2">{product.localPrice}</span>
+ <span className="font-body text-sm text-[#999] ml-2">{product.localPrice}</span>
  </div>
 
  {/* Specs */}
@@ -180,9 +180,9 @@ export default function ProductDetail() {
  <div className="grid grid-cols-2 gap-x-6 gap-y-5">
  {specs.map((spec) => (
  <div key={spec.label} className="flex items-start gap-3">
- <spec.icon className="w-4 h-4 text-[#666] mt-0.5 shrink-0" strokeWidth={1.5} />
+ <spec.icon className="w-4 h-4 text-[#999] mt-0.5 shrink-0" strokeWidth={1.5} />
  <div>
- <p className="font-body text-[11px] text-[#666] mb-0.5">{spec.label}</p>
+ <p className="font-body text-[11px] text-[#999] mb-0.5">{spec.label}</p>
  <p className="font-body text-sm text-[#f0ece8] leading-snug">{spec.value}</p>
  </div>
  </div>
@@ -193,7 +193,7 @@ export default function ProductDetail() {
  {/* Hotels */}
  <div className="detail-item border-t border-white/5 pt-6 mb-6">
  <div className="flex items-center gap-2 mb-4">
- <Hotel className="w-4 h-4 text-[#666]" strokeWidth={1.5} />
+ <Hotel className="w-4 h-4 text-[#999]" strokeWidth={1.5} />
  <span className="font-body text-sm font-medium text-[#f0ece8]">Found at these hotels</span>
  </div>
  <div className="flex flex-wrap gap-2">
@@ -208,6 +208,84 @@ export default function ProductDetail() {
  {product.notes && (
  <div className="detail-item bg-white/5 rounded-xl p-4 mb-6">
  <p className="font-body text-[13px] text-[#888] leading-relaxed">{product.notes}</p>
+ </div>
+ )}
+
+ {/* Archival Metadata */}
+ {(product.acquisitionDate || product.archivalStatus || product.collectorNote) && (
+ <div className="detail-item border-t border-white/5 pt-6 mb-6">
+ <div className="flex items-center gap-2 mb-4">
+ <Archive className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
+ <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888]">Archival Record</span>
+ </div>
+
+ {product.archivalStatus && product.archivalStatus !== 'active' && (
+ <div className={`rounded-lg p-3 mb-4 ${
+ product.archivalStatus === 'extinct'
+ ? 'bg-[#8b2500]/10 border border-[#8b2500]/20'
+ : 'bg-[#c28223]/5 border border-[#c28223]/10'
+ }`}>
+ <div className="flex items-center gap-2 mb-1">
+ {product.archivalStatus === 'extinct' ? (
+ <AlertTriangle className="w-3.5 h-3.5 text-[#c85a32]" />
+ ) : (
+ <Eye className="w-3.5 h-3.5 text-[#c28223]" />
+ )}
+ <span className={`font-mono text-[10px] uppercase tracking-wider ${
+ product.archivalStatus === 'extinct' ? 'text-[#c85a32]' : 'text-[#c28223]'
+ }`}>
+ {product.archivalStatus === 'extinct' ? 'Specimen Extinct' : `Status: ${product.archivalStatus}`}
+ </span>
+ </div>
+ {product.lastObserved && (
+ <p className="font-body text-[11px] text-[#999] ml-5.5">
+ Last observed in circulation: <span className="text-[#f0ece8]">{product.lastObserved}</span>
+ </p>
+ )}
+ </div>
+ )}
+
+ <div className="grid grid-cols-2 gap-3 mb-4">
+ {product.acquisitionDate && (
+ <div className="flex items-start gap-2">
+ <Calendar className="w-3.5 h-3.5 text-[#999] mt-0.5" />
+ <div>
+ <p className="font-mono text-[9px] uppercase tracking-wider text-[#999]">Acquired</p>
+ <p className="font-body text-[12px] text-[#f0ece8]">{product.acquisitionDate}</p>
+ </div>
+ </div>
+ )}
+ {product.condition && (
+ <div className="flex items-start gap-2">
+ <Package className="w-3.5 h-3.5 text-[#999] mt-0.5" />
+ <div>
+ <p className="font-mono text-[9px] uppercase tracking-wider text-[#999]">Condition</p>
+ <p className="font-body text-[12px] text-[#f0ece8]">{product.condition}</p>
+ </div>
+ </div>
+ )}
+ {product.rarity && (
+ <div className="flex items-start gap-2">
+ <Eye className="w-3.5 h-3.5 text-[#999] mt-0.5" />
+ <div>
+ <p className="font-mono text-[9px] uppercase tracking-wider text-[#999]">Rarity</p>
+ <p className="font-body text-[12px] capitalize text-[#f0ece8]">{product.rarity}</p>
+ </div>
+ </div>
+ )}
+ </div>
+
+ {product.collectorNote && (
+ <div className="bg-white/[0.02] rounded-lg p-4 border-l-2 border-[#c28223]/30">
+ <div className="flex items-center gap-2 mb-2">
+ <StickyNote className="w-3.5 h-3.5 text-[#c28223]/60" />
+ <span className="font-mono text-[9px] uppercase tracking-wider text-[#c28223]/60">Collector's Note</span>
+ </div>
+ <p className="font-body text-[12px] text-[#a09890] leading-relaxed italic">
+ &ldquo;{product.collectorNote}&rdquo;
+ </p>
+ </div>
+ )}
  </div>
  )}
 
@@ -234,10 +312,10 @@ export default function ProductDetail() {
  <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
  <div className="flex items-end justify-between mb-10">
  <div>
- <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#555] mb-2">Related Specimens</p>
+ <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mb-2">Related Specimens</p>
  <h2 className="font-display text-2xl font-medium text-[#f0ece8]">Same Region</h2>
  </div>
- <Link to="/" className="hidden sm:flex items-center gap-1 font-body text-sm text-[#555] hover:text-[#f0ece8] transition-colors">
+ <Link to="/" className="hidden sm:flex items-center gap-1 font-body text-sm text-[#888] hover:text-[#f0ece8] transition-colors">
  View all<ArrowUpRight className="w-4 h-4" />
  </Link>
  </div>

@@ -85,12 +85,12 @@ export default function Regions() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-3">
-            <Globe className="w-4 h-4 text-[#555]" strokeWidth={1.5} />
-            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#555]">Geography</p>
+            <Globe className="w-4 h-4 text-[#888]" strokeWidth={1.5} />
+            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Geography</p>
           </div>
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">
             Three Regions,<br />
-            <span className="text-[#555]">Three Relationships.</span>
+            <span className="text-[#888]">Three Relationships.</span>
           </h2>
         </div>
 
@@ -105,28 +105,28 @@ export default function Regions() {
                 {/* Accent line */}
                 <div className="absolute top-0 left-0 right-0 h-1" style={{ backgroundColor: region.color }} />
 
-                <p className="font-body text-[10px] uppercase tracking-[0.3em] text-[#555] mb-2">
+                <p className="font-body text-[10px] uppercase tracking-[0.3em] text-[#888] mb-2">
                   {regionStats.count} products
                 </p>
                 <h3 className="font-display text-2xl text-[#f0ece8] mb-3">
                   {region.name}
                 </h3>
-                <p className="font-body text-[11px] text-[#666] leading-relaxed mb-6">
+                <p className="font-body text-[11px] text-[#888] leading-relaxed mb-6">
                   {region.countries}
                 </p>
 
                 <div className="space-y-4">
                   <div>
-                    <p className="font-body text-[10px] uppercase tracking-wider text-[#555] mb-1">Signature</p>
+                    <p className="font-body text-[10px] uppercase tracking-wider text-[#888] mb-1">Signature</p>
                     <p className="font-body text-sm font-medium text-[#f0ece8]">{region.signature}</p>
                   </div>
                   <div>
-                    <p className="font-body text-[10px] uppercase tracking-wider text-[#555] mb-1">Average Ply</p>
+                    <p className="font-body text-[10px] uppercase tracking-wider text-[#888] mb-1">Average Ply</p>
                     <p className="font-display text-2xl text-[#f0ece8]">{regionStats.avgPly}</p>
                   </div>
                   <div>
-                    <p className="font-body text-[10px] uppercase tracking-wider text-[#555] mb-1">Insight</p>
-                    <p className="font-body text-sm text-[#8a8279] leading-relaxed">{region.insight}</p>
+                    <p className="font-body text-[10px] uppercase tracking-wider text-[#888] mb-1">Insight</p>
+                    <p className="font-body text-sm text-[#a09890] leading-relaxed">{region.insight}</p>
                   </div>
                 </div>
 

@@ -47,20 +47,20 @@ export default function Exhibition() {
       <div className="max-w-[720px] mx-auto px-6 sm:px-8">
         <div className="exhibit-header mb-14">
           <div className="flex items-center gap-3 mb-4">
-            <Calendar className="w-4 h-4 text-[#555]" strokeWidth={1.5} />
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#555]">Exhibition & Publication</p>
+            <Calendar className="w-4 h-4 text-[#888]" strokeWidth={1.5} />
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#888]">Exhibition & Publication</p>
           </div>
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">
             Where to See<br />This Work
           </h2>
-          <p className="font-body text-sm text-[#666] mt-4 max-w-md leading-relaxed">
+          <p className="font-body text-sm text-[#999] mt-4 max-w-md leading-relaxed">
             Exhibition history and published research. This section documents the project's physical presence and critical reception.
           </p>
         </div>
 
         {/* Exhibitions */}
         <div className="exhibit-list mb-16">
-          <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#555] mb-6">Exhibitions</h3>
+          <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mb-6">Exhibitions</h3>
 
           {exhibitions.map((exhibit, i) => (
             <div key={i} className="exhibit-item border border-white/[0.04] rounded-xl p-6 sm:p-8 mb-4 bg-[#141414]">
@@ -70,11 +70,11 @@ export default function Exhibition() {
                     ? 'bg-[#c28223]/10 text-[#c28223]'
                     : exhibit.status === 'upcoming'
                     ? 'bg-[#228b68]/10 text-[#228b68]'
-                    : 'bg-[#e8e2d9] text-[#666]'
+                    : 'bg-white/5 text-[#888] border border-white/10'
                 }`}>
                   {exhibit.status}
                 </span>
-                <span className="font-mono text-[10px] text-[#555]">{exhibit.year}</span>
+                <span className="font-mono text-[10px] text-[#888]">{exhibit.year}</span>
               </div>
 
               <h4 className="font-display text-xl sm:text-2xl text-[#f0ece8] mb-2">
@@ -86,7 +86,7 @@ export default function Exhibition() {
                 <span className="font-body text-[13px] text-[#888]">{exhibit.venue} · {exhibit.location}</span>
               </div>
 
-              <p className="font-body text-[13px] text-[#666] leading-relaxed">
+              <p className="font-body text-[13px] text-[#999] leading-relaxed">
                 {exhibit.description}
               </p>
             </div>
@@ -95,7 +95,7 @@ export default function Exhibition() {
 
         {/* Press / Publications */}
         <div>
-          <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#555] mb-6">Publications</h3>
+          <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mb-6">Publications</h3>
 
           {press.map((item, i) => (
             <div key={i} className="exhibit-item flex items-start gap-4 border border-white/[0.04] rounded-xl p-5 bg-[#141414]">
@@ -105,12 +105,12 @@ export default function Exhibition() {
                   <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#c28223]/10 text-[#c28223]">
                     {item.status}
                   </span>
-                  <span className="font-mono text-[10px] text-[#555]">{item.date}</span>
+                  <span className="font-mono text-[10px] text-[#888]">{item.date}</span>
                 </div>
                 <p className="font-body text-sm font-medium text-[#f0ece8] mb-0.5">
                   {item.title}
                 </p>
-                <p className="font-body text-[11px] text-[#666]">{item.publication}</p>
+                <p className="font-body text-[11px] text-[#999]">{item.publication}</p>
               </div>
             </div>
           ))}
@@ -118,10 +118,10 @@ export default function Exhibition() {
 
         {/* Call for exhibition */}
         <div className="mt-12 pt-8 border-t border-white/5">
-          <p className="font-body text-[13px] text-[#666] leading-relaxed">
+          <p className="font-body text-[13px] text-[#999] leading-relaxed">
             This project is designed for physical exhibition — as printed specimen cards, large-format data visualizations, an interactive world map, and the complete digital archive accessible via on-site terminals. The physical installation transforms the web archive into a gallery experience suitable for museums, libraries, cultural centres, or arts festivals.
           </p>
-          <p className="font-body text-[13px] text-[#666] leading-relaxed mt-4">
+          <p className="font-body text-[13px] text-[#999] leading-relaxed mt-4">
             Curators and cultural institutions interested in hosting this work are invited to contact the project directly.
           </p>
         </div>

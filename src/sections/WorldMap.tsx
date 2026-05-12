@@ -6,7 +6,6 @@ import { products, getRegion, getRegionColor } from '../data/products'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Simplified dot positions for Asian countries (relative x, y in 0-100 space)
 const countryPositions: Record<string, { x: number; y: number; label: string }> = {
   Japan: { x: 88, y: 28, label: 'JP' },
   'South Korea': { x: 82, y: 32, label: 'KR' },
@@ -84,32 +83,33 @@ export default function WorldMap() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <div className="map-title mb-14">
           <div className="flex items-center gap-3 mb-3">
-            <MapPin className="w-4 h-4 text-[#555]" strokeWidth={1.5} />
-            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#555]">Coverage</p>
+            <MapPin className="w-4 h-4 text-[#888]" strokeWidth={1.5} />
+            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Coverage</p>
           </div>
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">
             The Map
           </h2>
-          <p className="font-body text-sm text-[#666] mt-4 max-w-md">
+          <p className="font-body text-sm text-[#888] mt-4 max-w-md">
             21 countries. Each dot represents a country in our archive. Size = number of products. Color = region.
           </p>
         </div>
 
         <div className="relative bg-[#141414] rounded-2xl border border-white/5 overflow-hidden">
-          <svg ref={mapRef} viewBox="0 0 100 80" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
+          <svg ref={mapRef} viewBox="0 0 100 80" className="w-full h-auto" preserveAspectRatio="xMidYMid meet" style={{ color: '#8a8279' }}>
             {/* Subtle grid */}
             <defs>
               <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.1" className="text-white/5" />
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.1" />
               </pattern>
             </defs>
             <rect width="100" height="80" fill="url(#grid)" />
 
-            {/* Asia outline (simplified path) */}
+            {/* Asia continent outline — visible at proper opacity */}
             <path
               d="M 20 70 Q 25 60 30 55 Q 35 50 40 48 Q 45 45 50 40 Q 55 35 60 30 Q 65 25 70 20 Q 75 18 80 20 Q 85 22 88 28 Q 90 32 88 38 Q 86 42 82 45 Q 80 48 78 50 Q 76 52 76 55 Q 76 60 72 65 Q 68 70 62 72 Q 56 74 50 72 Q 44 70 38 68 Q 32 66 28 68 Q 24 70 20 70 Z"
-              fill="currentColor"
-              className="text-[#f0ece8]/[0.03]"
+              fill="rgba(240,236,232,0.06)"
+              stroke="rgba(240,236,232,0.1)"
+              strokeWidth="0.15"
             />
 
             {/* Country dots */}
@@ -124,7 +124,7 @@ export default function WorldMap() {
                     cy={pos.y}
                     r={radius}
                     fill={data.color}
-                    opacity={0.85}
+                    opacity={0.9}
                     className="map-dot"
                   />
                   <text
@@ -132,7 +132,8 @@ export default function WorldMap() {
                     y={pos.y + radius + 2.5}
                     textAnchor="middle"
                     className="map-label"
-                    style={{ fontSize: '2.5px', fill: 'currentColor' }}
+                    fill="#8a8279"
+                    style={{ fontSize: '2.5px', fontFamily: 'monospace' }}
                   >
                     {pos.label}
                   </text>
@@ -149,7 +150,7 @@ export default function WorldMap() {
               ].map((item, i) => (
                 <g key={item.label} transform={`translate(0, ${i * 4})`}>
                   <circle cx="1.5" cy="1.5" r="1.2" fill={item.color} opacity={0.85} />
-                  <text x="4" y="2" style={{ fontSize: '2.5px', fill: 'currentColor' }}>{item.label}</text>
+                  <text x="4" y="2" fill="#8a8279" style={{ fontSize: '2.5px' }}>{item.label}</text>
                 </g>
               ))}
             </g>

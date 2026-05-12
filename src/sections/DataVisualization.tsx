@@ -78,7 +78,7 @@ export default function DataVisualization() {
     return (
       <div className="bg-[#1a1a1a] border border-white/10 rounded-xl px-4 py-3 shadow-lg">
         <p className="font-display text-sm text-[#f0ece8]">{data.brand}</p>
-        <p className="font-body text-[11px] text-[#666]">{data.country} · {data.region}</p>
+        <p className="font-body text-[11px] text-[#999]">{data.country} · {data.region}</p>
         <p className="font-body text-[11px] text-[#888] mt-1">${data.price} · {data.ply}-ply</p>
       </div>
     )
@@ -89,13 +89,13 @@ export default function DataVisualization() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <div className="viz-title mb-14">
           <div className="flex items-center gap-3 mb-3">
-            <BarChart3 className="w-4 h-4 text-[#555]" strokeWidth={1.5} />
-            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#555]">Data</p>
+            <BarChart3 className="w-4 h-4 text-[#888]" strokeWidth={1.5} />
+            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Data</p>
           </div>
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">
             Price vs. Ply
           </h2>
-          <p className="font-body text-sm text-[#666] mt-4 max-w-md">
+          <p className="font-body text-sm text-[#999] mt-4 max-w-md">
             How much does comfort cost? Each dot is a verified product. Color = region.
           </p>
         </div>
@@ -159,15 +159,15 @@ export default function DataVisualization() {
                 <div className="grid grid-cols-3 gap-3">
                   <div>
                     <p className="font-display text-xl text-[#f0ece8]">{stats.count}</p>
-                    <p className="font-body text-[10px] text-[#666] uppercase tracking-wider">Products</p>
+                    <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Products</p>
                   </div>
                   <div>
                     <p className="font-display text-xl text-[#f0ece8]">${stats.avgPrice}</p>
-                    <p className="font-body text-[10px] text-[#666] uppercase tracking-wider">Avg Price</p>
+                    <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Avg Price</p>
                   </div>
                   <div>
                     <p className="font-display text-xl text-[#f0ece8]">{stats.avgPly}</p>
-                    <p className="font-body text-[10px] text-[#666] uppercase tracking-wider">Avg Ply</p>
+                    <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Avg Ply</p>
                   </div>
                 </div>
               </div>

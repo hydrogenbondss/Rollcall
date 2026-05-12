@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { Link, useNavigate, useLocation } from 'react-router'
 import { Menu, X, Dices } from 'lucide-react'
 import { products } from '../data/products'
 import { useScrollSpy } from '../hooks/useScrollSpy'
@@ -17,6 +17,7 @@ const sectionIds = ['collection', 'regions', 'map', 'data', 'stories', 'communit
 
 export default function Navigation() {
   const navigate = useNavigate()
+  const location = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const activeSection = useScrollSpy(sectionIds, 200)
@@ -29,11 +30,17 @@ export default function Navigation() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
     setMenuOpen(false)
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        const target = document.querySelector(href)
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    } else {
+      const target = document.querySelector(href)
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }
 
   useEffect(() => {
@@ -78,7 +85,7 @@ export default function Navigation() {
             <span className="font-display text-lg font-medium text-[#f0ece8] tracking-tight">
               Roll Call
             </span>
-            <span className="hidden sm:inline font-mono text-[9px] tracking-[0.2em] text-[#555] uppercase group-hover:text-[#666] transition-colors">
+            <span className="hidden sm:inline font-mono text-[9px] tracking-[0.2em] text-[#888] uppercase group-hover:text-[#999] transition-colors">
               Material Culture Archive
             </span>
           </Link>
@@ -88,7 +95,7 @@ export default function Navigation() {
               const isActive = activeSection === link.href.replace('#', '')
               return (
                 <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="group relative py-1 cursor-pointer">
-                  <span className={`font-mono text-[9px] tracking-wider mr-2 transition-colors ${isActive ? 'text-[#c28223]' : 'text-[#555]'}`}>{link.num}</span>
+                  <span className={`font-mono text-[9px] tracking-wider mr-2 transition-colors ${isActive ? 'text-[#c28223]' : 'text-[#888]'}`}>{link.num}</span>
                   <span className={`font-body text-[13px] transition-colors ${isActive ? 'text-[#f0ece8]' : 'text-[#888] group-hover:text-[#f0ece8]'}`}>
                     {link.label}
                   </span>
@@ -99,10 +106,10 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center gap-1">
-            <button onClick={handleRandomRoll} className="hidden sm:flex items-center p-2 rounded-lg text-[#666] hover:text-[#f0ece8] hover:bg-white/5 transition-all" title="Random Roll" aria-label="Random Roll">
+            <button onClick={handleRandomRoll} className="hidden sm:flex items-center p-2 rounded-lg text-[#999] hover:text-[#f0ece8] hover:bg-white/5 transition-all" title="Random Roll" aria-label="Random Roll">
               <Dices className="w-4 h-4" />
             </button>
-            <button onClick={() => setMenuOpen(true)} className="md:hidden p-2 rounded-lg text-[#666] hover:text-[#f0ece8] hover:bg-white/5 transition-all" aria-label="Open menu">
+            <button onClick={() => setMenuOpen(true)} className="md:hidden p-2 rounded-lg text-[#999] hover:text-[#f0ece8] hover:bg-white/5 transition-all" aria-label="Open menu">
               <Menu className="w-5 h-5" />
             </button>
           </div>

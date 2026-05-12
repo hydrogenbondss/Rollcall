@@ -26,6 +26,13 @@ export interface Product {
   notes?: string
   buyUrl?: string
   verified: boolean
+  // Archival metadata — institutional absurdity layer
+  acquisitionDate?: string
+  condition?: 'excellent' | 'good' | 'fair' | 'damaged' | 'unknown'
+  rarity?: 'common' | 'uncommon' | 'rare' | 'extinct'
+  collectorNote?: string
+  archivalStatus?: 'active' | 'discontinued' | 'reformulated' | 'extinct'
+  lastObserved?: string
 }
 
 const countryFlags: Record<string, string> = {
@@ -86,6 +93,10 @@ export const products: Product[] = [
     eco: false,
     notes: 'Contains plant-derived squalane and baby oil for skin care. Verified on Amazon Japan.',
     verified: true,
+    acquisitionDate: '2026-02-14',
+    condition: 'excellent',
+    rarity: 'uncommon',
+    collectorNote: 'Purchased at Don Quijote Shibuya, 3am. The packaging was behind a locked glass case. The clerk watched me photograph it with visible confusion.',
   },
   {
     id: 'nepia-nepi-nepi',
@@ -355,6 +366,12 @@ export const products: Product[] = [
     eco: false,
     notes: 'Verified on Watsons HK. UK-imported packaging.',
     verified: true,
+    acquisitionDate: '2026-01-08',
+    condition: 'good',
+    rarity: 'uncommon',
+    archivalStatus: 'discontinued',
+    lastObserved: '2026-03-15',
+    collectorNote: 'Packaging retained the 2024 design. Kimberly-Clark confirmed this variant was reformulated in March 2026. This specimen represents the final formulation.',
   },
 
   // ==================== SINGAPORE (Verified) ====================
@@ -411,6 +428,10 @@ export const products: Product[] = [
     eco: true,
     notes: 'Verified on FairPrice and cloversoft.com.sg. 100% bamboo, FSC certified.',
     verified: true,
+    acquisitionDate: '2026-03-22',
+    condition: 'excellent',
+    rarity: 'uncommon',
+    collectorNote: 'Purchased at NTUC FairPrice Finest, Orchard. The bamboo scent was unexpected — like walking through a conservatory. Packaging slightly warped from humidity in transit.',
   },
   {
     id: 'kleenex-ultrasoft',
@@ -824,6 +845,10 @@ export const products: Product[] = [
     eco: true,
     notes: 'Verified on origamitissues.com. Leading Indian tissue producer since 1995. PEFC certified.',
     verified: true,
+    acquisitionDate: '2026-04-05',
+    condition: 'good',
+    rarity: 'common',
+    collectorNote: 'Purchased at a BigBasket dark store, Mumbai. Three-ply is considered luxury here — most households use one-ply. The warehouse worker asked why anyone would photograph toilet paper.',
   },
   {
     id: 'selpak-supersoft',
@@ -1076,6 +1101,12 @@ export const products: Product[] = [
     eco: false,
     notes: 'Real Myanmar tissue product. Verified on myanmartissueworld.com. Market dominated by imports.',
     verified: false,
+    acquisitionDate: '2025-11-03',
+    condition: 'fair',
+    rarity: 'rare',
+    archivalStatus: 'extinct',
+    lastObserved: '2026-01-20',
+    collectorNote: 'Obtained at Theingyi Market, Yangon, November 2025. Correspondent reports the manufacturer ceased operations in early 2026. Import sanctions have eliminated domestic competition. This packaging may be the last of its kind.',
   },
 
   // ==================== CAMBODIA (Community — Import Brand) ====================

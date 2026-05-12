@@ -42,7 +42,7 @@ export default function Methodology() {
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">
             Field Notes
           </h2>
-          <p className="font-body text-sm text-[#8a8279] mt-4 max-w-md leading-relaxed">
+          <p className="font-body text-sm text-[#a09890] mt-4 max-w-md leading-relaxed">
             A research methodology built on transparency. The archive discloses what it knows, what it suspects, and what it cannot confirm.
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function Methodology() {
               <stat.icon className="w-5 h-5 text-[#c28223] mb-4" strokeWidth={1.5} />
               <p className="font-display text-3xl text-[#f0ece8] mb-1">{stat.value}</p>
               <p className="font-body text-[11px] uppercase tracking-wider text-[#888] mb-2">{stat.label}</p>
-              <p className="font-body text-[11px] text-[#666] leading-relaxed">{stat.desc}</p>
+              <p className="font-body text-[11px] text-[#888] leading-relaxed">{stat.desc}</p>
             </div>
           ))}
         </div>
