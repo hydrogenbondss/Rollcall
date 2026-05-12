@@ -126,7 +126,7 @@ export default function ProductDetail() {
  </div>
  {hasRealImage && (
  <p className="mt-3 font-body text-[11px] text-[#999] flex items-center gap-1.5">
- <Check className="w-3 h-3" />Product photo verified
+ <Check className="w-3 h-3" />Product imagery sourced
  </p>
  )}
  </div>

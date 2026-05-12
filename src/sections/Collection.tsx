@@ -235,8 +235,9 @@ export default function Collection() {
             The Collection
           </h2>
           <p className="font-body text-sm text-[#999] max-w-lg leading-relaxed">
-            Each specimen has been photographed, catalogued, and verified. 
-            Click any roll to view its full documentation.
+            Each specimen has been catalogued and verified. Product reference
+            imagery sourced from official manufacturer channels and in-market
+            field documentation. Click any roll to view its full documentation.
           </p>
         </div>
 

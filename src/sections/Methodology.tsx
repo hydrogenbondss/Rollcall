@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 const stats = [
   { label: 'Verified', value: '30', icon: FileCheck, desc: 'Confirmed through manufacturer documentation, retailer listings, or direct field photography' },
   { label: 'Community', value: '13', icon: MapPin, desc: 'Confirmed market presence with real brand names; awaiting deeper verification' },
-  { label: 'Total', value: '43', icon: Layers, desc: 'Specimens catalogued with consistent metadata schema across all entries' },
+  { label: 'Total', value: '42', icon: Layers, desc: 'Specimens catalogued with consistent metadata schema across all entries' },
 ]
 
 export default function Methodology() {
@@ -60,7 +60,7 @@ export default function Methodology() {
 
         <div className="method-body space-y-6 font-body text-[15px] text-[#a09890] leading-[1.85]">
           <p>
-            <strong className="text-[#f0ece8] font-medium">Verified</strong> — 30 specimens confirmed through manufacturer websites, official retailer listings (Watsons Hong Kong, FairPrice Singapore, Amazon Japan, NTPM Malaysia, Lotus's Thailand), and direct brand correspondence. Photography sourced from official channels or independently photographed in situ. These meet the archive's standard of documentary evidence.
+            <strong className="text-[#f0ece8] font-medium">Verified</strong> — 30 specimens confirmed through manufacturer websites, official retailer listings (Watsons Hong Kong, FairPrice Singapore, Amazon Japan, NTPM Malaysia, Lotus's Thailand), and direct brand correspondence. Product imagery sourced from official manufacturer channels and in-market field documentation. These meet the archive's standard of documentary evidence.
           </p>
 
           <p>

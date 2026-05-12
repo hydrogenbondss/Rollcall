@@ -126,7 +126,7 @@ export default function Home() {
       if (counterEl) {
         const obj = { val: 0 }
         gsap.to(obj, {
-          val: 43,
+          val: 42,
           duration: 2,
           ease: 'power2.out',
           delay: 1.5,
