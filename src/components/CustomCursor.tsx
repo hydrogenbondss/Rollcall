@@ -87,19 +87,19 @@ export default function CustomCursor() {
 
     switch (mode) {
       case 'link':
-        gsap.to(cursor, { width: 48, height: 48, borderColor: 'rgba(26,22,20,0.5)', duration: 0.3, ease: 'power2.out' })
+        gsap.to(cursor, { width: 48, height: 48, borderColor: 'rgba(240,236,232,0.5)', duration: 0.3, ease: 'power2.out' })
         gsap.to(dot, { scale: 0.4, duration: 0.3, ease: 'power2.out' })
         break
       case 'view':
-        gsap.to(cursor, { width: 80, height: 80, borderColor: 'rgba(26,22,20,0.3)', duration: 0.3, ease: 'power2.out' })
+        gsap.to(cursor, { width: 80, height: 80, borderColor: 'rgba(240,236,232,0.4)', duration: 0.3, ease: 'power2.out' })
         gsap.to(dot, { scale: 0, duration: 0.3, ease: 'power2.out' })
         break
       case 'text':
-        gsap.to(cursor, { width: 2, height: 28, borderRadius: 1, borderColor: 'rgba(26,22,20,0.6)', duration: 0.3, ease: 'power2.out' })
+        gsap.to(cursor, { width: 2, height: 28, borderRadius: 1, borderColor: 'rgba(240,236,232,0.6)', duration: 0.3, ease: 'power2.out' })
         gsap.to(dot, { scale: 0, duration: 0.3, ease: 'power2.out' })
         break
       default:
-        gsap.to(cursor, { width: 32, height: 32, borderRadius: '50%', borderColor: 'rgba(26,22,20,0.3)', duration: 0.3, ease: 'power2.out' })
+        gsap.to(cursor, { width: 32, height: 32, borderRadius: '50%', borderColor: 'rgba(240,236,232,0.35)', duration: 0.3, ease: 'power2.out' })
         gsap.to(dot, { scale: 1, duration: 0.3, ease: 'power2.out' })
     }
   }, [mode])
@@ -123,7 +123,7 @@ export default function CustomCursor() {
         style={{
           width: 32,
           height: 32,
-          border: '1px solid rgba(26,22,20,0.3)',
+          border: '1px solid rgba(240,236,232,0.35)',
           borderRadius: '50%',
           willChange: 'transform',
           mixBlendMode: 'difference',
@@ -139,7 +139,7 @@ export default function CustomCursor() {
       {/* Center dot */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[#1a1614]/60 pointer-events-none z-[9999] hidden lg:block"
+        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[#f0ece8]/50 pointer-events-none z-[9999] hidden lg:block"
         style={{ willChange: 'transform' }}
       />
       <style>{`
