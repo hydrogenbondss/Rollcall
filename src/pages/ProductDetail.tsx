@@ -172,7 +172,7 @@ export default function ProductDetail() {
  </div>
  <div className="detail-item mb-8">
  <span className="font-display text-3xl font-medium text-[#f0ece8]">{formatPrice(product.priceUSD)}</span>
- <span className="font-body text-sm text-[#999] ml-2">{product.localPrice}</span>
+ <span className="font-mono text-[10px] text-[#999] ml-2">HKD</span>
  </div>
 
  {/* Specs */}

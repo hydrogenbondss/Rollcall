@@ -2,7 +2,7 @@ import { useRef, useEffect, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts'
-import { products, getRegion } from '../data/products'
+import { products, getRegion, exchangeRates, currencySymbols } from '../data/products'
 import { BarChart3 } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -44,14 +44,17 @@ export default function DataVisualization() {
     return () => ctx.revert()
   }, [])
 
+  const hkdRate = exchangeRates.HKD // 7.8
+  const hkdSymbol = currencySymbols.HKD // 'HK$'
+
   const scatterData = useMemo<DataPoint[]>(() => {
     return products.map((p) => ({
-      x: p.priceUSD,
+      x: p.priceUSD * hkdRate,
       y: p.ply,
       brand: p.brand,
       country: p.country,
       region: getRegion(p.country) || 'Other',
-      price: p.priceUSD,
+      price: p.priceUSD * hkdRate,
       ply: p.ply,
     }))
   }, [])
@@ -62,7 +65,7 @@ export default function DataVisualization() {
       const r = getRegion(p.country) || 'Other'
       if (!stats[r]) stats[r] = { count: 0, avgPrice: 0, avgPly: 0 }
       stats[r].count++
-      stats[r].avgPrice += p.priceUSD
+      stats[r].avgPrice += p.priceUSD * hkdRate
       stats[r].avgPly += p.ply
     })
     Object.keys(stats).forEach((r) => {
@@ -79,7 +82,7 @@ export default function DataVisualization() {
       <div className="bg-[#1a1a1a] border border-white/10 rounded-xl px-4 py-3 shadow-lg">
         <p className="font-display text-sm text-[#f0ece8]">{data.brand}</p>
         <p className="font-body text-[11px] text-[#999]">{data.country} · {data.region}</p>
-        <p className="font-body text-[11px] text-[#888] mt-1">${data.price} · {data.ply}-ply</p>
+        <p className="font-body text-[11px] text-[#888] mt-1">{hkdSymbol}{data.price.toFixed(2)} · {data.ply}-ply</p>
       </div>
     )
   }
@@ -110,10 +113,9 @@ export default function DataVisualization() {
                   type="number"
                   dataKey="x"
                   name="Price"
-                  unit=" USD"
                   tick={{ fontSize: 11, fill: '#888' }}
                   stroke="#e0d9d2"
-                  label={{ value: 'Price (USD)', position: 'bottom', offset: 0, fontSize: 11, fill: '#888' }}
+                  label={{ value: 'Price (HKD)', position: 'bottom', offset: 0, fontSize: 11, fill: '#888' }}
                 />
                 <YAxis
                   type="number"
@@ -162,7 +164,7 @@ export default function DataVisualization() {
                     <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Products</p>
                   </div>
                   <div>
-                    <p className="font-display text-xl text-[#f0ece8]">${stats.avgPrice}</p>
+                    <p className="font-display text-xl text-[#f0ece8]">{hkdSymbol}{stats.avgPrice.toFixed(2)}</p>
                     <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Avg Price</p>
                   </div>
                   <div>

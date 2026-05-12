@@ -33,7 +33,7 @@ export default function Stories() {
       document.querySelectorAll('.word-para').forEach((para) => {
         const words = para.querySelectorAll('.word')
         gsap.from(words, {
-          opacity: 0.1,
+          opacity: 0.35,
           duration: 0.3,
           stagger: 0.02,
           ease: 'none',
@@ -62,7 +62,7 @@ export default function Stories() {
 
   const renderWords = (text: string) => {
     return text.split(' ').map((word, i) => (
-      <span key={i} className="word inline" style={{ opacity: 0.15 }}>
+      <span key={i} className="word inline" style={{ opacity: 0.4 }}>
         {word}{' '}
       </span>
     ))
@@ -77,16 +77,16 @@ export default function Stories() {
       <div className="max-w-[720px] mx-auto px-6 sm:px-8 pt-32 pb-20">
         <div className="essay-header">
           <div className="flex items-center gap-4 mb-8">
-            <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/25">Wall Text</p>
-            <span className="w-8 h-px bg-white/10" />
-            <p className="font-mono text-[10px] text-white/25">One Region</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/50">Wall Text</p>
+            <span className="w-8 h-px bg-white/20" />
+            <p className="font-mono text-[10px] text-white/50">One Region</p>
           </div>
 
           <h2 className="font-display text-5xl sm:text-6xl md:text-7xl tracking-tight leading-[1.05] mb-8">
             One-Ply<br />Realism
           </h2>
 
-          <p className="font-serif-display text-xl sm:text-2xl italic text-white/40 leading-relaxed mb-20 max-w-lg">
+          <p className="font-serif-display text-xl sm:text-2xl italic text-white/65 leading-relaxed mb-20 max-w-lg">
             What South Asia's thinnest rolls reveal about infrastructure, class, and the quiet compromises of daily life.
           </p>
         </div>
@@ -95,14 +95,14 @@ export default function Stories() {
       <div className="max-w-[720px] mx-auto px-6 sm:px-8 pb-32 space-y-24">
         {paragraphs.map((text, i) => (
           <div key={i} className="word-para">
-            <p className="font-body text-lg sm:text-xl text-white/70 leading-[1.9]">
+            <p className="font-body text-lg sm:text-xl text-white/85 leading-[1.9]">
               {renderWords(text)}
             </p>
           </div>
         ))}
 
         <div className="essay-cite pt-8 border-t border-white/10">
-          <p className="font-mono text-[10px] text-white/25 leading-relaxed">
+          <p className="font-mono text-[10px] text-white/50 leading-relaxed">
             Referenced specimens: Origami Luxuria, Selpak Super Soft, Bashundhara Pink, Fresh Gold (Bangladesh), JoySoft (Nepal), Eko Fresh (Sri Lanka), Rose Petal (Pakistan). All documentation available in the collection.
           </p>
         </div>

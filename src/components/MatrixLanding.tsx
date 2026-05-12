@@ -99,7 +99,7 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
 
         <p
           ref={subtitleRef}
-          className="font-body text-[10px] uppercase tracking-[0.6em] text-[#f0ece8]/25 opacity-0"
+          className="font-body text-[10px] uppercase tracking-[0.6em] text-[#f0ece8]/50 opacity-0"
         >
           Material culture of contemporary Asia
         </p>
@@ -108,10 +108,10 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
       {/* Click hint — prominent and animated */}
       <div ref={hintRef} className="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-0">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5">
-            <div className="w-1 h-2 bg-[#c28223]/60 rounded-full animate-bounce" />
+          <div className="w-6 h-10 rounded-full border border-white/40 flex items-start justify-center p-1.5">
+            <div className="w-1 h-2 bg-[#c28223] rounded-full animate-bounce" />
           </div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#888]">
+          <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#aaa]">
             Click to enter
           </p>
         </div>

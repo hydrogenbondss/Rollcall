@@ -32,7 +32,7 @@ export default function Footer() {
             <div className="flex items-center gap-6">
               <div>
                 <p className="font-mono text-[9px] uppercase tracking-wider text-[#f0ece8]/40 mb-1">Project</p>
-                <p className="font-mono text-[11px] text-[#f0ece8]/60">RCT.AS.2026</p>
+                <p className="font-mono text-[11px] text-[#f0ece8]/60">Est. 2026</p>
               </div>
               <div>
                 <p className="font-mono text-[9px] uppercase tracking-wider text-[#f0ece8]/40 mb-1">Origin</p>
