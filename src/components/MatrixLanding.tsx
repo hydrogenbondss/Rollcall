@@ -48,10 +48,10 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
       ease: 'power2.out',
     }, '-=0.5')
 
-    // Pulsing animation for the hint
+    // Pulsing animation for the hint — subtle breathing, never goes too dim
     gsap.to(hintRef.current, {
-      opacity: 0.4,
-      duration: 1.5,
+      opacity: 0.6,
+      duration: 2,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut',
@@ -108,10 +108,10 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
       {/* Click hint — prominent and animated */}
       <div ref={hintRef} className="absolute bottom-16 left-1/2 -translate-x-1/2 opacity-0">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-6 h-10 rounded-full border border-white/40 flex items-start justify-center p-1.5">
-            <div className="w-1 h-2 bg-[#c28223] rounded-full animate-bounce" />
+          <div className="w-6 h-10 rounded-full border-2 border-white/50 flex items-start justify-center p-1.5">
+            <div className="w-1.5 h-2.5 bg-[#c28223] rounded-full animate-bounce" />
           </div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#aaa]">
+          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-[#ccc]">
             Click to enter
           </p>
         </div>

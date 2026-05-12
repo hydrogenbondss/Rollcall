@@ -33,7 +33,7 @@ export default function Stories() {
       document.querySelectorAll('.word-para').forEach((para) => {
         const words = para.querySelectorAll('.word')
         gsap.from(words, {
-          opacity: 0.35,
+          opacity: 0.6,
           duration: 0.3,
           stagger: 0.02,
           ease: 'none',
@@ -62,7 +62,7 @@ export default function Stories() {
 
   const renderWords = (text: string) => {
     return text.split(' ').map((word, i) => (
-      <span key={i} className="word inline" style={{ opacity: 0.4 }}>
+      <span key={i} className="word inline" style={{ opacity: 0.7 }}>
         {word}{' '}
       </span>
     ))
@@ -95,7 +95,7 @@ export default function Stories() {
       <div className="max-w-[720px] mx-auto px-6 sm:px-8 pb-32 space-y-24">
         {paragraphs.map((text, i) => (
           <div key={i} className="word-para">
-            <p className="font-body text-lg sm:text-xl text-white/85 leading-[1.9]">
+            <p className="font-body text-lg sm:text-xl text-white leading-[1.9]">
               {renderWords(text)}
             </p>
           </div>

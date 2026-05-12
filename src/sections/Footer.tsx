@@ -1,4 +1,4 @@
-import { Mail, ArrowUpRight } from 'lucide-react'
+import { Send } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -14,14 +14,12 @@ export default function Footer() {
             <p className="font-body text-[15px] text-[#f0ece8]/60 leading-relaxed mb-6 max-w-sm">
               A material culture archive documenting toilet paper specimens from 21 countries across contemporary Asia. Initiated in Hong Kong, 2026.
             </p>
-            <a
-              href="mailto:hello@rollcall.asia"
-              className="group inline-flex items-center gap-2 font-body text-sm px-6 py-3 rounded-full border border-white/20 text-[#f0ece8]/80 hover:text-[#f0ece8] hover:border-white/40 hover:bg-white/5 transition-all duration-300"
-            >
-              <Mail className="w-4 h-4" />
-              hello@rollcall.asia
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+            <div className="flex items-center gap-2 text-[#888]">
+              <Send className="w-3.5 h-3.5" />
+              <p className="font-mono text-[11px]">
+                Contact via correspondence form
+              </p>
+            </div>
           </div>
 
           <div>
