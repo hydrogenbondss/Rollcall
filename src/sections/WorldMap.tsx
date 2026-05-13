@@ -6,42 +6,39 @@ import { products, getRegion, getRegionColor } from '../data/products'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const countryPositions: Record<string, { x: number; y: number; label: string }> = {
-  Japan: { x: 88, y: 28, label: 'JP' },
-  'South Korea': { x: 82, y: 32, label: 'KR' },
-  China: { x: 70, y: 35, label: 'CN' },
-  'Hong Kong': { x: 74, y: 42, label: 'HK' },
-  Taiwan: { x: 78, y: 40, label: 'TW' },
-  Mongolia: { x: 68, y: 22, label: 'MN' },
-  Singapore: { x: 62, y: 62, label: 'SG' },
-  Malaysia: { x: 60, y: 58, label: 'MY' },
-  Thailand: { x: 58, y: 50, label: 'TH' },
-  Philippines: { x: 76, y: 52, label: 'PH' },
-  Indonesia: { x: 56, y: 68, label: 'ID' },
-  Vietnam: { x: 62, y: 48, label: 'VN' },
-  Cambodia: { x: 60, y: 52, label: 'KH' },
-  Laos: { x: 60, y: 45, label: 'LA' },
-  Brunei: { x: 64, y: 60, label: 'BN' },
-  Myanmar: { x: 56, y: 44, label: 'MM' },
-  India: { x: 42, y: 48, label: 'IN' },
-  Bangladesh: { x: 48, y: 44, label: 'BD' },
-  Pakistan: { x: 38, y: 40, label: 'PK' },
-  Nepal: { x: 44, y: 38, label: 'NP' },
-  'Sri Lanka': { x: 46, y: 58, label: 'LK' },
+const countryPositions: Record<string, { x: number; y: number }> = {
+  Japan: { x: 88, y: 28 },
+  'South Korea': { x: 84, y: 32 },
+  China: { x: 72, y: 34 },
+  'Hong Kong': { x: 76, y: 42 },
+  Taiwan: { x: 80, y: 40 },
+  Mongolia: { x: 70, y: 20 },
+  Singapore: { x: 62, y: 62 },
+  Malaysia: { x: 60, y: 58 },
+  Thailand: { x: 58, y: 50 },
+  Philippines: { x: 78, y: 52 },
+  Indonesia: { x: 56, y: 68 },
+  Vietnam: { x: 62, y: 48 },
+  Cambodia: { x: 60, y: 52 },
+  Laos: { x: 60, y: 45 },
+  Brunei: { x: 64, y: 60 },
+  Myanmar: { x: 56, y: 44 },
+  India: { x: 44, y: 48 },
+  Bangladesh: { x: 48, y: 44 },
+  Pakistan: { x: 40, y: 40 },
+  Nepal: { x: 46, y: 38 },
+  'Sri Lanka': { x: 46, y: 58 },
 }
 
-interface TooltipData {
-  country: string
-  count: number
-  region: string
-  color: string
-  topBrand: string
-  avgPly: number
+const regionColors: Record<string, string> = {
+  'East Asia': '#c4728e',
+  'Southeast Asia': '#228b68',
+  'South Asia': '#c85a32',
 }
 
 export default function WorldMap() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const [tooltip, setTooltip] = useState<{ x: number; y: number; data: TooltipData } | null>(null)
+  const [hoveredCountry, setHoveredCountry] = useState<string | null>(null)
 
   const countryData = useMemo(() => {
     const data: Record<string, { count: number; region: string; color: string; brands: string[]; totalPly: number }> = {}
@@ -56,56 +53,24 @@ export default function WorldMap() {
     return data
   }, [])
 
-  const tooltipDataMap = useMemo(() => {
-    const map: Record<string, TooltipData> = {}
-    Object.entries(countryData).forEach(([country, d]) => {
-      const brandCounts: Record<string, number> = {}
-      d.brands.forEach(b => { brandCounts[b] = (brandCounts[b] || 0) + 1 })
-      const topBrand = Object.entries(brandCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || ''
-      map[country] = {
-        country,
-        count: d.count,
-        region: d.region,
-        color: d.color,
-        topBrand,
-        avgPly: Math.round((d.totalPly / d.count) * 10) / 10,
-      }
-    })
-    return map
-  }, [countryData])
-
   useEffect(() => {
     const section = sectionRef.current
     if (!section) return
-
     const ctx = gsap.context(() => {
-      gsap.from('.map-title', {
-        scrollTrigger: { trigger: section, start: 'top 75%' },
-        opacity: 0, y: 40, duration: 1, ease: 'power3.out',
-      })
-
-      gsap.from('.map-dot', {
-        scrollTrigger: { trigger: section, start: 'top 80%' },
-        scale: 0,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.04,
-        ease: 'back.out(1.7)',
-        delay: 0.3,
-      })
-
-      gsap.from('.map-label', {
-        scrollTrigger: { trigger: section, start: 'top 80%' },
-        opacity: 0,
-        y: 10,
-        duration: 0.4,
-        stagger: 0.04,
-        delay: 0.6,
-      })
+      gsap.from('.map-title', { scrollTrigger: { trigger: section, start: 'top 75%' }, opacity: 0, y: 40, duration: 1, ease: 'power3.out' })
+      gsap.from('.map-dot', { scrollTrigger: { trigger: section, start: 'top 80%' }, scale: 0, opacity: 0, duration: 0.6, stagger: 0.04, ease: 'back.out(1.7)', delay: 0.3 })
     }, section)
-
     return () => ctx.revert()
   }, [])
+
+  const getTooltipData = (country: string) => {
+    const d = countryData[country]
+    if (!d) return null
+    const brandCounts: Record<string, number> = {}
+    d.brands.forEach(b => { brandCounts[b] = (brandCounts[b] || 0) + 1 })
+    const topBrand = Object.entries(brandCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || ''
+    return { country, count: d.count, region: d.region, color: d.color, topBrand, avgPly: Math.round((d.totalPly / d.count) * 10) / 10 }
+  }
 
   return (
     <section ref={sectionRef} id="map" className="w-full bg-[#0d0d0d] py-28">
@@ -115,122 +80,89 @@ export default function WorldMap() {
             <MapPin className="w-4 h-4 text-[#888]" strokeWidth={1.5} />
             <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Coverage</p>
           </div>
-          <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">
-            The Map
-          </h2>
+          <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">The Map</h2>
           <p className="font-body text-sm text-[#999] mt-4 max-w-md">
-            21 countries. Each dot represents a country in our archive. Size = number of products. Color = region. Hover for details.
+            21 countries. Each dot represents a country in our archive. Hover for details. Pink = East Asia, Green = Southeast Asia, Orange = South Asia.
           </p>
         </div>
 
-        <div className="relative bg-[#141414] rounded-2xl border border-white/5 overflow-hidden">
+        <div className="relative bg-[#141414] rounded-2xl border border-white/5 overflow-hidden p-6 sm:p-8">
           {/* Tooltip */}
-          {tooltip && (
-            <div
-              className="absolute z-10 pointer-events-none"
-              style={{
-                left: `${tooltip.x}%`,
-                top: `${tooltip.y}%`,
-                transform: 'translate(-50%, -130%)',
-              }}
-            >
-              <div className="bg-[#1a1a1a] border border-white/10 rounded-xl px-4 py-3 shadow-2xl whitespace-nowrap">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: tooltip.data.color }} />
-                  <span className="font-display text-sm text-[#f0ece8]">{tooltip.data.country}</span>
-                  <span className="font-mono text-[9px] text-[#888] uppercase">{tooltip.data.region}</span>
+          {hoveredCountry && (() => {
+            const d = getTooltipData(hoveredCountry)
+            const pos = countryPositions[hoveredCountry]
+            if (!d || !pos) return null
+            return (
+              <div className="absolute z-10 pointer-events-none bg-[#1a1a1a] border border-white/10 rounded-xl px-4 py-3 shadow-2xl"
+                style={{ left: `${pos.x}%`, top: `${pos.y - 8}%`, transform: 'translate(-50%, -100%)' }}>
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: d.color }} />
+                  <span className="font-display text-sm text-[#f0ece8]">{d.country}</span>
+                  <span className="font-mono text-[9px] text-[#888] uppercase">{d.region}</span>
                 </div>
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-[10px] text-[#999]">
-                    <strong className="text-[#f0ece8]">{tooltip.data.count}</strong> specimen{tooltip.data.count > 1 ? 's' : ''}
-                  </span>
-                  <span className="font-mono text-[10px] text-[#999]">
-                    Avg <strong className="text-[#f0ece8]">{tooltip.data.avgPly}</strong>-ply
-                  </span>
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-[10px] text-[#999]"><strong className="text-[#f0ece8]">{d.count}</strong> specimen{d.count > 1 ? 's' : ''}</span>
+                  <span className="font-mono text-[10px] text-[#999]">Avg <strong className="text-[#f0ece8]">{d.avgPly}</strong>-ply</span>
                 </div>
-                <p className="font-body text-[10px] text-[#888] mt-1">
-                  Top: {tooltip.data.topBrand}
-                </p>
+                <p className="font-body text-[10px] text-[#888] mt-0.5">Top: {d.topBrand}</p>
               </div>
-              <div className="w-2 h-2 bg-[#1a1a1a] border-r border-b border-white/10 rotate-45 mx-auto -mt-1" />
-            </div>
-          )}
+            )
+          })()}
 
-          <svg viewBox="0 0 100 80" className="w-full h-auto" preserveAspectRatio="xMidYMid meet" style={{ color: '#8a8279' }}>
-            {/* Subtle grid */}
+          <svg viewBox="0 0 100 70" className="w-full h-auto" style={{ maxHeight: 500 }}>
+            {/* Grid */}
             <defs>
               <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.1" />
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="0.1" />
               </pattern>
             </defs>
-            <rect width="100" height="80" fill="url(#grid)" />
+            <rect width="100" height="70" fill="url(#grid)" />
 
-            {/* Asia continent outline */}
+            {/* Continent outline — subtle, behind dots */}
             <path
-              d="M 20 70 Q 25 60 30 55 Q 35 50 40 48 Q 45 45 50 40 Q 55 35 60 30 Q 65 25 70 20 Q 75 18 80 20 Q 85 22 88 28 Q 90 32 88 38 Q 86 42 82 45 Q 80 48 78 50 Q 76 52 76 55 Q 76 60 72 65 Q 68 70 62 72 Q 56 74 50 72 Q 44 70 38 68 Q 32 66 28 68 Q 24 70 20 70 Z"
-              fill="rgba(240,236,232,0.06)"
-              stroke="rgba(240,236,232,0.1)"
+              d="M 20 60 Q 25 50 30 48 Q 38 44 45 40 Q 52 34 58 28 Q 64 22 70 18 Q 78 16 84 20 Q 90 24 88 32 Q 86 38 82 42 Q 78 46 76 50 Q 75 54 72 58 Q 68 62 60 64 Q 52 66 44 64 Q 36 62 30 60 Q 24 62 20 60 Z"
+              fill="rgba(240,236,232,0.04)"
+              stroke="rgba(240,236,232,0.08)"
               strokeWidth="0.15"
             />
 
-            {/* Country dots — interactive */}
+            {/* Dots — rendered ON TOP of continent */}
             {Object.entries(countryPositions).map(([country, pos]) => {
               const data = countryData[country]
               if (!data) return null
-              const tooltipInfo = tooltipDataMap[country]
-              const radius = Math.max(1.2, Math.min(3, data.count * 0.8))
+              const radius = Math.max(1.5, Math.min(3.5, data.count * 0.9))
+              const isHovered = hoveredCountry === country
               return (
-                <g
-                  key={country}
-                  className="cursor-pointer"
-                  onMouseEnter={(e) => {
-                    const svgRect = (e.target as SVGElement).closest('svg')?.getBoundingClientRect()
-                    if (svgRect) {
-                      setTooltip({ x: pos.x, y: pos.y, data: tooltipInfo })
-                    }
-                  }}
-                  onMouseLeave={() => setTooltip(null)}
-                >
-                  {/* Hit area — larger for easier hovering */}
-                  <circle cx={pos.x} cy={pos.y} r={radius + 2} fill="transparent" />
+                <g key={country} className="cursor-pointer"
+                  onMouseEnter={() => setHoveredCountry(country)}
+                  onMouseLeave={() => setHoveredCountry(null)}>
+                  {/* Large invisible hit area */}
+                  <circle cx={pos.x} cy={pos.y} r={radius + 4} fill="transparent" />
                   {/* Visible dot */}
-                  <circle
-                    cx={pos.x}
-                    cy={pos.y}
-                    r={radius}
-                    fill={data.color}
-                    opacity={0.9}
-                    className="map-dot transition-all duration-300 hover:opacity-100"
-                    style={{ filter: tooltip?.data.country === country ? 'brightness(1.3)' : 'none' }}
-                  />
-                  <text
-                    x={pos.x}
-                    y={pos.y + radius + 2.5}
-                    textAnchor="middle"
-                    className="map-label"
-                    fill="#8a8279"
-                    style={{ fontSize: '2.5px', fontFamily: 'monospace' }}
-                  >
-                    {pos.label}
-                  </text>
+                  <circle cx={pos.x} cy={pos.y} r={isHovered ? radius * 1.3 : radius}
+                    fill={data.color} opacity={isHovered ? 1 : 0.9}
+                    stroke={isHovered ? 'rgba(255,255,255,0.3)' : 'none'} strokeWidth="0.2" />
+                  {/* Label */}
+                  <text x={pos.x} y={pos.y + radius + 3} textAnchor="middle" fill="#8a8279" fontSize="2.8" fontFamily="monospace">{country.substring(0, 3).toUpperCase()}</text>
                 </g>
               )
             })}
-
-            {/* Region legend */}
-            <g transform="translate(5, 5)">
-              {[
-                { color: '#c4728e', label: 'East Asia' },
-                { color: '#228b68', label: 'Southeast Asia' },
-                { color: '#c85a32', label: 'South Asia' },
-              ].map((item, i) => (
-                <g key={item.label} transform={`translate(0, ${i * 4})`}>
-                  <circle cx="1.5" cy="1.5" r="1.2" fill={item.color} opacity={0.85} />
-                  <text x="4" y="2" fill="#8a8279" style={{ fontSize: '2.5px' }}>{item.label}</text>
-                </g>
-              ))}
-            </g>
           </svg>
+
+          {/* Legend below map */}
+          <div className="flex items-center justify-center gap-8 mt-4 pt-4 border-t border-white/5">
+            {Object.entries(regionColors).map(([region, color]) => (
+              <div key={region} className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
+                <span className="font-body text-[12px] text-[#a09890]">{region}</span>
+                <span className="font-mono text-[10px] text-[#666]">({Object.values(countryData).filter(d => d.region === region).length} countries)</span>
+              </div>
+            ))}
+            <div className="flex items-center gap-2 ml-4">
+              <div className="w-2 h-2 rounded-full bg-[#555]" />
+              <span className="font-mono text-[10px] text-[#666]">Dot size = specimen count</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -77,8 +77,8 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-[#0d0d0d]/90 backdrop-blur-md border-b border-white/5' : 'bg-transparent'
+      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
+        scrolled ? 'bg-[#0d0d0d]/95 backdrop-blur-md border-b border-white/5' : 'bg-[#0d0d0d]/80 backdrop-blur-sm'
       }`}>
         <div className="max-w-[1200px] mx-auto w-full px-6 sm:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-baseline gap-3 group">
