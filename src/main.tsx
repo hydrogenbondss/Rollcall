@@ -6,17 +6,20 @@ import { LanguageProvider } from './contexts/LanguageContext.tsx'
 import { CurrencyProvider } from './contexts/CurrencyContext.tsx'
 import { CompareProvider } from './contexts/CompareContext.tsx'
 import { DarkModeProvider } from './contexts/DarkModeContext.tsx'
+import { TRPCProvider } from '@/providers/trpc'
 
 createRoot(document.getElementById('root')!).render(
   <HashRouter>
-    <LanguageProvider>
-      <CurrencyProvider>
-        <CompareProvider>
-          <DarkModeProvider>
-            <App />
-          </DarkModeProvider>
-        </CompareProvider>
-      </CurrencyProvider>
-    </LanguageProvider>
+    <TRPCProvider>
+      <LanguageProvider>
+        <CurrencyProvider>
+          <CompareProvider>
+            <DarkModeProvider>
+              <App />
+            </DarkModeProvider>
+          </CompareProvider>
+        </CurrencyProvider>
+      </LanguageProvider>
+    </TRPCProvider>
   </HashRouter>,
 )

@@ -1,12 +1,10 @@
-import { createRouter, publicQuery } from "./middleware";
+import { router } from "@/api/lib/trpc";
+import { greetingRouter } from "@/api/routers/greeting";
+import { submissionRouter } from "@/api/routers/submission";
 
-export const appRouter = createRouter({
-  ping: publicQuery.query(() => ({ ok: true, ts: Date.now() })),
-
-  // TODO: add feature routers here, e.g.
-  // todo: createRouter({
-  //   list: publicQuery.query(() => findTodos()),
-  // }),
+export const appRouter = router({
+  greeting: greetingRouter,
+  submission: submissionRouter,
 });
 
 export type AppRouter = typeof appRouter;

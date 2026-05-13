@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Mail, MapPin, Users, BookOpen, Camera } from 'lucide-react'
+import SubmissionForm from '../components/SubmissionForm'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -129,16 +130,18 @@ export default function Community() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 pt-16 border-t border-white/[0.04] text-center">
-          <p className="font-body text-[15px] text-[#a09890] leading-relaxed max-w-lg mx-auto mb-8">
-            This archive exists because one person started looking closely at an ordinary object. 
-            The next specimen could come from you.
-          </p>
-          <span className="inline-flex items-center gap-2 font-body text-sm px-8 py-4 rounded-full bg-[#f0ece8]/10 text-[#888] cursor-default">
-            <Mail className="w-4 h-4" />
-            Submissions opening soon
-          </span>
+        {/* Submission Form */}
+        <div className="mt-16 pt-16 border-t border-white/[0.04]">
+          <div className="mb-8 text-center">
+            <p className="font-body text-[15px] text-[#a09890] leading-relaxed max-w-lg mx-auto mb-2">
+              This archive exists because one person started looking closely at an ordinary object.
+              The next specimen could come from you.
+            </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#c28223]">
+              Open Submission
+            </p>
+          </div>
+          <SubmissionForm />
         </div>
       </div>
     </section>

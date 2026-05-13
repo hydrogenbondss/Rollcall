@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router'
 import { useEffect, useRef, useState, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { MapPin, Layers, Droplets, Factory, Hotel, Globe, Package, ArrowLeft, Share2, Plus, Check, ArrowUpRight, Archive, Calendar, AlertTriangle, Eye, StickyNote } from 'lucide-react'
+import { MapPin, Layers, Droplets, Factory, Hotel, Globe, Package, ArrowLeft, Share2, Plus, Check, ArrowUpRight, Archive, Calendar, AlertTriangle, Eye, StickyNote, Printer } from 'lucide-react'
 import { products } from '../data/products'
 import { useCurrency } from '../contexts/CurrencyContext'
 import { useCompare } from '../contexts/CompareContext'
@@ -299,6 +299,9 @@ export default function ProductDetail() {
  </button>
  <button onClick={handleShare} className="flex-1 font-body text-sm px-6 py-3.5 rounded-full bg-[#f0ece8] text-[#0d0d0d] hover:opacity-80 transition-opacity flex items-center justify-center gap-2">
  <Share2 className="w-4 h-4" strokeWidth={1.5} /> Share
+ </button>
+ <button onClick={() => window.print()} className="flex-1 font-body text-sm px-6 py-3.5 rounded-full border border-white/10 text-[#888] hover:text-[#f0ece8] hover:border-white/30 transition-all flex items-center justify-center gap-2">
+ <Printer className="w-4 h-4" strokeWidth={1.5} /> Print Card
  </button>
  </div>
  </div>
