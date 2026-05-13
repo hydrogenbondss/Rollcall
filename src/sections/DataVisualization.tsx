@@ -97,11 +97,18 @@ export default function DataVisualization() {
   }
 
   const scatterData = useMemo<DataPoint[]>(() => {
-    return products.map((p) => {
+    // Seeded pseudo-random for consistent jitter
+    const jitter = (seed: number) => {
+      const x = Math.sin(seed * 12.9898) * 43758.5453
+      return (x - Math.floor(x)) * 2 - 1 // -1 to 1
+    }
+    return products.map((p, i) => {
       const gdp = getGdp(p.country)
+      const jx = jitter(i * 3.7) * (viewMode === 'gdp' ? gdp ? gdp * 0.08 : 500 : 0)
+      const jy = jitter(i * 7.3) * 0.15
       return {
-        x: viewMode === 'price' ? p.priceUSD * hkdRate : (gdp ?? 0),
-        y: p.ply,
+        x: viewMode === 'price' ? p.priceUSD * hkdRate : ((gdp ?? 0) + jx),
+        y: p.ply + jy,
         brand: p.brand,
         country: p.country,
         region: getRegion(p.country) || 'Other',

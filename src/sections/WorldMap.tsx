@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from 'react'
+import { useRef, useEffect, useMemo, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MapPin } from 'lucide-react'
@@ -30,20 +30,49 @@ const countryPositions: Record<string, { x: number; y: number; label: string }> 
   'Sri Lanka': { x: 46, y: 58, label: 'LK' },
 }
 
+interface TooltipData {
+  country: string
+  count: number
+  region: string
+  color: string
+  topBrand: string
+  avgPly: number
+}
+
 export default function WorldMap() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const mapRef = useRef<SVGSVGElement>(null)
+  const [tooltip, setTooltip] = useState<{ x: number; y: number; data: TooltipData } | null>(null)
 
   const countryData = useMemo(() => {
-    const data: Record<string, { count: number; region: string; color: string }> = {}
+    const data: Record<string, { count: number; region: string; color: string; brands: string[]; totalPly: number }> = {}
     products.forEach((p) => {
       if (!data[p.country]) {
-        data[p.country] = { count: 0, region: getRegion(p.country) || 'Other', color: getRegionColor(p.country) }
+        data[p.country] = { count: 0, region: getRegion(p.country) || 'Other', color: getRegionColor(p.country), brands: [], totalPly: 0 }
       }
       data[p.country].count++
+      data[p.country].brands.push(p.brand)
+      data[p.country].totalPly += p.ply
     })
     return data
   }, [])
+
+  const tooltipDataMap = useMemo(() => {
+    const map: Record<string, TooltipData> = {}
+    Object.entries(countryData).forEach(([country, d]) => {
+      const brandCounts: Record<string, number> = {}
+      d.brands.forEach(b => { brandCounts[b] = (brandCounts[b] || 0) + 1 })
+      const topBrand = Object.entries(brandCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || ''
+      map[country] = {
+        country,
+        count: d.count,
+        region: d.region,
+        color: d.color,
+        topBrand,
+        avgPly: Math.round((d.totalPly / d.count) * 10) / 10,
+      }
+    })
+    return map
+  }, [countryData])
 
   useEffect(() => {
     const section = sectionRef.current
@@ -56,7 +85,7 @@ export default function WorldMap() {
       })
 
       gsap.from('.map-dot', {
-        scrollTrigger: { trigger: mapRef.current, start: 'top 80%' },
+        scrollTrigger: { trigger: section, start: 'top 80%' },
         scale: 0,
         opacity: 0,
         duration: 0.6,
@@ -66,7 +95,7 @@ export default function WorldMap() {
       })
 
       gsap.from('.map-label', {
-        scrollTrigger: { trigger: mapRef.current, start: 'top 80%' },
+        scrollTrigger: { trigger: section, start: 'top 80%' },
         opacity: 0,
         y: 10,
         duration: 0.4,
@@ -89,13 +118,45 @@ export default function WorldMap() {
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">
             The Map
           </h2>
-          <p className="font-body text-sm text-[#888] mt-4 max-w-md">
-            21 countries. Each dot represents a country in our archive. Size = number of products. Color = region.
+          <p className="font-body text-sm text-[#999] mt-4 max-w-md">
+            21 countries. Each dot represents a country in our archive. Size = number of products. Color = region. Hover for details.
           </p>
         </div>
 
         <div className="relative bg-[#141414] rounded-2xl border border-white/5 overflow-hidden">
-          <svg ref={mapRef} viewBox="0 0 100 80" className="w-full h-auto" preserveAspectRatio="xMidYMid meet" style={{ color: '#8a8279' }}>
+          {/* Tooltip */}
+          {tooltip && (
+            <div
+              className="absolute z-10 pointer-events-none"
+              style={{
+                left: `${tooltip.x}%`,
+                top: `${tooltip.y}%`,
+                transform: 'translate(-50%, -130%)',
+              }}
+            >
+              <div className="bg-[#1a1a1a] border border-white/10 rounded-xl px-4 py-3 shadow-2xl whitespace-nowrap">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: tooltip.data.color }} />
+                  <span className="font-display text-sm text-[#f0ece8]">{tooltip.data.country}</span>
+                  <span className="font-mono text-[9px] text-[#888] uppercase">{tooltip.data.region}</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-[10px] text-[#999]">
+                    <strong className="text-[#f0ece8]">{tooltip.data.count}</strong> specimen{tooltip.data.count > 1 ? 's' : ''}
+                  </span>
+                  <span className="font-mono text-[10px] text-[#999]">
+                    Avg <strong className="text-[#f0ece8]">{tooltip.data.avgPly}</strong>-ply
+                  </span>
+                </div>
+                <p className="font-body text-[10px] text-[#888] mt-1">
+                  Top: {tooltip.data.topBrand}
+                </p>
+              </div>
+              <div className="w-2 h-2 bg-[#1a1a1a] border-r border-b border-white/10 rotate-45 mx-auto -mt-1" />
+            </div>
+          )}
+
+          <svg viewBox="0 0 100 80" className="w-full h-auto" preserveAspectRatio="xMidYMid meet" style={{ color: '#8a8279' }}>
             {/* Subtle grid */}
             <defs>
               <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -104,7 +165,7 @@ export default function WorldMap() {
             </defs>
             <rect width="100" height="80" fill="url(#grid)" />
 
-            {/* Asia continent outline — visible at proper opacity */}
+            {/* Asia continent outline */}
             <path
               d="M 20 70 Q 25 60 30 55 Q 35 50 40 48 Q 45 45 50 40 Q 55 35 60 30 Q 65 25 70 20 Q 75 18 80 20 Q 85 22 88 28 Q 90 32 88 38 Q 86 42 82 45 Q 80 48 78 50 Q 76 52 76 55 Q 76 60 72 65 Q 68 70 62 72 Q 56 74 50 72 Q 44 70 38 68 Q 32 66 28 68 Q 24 70 20 70 Z"
               fill="rgba(240,236,232,0.06)"
@@ -112,20 +173,35 @@ export default function WorldMap() {
               strokeWidth="0.15"
             />
 
-            {/* Country dots */}
+            {/* Country dots — interactive */}
             {Object.entries(countryPositions).map(([country, pos]) => {
               const data = countryData[country]
               if (!data) return null
+              const tooltipInfo = tooltipDataMap[country]
               const radius = Math.max(1.2, Math.min(3, data.count * 0.8))
               return (
-                <g key={country}>
+                <g
+                  key={country}
+                  className="cursor-pointer"
+                  onMouseEnter={(e) => {
+                    const svgRect = (e.target as SVGElement).closest('svg')?.getBoundingClientRect()
+                    if (svgRect) {
+                      setTooltip({ x: pos.x, y: pos.y, data: tooltipInfo })
+                    }
+                  }}
+                  onMouseLeave={() => setTooltip(null)}
+                >
+                  {/* Hit area — larger for easier hovering */}
+                  <circle cx={pos.x} cy={pos.y} r={radius + 2} fill="transparent" />
+                  {/* Visible dot */}
                   <circle
                     cx={pos.x}
                     cy={pos.y}
                     r={radius}
                     fill={data.color}
                     opacity={0.9}
-                    className="map-dot"
+                    className="map-dot transition-all duration-300 hover:opacity-100"
+                    style={{ filter: tooltip?.data.country === country ? 'brightness(1.3)' : 'none' }}
                   />
                   <text
                     x={pos.x}
