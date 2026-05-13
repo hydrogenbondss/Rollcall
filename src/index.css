@@ -197,3 +197,163 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .skip-link:focus {
   top: 0;
 }
+
+/* ==================== MICRO-INTERACTIONS ==================== */
+
+/* Card hover lift — specimen cards */
+@keyframes cardLift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-6px); }
+}
+@keyframes cardSettle {
+  from { transform: translateY(-6px); }
+  to { transform: translateY(0); }
+}
+
+/* Magnetic button hover */
+.magnetic-btn {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+}
+.magnetic-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(194, 130, 35, 0.15);
+}
+.magnetic-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Counter tick animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-count {
+  animation: countUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Staggered children entrance */
+@keyframes staggerIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.stagger-children > * {
+  opacity: 0;
+  animation: staggerIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0.00s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.06s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.12s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.18s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.24s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.30s; }
+
+/* Region card hover glow */
+@keyframes regionGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(194, 130, 35, 0); }
+  50% { box-shadow: 0 0 20px 2px rgba(194, 130, 35, 0.08); }
+}
+.region-card-hover:hover {
+  animation: regionGlow 2s ease-in-out infinite;
+}
+
+/* Data viz dot pulse */
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+.viz-dot {
+  animation: dotPulse 3s ease-in-out infinite;
+}
+
+/* Link underline slide */
+.link-slide {
+  position: relative;
+}
+.link-slide::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-slide:hover::after {
+  width: 100%;
+}
+
+/* Image hover zoom with easing */
+.img-zoom {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .img-zoom {
+  transform: scale(1.05);
+}
+
+/* Specimen card hover lift */
+.specimen-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease;
+}
+.specimen-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Nav link shimmer */
+@keyframes navShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Text reveal for essay */
+@keyframes textReveal {
+  from { opacity: 0.3; }
+  to { opacity: 0.95; }
+}
+.text-reveal-word {
+  animation: textReveal 0.4s ease forwards;
+}
+
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.5; }
+}
+.scroll-indicator {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Badge shimmer for verified */
+@keyframes badgeShimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+.verified-badge {
+  background: linear-gradient(90deg, rgba(34,139,104,0.15) 0%, rgba(34,139,104,0.25) 50%, rgba(34,139,104,0.15) 100%);
+  background-size: 200% 100%;
+}
+.verified-badge:hover {
+  animation: badgeShimmer 1.5s ease infinite;
+}
+
+/* Number counter roll */
+@keyframes numberRoll {
+  0% { transform: translateY(100%); opacity: 0; }
+  60% { transform: translateY(-10%); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.number-roll {
+  animation: numberRoll 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Extinct specimen pulse */
+@keyframes extinctPulse {
+  0%, 100% { border-color: rgba(200, 90, 50, 0.15); }
+  50% { border-color: rgba(200, 90, 50, 0.3); }
+}
+.extinct-card {
+  animation: extinctPulse 3s ease-in-out infinite;
+}

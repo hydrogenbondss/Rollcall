@@ -82,8 +82,8 @@ export default function Navigation() {
       }`}>
         <div className="max-w-[1200px] mx-auto w-full px-6 sm:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-baseline gap-3 group">
-            <span className="font-display text-lg font-medium text-[#f0ece8] tracking-tight">
-              Roll Call
+            <span className="font-display text-[15px] font-medium text-[#f0ece8] tracking-[0.15em] uppercase">
+              ROLL CALL
             </span>
             <span className="hidden sm:inline font-mono text-[9px] tracking-[0.2em] text-[#888] uppercase group-hover:text-[#999] transition-colors">
               Material Culture Archive

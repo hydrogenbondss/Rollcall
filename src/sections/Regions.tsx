@@ -100,7 +100,7 @@ export default function Regions() {
             return (
               <div
                 key={region.name}
-                className="region-card relative rounded-2xl p-8 border border-white/5 overflow-hidden bg-[#141414]"
+                className="region-card region-card-hover relative rounded-2xl p-8 border border-white/5 overflow-hidden bg-[#141414] transition-all duration-500 hover:border-white/10"
               >
                 {/* Accent line */}
                 <div className="absolute top-0 left-0 right-0 h-1" style={{ backgroundColor: region.color }} />

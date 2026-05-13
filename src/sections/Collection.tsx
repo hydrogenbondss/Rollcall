@@ -51,12 +51,9 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
     >
       <Link to={`/product/${product.id}`} className="block">
         <div
-          className="relative bg-[#141414] border border-white/[0.04] overflow-hidden transition-all duration-500"
+          className="specimen-card relative bg-[#141414] border border-white/[0.04] overflow-hidden"
           style={{
             borderColor: isHovered ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.04)',
-            boxShadow: isHovered
-              ? '0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06)'
-              : '0 4px 20px rgba(0,0,0,0.2)',
           }}
         >
           {/* Subtle warm spotlight on hover */}
@@ -87,7 +84,7 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
               <img
                 src={product.image}
                 alt={`${product.brand} ${product.name}`}
-                className={`w-full h-full object-contain p-10 sm:p-14 transition-all duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${isHovered ? 'scale-[1.03]' : 'scale-100'}`}
+                className={`img-zoom w-full h-full object-contain p-10 sm:p-14 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                 loading="lazy"
                 onLoad={() => setImageLoaded(true)}
                 onError={() => { setImgError(true); setImageLoaded(true) }}

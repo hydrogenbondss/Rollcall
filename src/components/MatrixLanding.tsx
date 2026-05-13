@@ -89,7 +89,7 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
           className="font-display text-[18vw] sm:text-[14vw] md:text-[11vw] text-[#f0ece8] tracking-tighter leading-[0.82] uppercase opacity-0"
           style={{ letterSpacing: '-0.04em' }}
         >
-          Roll<br />Call
+          ROLL<br />CALL
         </h1>
 
         <div

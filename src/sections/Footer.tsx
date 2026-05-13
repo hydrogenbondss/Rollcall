@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 py-20">
         <div className="grid md:grid-cols-2 gap-16">
           <div>
-            <h3 className="font-display text-3xl text-[#f0ece8]/90 tracking-tight leading-[1.1] mb-4">
-              Roll Call
+            <h3 className="font-display text-2xl text-[#f0ece8]/90 tracking-[0.12em] uppercase leading-[1.1] mb-4">
+              ROLL CALL
             </h3>
             <p className="font-body text-[15px] text-[#f0ece8]/60 leading-relaxed mb-6 max-w-sm">
               A material culture archive documenting toilet paper specimens from 21 countries across contemporary Asia. Initiated in Hong Kong, 2026.

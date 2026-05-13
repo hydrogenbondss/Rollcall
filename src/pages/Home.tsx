@@ -174,15 +174,15 @@ export default function Home() {
 
               {/* Monumental title */}
               <div className="mb-8">
-                <h1 aria-label="Roll Call" className="hero-title font-display text-[20vw] sm:text-[16vw] md:text-[13vw] lg:text-[11vw] text-[#f0ece8] tracking-tighter leading-[0.78] uppercase"
+                <h1 className="hero-title font-display text-[20vw] sm:text-[16vw] md:text-[13vw] lg:text-[11vw] text-[#f0ece8] tracking-tighter leading-[0.78] uppercase"
                   style={{ letterSpacing: '-0.05em' }}>
-                  Roll<br />Call
+                  ROLL<br />CALL
                 </h1>
               </div>
 
               {/* Counter */}
               <div className="flex items-center justify-center gap-3 mb-12">
-                <span className="hero-counter font-display text-5xl sm:text-6xl text-[#c28223]">0</span>
+                <span className="hero-counter number-roll font-display text-5xl sm:text-6xl text-[#c28223]">0</span>
                 <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mt-4">verified specimens</span>
               </div>
 
@@ -196,8 +196,8 @@ export default function Home() {
             </div>
 
             {/* Scroll hint */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-25">
-              <div className="w-px h-10 bg-gradient-to-b from-transparent to-[#c28223]/40" />
+            <div className="scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-40">
+              <div className="w-px h-10 bg-gradient-to-b from-transparent to-[#c28223]/50" />
             </div>
           </section>
 
