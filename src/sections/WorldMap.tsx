@@ -82,7 +82,7 @@ export default function WorldMap() {
           </div>
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">The Map</h2>
           <p className="font-body text-sm text-[#999] mt-4 max-w-md">
-            21 countries. Each dot represents a country in our archive. Hover for details. Pink = East Asia, Green = Southeast Asia, Orange = South Asia.
+            21 countries. Each dot represents a country in our archive. Hover for details.
           </p>
         </div>
 

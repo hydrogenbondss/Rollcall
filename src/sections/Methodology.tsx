@@ -6,9 +6,9 @@ import { MapPin, Layers, FileCheck } from 'lucide-react'
 gsap.registerPlugin(ScrollTrigger)
 
 const stats = [
-  { label: 'Verified', value: '30', icon: FileCheck, desc: 'Confirmed through manufacturer documentation, retailer listings, or direct field photography' },
-  { label: 'Community', value: '13', icon: MapPin, desc: 'Confirmed market presence with real brand names; awaiting deeper verification' },
-  { label: 'Total', value: '42', icon: Layers, desc: 'Specimens catalogued with consistent metadata schema across all entries' },
+  { label: 'Verified', value: '30', icon: FileCheck, desc: 'Manufacturer websites, official retailer listings, and direct brand correspondence confirm these products exist and match our documentation.' },
+  { label: 'Community', value: '13', icon: MapPin, desc: 'Brand names verified as real registered companies. Product details sourced from local market visits, contributor submissions, and regional e-commerce platforms.' },
+  { label: 'Total', value: '43', icon: Layers, desc: 'All specimens catalogued with the same metadata schema: provenance, material, ply, price, scent, manufacturing origin, and retail availability.' },
 ]
 
 export default function Methodology() {
