@@ -69,7 +69,7 @@ export default function RollOfTheWeek() {
                 {roll.name}
               </h2>
               <p className="font-body text-[15px] text-[#999] leading-relaxed mb-6">
-                This week&apos;s spotlighted roll from our archive of 42 verified products.
+                This week&apos;s spotlighted roll from our archive of 43 verified products.
                 {region && (
                   <>
                     {' '}{region} representative — {roll.ply}-ply {roll.material.toLowerCase()} construction.

@@ -41,7 +41,7 @@ export default function ProjectStatement() {
           <div className="w-12 h-px bg-[#c28223]/20" />
 
           <p className="font-body text-[15px] text-[#a09890] leading-[1.85]">
-            <strong className="text-[#f0ece8] font-medium">Roll Call</strong> treats toilet paper as a material witness. Across 21 countries in East, Southeast, and South Asia, 42 specimens have been catalogued — not as consumer goods, but as indexes of what each society can afford, what its plumbing will tolerate, and what it believes comfort should feel like.
+            <strong className="text-[#f0ece8] font-medium">Roll Call</strong> treats toilet paper as a material witness. Across 21 countries in East, Southeast, and South Asia, 43 specimens have been catalogued — not as consumer goods, but as indexes of what each society can afford, what its plumbing will tolerate, and what it believes comfort should feel like.
           </p>
 
           <p className="font-body text-[15px] text-[#a09890] leading-[1.85]">
