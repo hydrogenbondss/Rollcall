@@ -18,13 +18,18 @@ export default function ExtinctSpecimens() {
     const section = sectionRef.current
     if (!section) return
     const ctx = gsap.context(() => {
-      gsap.from('.extinct-header', {
-        scrollTrigger: { trigger: section, start: 'top 75%' },
-        opacity: 0, y: 40, duration: 1, ease: 'power3.out',
-      })
-      gsap.from('.extinct-card', {
-        scrollTrigger: { trigger: '.extinct-grid', start: 'top 80%' },
-        opacity: 0, y: 30, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+      gsap.fromTo('.extinct-header',
+        { opacity: 0, y: 40 },
+        { scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' },
+          opacity: 1, y: 0, duration: 1, ease: 'power3.out' }
+      )
+      const cards = section.querySelectorAll('.extinct-card')
+      cards.forEach((card, i) => {
+        gsap.fromTo(card,
+          { opacity: 0, y: 30 },
+          { scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' },
+            opacity: 1, y: 0, duration: 0.8, delay: i * 0.1, ease: 'power3.out' }
+        )
       })
     }, section)
     return () => ctx.revert()

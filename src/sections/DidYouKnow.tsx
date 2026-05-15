@@ -23,13 +23,18 @@ export default function DidYouKnow() {
     const section = sectionRef.current
     if (!section) return
     const ctx = gsap.context(() => {
-      gsap.from('.dyk-title', {
-        scrollTrigger: { trigger: section, start: 'top 75%' },
-        opacity: 0, y: 30, duration: 0.8, ease: 'power3.out',
-      })
-      gsap.from('.dyk-card', {
-        scrollTrigger: { trigger: '.dyk-grid', start: 'top 80%' },
-        opacity: 0, y: 20, duration: 0.6, stagger: 0.08, ease: 'power3.out', delay: 0.2,
+      gsap.fromTo('.dyk-title',
+        { opacity: 0, y: 30 },
+        { scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' },
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+      )
+      const cards = section.querySelectorAll('.dyk-card')
+      cards.forEach((card, i) => {
+        gsap.fromTo(card,
+          { opacity: 0, y: 20 },
+          { scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' },
+            opacity: 1, y: 0, duration: 0.5, delay: i * 0.06, ease: 'power3.out' }
+        )
       })
     }, section)
     return () => ctx.revert()
