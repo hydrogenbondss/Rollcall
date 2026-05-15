@@ -1,7 +1,8 @@
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Calendar, MapPin, ExternalLink } from 'lucide-react'
+import { Calendar, MapPin, ExternalLink, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -86,9 +87,16 @@ export default function Exhibition() {
                 <span className="font-body text-[13px] text-[#888]">{exhibit.venue} · {exhibit.location}</span>
               </div>
 
-              <p className="font-body text-[13px] text-[#999] leading-relaxed">
+              <p className="font-body text-[13px] text-[#999] leading-relaxed mb-5">
                 {exhibit.description}
               </p>
+              <Link
+                to="/exhibition"
+                className="inline-flex items-center gap-2 font-body text-[12px] text-[#c28223] hover:text-[#f0ece8] transition-colors group/link"
+              >
+                View full exhibition plan
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
+              </Link>
             </div>
           ))}
         </div>

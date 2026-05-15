@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router'
 import { useEffect } from 'react'
 import Home from './pages/Home'
 import ProductDetail from './pages/ProductDetail'
+import ExhibitionPage from './pages/ExhibitionPage'
 import NotFound from './pages/NotFound'
 import BackToTop from './components/BackToTop'
 import CustomCursor from './components/CustomCursor'
@@ -30,6 +31,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/exhibition" element={<ExhibitionPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>
