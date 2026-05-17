@@ -62,18 +62,14 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
   }, [])
 
   const handleEnter = useCallback(() => {
-    gsap.to(containerRef.current, {
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power2.inOut',
-      onComplete: () => onEnter(),
-    })
+    onEnter()
   }, [onEnter])
 
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[150] bg-[#080808] flex flex-col items-center justify-center"
+      className="fixed inset-0 z-[150] flex flex-col items-center justify-center"
+      style={{ backgroundColor: '#080808' }}
       onClick={handleEnter}
     >
       {/* Subtle warm glow */}

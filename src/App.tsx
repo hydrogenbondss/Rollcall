@@ -1,10 +1,14 @@
 import { Routes, Route, useLocation } from 'react-router'
 import { useEffect } from 'react'
 import Home from './pages/Home'
+import CollectionPage from './pages/CollectionPage'
 import ProductDetail from './pages/ProductDetail'
 import ExhibitionPage from './pages/ExhibitionPage'
+import AboutPage from './pages/AboutPage'
+import EssayPage from './pages/EssayPage'
 import NotFound from './pages/NotFound'
 import BackToTop from './components/BackToTop'
+import PlyChatbot from './components/PlyChatbot'
 import CustomCursor from './components/CustomCursor'
 import CompareDrawer from './components/CompareDrawer'
 import CompareIndicator from './components/CompareIndicator'
@@ -30,12 +34,16 @@ export default function App() {
       <PageTransition>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/collection" element={<CollectionPage />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/exhibition" element={<ExhibitionPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/essay" element={<EssayPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>
       <BackToTop />
+      <PlyChatbot />
     </>
   )
 }

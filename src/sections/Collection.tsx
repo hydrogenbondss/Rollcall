@@ -8,9 +8,49 @@ import { usePaperRustle } from '../hooks/usePaperRustle'
 type SortOption = 'popular' | 'price-asc' | 'price-desc' | 'ply-desc' | 'region'
 
 const REGIONS = ['East Asia', 'Southeast Asia', 'South Asia'] as const
+const INITIAL_DISPLAY_COUNT = 12
 
-function getCatalogNumber(index: number): string {
-  return `RCT.AS.${String(index + 1).padStart(4, '0')}`
+// Region codes
+const REGION_CODES: Record<string, string> = {
+  'East Asia': 'EA',
+  'Southeast Asia': 'SEA',
+  'South Asia': 'SA',
+}
+
+// Country codes (ISO 3166-1 alpha-2 subset for our regions)
+const COUNTRY_CODES: Record<string, string> = {
+  'Japan': 'JP',
+  'South Korea': 'KR',
+  'China': 'CN',
+  'Hong Kong': 'HK',
+  'Taiwan': 'TW',
+  'Macau': 'MO',
+  'Singapore': 'SG',
+  'Malaysia': 'MY',
+  'Thailand': 'TH',
+  'Philippines': 'PH',
+  'Indonesia': 'ID',
+  'Vietnam': 'VN',
+  'Brunei': 'BN',
+  'Myanmar': 'MM',
+  'Cambodia': 'KH',
+  'Laos': 'LA',
+  'India': 'IN',
+  'Bangladesh': 'BD',
+  'Sri Lanka': 'LK',
+  'Nepal': 'NP',
+  'Bhutan': 'BT',
+  'Maldives': 'MV',
+  'Pakistan': 'PK',
+}
+
+function getCatalogNumber(product: Product, index: number): string {
+  const regionCode = REGION_CODES[getRegion(product)] || 'XX'
+  const countryCode = COUNTRY_CODES[product.country] || product.country.slice(0, 2).toUpperCase()
+  const year = '26'
+  const ply = product.ply
+  const seq = String(index + 1).padStart(2, '0')
+  return `RC-${regionCode}-${countryCode}-${year}-${ply}-${seq}`
 }
 
 interface SpecimenCardProps {
@@ -24,7 +64,7 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imgError, setImgError] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-  const catalogNo = getCatalogNumber(index)
+  const catalogNo = getCatalogNumber(product, index)
   const playRustle = usePaperRustle()
 
   const handleMouseEnter = () => {
@@ -144,6 +184,7 @@ export default function Collection() {
   const [filterCountry, setFilterCountry] = useState<string>('All')
   const [filterRegion, setFilterRegion] = useState<string>('All')
   const [showFilters, setShowFilters] = useState(false)
+  const [showAll, setShowAll] = useState(false)
   const [debouncedSearch, setDebouncedSearch] = useState('')
   const searchTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
   const gridRef = useRef<HTMLDivElement>(null)
@@ -206,6 +247,11 @@ export default function Collection() {
   }, [])
 
   const hasFilters = filterBrand !== 'All' || filterCountry !== 'All' || filterRegion !== 'All' || search
+  const isFiltering = hasFilters || search
+
+  // Show all when filtering, otherwise respect showAll toggle
+  const displayProducts = isFiltering || showAll ? filteredProducts : filteredProducts.slice(0, INITIAL_DISPLAY_COUNT)
+  const hasMore = filteredProducts.length > INITIAL_DISPLAY_COUNT && !isFiltering
 
   const groupedByRegion = useMemo(() => {
     if (sort !== 'region') return null
@@ -344,7 +390,7 @@ export default function Collection() {
           </div>
         ) : (
           <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map((product, i) => (
+            {displayProducts.map((product, i) => (
               <div key={product.id} data-index={i}>
                 <SpecimenCard product={product} index={i} isVisible={visibleSet.has(i)} searchQuery={debouncedSearch} />
               </div>
@@ -356,6 +402,23 @@ export default function Collection() {
           <div className="text-center py-24">
             <p className="font-mono text-sm text-[#999]">No specimens found in this collection.</p>
             <button onClick={clearAll} className="mt-4 font-body text-sm text-[#a09890] hover:text-[#f0ece8] transition-colors">Clear filters</button>
+          </div>
+        )}
+
+        {/* Show more / Show less toggle */}
+        {hasMore && (
+          <div className="text-center pt-10 pb-4">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="group inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#141414] border border-white/[0.06] hover:border-[#c28223]/30 transition-all cursor-pointer"
+            >
+              <span className="font-mono text-[10px] text-[#888] group-hover:text-[#c28223] uppercase tracking-wider transition-colors">
+                {showAll ? 'Show fewer' : `Show all ${filteredProducts.length} specimens`}
+              </span>
+              <svg className={`w-3 h-3 text-[#888] group-hover:text-[#c28223] transition-all ${showAll ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
           </div>
         )}
       </div>

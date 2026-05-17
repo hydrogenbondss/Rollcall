@@ -68,7 +68,7 @@ export default function Methodology() {
           </p>
 
           <p>
-            Each entry carries a consistent metadata schema: catalog number (RCT.AS.XXXX), provenance (city, country), material composition, ply count, price at point of documentation, scent profile, manufacturing origin, retail availability, hotel presence, and environmental claims. This allows cross-referenced analysis across regions, price points, and material categories.
+            Each entry carries a consistent metadata schema: catalog number (RC-REGION-COUNTRY-YEAR-PLY-SEQ, e.g. RC-EA-JP-26-4-01), provenance (city, country), material composition, ply count, price at point of documentation, scent profile, manufacturing origin, retail availability, hotel presence, and environmental claims. The catalog number encodes region, country, year, and ply count — allowing cross-referenced analysis without opening the card.
           </p>
 
           <p>

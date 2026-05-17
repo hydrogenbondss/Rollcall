@@ -2,45 +2,24 @@ import { useState, useEffect } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router'
 import { Menu, X, Dices } from 'lucide-react'
 import { products } from '../data/products'
-import { useScrollSpy } from '../hooks/useScrollSpy'
 
-const navLinks = [
-  { href: '#collection', label: 'Collection', num: '01' },
-  { href: '#regions', label: 'Regions', num: '02' },
-  { href: '#map', label: 'Map', num: '03' },
-  { href: '#data', label: 'Data', num: '04' },
-  { href: '#stories', label: 'Essay', num: '05' },
-  { href: '#community', label: 'Community', num: '06' },
+const allLinks = [
+  { to: '/collection', label: 'Collection', num: '01' },
+  { to: '/exhibition', label: 'Exhibition', num: '02' },
+  { to: '/about', label: 'About', num: '03' },
+  { to: '/essay', label: 'Essay', num: '04' },
 ]
-
-const sectionIds = ['collection', 'regions', 'map', 'data', 'stories', 'community', 'methodology']
 
 export default function Navigation() {
   const navigate = useNavigate()
   const location = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const activeSection = useScrollSpy(sectionIds, 200)
 
   const handleRandomRoll = () => {
     const randomProduct = products[Math.floor(Math.random() * products.length)]
     navigate(`/product/${randomProduct.id}`)
     setMenuOpen(false)
-  }
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    setMenuOpen(false)
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        const target = document.querySelector(href)
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }, 100)
-    } else {
-      const target = document.querySelector(href)
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
   }
 
   useEffect(() => {
@@ -52,24 +31,11 @@ export default function Navigation() {
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden'
-      const menuEl = document.querySelector('[data-mobile-menu]')
-      if (menuEl) {
-        const focusable = menuEl.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])')
-        const first = focusable[0] as HTMLElement
-        const last = focusable[focusable.length - 1] as HTMLElement
-        first?.focus()
-        const handleKeyDown = (e: KeyboardEvent) => {
-          if (e.key === 'Escape') setMenuOpen(false)
-          if (e.key === 'Tab') {
-            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus() }
-            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus() }
-          }
-        }
-        document.addEventListener('keydown', handleKeyDown)
-        return () => {
-          document.removeEventListener('keydown', handleKeyDown)
-          document.body.style.overflow = ''
-        }
+      const handleKeyDown = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenuOpen(false) }
+      document.addEventListener('keydown', handleKeyDown)
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown)
+        document.body.style.overflow = ''
       }
     } else { document.body.style.overflow = '' }
     return () => { document.body.style.overflow = '' }
@@ -82,25 +48,20 @@ export default function Navigation() {
       }`}>
         <div className="max-w-[1200px] mx-auto w-full px-6 sm:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-baseline gap-3 group">
-            <span className="font-display text-[15px] font-medium text-[#f0ece8] tracking-[0.15em] uppercase">
-              ROLL CALL
-            </span>
-            <span className="hidden sm:inline font-mono text-[9px] tracking-[0.2em] text-[#888] uppercase group-hover:text-[#999] transition-colors">
-              Material Culture Archive
-            </span>
+            <span className="font-display text-[15px] font-medium text-[#f0ece8] tracking-[0.15em] uppercase">ROLL CALL</span>
+            <span className="hidden sm:inline font-mono text-[9px] tracking-[0.2em] text-[#888] uppercase group-hover:text-[#999] transition-colors">Material Culture Archive</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href.replace('#', '')
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-6">
+            {allLinks.map((link) => {
+              const isActive = location.pathname === link.to
               return (
-                <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="group relative py-1 cursor-pointer">
+                <Link key={link.to} to={link.to} className="group relative py-1">
                   <span className={`font-mono text-[9px] tracking-wider mr-2 transition-colors ${isActive ? 'text-[#c28223]' : 'text-[#888]'}`}>{link.num}</span>
-                  <span className={`font-body text-[13px] transition-colors ${isActive ? 'text-[#f0ece8]' : 'text-[#888] group-hover:text-[#f0ece8]'}`}>
-                    {link.label}
-                  </span>
+                  <span className={`font-body text-[13px] transition-colors ${isActive ? 'text-[#f0ece8]' : 'text-[#888] group-hover:text-[#f0ece8]'}`}>{link.label}</span>
                   <span className={`absolute bottom-0 left-0 h-px bg-[#f0ece8] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
-                </a>
+                </Link>
               )
             })}
           </div>
@@ -116,20 +77,21 @@ export default function Navigation() {
         </div>
       </nav>
 
-      <div className={`fixed inset-0 z-[100] md:hidden transition-all duration-500 ${menuOpen ? 'visible' : 'invisible'}`}>
-        <div className="absolute inset-0 bg-[#0a0a0a]/95 backdrop-blur-xl transition-opacity duration-500" onClick={() => setMenuOpen(false)} />
-        <div data-mobile-menu className="absolute inset-x-0 top-0 p-8 pt-24 transition-transform duration-500">
+      {/* Mobile menu overlay */}
+      <div className={`fixed inset-0 z-[100] md:hidden transition-all duration-500 ${menuOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}>
+        <div className="absolute inset-0 bg-[#0a0a0a]/95 backdrop-blur-xl" onClick={() => setMenuOpen(false)} />
+        <div className="absolute inset-x-0 top-0 p-8 pt-24">
           <button onClick={() => setMenuOpen(false)} className="absolute top-5 right-5 p-2 text-white/60 hover:text-white transition-colors" aria-label="Close menu">
             <X className="w-6 h-6" />
           </button>
           <div className="flex flex-col gap-1">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.href.replace('#', '')
+            {allLinks.map((link) => {
+              const isActive = location.pathname === link.to
               return (
-                <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="flex items-baseline gap-4 py-3 border-b border-white/5 group cursor-pointer">
+                <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)} className="flex items-baseline gap-4 py-3 border-b border-white/5 group">
                   <span className={`font-mono text-[10px] tracking-wider ${isActive ? 'text-[#c28223]' : 'text-white/30'}`}>{link.num}</span>
                   <span className={`font-display text-3xl transition-colors ${isActive ? 'text-white' : 'text-white/90 group-hover:text-white'}`}>{link.label}</span>
-                </a>
+                </Link>
               )
             })}
             <button onClick={handleRandomRoll} className="flex items-baseline gap-4 py-3 mt-4 group">

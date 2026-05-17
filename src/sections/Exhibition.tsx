@@ -10,7 +10,7 @@ const exhibitions = [
   {
     status: 'proposed',
     title: 'Roll Call: Material Culture of Everyday Asia',
-    venue: 'HKADC Grant Application',
+    venue: 'Proposed Gallery Installation',
     location: 'Hong Kong',
     year: '2026',
     description: 'Physical exhibition proposal featuring printed specimen cards, data visualizations, and the complete archive as an interactive installation. Designed for gallery or library space with public programming potential.',

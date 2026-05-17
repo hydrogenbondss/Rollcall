@@ -29,7 +29,7 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
     const parts = text.split(new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'))
     return parts.map((part, i) =>
       part.toLowerCase() === query.toLowerCase()
-        ? <mark key={i} className="bg-[#c28223]/20/30 text-inherit rounded px-0.5">{part}</mark>
+        ? <mark key={i} className="bg-[#c28223]/20 text-inherit rounded px-0.5">{part}</mark>
         : part
     )
   }

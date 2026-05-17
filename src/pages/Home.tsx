@@ -1,28 +1,57 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, lazy, Suspense } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Lenis from 'lenis'
+import { Link, useNavigate } from 'react-router'
+import { ArrowRight, Dices, LayoutGrid, FileText, BookOpen, MapPin } from 'lucide-react'
 import MatrixLanding from '../components/MatrixLanding'
 import Navigation from '../components/Navigation'
-import ProjectStatement from '../sections/ProjectStatement'
-import Collection from '../sections/Collection'
-import Regions from '../sections/Regions'
-import WorldMap from '../sections/WorldMap'
-import DidYouKnow from '../sections/DidYouKnow'
-import DataVisualization from '../sections/DataVisualization'
-import Stories from '../sections/Stories'
-import Methodology from '../sections/Methodology'
-import Community from '../sections/Community'
-import ExtinctSpecimens from '../sections/ExtinctSpecimens'
-import Exhibition from '../sections/Exhibition'
+import ExplodedToiletPaper from '../components/ExplodedToiletPaper'
+
+const ExplodedToiletPaper3D = lazy(() => import('../components/ExplodedToiletPaper3D'))
+import Rollie from '../components/Rollie'
 import Footer from '../sections/Footer'
 import { products } from '../data/products'
-import { useNavigate } from 'react-router'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const prefersReducedMotion = () =>
-  typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const pages = [
+  {
+    to: '/collection',
+    num: '01',
+    title: 'Collection',
+    desc: '43 specimens across 21 Asian countries. Browse, filter, and explore the archive.',
+    icon: LayoutGrid,
+    color: '#c28223',
+    stat: '43 specimens',
+  },
+  {
+    to: '/exhibition',
+    num: '02',
+    title: 'Exhibition',
+    desc: 'A proposal for translating the digital archive into a physical gallery with 6 modular zones.',
+    icon: MapPin,
+    color: '#228b68',
+    stat: '6 zones',
+  },
+  {
+    to: '/about',
+    num: '03',
+    title: 'About',
+    desc: 'Project statement, methodology, data visualisation, and the story behind the archive.',
+    icon: FileText,
+    color: '#c4728e',
+    stat: 'Data + Methodology',
+  },
+  {
+    to: '/essay',
+    num: '04',
+    title: 'Essay',
+    desc: '"One-Ply Realism" — a long-form essay on toilet paper as material culture and infrastructure.',
+    icon: BookOpen,
+    color: '#8b7ec8',
+    stat: 'One-Ply Realism',
+  },
+]
 
 export default function Home() {
   const [entered, setEntered] = useState(() => {
@@ -34,187 +63,157 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate()
 
-  const handleEnter = () => {
-    sessionStorage.setItem('rollcall-entered', 'true')
-    setEntered(true)
-  }
-
-  // Keyboard shortcuts
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return
-      const key = e.key.toLowerCase()
-      if (key === 'r') {
-        const random = products[Math.floor(Math.random() * products.length)]
-        navigate(`/product/${random.id}`)
-      }
-      if (key === 'c') {
-        document.getElementById('collection')?.scrollIntoView({ behavior: 'smooth' })
-      }
-      if (key === 'm') {
-        document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' })
-      }
-      if (key === 'd') {
-        document.getElementById('data')?.scrollIntoView({ behavior: 'smooth' })
-      }
-      if (key === 'e') {
-        document.getElementById('stories')?.scrollIntoView({ behavior: 'smooth' })
-      }
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [navigate])
-
   useEffect(() => {
     if (!entered) return
-
-    const reduced = prefersReducedMotion()
-
-    const lenis = new Lenis({
-      duration: reduced ? 0.1 : 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
-    })
-
-    lenis.on('scroll', ScrollTrigger.update)
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000)
-    })
-    gsap.ticker.lagSmoothing(0)
-
-    // Scroll velocity skew
-    let currentSkew = 0
-    const content = document.querySelector('.main-content')
-    if (content && !reduced) {
-      lenis.on('scroll', ({ velocity }: { velocity: number }) => {
-        const targetSkew = Math.max(-2, Math.min(2, velocity * 0.02))
-        currentSkew += (targetSkew - currentSkew) * 0.1
-        gsap.to(content, { skewY: currentSkew, duration: 0.1, ease: 'none' })
-      })
-    }
-
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const ctx = gsap.context(() => {
-      if (reduced) return
-
-      const heroTitle = document.querySelector('.hero-title')
-      if (heroTitle) {
-        const text = heroTitle.textContent || ''
-        heroTitle.innerHTML = text.split('').map((char, i) =>
-          char === ' ' ? ' ' : `<span class="char-${i}" style="display:inline-block;opacity:0;transform:translateY(60px)">${char}</span>`
-        ).join('')
-
-        const chars = heroTitle.querySelectorAll('span')
-        gsap.to(chars, {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          stagger: 0.03,
-          ease: 'power3.out',
-          delay: 0.3,
-        })
-      }
-
-      gsap.from('.hero-subtitle', {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        ease: 'power3.out',
-        delay: 1.2,
+      gsap.to('.number-roll', {
+        innerText: 43,
+        duration: reduced ? 0.5 : 2.5,
+        snap: { innerText: 1 },
+        ease: 'power2.out',
+        scrollTrigger: { trigger: '.number-roll', start: 'top 85%' },
       })
-
-      const counterEl = document.querySelector('.hero-counter')
-      if (counterEl) {
-        const obj = { val: 0 }
-        gsap.to(obj, {
-          val: 43,
-          duration: 2,
-          ease: 'power2.out',
-          delay: 1.5,
-          onUpdate: () => {
-            counterEl.textContent = String(Math.round(obj.val))
-          },
-        })
-      }
+      gsap.fromTo('.nav-card',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
+          scrollTrigger: { trigger: '.nav-cards', start: 'top 80%' },
+        }
+      )
     }, heroRef)
-
-    return () => {
-      ctx.revert()
-      gsap.ticker.remove(lenis.raf as any)
-      lenis.destroy()
-    }
+    return () => ctx.revert()
   }, [entered])
+
+  const handleEnter = () => {
+    setEntered(true)
+    sessionStorage.setItem('rollcall-entered', 'true')
+  }
+
+  if (!entered) {
+    return <MatrixLanding onEnter={handleEnter} />
+  }
 
   return (
     <div className="min-h-screen bg-[#0d0d0d]">
-      {!entered && <MatrixLanding onEnter={handleEnter} />}
+      <Navigation />
 
-      {entered && (
-        <div className="main-content animate-fade-in-up">
-          <Navigation />
-
-          {/* Hero — Gallery entrance hall */}
-          <section ref={heroRef} className="min-h-screen flex flex-col items-center justify-center px-6 relative">
-            {/* Subtle warm glow behind title */}
-            <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[60vh] opacity-[0.025]"
-                style={{ background: 'radial-gradient(ellipse, #c28223 0%, transparent 70%)' }} />
+      <main ref={heroRef}>
+        {/* Hero */}
+        <section className="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center">
+          <div className="mb-10">
+            <div className="flex items-center justify-center gap-4">
+              <span className="w-12 h-px bg-[#c28223]/40" />
+              <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-[#c28223]/60">2026 &middot; Material Culture Archive</p>
+              <span className="w-12 h-px bg-[#c28223]/40" />
             </div>
+          </div>
 
-            <div className="relative text-center">
-              {/* Top line */}
-              <div className="hero-subtitle mb-10">
-                <div className="flex items-center justify-center gap-4">
-                  <span className="w-12 h-px bg-[#c28223]/40" />
-                  <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-[#c28223]/60">
-                    2026 · Open to the Public
-                  </p>
-                  <span className="w-12 h-px bg-[#c28223]/40" />
+          <h1 className="font-display text-[18vw] sm:text-[14vw] md:text-[11vw] lg:text-[9vw] text-[#f0ece8] leading-[0.78] uppercase" style={{ letterSpacing: '-0.05em' }}>
+            ROLL<br />CALL
+          </h1>
+
+          <div className="flex items-center justify-center gap-3 my-10">
+            <span className="number-roll font-display text-5xl sm:text-6xl text-[#c28223]">0</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mt-4">verified specimens</span>
+          </div>
+
+          <p className="font-serif-display text-base sm:text-lg italic text-[#999] max-w-md mb-8">
+            What does a society value? Look not at its monuments, but at what it chooses to make soft.
+          </p>
+
+          {/* Two CTAs */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link to="/collection" className="group inline-flex items-center gap-3 px-6 py-3 bg-[#c28223] hover:bg-[#d49a3f] rounded-2xl transition-all">
+              <span className="font-body text-sm text-[#0d0d0d] font-medium">Browse Collection</span>
+              <ArrowRight className="w-4 h-4 text-[#0d0d0d] group-hover:translate-x-1 transition-transform" strokeWidth={2} />
+            </Link>
+            <button
+              onClick={() => {
+                const p = products[Math.floor(Math.random() * products.length)]
+                navigate(`/product/${p.id}`)
+              }}
+              className="group inline-flex items-center gap-3 px-6 py-3 bg-[#141414] border border-white/[0.06] hover:border-[#c28223]/30 rounded-2xl transition-all cursor-pointer"
+            >
+              <Dices className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
+              <span className="font-body text-sm text-[#f0ece8]">Random Specimen</span>
+            </button>
+          </div>
+        </section>
+
+        {/* Navigation Cards */}
+        <section className="nav-cards max-w-[1000px] mx-auto px-6 sm:px-8 pb-12">
+          <div className="grid sm:grid-cols-2 gap-4">
+            {pages.map((page) => (
+              <Link
+                key={page.to}
+                to={page.to}
+                className="nav-card group bg-[#141414] border border-white/[0.04] rounded-2xl p-6 hover:border-white/[0.08] transition-all"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <page.icon className="w-5 h-5" style={{ color: page.color }} strokeWidth={1.5} />
+                  <span className="font-mono text-[10px] text-[#888] tracking-wider">{page.num}</span>
                 </div>
-              </div>
+                <h2 className="font-display text-xl text-[#f0ece8] mb-2 group-hover:text-[#c28223] transition-colors">{page.title}</h2>
+                <p className="font-body text-[13px] text-[#999] leading-relaxed mb-4">{page.desc}</p>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[10px] text-[#888] uppercase tracking-wider">{page.stat}</span>
+                  <ArrowRight className="w-4 h-4 text-[#888] group-hover:text-[#c28223] group-hover:translate-x-1 transition-all" strokeWidth={1.5} />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-              {/* Monumental title */}
-              <div className="mb-8">
-                <h1 className="hero-title font-display text-[20vw] sm:text-[16vw] md:text-[13vw] lg:text-[11vw] text-[#f0ece8] tracking-tighter leading-[0.78] uppercase"
-                  style={{ letterSpacing: '-0.05em' }}>
-                  ROLL<br />CALL
-                </h1>
+        {/* Exploded Material Anatomy */}
+        <section className="max-w-[1100px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
+          <div className="flex items-center gap-3 mb-3">
+            <svg className="w-4 h-4 text-[#00ff9d]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="12" y1="4" x2="12" y2="20" />
+            </svg>
+            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Material Anatomy</p>
+          </div>
+          <h2 className="font-display text-4xl sm:text-5xl mb-4">Exploded View</h2>
+          <p className="font-body text-sm text-[#999] max-w-lg mb-8 leading-relaxed">
+            A toilet paper roll deconstructed. Each layer separated, labeled, and identified by material composition and ply count.
+          </p>
+          <div className="hidden md:block" style={{ height: '500px' }}>
+            <Suspense fallback={
+              <div className="w-full h-full bg-[#141414]/30 rounded-2xl border border-white/[0.04] flex items-center justify-center">
+                <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">Loading 3D Model...</p>
               </div>
+            }>
+              <ExplodedToiletPaper3D />
+            </Suspense>
+          </div>
+          <div className="md:hidden">
+            <ExplodedToiletPaper />
+          </div>
+        </section>
 
-              {/* Counter */}
-              <div className="flex items-center justify-center gap-3 mb-12">
-                <span className="hero-counter number-roll font-display text-5xl sm:text-6xl text-[#c28223]">0</span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mt-4">verified specimens</span>
-              </div>
-
-              {/* Epigraph */}
-              <div className="hero-subtitle max-w-xl mx-auto">
-                <p className="font-serif-display text-base sm:text-lg italic text-[#999] leading-relaxed">
-                  What does a society value? Look not at its monuments,<br className="hidden sm:block" />
-                  but at what it chooses to make soft.
-                </p>
-              </div>
+        {/* Bio strip */}
+        <section className="max-w-[800px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 rounded-full bg-[#c28223]/20 flex items-center justify-center">
+              <span className="font-display text-[11px] text-[#c28223]">JT</span>
             </div>
-
-            {/* Scroll hint */}
-            <div className="scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-40">
-              <div className="w-px h-10 bg-gradient-to-b from-transparent to-[#c28223]/50" />
+            <div>
+              <p className="font-display text-sm text-[#f0ece8]">Jeffrey Nicholas Tse</p>
+              <p className="font-mono text-[9px] text-[#888] uppercase tracking-wider">Artist / Researcher / Hong Kong</p>
             </div>
-          </section>
+          </div>
+          <p className="font-body text-[13px] text-[#999] leading-relaxed italic">
+            Jeffrey Nicholas Tse is a Hong Kong-based interdisciplinary artist and researcher whose work examines systems of preservation, mediated identity, and cultural memory. Moving across archival practice, digital interfaces, writing, and interactive media, his projects investigate how value is assigned through classification, repetition, and observation.
+          </p>
+        </section>
 
-          <ProjectStatement />
-          <Collection />
-          <ExtinctSpecimens />
-          <Regions />
-          <DidYouKnow />
-          <WorldMap />
-          <DataVisualization />
-          <Stories />
-          <Methodology />
-          <Community />
-          <Exhibition />
-          <Footer />
-        </div>
-      )}
+        <Footer />
+      </main>
+
+      {/* Rollie AI Assistant */}
+      <Rollie />
     </div>
   )
 }
