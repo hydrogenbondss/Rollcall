@@ -34,7 +34,6 @@ db/migrations/*.sql
 # TypeScript cache
 *.tsbuildinfo
 # Build outputs
-dist/
 build/
 # Test coverage
 coverage/
