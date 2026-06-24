@@ -8,7 +8,6 @@ import Navigation from '../components/Navigation'
 import ExplodedToiletPaper from '../components/ExplodedToiletPaper'
 
 const ExplodedToiletPaper3D = lazy(() => import('../components/ExplodedToiletPaper3D'))
-import Rollie from '../components/Rollie'
 import Footer from '../sections/Footer'
 import { products } from '../data/products'
 
@@ -28,7 +27,7 @@ const pages = [
     to: '/exhibition',
     num: '02',
     title: 'Exhibition',
-    desc: 'A developing vision for translating the digital archive into physical space.',
+    desc: 'A developing vision for bringing the digital archive into physical space through modular zones.',
     icon: MapPin,
     color: '#228b68',
     stat: 'Vision',
@@ -141,7 +140,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Current Stage - Improved */}
+        {/* Current Stage */}
         <section className="max-w-[800px] mx-auto px-6 sm:px-8 pt-10 pb-16 border-t border-white/[0.04]">
           <div className="max-w-[720px]">
             <div className="mb-4">
@@ -226,9 +225,6 @@ export default function Home() {
 
         <Footer />
       </main>
-
-      {/* Rollie AI Assistant */}
-      <Rollie />
     </div>
   )
 }
