@@ -28,10 +28,10 @@ const pages = [
     to: '/exhibition',
     num: '02',
     title: 'Exhibition',
-    desc: 'A proposal for translating the digital archive into a physical gallery with 6 modular zones.',
+    desc: 'A developing vision for translating the digital archive into physical space.',
     icon: MapPin,
     color: '#228b68',
-    stat: '6 zones',
+    stat: 'Vision',
   },
   {
     to: '/about',
@@ -141,6 +141,18 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Current Stage */}
+        <section className="max-w-[800px] mx-auto px-6 sm:px-8 py-12 border-t border-white/[0.04]">
+          <div className="max-w-[700px]">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-3">
+              Current Stage
+            </p>
+            <p className="font-body text-[15px] leading-relaxed text-[#999]">
+              ROLL CALL currently exists as a living digital archive. Physical specimens from across Asia have been collected, photographed, and catalogued, accompanied by critical writing. The project is actively growing through ongoing research and documentation. Physical presentations remain a longer-term vision and will be developed according to available resources, venue partnerships, and collaboration opportunities.
+            </p>
+          </div>
+        </section>
+
         {/* Navigation Cards */}
         <section className="nav-cards max-w-[1000px] mx-auto px-6 sm:px-8 pb-12">
           <div className="grid sm:grid-cols-2 gap-4">
@@ -165,29 +177,6 @@ export default function Home() {
           </div>
         </section>
 
-         {/* Project Introduction */}
-<section className="max-w-[800px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
-  <div className="prose prose-invert max-w-none">
-    <p className="font-body text-[15px] leading-relaxed text-[#999]">
-      ROLL CALL is an artistic research project that examines everyday consumer products from Asia as cultural artifacts. It asks what becomes visible when we direct sustained attention toward objects that are normally overlooked, rapidly consumed, or quickly replaced.
-    </p>
-    <p className="font-body text-[15px] leading-relaxed text-[#999] mt-4">
-      Rather than approaching these products through conventional lenses of design or economics, the project treats them as carriers of cultural memory, material decisions, and regional identities. By collecting and comparing physical specimens from across Asia, ROLL CALL reveals patterns in design, material choices, pricing, and cultural presentation that are difficult to perceive when these objects are encountered only in their usual commercial contexts.
-    </p>
-    <p className="font-body text-[15px] leading-relaxed text-[#999] mt-4">
-      The project is connected to a broader artistic concern with how human traces are transformed when they pass through systems of observation, documentation, and storage. Across different works, a recurring question returns: what persists after the moment has passed, and what is lost when presence is converted into something that can be recorded, classified, and recalled? ROLL CALL explores this question through material culture — examining how ordinary objects become records, and what those records reveal when brought together.
-    </p>
-    <p className="font-body text-[15px] leading-relaxed text-[#999] mt-4">
-      Developed from Hong Kong, ROLL CALL currently exists as a living digital archive. Physical product specimens are sourced, photographed, and systematically catalogued, accompanied by critical writing that frames the questions they raise. The archive is open and expandable by design. It does not aim for completeness. Instead, it treats incompleteness as part of its form, allowing the collection to grow over time through contribution and ongoing comparison.
-    </p>
-    <p className="font-body text-[15px] leading-relaxed text-[#999] mt-4">
-      While physical exhibitions and public programs remain part of the longer-term vision, the project is intentionally digital-first. This allows the archive to stay accessible and iterative without depending on institutional space or fixed timelines. The digital form also reflects one of the project’s central interests: how systems of recording shape what we are able to see, remember, and value over time.
-    </p>
-    <p className="font-body text-[15px] leading-relaxed text-[#999] mt-4">
-      ROLL CALL proposes that close, sustained attention to the everyday can generate meaningful cultural knowledge. By directing artistic attention toward what is usually ignored, it opens a space to consider how ordinary objects participate in larger systems of memory, value, and identity — and what might be recovered when we choose to look more carefully.
-    </p>
-  </div>
-</section>
         {/* Exploded Material Anatomy */}
         <section className="max-w-[1100px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
           <div className="flex items-center gap-3 mb-3">
