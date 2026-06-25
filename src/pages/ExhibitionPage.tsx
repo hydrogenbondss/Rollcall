@@ -6,7 +6,7 @@ import { ArrowLeft, LayoutGrid, MapPin, Monitor, BookOpen, FileText, Users, Ligh
 
 gsap.registerPlugin(ScrollTrigger)
 
-const ExhibitionFloorPlan3D = lazy(() => import('../components/ExhibitionFloorPlan3D'))
+import ExhibitionFloorPlan3D from '../components/ExhibitionFloorPlan3D'
 
 const coreZones = [
   { 
