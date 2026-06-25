@@ -54,7 +54,7 @@ const zoneNavItems = [
   { label: 'Vitrine Wall', id: 'zone-vitrine', color: '#c28223' },
   { label: 'Extinction Corner', id: 'zone-extinct', color: '#c85a32' },
   { label: 'Submission Desk', id: 'zone-submit', color: '#f0ece8' },
-  { label: 'Future Ideas', id: 'future-ideas', color: '#888' },
+  { label: 'Extended Vision', id: 'future-ideas', color: '#888' },
   { label: 'Realization', id: 'practical-info', color: '#888' },
 ]
 
@@ -170,17 +170,18 @@ export default function ExhibitionPage() {
         </div>
       </section>
 
-      {/* Future Ideas */}
+      {/* Extended Vision (was Future Ideas) */}
       <section id="future-ideas" data-zone-section className="ex-section py-20 border-t border-white/[0.04] scroll-mt-28">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
           <div className="ex-item flex items-center gap-3 mb-3">
             <Lightbulb className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
             <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Extended Vision</p>
           </div>
-          <h2 className="ex-item font-display text-4xl sm:text-5xl mb-4">Future Ideas</h2>
+          <h2 className="ex-item font-display text-4xl sm:text-5xl mb-4">Extended Vision</h2>
           <p className="ex-item font-body text-sm text-[#999] max-w-lg mb-12 leading-relaxed">
-            Additional zones that could be developed in future iterations of the project. 
-            These remain conceptual for now and would depend on resources, venue, and collaboration.
+            Beyond the core presentation, several additional directions remain possible. 
+            These concepts could be developed in future iterations depending on resources, 
+            venue partnerships, and collaboration opportunities.
           </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -201,7 +202,7 @@ export default function ExhibitionPage() {
             ))}
           </div>
 
-          {/* 3D Floor Plan with ErrorBoundary */}
+          {/* 3D Floor Plan */}
           <div className="ex-item mt-12">
             <div className="flex items-center gap-3 mb-3">
               <MapPin className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
