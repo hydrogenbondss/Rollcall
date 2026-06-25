@@ -196,19 +196,13 @@ export default function Home() {
           </p>
 
           <div className="hidden md:block" style={{ height: '500px' }}>
-            <ErrorBoundary fallback={
-              <div className="w-full h-full flex items-center justify-center bg-[#141414] rounded-2xl border border-white/[0.04]">
-                <p className="font-mono text-sm text-[#888]">Failed to load 3D model</p>
+            <Suspense fallback={
+              <div className="w-full h-full flex items-center justify-center bg-[#141414]/30 rounded-2xl border border-white/[0.04]">
+                <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">Loading 3D Model...</p>
               </div>
             }>
-              <Suspense fallback={
-                <div className="w-full h-full flex items-center justify-center bg-[#141414]/30 rounded-2xl border border-white/[0.04]">
-                  <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">Loading 3D Model...</p>
-                </div>
-              }>
-                <ExplodedToiletPaper3D />
-              </Suspense>
-            </ErrorBoundary>
+              <ExplodedToiletPaper3D />
+            </Suspense>
           </div>
 
           <div className="md:hidden">
@@ -228,7 +222,7 @@ export default function Home() {
             </div>
           </div>
           <p className="font-body text-[13px] text-[#999] leading-relaxed italic">
-            Jeffrey N. Tse is a Hong Kong-based interdisciplinary artist and researcher whose work examines systems of preservation, mediated identity, and cultural memory. Moving across archival practice, digital interfaces, writing, and interactive media, his projects investigate how value is assigned through classification, repetition, and observation.
+            Jeffrey Nicholas Tse is a Hong Kong-based interdisciplinary artist and researcher whose work examines systems of preservation, mediated identity, and cultural memory. Moving across archival practice, digital interfaces, writing, and interactive media, his projects investigate how value is assigned through classification, repetition, and observation.
           </p>
         </section>
 
@@ -236,11 +230,4 @@ export default function Home() {
       </main>
     </div>
   )
-}
-
-// Error Boundary
-class ErrorBoundary extends React.Component<{ children: React.ReactNode; fallback: React.ReactNode }> {
-  state = { hasError: false }
-  static getDerivedStateFromError() { return { hasError: true } }
-  render() { return this.state.hasError ? this.props.fallback : this.props.children }
 }
