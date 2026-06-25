@@ -201,7 +201,7 @@ export default function ExhibitionPage() {
             ))}
           </div>
 
-          {/* 3D Floor Plan */}
+          {/* 3D Floor Plan with ErrorBoundary */}
           <div className="ex-item mt-12">
             <div className="flex items-center gap-3 mb-3">
               <MapPin className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
@@ -212,9 +212,19 @@ export default function ExhibitionPage() {
               An interactive 3D model exploring how different zones could be arranged within a single space.
             </p>
             <div className="hidden md:block ex-item" style={{ height: '450px' }}>
-              <Suspense fallback={<div className="w-full h-full bg-[#141414] rounded-2xl border border-white/[0.04] flex items-center justify-center">Loading 3D Model...</div>}>
-                <ExhibitionFloorPlan3D />
-              </Suspense>
+              <ErrorBoundary fallback={
+                <div className="w-full h-full flex items-center justify-center bg-[#141414] rounded-2xl border border-white/[0.04]">
+                  <p className="font-mono text-sm text-[#888]">Failed to load 3D model</p>
+                </div>
+              }>
+                <Suspense fallback={
+                  <div className="w-full h-full flex items-center justify-center bg-[#141414] rounded-2xl border border-white/[0.04]">
+                    <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">Loading 3D Model...</p>
+                  </div>
+                }>
+                  <ExhibitionFloorPlan3D />
+                </Suspense>
+              </ErrorBoundary>
             </div>
           </div>
         </div>
@@ -272,4 +282,11 @@ export default function ExhibitionPage() {
       </footer>
     </div>
   )
+}
+
+// Error Boundary
+class ErrorBoundary extends React.Component<{ children: React.ReactNode; fallback: React.ReactNode }> {
+  state = { hasError: false }
+  static getDerivedStateFromError() { return { hasError: true } }
+  render() { return this.state.hasError ? this.props.fallback : this.props.children }
 }
