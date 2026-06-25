@@ -193,15 +193,23 @@ export default function Home() {
           <p className="font-body text-sm text-[#999] max-w-lg mb-8 leading-relaxed">
             A toilet paper roll deconstructed. Each layer separated, labeled, and identified by material composition and ply count.
           </p>
+
           <div className="hidden md:block" style={{ height: '500px' }}>
-            <Suspense fallback={
-              <div className="w-full h-full bg-[#141414]/30 rounded-2xl border border-white/[0.04] flex items-center justify-center">
-                <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">Loading 3D Model...</p>
+            <ErrorBoundary fallback={
+              <div className="w-full h-full flex items-center justify-center bg-[#141414] rounded-2xl border border-white/[0.04]">
+                <p className="font-mono text-sm text-[#888]">Failed to load 3D model</p>
               </div>
             }>
-              <ExplodedToiletPaper3D />
-            </Suspense>
+              <Suspense fallback={
+                <div className="w-full h-full flex items-center justify-center bg-[#141414]/30 rounded-2xl border border-white/[0.04]">
+                  <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">Loading 3D Model...</p>
+                </div>
+              }>
+                <ExplodedToiletPaper3D />
+              </Suspense>
+            </ErrorBoundary>
           </div>
+
           <div className="md:hidden">
             <ExplodedToiletPaper />
           </div>
@@ -227,4 +235,11 @@ export default function Home() {
       </main>
     </div>
   )
+}
+
+// Error Boundary
+class ErrorBoundary extends React.Component<{ children: React.ReactNode; fallback: React.ReactNode }> {
+  state = { hasError: false }
+  static getDerivedStateFromError() { return { hasError: true } }
+  render() { return this.state.hasError ? this.props.fallback : this.props.children }
 }
