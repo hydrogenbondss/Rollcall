@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react'
 
 export default function Home() {
   return (
