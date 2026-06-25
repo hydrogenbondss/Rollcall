@@ -140,10 +140,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Where it stands today (bridging line) */}
+        {/* Right now (bridging line) */}
         <section className="max-w-[800px] mx-auto px-6 sm:px-8 pt-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-2">
-            Where it stands today
+          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-3">
+            Right now
           </p>
         </section>
 
