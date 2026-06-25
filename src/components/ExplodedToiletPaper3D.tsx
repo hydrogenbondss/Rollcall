@@ -3,7 +3,6 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Html } from '@react-three/drei'
 import * as THREE from 'three'
 
-// Layer configuration
 const layerData = [
   { id: '01', label: '4-PLY', material: 'Virgin pulp with added lotion — soft, absorbent, mass-produced', color: '#e8d5b7', y: 1.6, radius: 2.6, thickness: 0.18 },
   { id: '02', label: '3-PLY', material: 'Bamboo fiber — naturally antimicrobial and fast-growing', color: '#d4c4a3', y: 0.9, radius: 2.35, thickness: 0.16 },
@@ -22,37 +21,29 @@ function PaperLayer({ layer, index }: { layer: typeof layerData[0]; index: numbe
   })
 
   return (
-    <group
-      ref={groupRef}
-      position={[0, layer.y, 0]}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-    >
+    <group ref={groupRef} position={[0, layer.y, 0]} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)}>
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow castShadow>
         <cylinderGeometry args={[layer.radius, layer.radius, layer.thickness, 64]} />
         <meshStandardMaterial color={layer.color} roughness={0.85} metalness={0.05} />
       </mesh>
-
       <mesh rotation={[-Math.PI / 2, 0, 0]}>
         <torusGeometry args={[layer.radius * 0.985, 0.012, 6, 64]} />
         <meshBasicMaterial color="#ffffff" transparent opacity={hovered ? 0.25 : 0.08} />
       </mesh>
-
       <mesh rotation={[-Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.42, 0.42, layer.thickness + 0.01, 32, 1, true]} />
         <meshBasicMaterial color="#111111" transparent opacity={0.6} side={THREE.DoubleSide} />
       </mesh>
-
       <Html position={[layer.radius + 0.6, 0, 0]} center style={{ pointerEvents: 'none' }}>
-        <div className="transition-all duration-200" style={{ opacity: hovered ? 1 : 0.85, transform: hovered ? 'scale(1.03)' : 'scale(1)' }}>
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-px" style={{ backgroundColor: '#c28223' }} />
-            <div className="px-3 py-1.5 rounded border bg-[#0d0d0d]/90 backdrop-blur-sm border-white/10">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-[10px] font-bold" style={{ color: '#c28223' }}>{layer.id}</span>
-                <span className="font-mono text-[11px] font-bold tracking-wider text-[#f0ece8]">{layer.label}</span>
+        <div style={{ opacity: hovered ? 1 : 0.85 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '20px', height: '1px', backgroundColor: '#c28223' }} />
+            <div style={{ padding: '6px 12px', borderRadius: '6px', backgroundColor: 'rgba(13,13,13,0.9)', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ color: '#c28223', fontFamily: 'monospace', fontSize: '10px', fontWeight: 'bold' }}>{layer.id}</span>
+                <span style={{ color: '#f0ece8', fontFamily: 'monospace', fontSize: '11px', fontWeight: 'bold' }}>{layer.label}</span>
               </div>
-              <p className="font-body text-[9px] text-[#888] mt-0.5 whitespace-nowrap">{layer.material}</p>
+              <p style={{ color: '#888', fontSize: '9px', marginTop: '2px', whiteSpace: 'nowrap' }}>{layer.material}</p>
             </div>
           </div>
         </div>
@@ -89,14 +80,16 @@ function Scene() {
 
 export default function ExplodedToiletPaper3D() {
   return (
-    <div className="w-full h-full min-h-[480px] relative rounded-2xl overflow-hidden border border-white/[0.04] bg-[#0a0a0a]">
-      <Suspense fallback={<div className="w-full h-full flex items-center justify-center">Loading 3D Model...</div>}>
+    <div style={{ width: '100%', height: '480px', position: 'relative', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.04)', background: '#0a0a0a' }}>
+      <Suspense fallback={<div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>Loading 3D Model...</div>}>
         <Canvas camera={{ position: [6, 5, 7], fov: 42 }} style={{ background: '#0a0a0a' }}>
           <Scene />
         </Canvas>
       </Suspense>
-      <div className="absolute bottom-3 left-0 right-0 text-center pointer-events-none">
-        <p className="font-mono text-[8px] text-[#555] uppercase tracking-[0.4em]">Drag to orbit · Scroll to zoom · Auto-rotating</p>
+      <div style={{ position: 'absolute', bottom: '12px', left: 0, right: 0, textAlign: 'center', pointerEvents: 'none' }}>
+        <p style={{ fontFamily: 'monospace', fontSize: '8px', color: '#555', textTransform: 'uppercase', letterSpacing: '0.4em' }}>
+          Drag to orbit · Scroll to zoom · Auto-rotating
+        </p>
       </div>
     </div>
   )
