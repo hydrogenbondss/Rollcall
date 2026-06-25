@@ -170,7 +170,7 @@ export default function ExhibitionPage() {
         </div>
       </section>
 
-      {/* Extended Vision (was Future Ideas) */}
+      {/* Extended Vision */}
       <section id="future-ideas" data-zone-section className="ex-section py-20 border-t border-white/[0.04] scroll-mt-28">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
           <div className="ex-item flex items-center gap-3 mb-3">
@@ -179,9 +179,9 @@ export default function ExhibitionPage() {
           </div>
           <h2 className="ex-item font-display text-4xl sm:text-5xl mb-4">Extended Vision</h2>
           <p className="ex-item font-body text-sm text-[#999] max-w-lg mb-12 leading-relaxed">
-            Beyond the core presentation, several additional directions remain possible. 
-            These concepts could be developed in future iterations depending on resources, 
-            venue partnerships, and collaboration opportunities.
+            In addition to the core presentation, several further directions remain conceptually possible. 
+            These could be developed in future phases depending on available resources, venue partnerships, 
+            and opportunities for collaboration.
           </p>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
