@@ -5,17 +5,16 @@ import * as THREE from 'three'
 
 // Layer configuration - semi-exploded for better readability
 const layerData = [
-  { id: '01', label: '4-PLY', material: 'Virgin Pulp + Lotion', color: '#e8d5b7', y: 1.6, radius: 2.6, thickness: 0.18 },
-  { id: '02', label: '3-PLY', material: 'Bamboo Fiber', color: '#d4c4a3', y: 0.9, radius: 2.35, thickness: 0.16 },
-  { id: '03', label: '2-PLY', material: 'Recycled Fiber', color: '#c5b89a', y: 0.25, radius: 2.1, thickness: 0.14 },
-  { id: '04', label: '1-PLY', material: 'Wood Pulp', color: '#b8a87e', y: -0.35, radius: 1.85, thickness: 0.12 },
+  { id: '01', label: '4-PLY', material: 'Virgin pulp with added lotion — soft, absorbent, mass-produced', color: '#e8d5b7', y: 1.6, radius: 2.6, thickness: 0.18 },
+  { id: '02', label: '3-PLY', material: 'Bamboo fiber — naturally antimicrobial and fast-growing', color: '#d4c4a3', y: 0.9, radius: 2.35, thickness: 0.16 },
+  { id: '03', label: '2-PLY', material: 'Recycled fiber — economical, lower-grade, widely used', color: '#c5b89a', y: 0.25, radius: 2.1, thickness: 0.14 },
+  { id: '04', label: '1-PLY', material: 'Basic wood pulp — thin, economical, single-use standard', color: '#b8a87e', y: -0.35, radius: 1.85, thickness: 0.12 },
 ]
 
 function PaperLayer({ layer, index }: { layer: typeof layerData[0]; index: number }) {
   const groupRef = useRef<THREE.Group>(null)
   const [hovered, setHovered] = useState(false)
 
-  // Gentle floating animation
   useFrame((state) => {
     if (!groupRef.current) return
     const t = state.clock.elapsedTime
