@@ -26,7 +26,7 @@ const pages = [
     to: '/exhibition',
     num: '02',
     title: 'Exhibition',
-    desc: 'A developing vision for translating the digital archive into physical space.',
+    desc: 'A developing vision for bringing the digital archive into physical space through modular zones.',
     icon: MapPin,
     color: '#228b68',
     stat: 'Vision',
@@ -139,15 +139,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Current Stage */}
-        <section className="max-w-[800px] mx-auto px-6 sm:px-8 pt-10 pb-16 border-t border-white/[0.04]">
-          <div className="max-w-[720px]">
-            <div className="mb-4">
-              <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223]">
-                Current Stage
-              </span>
-            </div>
+        {/* Right now (bridging line) */}
+        <section className="max-w-[800px] mx-auto px-6 sm:px-8 pt-8">
+          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-3">
+            Right now
+          </p>
+        </section>
 
+        {/* Current Stage */}
+        <section className="max-w-[800px] mx-auto px-6 sm:px-8 pb-16 border-t border-white/[0.04]">
+          <div className="max-w-[720px]">
             <p className="font-body text-[15px] leading-relaxed text-[#999]">
               ROLL CALL currently exists as a living digital archive. Physical specimens from across Asia have been collected, photographed, and catalogued, accompanied by critical writing. The project is actively growing through ongoing research and documentation. Physical presentations remain a longer-term vision and will be developed according to available resources, venue partnerships, and collaboration opportunities.
             </p>

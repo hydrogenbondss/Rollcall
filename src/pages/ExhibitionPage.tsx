@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, lazy, Suspense } from 'react'
+import React, { useEffect, useRef, useState, lazy, Suspense } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router'
@@ -7,7 +7,7 @@ import { ArrowLeft, LayoutGrid, MapPin, FileText, Lightbulb } from 'lucide-react
 
 gsap.registerPlugin(ScrollTrigger)
 
-const ExhibitionFloorPlan3D = lazy(() => import('../components/ExhibitionFloorPlan3D'))
+import ExhibitionFloorPlan3D from '../components/ExhibitionFloorPlan3D'
 
 const coreZones = [
   { 
@@ -219,19 +219,13 @@ export default function ExhibitionPage() {
               An interactive 3D model exploring how different zones could be arranged within a single space.
             </p>
             <div className="hidden md:block ex-item" style={{ height: '450px' }}>
-              <ErrorBoundary fallback={
+              <Suspense fallback={
                 <div className="w-full h-full flex items-center justify-center bg-[#141414] rounded-2xl border border-white/[0.04]">
-                  <p className="font-mono text-sm text-[#888]">Failed to load 3D model</p>
+                  <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">Loading 3D Model...</p>
                 </div>
               }>
-                <Suspense fallback={
-                  <div className="w-full h-full flex items-center justify-center bg-[#141414] rounded-2xl border border-white/[0.04]">
-                    <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">Loading 3D Model...</p>
-                  </div>
-                }>
-                  <ExhibitionFloorPlan3D />
-                </Suspense>
-              </ErrorBoundary>
+                <ExhibitionFloorPlan3D />
+              </Suspense>
             </div>
           </div>
         </div>
@@ -248,8 +242,6 @@ export default function ExhibitionPage() {
           <p className="ex-item font-body text-sm text-[#999] max-w-xl mb-12 leading-relaxed">
             A realistic breakdown of what it could take to move from a confirmed venue to a first public presentation.
           </p>
-
-          {/* Keep your existing timeline content here if you want */}
         </div>
       </section>
 
@@ -289,11 +281,4 @@ export default function ExhibitionPage() {
       </footer>
     </div>
   )
-}
-
-// Error Boundary
-class ErrorBoundary extends React.Component<{ children: React.ReactNode; fallback: React.ReactNode }> {
-  state = { hasError: false }
-  static getDerivedStateFromError() { return { hasError: true } }
-  render() { return this.state.hasError ? this.props.fallback : this.props.children }
 }
