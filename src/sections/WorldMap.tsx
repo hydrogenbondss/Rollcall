@@ -82,7 +82,7 @@ export default function WorldMap() {
           </div>
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">The Map</h2>
           <p className="font-body text-sm text-[#999] mt-4 max-w-md">
-            21 countries. Each dot represents a country in our archive. Hover for details.
+            21 countries. Each dot represents a country in our archive; positions are approximate relative coordinates. Hover for details.
           </p>
         </div>
 
@@ -118,15 +118,16 @@ export default function WorldMap() {
             </defs>
             <rect width="100" height="70" fill="url(#grid)" />
 
-            {/* Continent outline — subtle, behind dots */}
-            <path
-              d="M 20 60 Q 25 50 30 48 Q 38 44 45 40 Q 52 34 58 28 Q 64 22 70 18 Q 78 16 84 20 Q 90 24 88 32 Q 86 38 82 42 Q 78 46 76 50 Q 75 54 72 58 Q 68 62 60 64 Q 52 66 44 64 Q 36 62 30 60 Q 24 62 20 60 Z"
-              fill="rgba(240,236,232,0.04)"
-              stroke="rgba(240,236,232,0.08)"
-              strokeWidth="0.15"
-            />
+            {/* Longitude/latitude guide lines */}
+            <line x1="20" y1="0" x2="20" y2="70" stroke="rgba(255,255,255,0.04)" strokeWidth="0.05" strokeDasharray="1 1" />
+            <line x1="40" y1="0" x2="40" y2="70" stroke="rgba(255,255,255,0.04)" strokeWidth="0.05" strokeDasharray="1 1" />
+            <line x1="60" y1="0" x2="60" y2="70" stroke="rgba(255,255,255,0.04)" strokeWidth="0.05" strokeDasharray="1 1" />
+            <line x1="80" y1="0" x2="80" y2="70" stroke="rgba(255,255,255,0.04)" strokeWidth="0.05" strokeDasharray="1 1" />
+            <line x1="0" y1="20" x2="100" y2="20" stroke="rgba(255,255,255,0.04)" strokeWidth="0.05" strokeDasharray="1 1" />
+            <line x1="0" y1="40" x2="100" y2="40" stroke="rgba(255,255,255,0.04)" strokeWidth="0.05" strokeDasharray="1 1" />
+            <line x1="0" y1="60" x2="100" y2="60" stroke="rgba(255,255,255,0.04)" strokeWidth="0.05" strokeDasharray="1 1" />
 
-            {/* Dots — rendered ON TOP of continent */}
+            {/* Dots */}
             {Object.entries(countryPositions).map(([country, pos]) => {
               const data = countryData[country]
               if (!data) return null

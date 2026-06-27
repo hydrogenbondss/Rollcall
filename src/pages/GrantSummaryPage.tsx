@@ -1,0 +1,222 @@
+import { useEffect, useRef } from 'react'
+import { Link } from 'react-router'
+import { ArrowLeft, Printer, FileText, MapPin, BarChart3, Calendar, DollarSign, Mail } from 'lucide-react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+export default function GrantSummaryPage() {
+  const pageRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    const page = pageRef.current
+    if (!page) return
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>('.grant-item').forEach((item) => {
+        gsap.fromTo(item,
+          { opacity: 0, y: 20 },
+          { scrollTrigger: { trigger: item, start: 'top 85%' }, opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+        )
+      })
+    }, page)
+    return () => ctx.revert()
+  }, [])
+
+  const handlePrint = () => window.print()
+
+  return (
+    <div className="min-h-screen bg-white text-[#1a1a1a]" ref={pageRef}>
+      {/* Nav — hidden when printing */}
+      <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-black/5 print:hidden">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
+          <Link to="/" className="flex items-center gap-3 group">
+            <ArrowLeft className="w-4 h-4 text-[#666] group-hover:text-[#1a1a1a] transition-colors" />
+            <span className="font-display text-[15px] font-medium tracking-[0.15em] uppercase text-[#1a1a1a]">Roll Call</span>
+          </Link>
+          <button
+            onClick={handlePrint}
+            className="flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] text-white rounded-full font-mono text-[10px] uppercase tracking-wider hover:bg-[#333] transition-colors"
+          >
+            <Printer className="w-3.5 h-3.5" />
+            Save as PDF
+          </button>
+        </div>
+      </nav>
+
+      <article className="max-w-[800px] mx-auto px-8 sm:px-12 pt-28 pb-20 print:pt-8 print:pb-8">
+        {/* Header */}
+        <header className="mb-12 grant-item border-b border-black/10 pb-8">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#666] mb-3">Grant Summary · 2026</p>
+          <h1 className="font-display text-5xl sm:text-6xl tracking-tight leading-[0.95] mb-4">
+            ROLL CALL
+          </h1>
+          <p className="font-serif-display text-xl italic text-[#555] max-w-lg">
+            A material culture archive documenting toilet paper specimens from 21 countries across contemporary Asia.
+          </p>
+        </header>
+
+        {/* At a glance */}
+        <section className="mb-12 grant-item">
+          <h2 className="font-display text-lg uppercase tracking-wider mb-4 flex items-center gap-2">
+            <FileText className="w-4 h-4" />
+            At a glance
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {[
+              { label: 'Specimens', value: '43' },
+              { label: 'Countries', value: '21' },
+              { label: 'Regions', value: '3' },
+              { label: 'Verified', value: '30 / 13' },
+            ].map((s) => (
+              <div key={s.label} className="border border-black/10 rounded-xl p-4">
+                <p className="font-display text-3xl">{s.value}</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#666]">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Why this matters */}
+        <section className="mb-12 grant-item">
+          <h2 className="font-display text-lg uppercase tracking-wider mb-4">Why this project matters</h2>
+          <p className="font-body text-[15px] leading-relaxed text-[#444] mb-4">
+            Toilet paper is the most intimate mass-produced object on earth. It is also an index of infrastructure: a society's pipe diameter, water pressure, purchasing power, and cultural aspiration are all compressed into a few plies.
+          </p>
+          <p className="font-body text-[15px] leading-relaxed text-[#444]">
+            <strong>ROLL CALL</strong> treats this ordinary object with the seriousness usually reserved for ceramics or textiles. By cataloguing specimens across East, Southeast, and South Asia, the project reveals how comfort is distributed — and who gets to be comfortable.
+          </p>
+        </section>
+
+        {/* Why 43 specimens is enough */}
+        <section className="mb-12 grant-item bg-[#fafafa] border border-black/5 rounded-2xl p-6">
+          <h2 className="font-display text-lg uppercase tracking-wider mb-4 flex items-center gap-2">
+            <BarChart3 className="w-4 h-4" />
+            Why 43 specimens is enough
+          </h2>
+          <p className="font-body text-[15px] leading-relaxed text-[#444] mb-4">
+            Forty-three specimens is not an exhaustive inventory; it is a proof of concept. The sample spans 21 countries and three regions, covering high-income economies (Japan, Singapore, Hong Kong), middle-income markets (Malaysia, Thailand, China), and lower-income contexts (Bangladesh, Nepal, Myanmar).
+          </p>
+          <p className="font-body text-[15px] leading-relaxed text-[#444]">
+            At this scale, clear patterns already emerge: GDP correlates with ply count; scented and treated papers cluster in East Asia; South Asia remains dominated by thin, infrastructure-compatible rolls. The archive demonstrates that a replicable methodology can generate cultural insight from a modest but geographically diverse sample.
+          </p>
+        </section>
+
+        {/* Key findings */}
+        <section className="mb-12 grant-item">
+          <h2 className="font-display text-lg uppercase tracking-wider mb-4">Key findings</h2>
+          <ul className="space-y-3">
+            {[
+              'Hong Kong consumers pay roughly 5x more per roll than Bangladeshi consumers in this archive.',
+              'East Asian products dominate the premium segment: four-ply, scented, and additive-enhanced.',
+              'South Asian products are overwhelmingly thin (1–2 ply), reflecting older plumbing infrastructure.',
+              'Sustainability claims (bamboo, recycled pulp) appear across all income tiers but trade off against comfort.',
+              'Myanmar has a domestically manufactured brand, while Cambodia and Laos in this archive rely on imported products.',
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-3 font-body text-[15px] text-[#444] leading-relaxed">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c28223] mt-2.5 shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Exhibition plan */}
+        <section className="mb-12 grant-item">
+          <h2 className="font-display text-lg uppercase tracking-wider mb-4 flex items-center gap-2">
+            <MapPin className="w-4 h-4" />
+            Exhibition plan
+          </h2>
+          <p className="font-body text-[15px] leading-relaxed text-[#444] mb-4">
+            The first physical presentation proposes three core zones — the Vitrine Wall, the Extinction Corner, and the Submission Desk — housed in 60–120 m². Extended-vision elements (scatter-plot floor projection, Essay Room, Map Wall) are planned for a second phase.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              { label: 'Space', value: '60–120 m²' },
+              { label: 'Timeline', value: '4–6 months' },
+              { label: 'Budget', value: 'HK$180k–420k' },
+            ].map((s) => (
+              <div key={s.label} className="border border-black/10 rounded-xl p-4">
+                <p className="font-display text-2xl">{s.value}</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#666]">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Use of funds */}
+        <section className="mb-12 grant-item">
+          <h2 className="font-display text-lg uppercase tracking-wider mb-4 flex items-center gap-2">
+            <DollarSign className="w-4 h-4" />
+            Use of funds
+          </h2>
+          <div className="space-y-2">
+            {[
+              { item: 'Vitrine fabrication & catalog cards', pct: '35%' },
+              { item: 'Shipping, insurance & installation', pct: '25%' },
+              { item: 'Artist fee & research travel', pct: '20%' },
+              { item: 'Floor graphics, print & projection hire', pct: '15%' },
+              { item: 'Contingency', pct: '5%' },
+            ].map((row) => (
+              <div key={row.item} className="flex items-center justify-between border-b border-black/5 py-2">
+                <span className="font-body text-[14px] text-[#444]">{row.item}</span>
+                <span className="font-mono text-[12px] text-[#c28223]">{row.pct}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Timeline */}
+        <section className="mb-12 grant-item">
+          <h2 className="font-display text-lg uppercase tracking-wider mb-4 flex items-center gap-2">
+            <Calendar className="w-4 h-4" />
+            Proposed timeline
+          </h2>
+          <div className="space-y-3">
+            {[
+              { phase: 'Months 1–2', work: 'Venue confirmation, vitrine design, final specimen selection' },
+              { phase: 'Months 3–4', work: 'Fabrication, print production, shipping of specimens' },
+              { phase: 'Months 5–6', work: 'Installation, lighting, preview, public opening' },
+            ].map((t) => (
+              <div key={t.phase} className="flex items-start gap-4">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-[#c28223] w-24 shrink-0">{t.phase}</span>
+                <span className="font-body text-[14px] text-[#444]">{t.work}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section className="mb-12 grant-item bg-[#1a1a1a] text-white rounded-2xl p-8 print:bg-white print:text-[#1a1a1a] print:border print:border-black/10">
+          <h2 className="font-display text-lg uppercase tracking-wider mb-4 flex items-center gap-2">
+            <Mail className="w-4 h-4" />
+            Contact
+          </h2>
+          <p className="font-body text-[15px] leading-relaxed mb-4 opacity-90 print:opacity-100 print:text-[#444]">
+            For exhibition proposals, academic inquiries, and grant discussions, please contact the project lead.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <p className="font-mono text-[9px] uppercase tracking-wider opacity-60 print:opacity-100 print:text-[#666]">Project Lead</p>
+              <p className="font-body text-[14px]">Jeffrey Nicholas Tse</p>
+            </div>
+            <div>
+              <p className="font-mono text-[9px] uppercase tracking-wider opacity-60 print:opacity-100 print:text-[#666]">Project Origin</p>
+              <p className="font-body text-[14px]">Hong Kong, 2026</p>
+            </div>
+          </div>
+          <p className="font-body text-[13px] mt-4 opacity-70 print:opacity-100 print:text-[#666]">
+            Full archive, sources, and methodology at <strong>rollcall.archive</strong> (or linked from the main site).
+          </p>
+        </section>
+
+        <footer className="grant-item pt-8 border-t border-black/10 text-center print:hidden">
+          <Link to="/" className="font-body text-sm text-[#c28223] hover:text-[#1a1a1a] transition-colors">
+            Return to the archive &rarr;
+          </Link>
+        </footer>
+      </article>
+    </div>
+  )
+}

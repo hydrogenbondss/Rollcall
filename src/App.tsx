@@ -7,6 +7,7 @@ import ExhibitionPage from './pages/ExhibitionPage'
 import AboutPage from './pages/AboutPage'
 import EssayPage from './pages/EssayPage'
 import SourcesPage from './pages/SourcesPage'
+import GrantSummaryPage from './pages/GrantSummaryPage'
 import NotFound from './pages/NotFound'
 import BackToTop from './components/BackToTop'
 
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/essay" element={<EssayPage />} />
           <Route path="/sources" element={<SourcesPage />} />
+          <Route path="/grant" element={<GrantSummaryPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>

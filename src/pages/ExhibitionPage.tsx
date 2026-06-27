@@ -7,6 +7,7 @@ import { ArrowLeft, LayoutGrid, MapPin, FileText, Lightbulb } from 'lucide-react
 gsap.registerPlugin(ScrollTrigger)
 
 import ExhibitionFloorPlan3D from '../components/ExhibitionFloorPlan3D'
+import ExhibitionFloorPlan2D from '../components/ExhibitionFloorPlan2D'
 
 const coreZones = [
   { 
@@ -207,16 +208,19 @@ export default function ExhibitionPage() {
             ))}
           </div>
 
-          {/* 3D Floor Plan */}
+          {/* Floor Plan */}
           <div className="ex-item mt-12">
             <div className="flex items-center gap-3 mb-3">
               <MapPin className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
               <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Spatial Thinking</p>
             </div>
-            <h3 className="ex-item font-display text-3xl mb-4">Floor Plan Exploration</h3>
+            <h3 className="ex-item font-display text-3xl mb-4">Floor Plan</h3>
             <p className="ex-item font-body text-sm text-[#999] max-w-lg mb-6">
-              An interactive 3D model exploring how different zones could be arranged within a single space.
+              A proposed layout for the core zones. The 2D plan shows visitor flow; the 3D study below explores the same space volumetrically.
             </p>
+            <div className="ex-item mb-8">
+              <ExhibitionFloorPlan2D />
+            </div>
             <div className="hidden md:block ex-item" style={{ height: '450px' }}>
               <Suspense fallback={
                 <div className="w-full h-full flex items-center justify-center bg-[#141414] rounded-2xl border border-white/[0.04]">

@@ -139,13 +139,22 @@ export default function Community() {
               <p className="font-body text-[14px] text-[#a09890] leading-relaxed mb-4">
                 ROLL CALL is ready to scale from digital archive to physical exhibition. Funding would support expanded field documentation, a first public installation, and educational programming.
               </p>
-              <a
-                href="/sources"
-                className="inline-flex items-center gap-2 font-body text-[12px] text-[#c28223] hover:text-[#f0ece8] transition-colors"
-              >
-                View sources & methodology
-                <span className="w-4 h-px bg-current" />
-              </a>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="/sources"
+                  className="inline-flex items-center gap-2 font-body text-[12px] text-[#c28223] hover:text-[#f0ece8] transition-colors"
+                >
+                  View sources & methodology
+                  <span className="w-4 h-px bg-current" />
+                </a>
+                <a
+                  href="/grant"
+                  className="inline-flex items-center gap-2 font-body text-[12px] text-[#f0ece8] hover:text-[#c28223] transition-colors"
+                >
+                  Grant summary (printable)
+                  <span className="w-4 h-px bg-current" />
+                </a>
+              </div>
             </div>
             <div className="bg-[#141414] border border-white/[0.04] rounded-2xl p-6">
               <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mb-4">At a glance</p>

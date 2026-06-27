@@ -44,6 +44,13 @@ export default function ProjectStatement() {
             <strong className="text-[#f0ece8] font-medium">Roll Call</strong> treats toilet paper as a material witness. Across 21 countries in East, Southeast, and South Asia, 43 specimens have been catalogued — not as consumer goods, but as indexes of what each society can afford, what its plumbing will tolerate, and what it believes comfort should feel like.
           </p>
 
+          <div className="bg-[#141414] border border-white/[0.04] rounded-2xl p-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#c28223] mb-2">Why 43 specimens is enough</p>
+            <p className="font-body text-[14px] text-[#a09890] leading-relaxed">
+              Forty-three is not an exhaustive inventory; it is a proof of concept. The sample spans high-income economies, middle-income markets, and lower-income contexts across three regions. At this scale, clear patterns already emerge — GDP correlates with ply count, scented papers cluster in East Asia, and South Asia remains dominated by thin, infrastructure-compatible rolls. The archive demonstrates that a replicable methodology can generate cultural insight from a modest but geographically diverse sample.
+            </p>
+          </div>
+
           <p className="font-body text-[15px] text-[#a09890] leading-[1.85]">
             In Hong Kong, four-ply scented tissue is aspirational. A home stocked with Tempo signals membership in a class that has upgraded from necessity to preference. In Mumbai, one-ply is not poverty — it is physics. Victorian-era pipework makes thicker paper an act of plumbing suicide. The product available is the product the infrastructure permits.
           </p>

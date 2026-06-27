@@ -1,18 +1,26 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MapPin, Layers, FileCheck } from 'lucide-react'
+import { products } from '../data/products'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const stats = [
-  { label: 'Verified', value: '30', icon: FileCheck, desc: 'Manufacturer websites, official retailer listings, and direct brand correspondence confirm these products exist and match our documentation.' },
-  { label: 'Community', value: '13', icon: MapPin, desc: 'Brand names verified as real registered companies. Product details sourced from local market visits, contributor submissions, and regional e-commerce platforms.' },
-  { label: 'Total', value: '43', icon: Layers, desc: 'All specimens catalogued with the same metadata schema: provenance, material, ply, price, scent, manufacturing origin, and retail availability.' },
-]
+function useStats() {
+  return useMemo(() => {
+    const verified = products.filter((p) => p.verified).length
+    const community = products.filter((p) => !p.verified).length
+    return [
+      { label: 'Verified', value: String(verified), icon: FileCheck, desc: 'Manufacturer websites, official retailer listings, and direct brand correspondence confirm these products exist and match our documentation.' },
+      { label: 'Community', value: String(community), icon: MapPin, desc: 'Brand names verified as real registered companies. Product details sourced from local market visits, contributor submissions, and regional e-commerce platforms.' },
+      { label: 'Total', value: String(products.length), icon: Layers, desc: 'All specimens catalogued with the same metadata schema: provenance, material, ply, price, scent, manufacturing origin, and retail availability.' },
+    ]
+  }, [])
+}
 
 export default function Methodology() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const stats = useStats()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
