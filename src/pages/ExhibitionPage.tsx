@@ -239,7 +239,44 @@ export default function ExhibitionPage() {
           </div>
           <h2 className="ex-item font-display text-4xl sm:text-5xl mb-4">Possible Realization</h2>
           <p className="ex-item font-body text-sm text-[#999] max-w-xl mb-12 leading-relaxed">
-            A realistic breakdown of what it could take to move from a confirmed venue to a first public presentation.
+            A realistic breakdown of what it could take to move from a confirmed venue to a first public presentation. Figures are provisional and scale with venue partnership.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              { title: 'Space', value: '60–120 m²', desc: 'Minimum viable footprint for core zones: Vitrine Wall, Extinction Corner, and Submission Desk. Extended-vision elements require additional square footage or adjacent screening.' },
+              { title: 'Timeline', value: '4–6 months', desc: 'From confirmed venue to opening: 6–8 weeks design and fabrication, 4–6 weeks installation and lighting, 2–4 weeks preview and iteration.' },
+              { title: 'Budget tier', value: 'HK$180k–420k', desc: 'Covers vitrine fabrication, printed catalog cards, vinyl floor graphics, projection hire, insurance, shipping of specimens, and a modest artist fee. Upper range includes the scatter-plot floor projection and essay room.' },
+            ].map((item) => (
+              <div key={item.title} className="ex-item bg-[#141414] border border-white/[0.04] rounded-2xl p-6">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mb-2">{item.title}</p>
+                <p className="font-display text-3xl text-[#f0ece8] mb-3">{item.value}</p>
+                <p className="font-body text-[12px] text-[#999] leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="ex-item bg-[#141414] border border-white/[0.04] rounded-2xl p-6 sm:p-8">
+            <h3 className="font-display text-xl text-[#f0ece8] mb-6">Deliverables for a first presentation</h3>
+            <div className="grid sm:grid-cols-2 gap-x-12 gap-y-4">
+              {[
+                '15–20 physical specimens in museum-style vitrines',
+                'Printed catalog cards matching the digital archive schema',
+                'Large-format data print: price-vs-ply and region comparison',
+                'Annotated Asia map locating all documented countries',
+                'Submission desk with contributor guidelines and photography kit',
+                'Extended-vision projection study (optional, phase 2)',
+              ].map((d) => (
+                <div key={d} className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-[#c28223] mt-2 shrink-0" />
+                  <p className="font-body text-[13px] text-[#a09890] leading-relaxed">{d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="ex-item font-body text-[12px] text-[#888] mt-6 leading-relaxed max-w-2xl">
+            This section is intentionally provisional. A realized exhibition depends on the venue, audience, and funding context. The core principle is adaptability: the same archive can scale from a single vitrine wall in a library to a multi-room museum installation.
           </p>
         </div>
       </section>

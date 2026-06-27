@@ -11,15 +11,15 @@ const engagementModes = [
     icon: Camera,
     title: 'Submit a Specimen',
     description: 'Travelling in Asia? Photograph a toilet paper roll from your hotel, supermarket, or street vendor. Note the city, brand, and ply count. Every submission expands the archive.',
-    action: 'Opening soon',
-    href: null,
+    action: 'Use the form below',
+    href: '#submission-form',
   },
   {
     icon: BookOpen,
     title: 'Educational Use',
     description: 'The archive is available for use in design schools and material culture courses. Students analyse specimen data, compare regional differences, and propose new entries.',
-    action: 'Opening soon',
-    href: null,
+    action: 'Contact via form',
+    href: '#submission-form',
   },
   {
     icon: Users,
@@ -32,7 +32,7 @@ const engagementModes = [
     icon: MapPin,
     title: 'Field Correspondents',
     description: 'We are building a network of residents across Asia who contribute verified specimens from their local markets. The archive grows through eyes on the ground.',
-    action: 'Recruiting soon',
+    action: 'Recruiting in 2026',
     href: null,
   },
 ]
@@ -130,8 +130,49 @@ export default function Community() {
           ))}
         </div>
 
-        {/* Submission Form */}
+        {/* For Institutions & Grant Officers */}
         <div className="mt-16 pt-16 border-t border-white/[0.04]">
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#c28223] mb-3">For Institutions & Grant Officers</p>
+              <h3 className="font-display text-2xl text-[#f0ece8] mb-4">Support the next phase</h3>
+              <p className="font-body text-[14px] text-[#a09890] leading-relaxed mb-4">
+                ROLL CALL is ready to scale from digital archive to physical exhibition. Funding would support expanded field documentation, a first public installation, and educational programming.
+              </p>
+              <a
+                href="/sources"
+                className="inline-flex items-center gap-2 font-body text-[12px] text-[#c28223] hover:text-[#f0ece8] transition-colors"
+              >
+                View sources & methodology
+                <span className="w-4 h-px bg-current" />
+              </a>
+            </div>
+            <div className="bg-[#141414] border border-white/[0.04] rounded-2xl p-6">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mb-4">At a glance</p>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="font-display text-2xl text-[#f0ece8]">43</p>
+                  <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Specimens</p>
+                </div>
+                <div>
+                  <p className="font-display text-2xl text-[#f0ece8]">21</p>
+                  <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Countries</p>
+                </div>
+                <div>
+                  <p className="font-display text-2xl text-[#f0ece8]">3</p>
+                  <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Regions</p>
+                </div>
+                <div>
+                  <p className="font-display text-2xl text-[#f0ece8]">2026</p>
+                  <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Launched</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Submission Form */}
+        <div id="submission-form" className="mt-16 pt-16 border-t border-white/[0.04]">
           <div className="mb-8 text-center">
             <p className="font-body text-[15px] text-[#a09890] leading-relaxed max-w-lg mx-auto mb-2">
               This archive exists because one person started looking closely at an ordinary object.

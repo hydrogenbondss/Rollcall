@@ -1,4 +1,5 @@
-import { Send } from 'lucide-react'
+import { Link } from 'react-router'
+import { Send, BookMarked } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -17,12 +18,18 @@ export default function Footer() {
             <p className="font-body text-[13px] text-[#888] leading-relaxed mb-6 max-w-sm">
               By Jeffrey Nicholas Tse
             </p>
-            <a href="/#community" className="flex items-center gap-2 text-[#888] hover:text-[#f0ece8] transition-colors group">
+            <a href="/#community" className="flex items-center gap-2 text-[#888] hover:text-[#f0ece8] transition-colors group mb-3">
               <Send className="w-3.5 h-3.5 group-hover:text-[#c28223]" />
               <p className="font-mono text-[11px]">
                 Contact via correspondence form
               </p>
             </a>
+            <Link to="/sources" className="flex items-center gap-2 text-[#888] hover:text-[#f0ece8] transition-colors group">
+              <BookMarked className="w-3.5 h-3.5 group-hover:text-[#c28223]" />
+              <p className="font-mono text-[11px]">
+                Sources & methodology
+              </p>
+            </Link>
           </div>
 
           <div>

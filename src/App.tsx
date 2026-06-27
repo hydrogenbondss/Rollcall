@@ -6,6 +6,7 @@ import ProductDetail from './pages/ProductDetail'
 import ExhibitionPage from './pages/ExhibitionPage'
 import AboutPage from './pages/AboutPage'
 import EssayPage from './pages/EssayPage'
+import SourcesPage from './pages/SourcesPage'
 import NotFound from './pages/NotFound'
 import BackToTop from './components/BackToTop'
 
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/exhibition" element={<ExhibitionPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/essay" element={<EssayPage />} />
+          <Route path="/sources" element={<SourcesPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>

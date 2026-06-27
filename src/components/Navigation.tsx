@@ -8,6 +8,7 @@ const allLinks = [
   { to: '/exhibition', label: 'Exhibition', num: '02' },
   { to: '/about', label: 'About', num: '03' },
   { to: '/essay', label: 'Essay', num: '04' },
+  { to: '/sources', label: 'Sources', num: '05' },
 ]
 
 export default function Navigation() {
