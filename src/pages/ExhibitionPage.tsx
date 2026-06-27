@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState, lazy, Suspense } from 'react'
+import { useEffect, useRef, useState, Suspense } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router'
-import React from 'react'
 import { ArrowLeft, LayoutGrid, MapPin, FileText, Lightbulb } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
