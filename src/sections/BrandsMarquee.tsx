@@ -1,9 +1,22 @@
 import { useMemo } from 'react'
 import { brands } from '../data/products'
 
+// Fisher-Yates shuffle with a deterministic seed so the marquee order is
+// stable across renders and satisfies strict React Compiler lint rules.
+function seededShuffle<T>(items: T[], seed: number): T[] {
+  const arr = [...items]
+  let s = seed
+  for (let i = arr.length - 1; i > 0; i--) {
+    s = (s * 16807) % 2147483647
+    const j = s % (i + 1)
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  return arr
+}
+
 export default function BrandsMarquee() {
   const displayBrands = useMemo(() => {
-    const shuffled = [...brands].sort(() => Math.random() - 0.5)
+    const shuffled = seededShuffle(brands, 135792468)
     return shuffled.slice(0, 20)
   }, [])
 

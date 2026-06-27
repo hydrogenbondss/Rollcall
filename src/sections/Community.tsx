@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Mail, MapPin, Users, BookOpen, Camera } from 'lucide-react'
+import { MapPin, Users, BookOpen, Camera } from 'lucide-react'
 import SubmissionForm from '../components/SubmissionForm'
 
 gsap.registerPlugin(ScrollTrigger)

@@ -27,5 +27,13 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
+    chunkSizeWarningLimit: 1300,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three', '@react-three/fiber', '@react-three/drei'],
+        },
+      },
+    },
   },
 }));

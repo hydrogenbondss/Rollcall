@@ -1,8 +1,10 @@
+import type { LucideIcon } from 'lucide-react'
 import { X, Star, MapPin, Layers, Ruler, Droplets, Factory, ShoppingBag, Hotel, ArrowRight, Plus } from 'lucide-react'
 import { useCompare } from '../contexts/CompareContext'
 import { useCurrency } from '../contexts/CurrencyContext'
 import { useLanguage } from '../contexts/LanguageContext'
 import { Link } from 'react-router'
+import type { Product } from '../data/products'
 
 export default function CompareDrawer() {
   const { compareList, removeFromCompare, clearCompare, isOpen, setIsOpen } = useCompare()
@@ -13,15 +15,18 @@ export default function CompareDrawer() {
 
   const needsMore = compareList.length < 2
 
-  const specs = [
-    { key: 'ply', label: t('plyCount'), icon: Layers, format: (v: any) => `${v}-Ply` },
-    { key: 'thickness', label: t('thickness'), icon: Ruler, format: (v: any) => v },
-    { key: 'scent', label: t('scent'), icon: Droplets, format: (v: any) => v },
-    { key: 'material', label: t('material'), icon: Factory, format: (v: any) => v },
-    { key: 'manufacturedIn', label: t('manufactured'), icon: MapPin, format: (v: any) => v },
-    { key: 'availableIn', label: t('availableIn'), icon: ShoppingBag, format: (v: any) => Array.isArray(v) ? v.join(', ') : v },
-    { key: 'rating', label: t('rating'), icon: Star, format: (v: any) => `${v} (${(v as number) > 0 ? 'verified' : 'new'})` },
-    { key: 'priceUSD', label: t('price'), icon: Star, format: (v: any) => formatPrice(v as number) },
+  type SpecKey = 'ply' | 'thickness' | 'scent' | 'material' | 'manufacturedIn' | 'availableIn' | 'rating' | 'priceUSD'
+  type SpecValue = Product[SpecKey]
+
+  const specs: { key: SpecKey; label: string; icon: LucideIcon; format: (v: SpecValue) => string }[] = [
+    { key: 'ply', label: t('plyCount'), icon: Layers, format: (v) => `${v as number}-Ply` },
+    { key: 'thickness', label: t('thickness'), icon: Ruler, format: (v) => String(v) },
+    { key: 'scent', label: t('scent'), icon: Droplets, format: (v) => String(v) },
+    { key: 'material', label: t('material'), icon: Factory, format: (v) => String(v) },
+    { key: 'manufacturedIn', label: t('manufactured'), icon: MapPin, format: (v) => String(v) },
+    { key: 'availableIn', label: t('availableIn'), icon: ShoppingBag, format: (v) => Array.isArray(v) ? v.join(', ') : String(v) },
+    { key: 'rating', label: t('rating'), icon: Star, format: (v) => `${v} (${(v as number) > 0 ? 'verified' : 'new'})` },
+    { key: 'priceUSD', label: t('price'), icon: Star, format: (v) => formatPrice(v as number) },
   ]
 
   return (
@@ -48,8 +53,8 @@ export default function CompareDrawer() {
             <div className="bg-[#f5f2ef] rounded-xl p-4 mb-4 flex items-start gap-3">
               <Plus className="w-4 h-4 text-[#c28223] mt-0.5 shrink-0" />
               <div>
-                <p className="font-body text-sm text-[#f0ece8]">Add one more product</p>
-                <p className="font-body text-[11px] text-[#999] mt-0.5">Compare works best with 2 or more rolls. Browse the collection and click Compare on another product.</p>
+                <p className="font-body text-sm text-[#1A1A1A]">Add one more product</p>
+                <p className="font-body text-[11px] text-[#6B6B6B] mt-0.5">Compare works best with 2 or more rolls. Browse the collection and click Compare on another product.</p>
               </div>
             </div>
           )}
@@ -94,7 +99,7 @@ export default function CompareDrawer() {
                 <span className="font-body text-sm font-medium">{spec.label}</span>
               </div>
               {compareList.map((p) => {
-                const val = (p as any)[spec.key]
+                const val = p[spec.key]
                 return (
                   <div key={p.id} className="font-body text-sm text-[#1A1A1A] text-center">
                     {spec.format(val)}
@@ -116,7 +121,7 @@ export default function CompareDrawer() {
             {compareList.map((p) => (
               <div key={p.id} className="flex flex-wrap gap-1 justify-center">
                 {p.hotels.map((h) => (
-                  <span key={h} className="bg-[#f0f0f0]/20 text-[#1A1A1A] font-body text-[10px] px-2 py-0.5 rounded-full">
+                  <span key={h} className="bg-[#f0f0f0] text-[#1A1A1A] font-body text-[10px] px-2 py-0.5 rounded-full">
                     {h}
                   </span>
                 ))}

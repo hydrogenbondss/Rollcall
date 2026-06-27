@@ -10,7 +10,7 @@ export default function CompareIndicator() {
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 animate-fade-in-up">
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-3 px-5 py-3 rounded-full bg-[#f0ece8] text-white shadow-lg hover:shadow-xl transition-shadow font-body text-sm group"
+        className="flex items-center gap-3 px-5 py-3 rounded-full bg-[#f0ece8] text-[#1a1614] shadow-lg hover:shadow-xl transition-shadow font-body text-sm group"
       >
         <div className="flex -space-x-2">
           {compareList.slice(0, 3).map((p, i) => (

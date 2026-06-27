@@ -7,13 +7,13 @@ gsap.registerPlugin(ScrollTrigger)
 
 const observations = [
   "Japan's Nepia Oshiri Celeb contains squalane — a face cream ingredient — at ¥620 per pack. Skin care-grade tissue.",
-  "Hong Kong residents pay roughly 9x more per roll than Bangladeshi consumers, yet both markets are dominated by the same parent company (Essity).",
-  "Myanmar, Laos, and Cambodia have zero domestically manufactured toilet paper brands. All products are imported from Thailand, Vietnam, or China.",
-  "Tempo Hong Kong releases seasonal scented variants — Applewood, Cherry Blossom, Blue Wind Chime — that sell out within weeks each year.",
-  "The word 'deluxe' appears in product names across 4 countries and 3 languages, suggesting a shared consumer aspiration.",
-  "Singapore is the only market where 100% bamboo toilet paper competes directly with virgin pulp products at the same price.",
-  "India has the most fragmented market — 8 different domestic brands with no clear leader — while Hong Kong and Singapore are each dominated by a single brand.",
-  "All scented toilet papers in the archive are manufactured in East or Southeast Asia. No South Asian brand produces scented variants.",
+  "Hong Kong residents pay roughly 5x more per roll on average than Bangladeshi consumers in this archive.",
+  "Myanmar has a domestically manufactured brand, Yangon International, while Cambodia and Laos in this archive rely on imported products.",
+  "Tempo Hong Kong releases seasonal scented variants — Applewood, Cherry Blossom, Blue Wind Chime — alongside its year-round neutral line.",
+  "The word 'Deluxe' appears in product names across Singapore, Vietnam, and Taiwan, suggesting a shared marketing vocabulary.",
+  "Singapore has the most brand-diverse archive entries in Southeast Asia, with four distinct brands: PurSoft, Cloversoft, Kleenex, and Premier.",
+  "India has the least fragmented brand landscape in the archive, with just two domestic brands: Origami and Selpak.",
+  "South Asian brands do produce scented toilet paper. Fresh Gold (Bangladesh) is rose-scented year-round; Rose Petal (Pakistan) offers rose and sandalwood.",
 ]
 
 export default function DidYouKnow() {

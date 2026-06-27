@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Environment, MeshDistortMaterial } from '@react-three/drei'
+import { Environment } from '@react-three/drei'
 import * as THREE from 'three'
 
 // A smooth torus — evocative of rolled paper without being literal

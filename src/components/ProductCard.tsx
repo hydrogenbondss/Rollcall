@@ -2,7 +2,7 @@ import { memo, useState, useRef, useCallback } from 'react'
 import { Link } from 'react-router'
 import { Plus, Check } from 'lucide-react'
 import type { Product } from '../data/products'
-import { getRegion, getRegionColor } from '../data/products'
+import { getRegionColor } from '../data/products'
 import { useCurrency } from '../contexts/CurrencyContext'
 import { useCompare } from '../contexts/CompareContext'
 
@@ -125,7 +125,7 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
               />
             )}
             {imgError && (
-              <div className="absolute inset-0 flex items-center justify-center bg-[#f5f0e8]/80/80 z-10">
+              <div className="absolute inset-0 flex items-center justify-center bg-[#f5f0e8]/80 z-10">
                 <div className="text-center">
                   <span className="font-body text-[10px] uppercase tracking-wider text-[#888] block mb-1">Image unavailable</span>
                   <span className="font-body text-[9px] text-[#c4bdb5]">{product.brand}</span>
@@ -227,4 +227,3 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
 })
 
 export default ProductCard
-export { getRegion, getRegionColor }

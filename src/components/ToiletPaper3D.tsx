@@ -1,4 +1,4 @@
-import { useRef, useMemo, useEffect } from 'react'
+import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Environment } from '@react-three/drei'
 import * as THREE from 'three'
@@ -87,11 +87,7 @@ function createTubeTexture(): THREE.CanvasTexture {
   return texture
 }
 
-interface RollProps {
-  scrollProgress: React.MutableRefObject<number>
-}
-
-function ToiletPaperRoll({ scrollProgress }: RollProps) {
+function ToiletPaperRoll() {
   const groupRef = useRef<THREE.Group>(null)
   const rollRef = useRef<THREE.Mesh>(null)
 
@@ -172,8 +168,6 @@ function ToiletPaperRoll({ scrollProgress }: RollProps) {
 }
 
 export default function ToiletPaper3D() {
-  const scrollProgress = useRef(0)
-
   return (
     <div className="w-full h-full min-h-[400px] relative">
       <Canvas
@@ -182,7 +176,7 @@ export default function ToiletPaper3D() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
-        <ToiletPaperRoll scrollProgress={scrollProgress} />
+        <ToiletPaperRoll />
         <OrbitControls
           enableZoom={true}
           enablePan={false}

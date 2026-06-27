@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router'
-import { products } from '../data/products'
+import { products, getRegion, getRegionColor } from '../data/products'
 import { ArrowRight } from 'lucide-react'
 
 interface TiltCardProps {
@@ -9,7 +9,7 @@ interface TiltCardProps {
   index: number
 }
 
-function TiltCard({ product, catalogNo, index }: TiltCardProps) {
+function TiltCard({ product, catalogNo }: TiltCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [transform, setTransform] = useState('perspective(1000px) rotateX(0deg) rotateY(0deg)')
   const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 })
@@ -34,10 +34,7 @@ function TiltCard({ product, catalogNo, index }: TiltCardProps) {
     setGlare({ x: 50, y: 50, opacity: 0 })
   }
 
-  const regionColor =
-    product.category === 'East Asia' ? '#c28223' :
-    product.category === 'Southeast Asia' ? '#228b68' :
-    '#c85a32'
+  const regionColor = getRegionColor(product.country)
 
   return (
     <Link to={`/product/${product.id}`}>
@@ -133,7 +130,7 @@ export default function SpecimenCardTilt({ count = 6 }: SpecimenCardTiltProps) {
   }
 
   const getCatalogNumber = (product: typeof products[0], index: number) => {
-    const regionCode = REGION_CODES[product.category] || 'XX'
+    const regionCode = REGION_CODES[getRegion(product.country)] || 'XX'
     const countryCode = COUNTRY_CODES[product.country] || product.country.slice(0, 2).toUpperCase()
     return `RC-${regionCode}-${countryCode}-26-${product.ply}-${String(index + 1).padStart(2, '0')}`
   }

@@ -2,7 +2,8 @@ import { useEffect, useRef, useState, lazy, Suspense } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router'
-import { ArrowLeft, LayoutGrid, MapPin, Monitor, BookOpen, FileText, Users, Lightbulb } from 'lucide-react'
+import React from 'react'
+import { ArrowLeft, LayoutGrid, MapPin, FileText, Lightbulb } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -152,7 +153,12 @@ export default function ExhibitionPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {coreZones.map((zone, index) => (
-              <div key={index} className="ex-item bg-[#141414] border border-white/[0.04] rounded-2xl p-6 hover:border-white/[0.08] transition-all group cursor-pointer">
+              <div
+                key={index}
+                id={['zone-vitrine', 'zone-extinct', 'zone-submit'][index]}
+                data-zone-section
+                className="ex-item bg-[#141414] border border-white/[0.04] rounded-2xl p-6 hover:border-white/[0.08] transition-all group cursor-pointer scroll-mt-36"
+              >
                 <div className="mb-3">
                   <h3 className="font-display text-xl text-[#f0ece8] mb-1 group-hover:text-[#c28223] transition-colors">
                     {zone.title}

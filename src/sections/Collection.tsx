@@ -45,7 +45,7 @@ const COUNTRY_CODES: Record<string, string> = {
 }
 
 function getCatalogNumber(product: Product, index: number): string {
-  const regionCode = REGION_CODES[getRegion(product)] || 'XX'
+  const regionCode = REGION_CODES[getRegion(product.country)] || 'XX'
   const countryCode = COUNTRY_CODES[product.country] || product.country.slice(0, 2).toUpperCase()
   const year = '26'
   const ply = product.ply
@@ -195,8 +195,9 @@ export default function Collection() {
     searchTimeout.current = setTimeout(() => setDebouncedSearch(search), 250)
   }, [search])
 
+  const filterKey = `${debouncedSearch}|${sort}|${filterBrand}|${filterCountry}|${filterRegion}`
+
   useEffect(() => {
-    setVisibleSet(new Set())
     const grid = gridRef.current
     if (!grid) return
     const observer = new IntersectionObserver(
@@ -212,7 +213,7 @@ export default function Collection() {
     )
     grid.querySelectorAll('[data-index]').forEach((card) => observer.observe(card))
     return () => observer.disconnect()
-  }, [debouncedSearch, sort, filterBrand, filterCountry, filterRegion])
+  }, [filterKey])
 
   const filteredProducts = useMemo(() => {
     let result = [...products]
@@ -361,7 +362,7 @@ export default function Collection() {
         </div>
 
         {sort === 'region' && groupedByRegion ? (
-          <div ref={gridRef} className="space-y-20">
+          <div ref={gridRef} key={filterKey} className="space-y-20">
             {REGIONS.map((region) => {
               const regionProducts = groupedByRegion[region] || []
               if (regionProducts.length === 0) return null
@@ -389,7 +390,7 @@ export default function Collection() {
             })}
           </div>
         ) : (
-          <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={gridRef} key={filterKey} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayProducts.map((product, i) => (
               <div key={product.id} data-index={i}>
                 <SpecimenCard product={product} index={i} isVisible={visibleSet.has(i)} searchQuery={debouncedSearch} />

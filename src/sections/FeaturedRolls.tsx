@@ -66,7 +66,7 @@ export default function FeaturedRolls() {
             </p>
           </div>
           <Link
-            to="/#collection"
+            to="/collection"
             className="hidden sm:flex items-center gap-2 font-body text-sm text-white/40 hover:text-white/70 transition-colors"
           >
             View all <ArrowRight className="w-4 h-4" />

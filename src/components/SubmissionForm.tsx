@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { trpc } from '@/providers/trpc'
+import { trpc } from '@/lib/trpc'
 import { Camera, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error'

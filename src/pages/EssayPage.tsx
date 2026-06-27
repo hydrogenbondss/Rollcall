@@ -29,13 +29,15 @@ export default function EssayPage() {
     if (!page) return
 
     const ctx = gsap.context(() => {
-      gsap.fromTo('.essay-item',
-        { opacity: 0, y: 20 },
-        {
-          scrollTrigger: { trigger: '.essay-item', start: 'top 85%' },
-          opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
-        }
-      )
+      gsap.utils.toArray<HTMLElement>('.essay-item').forEach((item) => {
+        gsap.fromTo(item,
+          { opacity: 0, y: 20 },
+          {
+            scrollTrigger: { trigger: item, start: 'top 85%' },
+            opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
+          }
+        )
+      })
     }, page)
 
     return () => ctx.revert()

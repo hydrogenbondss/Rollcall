@@ -20,4 +20,21 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  // shadcn/ui components and shared hooks/contexts legitimately export
+  // non-component constants/helpers alongside components. Disable fast-refresh
+  // linting there rather than restructuring generated files.
+  {
+    files: ['src/components/ui/**/*.tsx', 'src/contexts/**/*.tsx', 'src/lib/**/*.ts'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
+  // The generated sidebar skeleton uses Math.random for placeholder widths.
+  // It is presentational fallback UI, not critical render logic.
+  {
+    files: ['src/components/ui/sidebar.tsx'],
+    rules: {
+      'react-hooks/purity': 'off',
+    },
+  },
 ])

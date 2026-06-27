@@ -8,7 +8,7 @@ import AboutPage from './pages/AboutPage'
 import EssayPage from './pages/EssayPage'
 import NotFound from './pages/NotFound'
 import BackToTop from './components/BackToTop'
-import PlyChatbot from './components/PlyChatbot'
+
 import CustomCursor from './components/CustomCursor'
 import CompareDrawer from './components/CompareDrawer'
 import CompareIndicator from './components/CompareIndicator'
@@ -43,7 +43,6 @@ export default function App() {
         </Routes>
       </PageTransition>
       <BackToTop />
-      <PlyChatbot />
     </>
   )
 }

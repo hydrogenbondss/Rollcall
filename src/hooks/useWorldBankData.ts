@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 
 interface WBCountryData {
   country: string;
@@ -83,13 +83,13 @@ export function useWorldBankData() {
     return entry?.gdpPerCapita ?? null;
   };
 
-  return useMemo(() => ({
+  return {
     data,
     loading,
     error,
     getGdpForCountry,
     getGdpForCode,
-  }), [data, loading, error]);
+  };
 }
 
 export type { WBCountryData };
