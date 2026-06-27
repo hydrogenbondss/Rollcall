@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router'
-import { ArrowLeft, Printer, FileText, MapPin, BarChart3, Calendar, DollarSign, Mail } from 'lucide-react'
+import { ArrowLeft, Printer, FileText, MapPin, BarChart3, Calendar, DollarSign, Send } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -190,13 +190,13 @@ export default function GrantSummaryPage() {
         {/* Contact */}
         <section className="mb-12 grant-item bg-[#1a1a1a] text-white rounded-2xl p-8 print:bg-white print:text-[#1a1a1a] print:border print:border-black/10">
           <h2 className="font-display text-lg uppercase tracking-wider mb-4 flex items-center gap-2">
-            <Mail className="w-4 h-4" />
+            <Send className="w-4 h-4" />
             Contact
           </h2>
           <p className="font-body text-[15px] leading-relaxed mb-4 opacity-90 print:opacity-100 print:text-[#444]">
-            For exhibition proposals, academic inquiries, and grant discussions, please contact the project lead.
+            For exhibition proposals, academic inquiries, and grant discussions, please use the correspondence form on the archive site.
           </p>
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4 mb-4">
             <div>
               <p className="font-mono text-[9px] uppercase tracking-wider opacity-60 print:opacity-100 print:text-[#666]">Project Lead</p>
               <p className="font-body text-[14px]">Jeffrey Nicholas Tse</p>
@@ -206,9 +206,13 @@ export default function GrantSummaryPage() {
               <p className="font-body text-[14px]">Hong Kong, 2026</p>
             </div>
           </div>
-          <p className="font-body text-[13px] mt-4 opacity-70 print:opacity-100 print:text-[#666]">
-            Full archive, sources, and methodology at <strong>rollcall.archive</strong> (or linked from the main site).
-          </p>
+          <a
+            href="/#community"
+            className="inline-flex items-center gap-2 font-body text-[12px] text-[#c28223] hover:text-[#f0ece8] transition-colors print:text-[#c28223]"
+          >
+            Open correspondence form
+            <span className="w-4 h-px bg-current" />
+          </a>
         </section>
 
         <footer className="grant-item pt-8 border-t border-black/10 text-center print:hidden">

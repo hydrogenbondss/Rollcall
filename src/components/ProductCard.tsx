@@ -105,6 +105,14 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
           {/* Region accent bar */}
           <div className="absolute top-0 left-0 right-0 h-[2px] z-10" style={{ backgroundColor: regionColor, opacity: 0.7 }} />
 
+          {/* Verification badge */}
+          <div className="absolute top-3 right-3 z-20">
+            <span className={`flex items-center gap-1 font-mono text-[8px] uppercase tracking-wider px-2 py-1 rounded-full border ${product.verified ? 'bg-[#228b68]/15 text-[#228b68] border-[#228b68]/20' : 'bg-[#c85a32]/15 text-[#c85a32] border-[#c85a32]/20'}`}>
+              <span className={`w-1 h-1 rounded-full ${product.verified ? 'bg-[#228b68]' : 'bg-[#c85a32]'}`} />
+              {product.verified ? 'Verified' : 'Community'}
+            </span>
+          </div>
+
           {/* Image */}
           <div className="relative aspect-square overflow-hidden bg-white/5">
             {/* Blur placeholder */}

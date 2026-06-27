@@ -228,6 +228,17 @@ export default function ProductDetail() {
               <h1 className="detail-item font-display text-3xl sm:text-4xl font-medium text-[#f0ece8] mb-3 leading-tight">
                 {product.name}
               </h1>
+              <div className="detail-item mb-4">
+                <span className={`inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full border ${product.verified ? 'bg-[#228b68]/15 text-[#228b68] border-[#228b68]/20' : 'bg-[#c85a32]/15 text-[#c85a32] border-[#c85a32]/20'}`}>
+                  <span className={`w-1.5 h-1.5 rounded-full ${product.verified ? 'bg-[#228b68]' : 'bg-[#c85a32]'}`} />
+                  {product.verified ? 'Verified specimen' : 'Community-sourced specimen'}
+                </span>
+                <span className="font-body text-[11px] text-[#888] ml-3">
+                  {product.verified
+                    ? 'Confirmed by manufacturer or retailer source.'
+                    : 'Brand and market confirmed; product details from field observation.'}
+                </span>
+              </div>
               {product.badges && product.badges.length > 0 && (
                 <div className="detail-item flex flex-wrap gap-2 mb-4">
                   {product.badges.map(badge => {
