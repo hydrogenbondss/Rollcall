@@ -177,11 +177,11 @@
       "prompt": "Studio product photo of ONE plastic-wrapped 10-roll pack of Premier 3-Ply Bathroom Tissue (NTPM, Malaysia) standing upright on a clean dark charcoal seamless background. Glossy clear film wrap revealing white flower-embossed rolls; deep royal-blue and white graphics with a bold red 'PREMIER' wordmark, soft pink floral motifs and gold accents, '3 PLY' and '10 ROLLS' callouts. Soft museum spotlighting, photorealistic e-commerce catalogue style, sharp focus, vertical 3:4.",
       "sources": ["https://ntpm.com.my/product-premier-tissue/"] },
 
-    { "id": "mayflower-premium", "brand": "Mayflower", "targetFile": "mayflower-premium-render.png", "confidence": "medium",
-      "palette": ["white #FFFFFF", "brand blue #0A4DA2", "magenta #E2007A", "leaf green #2BAE66"],
-      "description": "Mayflower (五月花, YFY Paper) Premium 2-ply, 10 rolls (Philippines); white pack, cursive blue 'Mayflower' wordmark with petal-flower logo, pink/green floral accents.",
-      "prompt": "Studio product photo of ONE plastic-wrapped 10-roll pack of Mayflower Premium Bathroom Tissue, 2-Ply, standing upright on a clean dark charcoal seamless background with soft museum spotlighting and gentle reflection. Glossy white printed plastic wrap showing ten stacked white rolls through the film; cursive blue 'Mayflower' English wordmark with a stylized petal-flower logo, pink and green floral accents, '2-PLY / 10 ROLLS / UNSCENTED' callouts. Photorealistic e-commerce catalogue style, vertical 3:4.",
-      "sources": ["https://www.yfycpg.com/en/about-us"] },
+    { "id": "tisyu-mega", "brand": "Tisyu", "targetFile": "tisyu-mega-render.png", "confidence": "medium",
+      "palette": ["bright blue #1B75BB", "white #FFFFFF", "fresh green #3BB44A"],
+      "description": "Tisyu (SCPA) Mega Roll 3-ply, single large laminated roll (Philippines); glossy blue/white film with green accents, rounded cursive 'Tisyu' wordmark, water-droplet motif, '3-PLY' and 'MEGA ROLL 1000' burst, '100% Virgin Pulp'.",
+      "prompt": "Studio product photo of ONE plastic-wrapped single Mega Roll of Tisyu bathroom tissue, 3-Ply, standing upright on a clean dark charcoal seamless background with soft museum spotlighting and gentle reflection. Glossy bright-blue and white printed plastic wrap with fresh-green accents; large rounded friendly cursive 'Tisyu' wordmark, a water-droplet softness motif, a bold burst reading '3-PLY' and 'MEGA ROLL 1000', a photo of the white embossed roll on the blue field, small '100% Virgin Pulp' text. Photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://scpa.com.ph/tisyu-new-products", "https://www.waltermartdelivery.com.ph/"] },
 
     { "id": "paseo-kingsize", "brand": "Paseo", "targetFile": "paseo-kingsize-render.png", "confidence": "high",
       "palette": ["Paseo blue #1565C0", "teardrop red-orange #F4511E", "white #FFFFFF", "navy #0D47A1"],
@@ -219,11 +219,11 @@
       "prompt": "Studio product photo of ONE clear plastic-wrapped 4-roll pack of 'Eko Fresh' 2-ply toilet tissue, standing upright on a clean dark charcoal seamless background with soft museum spotlighting. Glossy printed film wrap in fresh leaf-green and white with the green 'Eko Fresh' wordmark, eco leaf motifs and a '2 Ply / 4 Rolls' callout; four soft pure-white rolls visible through the film. Photorealistic e-commerce catalogue style, crisp focus, vertical 3:4.",
       "sources": ["https://www.iclbrands.lk/brands/eko-fresh"] },
 
-    { "id": "myanmar-yangon-tissue", "brand": "Yangon International", "targetFile": "myanmar-yangon-tissue-render.png", "confidence": "low", "form": "reconstructed (extinct specimen)",
-      "palette": ["cobalt blue #0050A0", "vermilion red #D81E2C", "white #FFFFFF", "clear film"],
-      "description": "RECONSTRUCTED: no surviving packaging found for this extinct Myanmar specimen; render is a plausible regional economy pack — clear heat-sealed film, simple 2-color flexo print, bilingual Burmese/English, by the real maker Myanmar Tissue World.",
-      "prompt": "Studio product photograph of ONE basic economy Myanmar toilet-roll pack on a clean dark charcoal seamless background, soft museum spotlighting. A clear heat-sealed plastic film sleeve holding ten white 2-ply toilet rolls in two stacked rows of five, rolls visible through the film with crinkled folds and crimped ends. Simple flat two-color flexographic print: bold cobalt-blue and vermilion-red English wordmark 'Yangon International' above larger white-outlined Burmese script, modest red banner accents, faint registration imperfections. No-frills regional discount-store look. Photorealistic e-commerce catalogue style, vertical 3:4.",
-      "sources": ["https://myanmartissueworld.com/"] },
+    { "id": "smile-myanmar", "brand": "Smile", "targetFile": "smile-myanmar-render.png", "confidence": "low", "form": "illustrative (packaging not visually confirmed)",
+      "palette": ["bright blue #1466B5", "white #FFFFFF", "red accent #E5202A"],
+      "description": "ILLUSTRATIVE: Smile is a real tissue brand sold in the Myanmar market (Shop.com.mm brand store), but its toilet-roll packaging could not be visually confirmed (Myanmar retail pages blocked automated access). Render reflects the brand's typical value-household look: 'Smile' wordmark with a smiley motif on a white/blue pack with a red accent, bilingual Burmese/English specs.",
+      "prompt": "Studio product photograph of ONE plastic-wrapped 10-roll pack of 'Smile' bathroom tissue, 2-Ply, standing upright on a clean dark charcoal seamless background with soft museum spotlighting and gentle reflection. Bright white and blue printed plastic film with a red accent; a friendly 'Smile' English wordmark paired with a small smiley-face motif, white 2-ply rolls visible through a clear window, busy bottom band of product specs in both English and Burmese script. Everyday value-household look. Photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://www.shop.com.mm/smile-tissue-124202473/"] },
 
     { "id": "lency-cambodia", "brand": "Lency", "targetFile": "lency-cambodia-render.png", "confidence": "medium",
       "palette": ["sky blue #1CA9E0", "leaf green #4CAF50", "white #FFFFFF", "pink #F48FB1"],
