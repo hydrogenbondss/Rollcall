@@ -1,11 +1,12 @@
 export default function ExhibitionFloorPlan2D() {
+  // The exhibition is three parts. The entrance is shown for orientation only
+  // (it's where visitors arrive, not a part of the work).
   const zones = [
     { id: 'archive', n: 1, label: 'The Archive Wall', x: 12, y: 18, w: 76, h: 12, color: '#c28223' },
-    { id: 'living', n: 2, label: 'Living Specimen', x: 39, y: 44, w: 22, h: 18, color: '#c4728e' },
-    { id: 'extinction', n: 3, label: 'The Extinction Corner', x: 70, y: 70, w: 18, h: 16, color: '#c85a32' },
-    { id: 'submission', n: 4, label: 'Submission Desk', x: 12, y: 72, w: 20, h: 12, color: '#f0ece8' },
-    { id: 'entrance', n: 5, label: 'Entrance', x: 45, y: 90, w: 10, h: 6, color: '#555' },
+    { id: 'living', n: 2, label: 'The Living Specimen', x: 39, y: 43, w: 22, h: 18, color: '#c4728e' },
+    { id: 'extinction', n: 3, label: 'The Extinction Corner', x: 64, y: 70, w: 24, h: 14, color: '#c85a32' },
   ]
+  const entrance = { x: 50, y: 90 }
 
   return (
     <div className="w-full bg-[#141414] rounded-2xl border border-white/[0.04] p-6 sm:p-8">
@@ -15,16 +16,18 @@ export default function ExhibitionFloorPlan2D() {
 
         {/* Visitor path: Entrance -> Archive Wall -> Living Specimen -> Extinction Corner */}
         <path
-          d="M 50 90 L 50 30 L 50 53 L 79 78"
+          d="M 50 90 L 50 30 L 50 52 L 76 77"
           fill="none"
           stroke="rgba(194,130,35,0.25)"
           strokeWidth="0.5"
           strokeDasharray="2 2"
         />
-        <circle cx="50" cy="90" r="1.4" fill="#555" />
-        <circle cx="79" cy="78" r="1.6" fill="#c85a32" />
 
-        {/* Zones — numbered markers keyed to the legend below */}
+        {/* Entrance — orientation marker, unnumbered */}
+        <circle cx={entrance.x} cy={entrance.y} r="1.4" fill="#555" />
+        <text x={entrance.x} y={entrance.y + 4} textAnchor="middle" fill="#6b6b6b" fontSize="2.6" fontFamily="monospace" letterSpacing="0.3">ENTRANCE</text>
+
+        {/* The three parts — numbered markers keyed to the legend below */}
         {zones.map((z) => (
           <g key={z.id}>
             <rect
