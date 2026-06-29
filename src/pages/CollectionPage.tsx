@@ -29,7 +29,6 @@ export default function CollectionPage() {
       <header className="pt-32 pb-12 px-6 sm:px-8 max-w-[1200px] mx-auto">
         <div className="flex items-center gap-3 mb-3">
           <LayoutGrid className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
-          <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#a8a29a]">01</p>
         </div>
         <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4">The Archive Wall</h1>
         <p className="font-body text-sm text-[#a8a29a] max-w-lg leading-relaxed">

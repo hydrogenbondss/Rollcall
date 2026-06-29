@@ -59,7 +59,6 @@ export default function Navigation() {
               const isActive = location.pathname === link.to
               return (
                 <Link key={link.to} to={link.to} className="group relative py-1">
-                  <span className={`font-mono text-[9px] tracking-wider mr-2 transition-colors ${isActive ? 'text-[#c28223]' : 'text-[#a8a29a]'}`}>{link.num}</span>
                   <span className={`font-body text-[13px] transition-colors ${isActive ? 'text-[#f0ece8]' : 'text-[#a8a29a] group-hover:text-[#f0ece8]'}`}>{link.label}</span>
                   <span className={`absolute bottom-0 left-0 h-px bg-[#f0ece8] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                 </Link>
@@ -90,7 +89,6 @@ export default function Navigation() {
               const isActive = location.pathname === link.to
               return (
                 <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)} className="flex items-baseline gap-4 py-3 border-b border-white/5 group">
-                  <span className={`font-mono text-[10px] tracking-wider ${isActive ? 'text-[#c28223]' : 'text-white/30'}`}>{link.num}</span>
                   <span className={`font-display text-3xl transition-colors ${isActive ? 'text-white' : 'text-white/90 group-hover:text-white'}`}>{link.label}</span>
                 </Link>
               )

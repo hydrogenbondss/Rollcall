@@ -68,7 +68,6 @@ export default function EssayPage() {
         <header className="mb-16 essay-item">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-4 h-4 text-[#8b7ec8]" strokeWidth={1.5} />
-            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#a8a29a]">04</p>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4 leading-[0.95]">
             One-Ply Realism

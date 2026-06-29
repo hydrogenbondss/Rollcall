@@ -115,7 +115,7 @@ export default function ExhibitionPage() {
       {/* The Experience */}
       <section id="experience" data-zone-section className="ex-section py-20 border-t border-white/[0.04] scroll-mt-28">
         <div className="max-w-[820px] mx-auto px-6 sm:px-8">
-          <p className="ex-item font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-4">01 · The Experience</p>
+          <p className="ex-item font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-4">The Experience</p>
           <h2 className="ex-item font-display text-4xl sm:text-5xl mb-8">How visitors move through the work</h2>
           <p className="ex-item font-body text-[16px] text-[#a09890] leading-[1.85] max-w-[640px]">
             Visitors enter through <span className="text-[#f0ece8]">The Archive Wall</span>, a quiet field of
@@ -131,7 +131,7 @@ export default function ExhibitionPage() {
       <section id="zone-archive" data-zone-section className="ex-section py-20 border-t border-white/[0.04] scroll-mt-28">
         <div className="max-w-[1100px] mx-auto px-6 sm:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <div className="ex-item order-2 lg:order-1">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-4">02 · Zone One</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-4">The Physical Collection</p>
             <h2 className="font-display text-4xl sm:text-5xl mb-5">The Archive Wall</h2>
             <p className="font-body text-[15px] text-[#a09890] leading-[1.85] mb-4">
               A long wall lined with small museum-style vitrines. Each holds one physical specimen alongside a
@@ -151,7 +151,7 @@ export default function ExhibitionPage() {
       <section id="zone-living" data-zone-section className="ex-section py-24 border-t border-white/[0.04] scroll-mt-28 bg-gradient-to-b from-[#c4728e]/[0.04] to-transparent">
         <div className="max-w-[1100px] mx-auto px-6 sm:px-8">
           <div className="ex-item text-center max-w-[720px] mx-auto mb-12">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c4728e] mb-4">03 · The Signature Installation</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c4728e] mb-4">The Signature Installation</p>
             <h2 className="font-display text-5xl sm:text-6xl mb-6 leading-[0.95]">The Living Specimen</h2>
             <p className="font-body text-[16px] text-[#a09890] leading-[1.85]">
               A single archived specimen is presented as a volumetric digital object. As it slowly rotates, its
@@ -186,7 +186,7 @@ export default function ExhibitionPage() {
             <RenderPlaceholder label="The Extinction Corner" tint="#c85a32" />
           </div>
           <div className="ex-item">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c85a32] mb-4">04 · Zone Three</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c85a32] mb-4">What We Lose</p>
             <h2 className="font-display text-4xl sm:text-5xl mb-5">The Extinction Corner</h2>
             <p className="font-body text-[15px] text-[#a09890] leading-[1.85] mb-4">
               A dimly lit wall dedicated to discontinued or no-longer-produced packaging. The reduced atmosphere
@@ -202,7 +202,7 @@ export default function ExhibitionPage() {
       {/* Future Development */}
       <section id="future-ideas" data-zone-section className="ex-section py-20 border-t border-white/[0.04] scroll-mt-28">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
-          <p className="ex-item font-mono text-[10px] uppercase tracking-[0.4em] text-[#a8a29a] mb-4">05 · Future Development</p>
+          <p className="ex-item font-mono text-[10px] uppercase tracking-[0.4em] text-[#a8a29a] mb-4">Looking Ahead</p>
           <h2 className="ex-item font-display text-4xl sm:text-5xl mb-4">Future Development</h2>
           <p className="ex-item font-body text-sm text-[#a8a29a] max-w-lg mb-12 leading-relaxed">
             Beyond the core route, several directions remain conceptually possible. These could be developed in future
