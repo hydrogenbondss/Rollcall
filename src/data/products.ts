@@ -363,7 +363,6 @@ export const products: Product[] = [
     condition: 'good',
     rarity: 'uncommon',
     archivalStatus: 'discontinued',
-    lastObserved: '2026-03-15',
   },
 
   // ==================== SINGAPORE (Verified) ====================
@@ -1076,7 +1075,6 @@ export const products: Product[] = [
     condition: 'fair',
     rarity: 'rare',
     archivalStatus: 'extinct',
-    lastObserved: '2026-01-20',
   },
 
   // ==================== CAMBODIA (Community — Import Brand) ====================
