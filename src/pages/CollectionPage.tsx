@@ -31,9 +31,9 @@ export default function CollectionPage() {
           <LayoutGrid className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
           <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">01</p>
         </div>
-        <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4">The Archive</h1>
+        <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4">The Archive Wall</h1>
         <p className="font-body text-sm text-[#999] max-w-lg leading-relaxed">
-          Current collection: {specimenCount} archived specimens from {countryCount} countries. Filter by region, country, brand, or search by name. Click any specimen for its accession record.
+          The complete collection as a single archival system — currently {specimenCount} specimens from {countryCount} countries. Filter by region, country, or brand, and open any specimen for its accession record.
         </p>
       </header>
 

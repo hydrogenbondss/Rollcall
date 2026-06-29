@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState, Suspense, lazy } from 'react'
+import { useEffect, useRef, Suspense, lazy } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Link } from 'react-router'
+import { Link, useSearchParams } from 'react-router'
 import { ArrowLeft, FileText, MapPin } from 'lucide-react'
 import { specimenCount, countryCount } from '../data/stats'
 
@@ -28,15 +28,6 @@ const futureZones = [
   },
 ]
 
-const zoneNavItems = [
-  { label: 'The Experience', id: 'experience', color: '#c28223' },
-  { label: 'Archive Wall', id: 'zone-archive', color: '#c28223' },
-  { label: 'Living Specimen', id: 'zone-living', color: '#c4728e' },
-  { label: 'Extinction Corner', id: 'zone-extinct', color: '#c85a32' },
-  { label: 'Future Development', id: 'future-ideas', color: '#888' },
-  { label: 'Realization', id: 'practical-info', color: '#888' },
-]
-
 function RenderPlaceholder({ label, tint }: { label: string; tint: string }) {
   return (
     <div
@@ -57,7 +48,17 @@ function RenderPlaceholder({ label, tint }: { label: string; tint: string }) {
 
 export default function ExhibitionPage() {
   const pageRef = useRef<HTMLDivElement>(null)
-  const [activeZone, setActiveZone] = useState<string>('experience')
+  const [searchParams] = useSearchParams()
+
+  // Deep-link: /exhibition?zone=zone-living scrolls to that component on arrival.
+  useEffect(() => {
+    const zone = searchParams.get('zone')
+    if (!zone) return
+    const t = setTimeout(() => {
+      document.getElementById(zone)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 500)
+    return () => clearTimeout(t)
+  }, [searchParams])
 
   useEffect(() => {
     const page = pageRef.current
@@ -67,24 +68,13 @@ export default function ExhibitionPage() {
       gsap.utils.toArray<HTMLElement>('.ex-section').forEach((section) => {
         gsap.fromTo(section.querySelectorAll('.ex-item'),
           { opacity: 0, y: 30 },
-          { scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' }, opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out' }
+          { scrollTrigger: { trigger: section, start: 'top 85%', toggleActions: 'play none none none' }, opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out' }
         )
       })
     }, page)
 
-    const observer = new IntersectionObserver(
-      (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) setActiveZone(entry.target.id) }) },
-      { rootMargin: '-30% 0px -60% 0px' }
-    )
-
-    document.querySelectorAll('[data-zone-section]').forEach((el) => observer.observe(el))
-
-    return () => { ctx.revert(); observer.disconnect() }
+    return () => { ctx.revert() }
   }, [])
-
-  const scrollToZone = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
 
   return (
     <div ref={pageRef} className="min-h-screen bg-[#0d0d0d] text-[#f0ece8]">
@@ -99,24 +89,8 @@ export default function ExhibitionPage() {
         </div>
       </nav>
 
-      {/* Sticky Zone Navigation */}
-      <div className="fixed left-0 right-0 z-[101] bg-[#0d0d0d]/95 backdrop-blur-md border-b border-[#c28223]/10 top-16 shadow-lg shadow-black/20">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 py-3">
-          <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto no-scrollbar">
-            <span className="font-mono text-[9px] text-[#888] uppercase tracking-wider shrink-0 mr-2 hidden sm:block">Sections</span>
-            {zoneNavItems.map((item) => (
-              <button key={item.id} onClick={() => scrollToZone(item.id)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer ${activeZone === item.id ? 'bg-white/[0.06]' : 'hover:bg-white/[0.03]'}`}>
-                <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: activeZone === item.id ? item.color : '#555' }} />
-                <span className={`font-body text-[11px] hidden lg:block transition-colors ${activeZone === item.id ? 'text-[#f0ece8]' : 'text-[#888]'}`}>{item.label}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Hero */}
-      <section className="ex-section pt-36 pb-20 px-6 sm:px-8">
+      <section className="ex-section pt-28 pb-20 px-6 sm:px-8">
         <div className="max-w-[820px] mx-auto text-center">
           <p className="ex-item font-mono text-[10px] uppercase tracking-[0.5em] text-[#c28223] mb-6">Exhibition Proposal</p>
           <h1 className="ex-item font-display text-6xl sm:text-7xl md:text-8xl tracking-tighter leading-[0.85] mb-8">The Exhibition</h1>

@@ -3,55 +3,13 @@ import { Link } from 'react-router'
 import { Search, SlidersHorizontal, X } from 'lucide-react'
 import type { Product } from '../data/products'
 import { products, brands, countries, getRegion } from '../data/products'
+import { accessionId } from '../data/accession'
 import { usePaperRustle } from '../hooks/usePaperRustle'
 
 type SortOption = 'popular' | 'price-asc' | 'price-desc' | 'ply-desc' | 'region'
 
 const REGIONS = ['East Asia', 'Southeast Asia', 'South Asia'] as const
 const INITIAL_DISPLAY_COUNT = 12
-
-// Region codes
-const REGION_CODES: Record<string, string> = {
-  'East Asia': 'EA',
-  'Southeast Asia': 'SEA',
-  'South Asia': 'SA',
-}
-
-// Country codes (ISO 3166-1 alpha-2 subset for our regions)
-const COUNTRY_CODES: Record<string, string> = {
-  'Japan': 'JP',
-  'South Korea': 'KR',
-  'China': 'CN',
-  'Hong Kong': 'HK',
-  'Taiwan': 'TW',
-  'Macau': 'MO',
-  'Singapore': 'SG',
-  'Malaysia': 'MY',
-  'Thailand': 'TH',
-  'Philippines': 'PH',
-  'Indonesia': 'ID',
-  'Vietnam': 'VN',
-  'Brunei': 'BN',
-  'Myanmar': 'MM',
-  'Cambodia': 'KH',
-  'Laos': 'LA',
-  'India': 'IN',
-  'Bangladesh': 'BD',
-  'Sri Lanka': 'LK',
-  'Nepal': 'NP',
-  'Bhutan': 'BT',
-  'Maldives': 'MV',
-  'Pakistan': 'PK',
-}
-
-function getCatalogNumber(product: Product, index: number): string {
-  const regionCode = REGION_CODES[getRegion(product.country)] || 'XX'
-  const countryCode = COUNTRY_CODES[product.country] || product.country.slice(0, 2).toUpperCase()
-  const year = '26'
-  const ply = product.ply
-  const seq = String(index + 1).padStart(2, '0')
-  return `RC-${regionCode}-${countryCode}-${year}-${ply}-${seq}`
-}
 
 interface SpecimenCardProps {
   product: Product
@@ -64,7 +22,7 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
   const [imageLoaded, setImageLoaded] = useState(false)
   const [imgError, setImgError] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-  const catalogNo = getCatalogNumber(product, index)
+  const catalogNo = accessionId(product.id)
   const playRustle = usePaperRustle()
 
   const handleMouseEnter = () => {
@@ -188,7 +146,11 @@ export default function Collection() {
   const [debouncedSearch, setDebouncedSearch] = useState('')
   const searchTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
   const gridRef = useRef<HTMLDivElement>(null)
-  const [visibleSet, setVisibleSet] = useState<Set<number>>(new Set())
+  // Seed the first row of cards as visible so the grid never paints as an empty
+  // void if the IntersectionObserver is slow or doesn't fire.
+  const [visibleSet, setVisibleSet] = useState<Set<number>>(
+    () => new Set(Array.from({ length: INITIAL_DISPLAY_COUNT }, (_, i) => i))
+  )
 
   useEffect(() => {
     if (searchTimeout.current) clearTimeout(searchTimeout.current)
@@ -213,7 +175,7 @@ export default function Collection() {
     )
     grid.querySelectorAll('[data-index]').forEach((card) => observer.observe(card))
     return () => observer.disconnect()
-  }, [filterKey])
+  }, [filterKey, showAll])
 
   const filteredProducts = useMemo(() => {
     let result = [...products]
@@ -267,24 +229,8 @@ export default function Collection() {
   }, [filteredProducts, sort])
 
   return (
-    <section id="collection" className="w-full bg-[#0d0d0d] py-28">
+    <section id="collection" className="w-full bg-[#0d0d0d] pt-6 pb-28">
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-[#888] uppercase">Gallery I</span>
-            <span className="w-12 h-px bg-white/10" />
-            <span className="font-mono text-[10px] tracking-wider text-[#888]">{filteredProducts.length} specimens</span>
-          </div>
-          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl text-[#f0ece8] tracking-tight leading-[1.0] mb-6">
-            The Collection
-          </h2>
-          <p className="font-body text-sm text-[#999] max-w-lg leading-relaxed">
-            Each specimen has been catalogued and verified. Product reference
-            imagery sourced from official manufacturer channels and in-market
-            field documentation. Click any roll to view its full documentation.
-          </p>
-        </div>
-
         <div className="sticky top-16 z-30 bg-[#0d0d0d]/95 backdrop-blur-md py-5 mb-12 border-b border-white/5">
           <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-xs">
@@ -414,7 +360,7 @@ export default function Collection() {
               className="group inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#141414] border border-white/[0.06] hover:border-[#c28223]/30 transition-all cursor-pointer"
             >
               <span className="font-mono text-[10px] text-[#888] group-hover:text-[#c28223] uppercase tracking-wider transition-colors">
-                {showAll ? 'Show fewer' : `Show all ${filteredProducts.length} specimens`}
+                {showAll ? 'Show fewer' : 'Show the full archive'}
               </span>
               <svg className={`w-3 h-3 text-[#888] group-hover:text-[#c28223] transition-all ${showAll ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M6 9l6 6 6-6" />

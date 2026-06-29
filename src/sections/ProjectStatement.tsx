@@ -66,8 +66,12 @@ export default function ProjectStatement() {
 
           <div className="w-12 h-px bg-[#c28223]/20" />
 
+          <p className="font-serif-display text-xl sm:text-2xl italic text-[#f0ece8] leading-snug">
+            The work asks a single question — who decides what is worth remembering?
+          </p>
+
           <p className="font-body text-[15px] text-[#a09890] leading-[1.85]">
-            The work asks a single question: if we preserve porcelain in museums, why not the paper that touched more human skin than any ceramic ever made?
+            If we preserve porcelain in museums, why not the paper that has touched more human skin than any ceramic ever made?
           </p>
 
           <div className="pt-4">

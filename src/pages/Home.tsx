@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link, useNavigate } from 'react-router'
-import { ArrowRight, Dices, LayoutGrid, FileText, BookOpen, MapPin } from 'lucide-react'
+import { ArrowRight, Dices, LayoutGrid, MapPin, Layers } from 'lucide-react'
 import MatrixLanding from '../components/MatrixLanding'
 import Navigation from '../components/Navigation'
 import Footer from '../sections/Footer'
@@ -12,43 +12,38 @@ import { specimenCount, countryCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const pages = [
+const components = [
   {
     to: '/collection',
-    num: '01',
-    title: 'Collection',
-    desc: `${specimenCount} archived specimens across ${countryCount} Asian countries. Browse, filter, and explore the archive.`,
+    num: 'I',
+    title: 'The Archive Wall',
+    desc: `The complete collection of ${specimenCount} catalogued specimens, read as a single archival system.`,
     icon: LayoutGrid,
     color: '#c28223',
-    stat: 'The Archive',
   },
   {
-    to: '/exhibition',
-    num: '02',
-    title: 'Exhibition',
-    desc: 'A developing vision for bringing the digital archive into physical space through modular zones.',
-    icon: MapPin,
-    color: '#228b68',
-    stat: 'Vision',
-  },
-  {
-    to: '/about',
-    num: '03',
-    title: 'About',
-    desc: 'Project statement, methodology, data visualisation, and the story behind the archive.',
-    icon: FileText,
+    to: '/exhibition?zone=zone-living',
+    num: 'II',
+    title: 'Living Specimen',
+    desc: 'The centrepiece: one specimen enlarged into a rotating, dissected model that reveals what is hidden inside everyday packaging.',
+    icon: Layers,
     color: '#c4728e',
-    stat: 'Data + Methodology',
   },
   {
-    to: '/essay',
-    num: '04',
-    title: 'Essay',
-    desc: '"One-Ply Realism" — a long-form essay on toilet paper as material culture and infrastructure.',
-    icon: BookOpen,
-    color: '#8b7ec8',
-    stat: 'One-Ply Realism',
+    to: '/exhibition?zone=zone-extinct',
+    num: 'III',
+    title: 'The Extinction Corner',
+    desc: 'A quieter space for discontinued packaging — objects that have already disappeared from circulation.',
+    icon: MapPin,
+    color: '#c85a32',
   },
+]
+
+const secondaryLinks = [
+  { to: '/exhibition', label: 'The Exhibition' },
+  { to: '/about', label: 'About' },
+  { to: '/essay', label: 'Essay' },
+  { to: '/sources', label: 'Sources' },
 ]
 
 export default function Home() {
@@ -169,45 +164,34 @@ export default function Home() {
         {/* Why toilet paper */}
         <WhyToiletPaper />
 
-        {/* Navigation Cards */}
-        <section className="nav-cards max-w-[1000px] mx-auto px-6 sm:px-8 pb-12">
-          <div className="grid sm:grid-cols-2 gap-4">
-            {pages.map((page) => (
+        {/* The exhibition, in three parts */}
+        <section className="nav-cards max-w-[1100px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-8 h-px bg-[#c28223]/40" />
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223]">The exhibition, in three parts</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {components.map((c) => (
               <Link
-                key={page.to}
-                to={page.to}
-                className="nav-card group bg-[#141414] border border-white/[0.04] rounded-2xl p-6 hover:border-white/[0.08] transition-all"
+                key={c.title}
+                to={c.to}
+                className="nav-card group bg-[#141414] border border-white/[0.04] rounded-2xl p-6 hover:border-white/[0.08] transition-all flex flex-col"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <page.icon className="w-5 h-5" style={{ color: page.color }} strokeWidth={1.5} />
-                  <span className="font-mono text-[10px] text-[#888] tracking-wider">{page.num}</span>
+                  <c.icon className="w-5 h-5" style={{ color: c.color }} strokeWidth={1.5} />
+                  <span className="font-mono text-[10px] text-[#888] tracking-[0.25em]">{c.num}</span>
                 </div>
-                <h2 className="font-display text-xl text-[#f0ece8] mb-2 group-hover:text-[#c28223] transition-colors">{page.title}</h2>
-                <p className="font-body text-[13px] text-[#999] leading-relaxed mb-4">{page.desc}</p>
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] text-[#888] uppercase tracking-wider">{page.stat}</span>
-                  <ArrowRight className="w-4 h-4 text-[#888] group-hover:text-[#c28223] group-hover:translate-x-1 transition-all" strokeWidth={1.5} />
-                </div>
+                <h2 className="font-display text-xl text-[#f0ece8] mb-2 group-hover:text-[#c28223] transition-colors">{c.title}</h2>
+                <p className="font-body text-[13px] text-[#999] leading-relaxed mb-6 flex-1">{c.desc}</p>
+                <ArrowRight className="w-4 h-4 text-[#888] group-hover:text-[#c28223] group-hover:translate-x-1 transition-all" strokeWidth={1.5} />
               </Link>
             ))}
           </div>
-        </section>
-
-        {/* The Living Specimen — teaser pointing to the Exhibition */}
-        <section className="max-w-[1000px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
-          <div className="bg-[#141414] border border-white/[0.04] rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-            <div className="max-w-[520px]">
-              <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-3">The Living Specimen</p>
-              <h2 className="font-display text-3xl sm:text-4xl text-[#f0ece8] mb-3 leading-tight">An ordinary object, dissected like an artefact</h2>
-              <p className="font-body text-sm text-[#999] leading-relaxed">
-                The centrepiece of the exhibition: a single specimen enlarged into a volumetric model that
-                slowly separates to reveal the layers, materials, and metadata hidden inside everyday packaging.
-              </p>
-            </div>
-            <Link to="/exhibition" className="group inline-flex items-center gap-3 px-6 py-3 bg-[#0d0d0d] border border-white/[0.08] hover:border-[#c28223]/40 rounded-2xl transition-all shrink-0">
-              <span className="font-body text-sm text-[#f0ece8]">See the Exhibition</span>
-              <ArrowRight className="w-4 h-4 text-[#c28223] group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
-            </Link>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-8">
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888]">Also</span>
+            {secondaryLinks.map((l) => (
+              <Link key={l.to} to={l.to} className="font-body text-[13px] text-[#a8a29a] hover:text-[#f0ece8] transition-colors">{l.label}</Link>
+            ))}
           </div>
         </section>
 

@@ -70,8 +70,8 @@ export default function Community() {
             This Grows<br />With You
           </h2>
           <p className="font-body text-sm text-[#888] max-w-lg leading-relaxed">
-            The archive is incomplete by design. {specimenCount} specimens document what we have found so far.
-            The remaining thousands await discovery — in your hotel, your supermarket, your city.
+            The archive is incomplete by design. It is open and growing — the next specimen could come from
+            your hotel, your supermarket, your city.
           </p>
         </div>
 
@@ -131,14 +131,14 @@ export default function Community() {
           ))}
         </div>
 
-        {/* For Institutions & Grant Officers */}
+        {/* Colophon */}
         <div className="mt-16 pt-16 border-t border-white/[0.04]">
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#c28223] mb-3">For Institutions & Grant Officers</p>
-              <h3 className="font-display text-2xl text-[#f0ece8] mb-4">Support the next phase</h3>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#c28223] mb-3">Colophon</p>
+              <h3 className="font-display text-2xl text-[#f0ece8] mb-4">About this archive</h3>
               <p className="font-body text-[14px] text-[#a09890] leading-relaxed mb-4">
-                ROLL CALL is ready to scale from digital archive to physical exhibition. Funding would support expanded field documentation, a first public installation, and educational programming.
+                Roll Call is a long-term archival project documenting everyday consumer packaging across Asia. It is presented as a public, evolving archive — open to contributions, corrections, and collaboration with museums, galleries, and cultural institutions.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a

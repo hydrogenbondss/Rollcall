@@ -87,6 +87,9 @@ html {
   .font-body {
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   }
+  .font-mono {
+    font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Monaco, 'Cascadia Mono', 'Liberation Mono', monospace;
+  }
 }
 
 /* Entrance animation */

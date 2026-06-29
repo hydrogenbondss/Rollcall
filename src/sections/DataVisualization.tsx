@@ -32,14 +32,17 @@ export default function DataVisualization() {
     const section = sectionRef.current
     if (!section) return
     const ctx = gsap.context(() => {
-      gsap.from('.viz-title', {
-        scrollTrigger: { trigger: section, start: 'top 75%' },
-        opacity: 0, y: 40, duration: 1, ease: 'power3.out',
+      // fromTo (not from) with a guaranteed opacity:1 end state + once, so the
+      // chart can never be stranded invisible if the trigger is re-evaluated.
+      gsap.fromTo('.viz-title', { opacity: 0, y: 40 }, {
+        opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: section, start: 'top 90%', once: true },
       })
-      gsap.from('.viz-chart', {
-        scrollTrigger: { trigger: '.viz-chart', start: 'top 80%' },
-        opacity: 0, y: 60, duration: 1.2, delay: 0.2, ease: 'power3.out',
+      gsap.fromTo('.viz-chart', { opacity: 0, y: 60 }, {
+        opacity: 1, y: 0, duration: 1.2, delay: 0.1, ease: 'power3.out',
+        scrollTrigger: { trigger: '.viz-chart', start: 'top 90%', once: true },
       })
+      ScrollTrigger.refresh()
     }, section)
     return () => ctx.revert()
   }, [])

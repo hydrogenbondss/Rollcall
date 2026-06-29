@@ -110,7 +110,7 @@ export default function WorldMap() {
             )
           })()}
 
-          <svg viewBox="0 0 100 70" className="w-full h-auto" style={{ maxHeight: 360 }}>
+          <svg viewBox="34 12 60 60" className="w-full h-auto" style={{ maxHeight: 360 }}>
             {/* Grid */}
             <defs>
               <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -144,8 +144,10 @@ export default function WorldMap() {
                   <circle cx={pos.x} cy={pos.y} r={isHovered ? radius * 1.3 : radius}
                     fill={data.color} opacity={isHovered ? 1 : 0.9}
                     stroke={isHovered ? 'rgba(255,255,255,0.3)' : 'none'} strokeWidth="0.2" />
-                  {/* Label */}
-                  <text x={pos.x} y={pos.y + radius + 3} textAnchor="middle" fill="#8a8279" fontSize="2.8" fontFamily="monospace">{country.substring(0, 3).toUpperCase()}</text>
+                  {/* Country code only on hover — avoids an overlapping always-on label blob */}
+                  {isHovered && (
+                    <text x={pos.x} y={pos.y + radius + 3} textAnchor="middle" fill="#c4bdb5" fontSize="2.6" fontFamily="monospace">{country.substring(0, 3).toUpperCase()}</text>
+                  )}
                 </g>
               )
             })}

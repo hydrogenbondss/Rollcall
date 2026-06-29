@@ -201,9 +201,10 @@ export default function ProductDetail() {
             Back
           </button>
 
-          <div className="grid lg:grid-cols-[55%_45%] gap-10 lg:gap-16 specimen-print-card">
+          <div className="grid lg:grid-cols-[55%_45%] gap-10 lg:gap-16 items-start specimen-print-card">
             {/* Image */}
-            <div ref={leftRef}>
+            <div ref={leftRef} className="lg:sticky lg:top-24 self-start">
+
               <div className="rounded-2xl overflow-hidden bg-[#141414]">
                 <ProductImage
                   product={product}
@@ -328,7 +329,7 @@ export default function ProductDetail() {
                   {formatPrice(product.priceUSD)}
                 </span>
                 <span className="font-mono text-[10px] text-[#999] ml-2">
-                  {product.currency}
+                  recorded retail · {product.localPrice} {product.currency} local
                 </span>
               </div>
 
