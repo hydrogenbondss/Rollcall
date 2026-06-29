@@ -24,7 +24,7 @@ const components = [
   {
     to: '/exhibition?zone=zone-living',
     num: 'II',
-    title: 'Living Specimen',
+    title: 'The Living Specimen',
     desc: 'The centrepiece: one specimen enlarged into a rotating, dissected model that reveals what is hidden inside everyday packaging.',
     icon: Layers,
     color: '#c4728e',

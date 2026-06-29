@@ -20,7 +20,6 @@ const primarySources = [
   { category: 'Field Documentation', items: [
     'In-market photography and packaging documentation, Hong Kong, 2026',
     'Contributor submissions with location, date, and packaging metadata',
-    'Hotel bathroom specimen documentation (when explicitly credited on card)',
   ]},
   { category: 'Economic Data', items: [
     'World Bank Open Data — GDP per capita (current US$), latest available year',
