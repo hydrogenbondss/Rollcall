@@ -8,7 +8,7 @@ import { specimenCount, countryCount } from '../data/stats'
 gsap.registerPlugin(ScrollTrigger)
 
 import ExhibitionFloorPlan2D from '../components/ExhibitionFloorPlan2D'
-const ExplodedToiletPaper3D = lazy(() => import('../components/ExplodedToiletPaper3D'))
+const LivingSpecimen = lazy(() => import('../components/LivingSpecimenHologram'))
 
 const futureZones = [
   {
@@ -163,7 +163,7 @@ export default function ExhibitionPage() {
                 <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">Loading the specimen…</p>
               </div>
             }>
-              <ExplodedToiletPaper3D />
+              <LivingSpecimen />
             </Suspense>
           </div>
 
