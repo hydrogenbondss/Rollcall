@@ -40,7 +40,7 @@ export const illustrativeImageIds = new Set<string>([
   'premier-sg',
   'cutie-soft',
   'royal-gold',
-  'cellox-satin',
+  'zilk-extra-soft',
   'sanica-ecolayers',
   'paseo-elegant',
   'pulppy-supreme',
