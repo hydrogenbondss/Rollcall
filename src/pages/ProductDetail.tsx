@@ -29,7 +29,8 @@ import { useCurrency } from "../contexts/CurrencyContext";
 import { useCompare } from "../contexts/CompareContext";
 import Navigation from "../components/Navigation";
 import ProductCard from "../components/ProductCard";
-import ProductImage, { GENERIC_IMAGES } from "../components/ProductImage";
+import ProductImage from "../components/ProductImage";
+import { hasSpecimenPhoto, hasIllustrativeImage } from "../data/imageStatus";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,6 +59,7 @@ export default function ProductDetail() {
   const relatedRef = useRef<HTMLDivElement>(null);
   const [showMobileBar, setShowMobileBar] = useState(false);
   const [toast, setToast] = useState({ message: "", visible: false });
+  const [imgFailed, setImgFailed] = useState(false);
 
   const relatedProducts = useMemo(() => {
     if (!product) return [];
@@ -171,7 +173,10 @@ export default function ProductDetail() {
   }
 
   const comparing = isComparing(product.id);
-  const hasRealImage = !GENERIC_IMAGES.has(product.image);
+  // Whether an actual image is being shown (verified photo or researched render),
+  // and it loaded successfully. Drives the provenance note below the image.
+  const isIllustrative = hasIllustrativeImage(product.id);
+  const hasRealImage = hasSpecimenPhoto(product.id) && !imgFailed;
 
   const specs = [
     { icon: Layers, label: "Ply", value: `${product.ply}-Ply` },
@@ -211,12 +216,13 @@ export default function ProductDetail() {
                   aspectRatio="square"
                   className="rounded-2xl"
                   showLabel={!hasRealImage}
+                  onPhotoError={() => setImgFailed(true)}
                 />
               </div>
               {hasRealImage && (
                 <p className="mt-3 font-body text-[11px] text-[#a8a29a] flex items-center gap-1.5">
                   <Check className="w-3 h-3" />
-                  Product imagery sourced
+                  {isIllustrative ? 'Illustrative reconstruction — researched render, not a photograph' : 'Product imagery sourced'}
                 </p>
               )}
             </div>
