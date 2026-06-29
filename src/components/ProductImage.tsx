@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import { getFlagEmoji } from '../data/products'
+import { hasVerifiedImage } from '../data/imageStatus'
 import type { Product } from '../data/products'
 
 const GENERIC_IMAGES = new Set([
@@ -32,10 +33,13 @@ interface ProductImageProps {
 const ProductImage = memo(function ProductImage({
   product, className = '', aspectRatio = 'portrait', showLabel = true,
 }: ProductImageProps) {
+  // Only show the stored photo if it's a generic-but-real fallback OR a verified
+  // photograph. AI-generated/suspect images route to the archive placeholder.
   const isGeneric = GENERIC_IMAGES.has(product.image)
+  const showPhoto = !isGeneric && hasVerifiedImage(product.id)
   const aspectClass = aspectRatio === 'square' ? 'aspect-square' : aspectRatio === 'portrait' ? 'aspect-[4/5]' : ''
 
-  if (!isGeneric) {
+  if (showPhoto) {
     return (
       <div className={`${aspectClass} w-full overflow-hidden bg-[#1a1a1a] ${className}`}>
         <img src={product.image} alt={`${product.brand} ${product.name}`} className="w-full h-full object-cover" loading="lazy" />
@@ -75,10 +79,10 @@ const ProductImage = memo(function ProductImage({
             <span className="font-body text-[10px] uppercase tracking-widest">{product.ply}-ply</span>
           </div>
           
-          {/* "Photo coming" indicator */}
+          {/* Honest provenance indicator */}
           <div className="mt-6 px-3 py-1 rounded-full border border-white/10">
             <p className="font-body text-[9px] uppercase tracking-[0.2em] text-white/30">
-              Photo coming
+              Documentation pending
             </p>
           </div>
         </div>

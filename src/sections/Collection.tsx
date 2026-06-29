@@ -2,8 +2,9 @@ import { useState, useMemo, useRef, useEffect, useCallback } from 'react'
 import { Link } from 'react-router'
 import { Search, SlidersHorizontal, X } from 'lucide-react'
 import type { Product } from '../data/products'
-import { products, brands, countries, getRegion } from '../data/products'
+import { products, brands, countries, getRegion, getFlagEmoji } from '../data/products'
 import { accessionId } from '../data/accession'
+import { hasVerifiedImage } from '../data/imageStatus'
 import { usePaperRustle } from '../hooks/usePaperRustle'
 
 type SortOption = 'popular' | 'price-asc' | 'price-desc' | 'ply-desc' | 'region'
@@ -23,6 +24,7 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
   const [imgError, setImgError] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const catalogNo = accessionId(product.id)
+  const photo = hasVerifiedImage(product.id)
   const playRustle = usePaperRustle()
 
   const handleMouseEnter = () => {
@@ -73,24 +75,39 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
               }}
             />
 
-            {!imageLoaded && !imgError && (
-              <div className="absolute inset-0 bg-white/[0.03]">
-                <div className="absolute inset-0 backdrop-blur-xl" />
-              </div>
-            )}
-            {!imgError && (
-              <img
-                src={product.image}
-                alt={`${product.brand} ${product.name}`}
-                className={`img-zoom w-full h-full object-contain p-10 sm:p-14 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                loading="lazy"
-                onLoad={() => setImageLoaded(true)}
-                onError={() => { setImgError(true); setImageLoaded(true) }}
-              />
-            )}
-            {imgError && (
-              <div className="absolute inset-0 flex items-center justify-center z-30">
-                <span className="font-body text-[10px] uppercase tracking-widest text-[#888]">Specimen unavailable</span>
+            {photo ? (
+              <>
+                {!imageLoaded && !imgError && (
+                  <div className="absolute inset-0 bg-white/[0.03]">
+                    <div className="absolute inset-0 backdrop-blur-xl" />
+                  </div>
+                )}
+                {!imgError && (
+                  <img
+                    src={product.image}
+                    alt={`${product.brand} ${product.name}`}
+                    className={`img-zoom w-full h-full object-contain p-10 sm:p-14 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    loading="lazy"
+                    onLoad={() => setImageLoaded(true)}
+                    onError={() => { setImgError(true); setImageLoaded(true) }}
+                  />
+                )}
+                {imgError && (
+                  <div className="absolute inset-0 flex items-center justify-center z-30">
+                    <span className="font-body text-[10px] uppercase tracking-widest text-[#888]">Specimen unavailable</span>
+                  </div>
+                )}
+              </>
+            ) : (
+              // Honest placeholder: image audit found this specimen's photo to be
+              // unverified (AI-generated/suspect) — awaiting real documentation.
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                <div className="absolute top-4 left-4 w-6 h-px bg-white/15" />
+                <div className="absolute bottom-4 right-4 w-6 h-px bg-white/15" />
+                <span className="font-display text-[#f0ece8]/30 text-3xl mb-3">{getFlagEmoji(product.country)}</span>
+                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#f0ece8]/30">
+                  Documentation pending
+                </p>
               </div>
             )}
           </div>
