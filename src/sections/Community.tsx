@@ -70,7 +70,7 @@ export default function Community() {
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05] mb-6">
             This Grows<br />With You
           </h2>
-          <p className="font-body text-sm text-[#888] max-w-lg leading-relaxed">
+          <p className="font-body text-sm text-[#a8a29a] max-w-lg leading-relaxed">
             The archive is incomplete by design. It is open and growing — the next specimen could come from
             your hotel, your supermarket, your city.
           </p>
@@ -80,29 +80,29 @@ export default function Community() {
         <div className="comm-cities mb-16 pt-8 border-t border-white/[0.04]">
           <div className="grid sm:grid-cols-3 gap-8 mb-12">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mb-2">Current Status</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mb-2">Current Status</p>
               <p className="font-body text-[13px] text-[#a09890] leading-relaxed">
                 {specimenCount} specimens catalogued. {countryCount} countries covered. The project launched in Hong Kong in early 2026.
               </p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mb-2">What We Need</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mb-2">What We Need</p>
               <p className="font-body text-[13px] text-[#a09890] leading-relaxed">
                 First-hand photographs from Cambodia, Laos, Myanmar, and rural China. Verified product packaging from emerging markets.
               </p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mb-2">What We Offer</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mb-2">What We Offer</p>
               <p className="font-body text-[13px] text-[#a09890] leading-relaxed">
                 Full credit for all contributors. A permanent record of your observation in a public cultural archive.
               </p>
             </div>
           </div>
 
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mb-3">Territories Represented</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#a8a29a] mb-3">Territories Represented</p>
           <div className="flex flex-wrap gap-2">
             {['Hong Kong', 'Tokyo', 'Singapore', 'Bangkok', 'Mumbai', 'Dhaka', 'Jakarta', 'Manila', 'Seoul', 'Taipei', 'Yangon', 'Kathmandu', 'Hanoi', 'Phnom Penh', 'Colombo', 'Karachi', 'Lahore', 'Kuala Lumpur', 'Beijing', 'Ulaanbaatar', 'Vientiane'].map((city) => (
-              <span key={city} className="font-body text-[11px] text-[#888] bg-white/[0.05] px-3 py-1 rounded-full">{city}</span>
+              <span key={city} className="font-body text-[11px] text-[#a8a29a] bg-white/[0.05] px-3 py-1 rounded-full">{city}</span>
             ))}
           </div>
         </div>
@@ -123,7 +123,7 @@ export default function Community() {
                   <span className="w-4 h-px bg-current transition-all group-hover/link:w-6" />
                 </a>
               ) : (
-                <span className="inline-flex items-center gap-2 font-body text-[12px] text-[#888]">
+                <span className="inline-flex items-center gap-2 font-body text-[12px] text-[#a8a29a]">
                   {mode.action}
                   <span className="w-4 h-px bg-current" />
                 </span>
@@ -152,23 +152,23 @@ export default function Community() {
               </div>
             </div>
             <div className="bg-[#141414] border border-white/[0.04] rounded-2xl p-6">
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mb-4">At a glance</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mb-4">At a glance</p>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="font-display text-2xl text-[#f0ece8]">{specimenCount}</p>
-                  <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Specimens</p>
+                  <p className="font-body text-[10px] text-[#a8a29a] uppercase tracking-wider">Specimens</p>
                 </div>
                 <div>
                   <p className="font-display text-2xl text-[#f0ece8]">{countryCount}</p>
-                  <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Countries</p>
+                  <p className="font-body text-[10px] text-[#a8a29a] uppercase tracking-wider">Countries</p>
                 </div>
                 <div>
                   <p className="font-display text-2xl text-[#f0ece8]">3</p>
-                  <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Regions</p>
+                  <p className="font-body text-[10px] text-[#a8a29a] uppercase tracking-wider">Regions</p>
                 </div>
                 <div>
                   <p className="font-display text-2xl text-[#f0ece8]">2026</p>
-                  <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Launched</p>
+                  <p className="font-body text-[10px] text-[#a8a29a] uppercase tracking-wider">Launched</p>
                 </div>
               </div>
             </div>

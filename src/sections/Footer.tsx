@@ -16,16 +16,16 @@ export default function Footer() {
             <p className="font-body text-[15px] text-[#f0ece8]/60 leading-relaxed mb-2 max-w-sm">
               A material culture archive documenting toilet paper specimens from {countryCount} countries across contemporary Asia. Initiated in Hong Kong, 2026.
             </p>
-            <p className="font-body text-[13px] text-[#888] leading-relaxed mb-6 max-w-sm">
+            <p className="font-body text-[13px] text-[#a8a29a] leading-relaxed mb-6 max-w-sm">
               By Jeffrey Nicholas Tse
             </p>
-            <Link to="/about" className="flex items-center gap-2 text-[#888] hover:text-[#f0ece8] transition-colors group mb-3">
+            <Link to="/about" className="flex items-center gap-2 text-[#a8a29a] hover:text-[#f0ece8] transition-colors group mb-3">
               <Send className="w-3.5 h-3.5 group-hover:text-[#c28223]" />
               <p className="font-mono text-[11px]">
                 Contact &amp; submissions
               </p>
             </Link>
-            <Link to="/sources" className="flex items-center gap-2 text-[#888] hover:text-[#f0ece8] transition-colors group">
+            <Link to="/sources" className="flex items-center gap-2 text-[#a8a29a] hover:text-[#f0ece8] transition-colors group">
               <BookMarked className="w-3.5 h-3.5 group-hover:text-[#c28223]" />
               <p className="font-mono text-[11px]">
                 Sources & methodology
@@ -40,11 +40,11 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-6">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#f0ece8]/40 mb-1">Project</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#f0ece8]/60 mb-1">Project</p>
                 <p className="font-mono text-[11px] text-[#f0ece8]/60">Est. 2026</p>
               </div>
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#f0ece8]/40 mb-1">Origin</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#f0ece8]/60 mb-1">Origin</p>
                 <p className="font-mono text-[11px] text-[#f0ece8]/60">Hong Kong</p>
               </div>
             </div>
@@ -59,13 +59,13 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 py-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[10px] text-[#f0ece8]/40 tracking-wide">{specimenCount} specimens</span>
+            <span className="font-mono text-[10px] text-[#f0ece8]/60 tracking-wide">{specimenCount} specimens</span>
             <span className="w-px h-3 bg-white/10" />
-            <span className="font-mono text-[10px] text-[#f0ece8]/40 tracking-wide">{countryCount} countries</span>
+            <span className="font-mono text-[10px] text-[#f0ece8]/60 tracking-wide">{countryCount} countries</span>
             <span className="w-px h-3 bg-white/10" />
-            <span className="font-mono text-[10px] text-[#f0ece8]/40 tracking-wide">2026</span>
+            <span className="font-mono text-[10px] text-[#f0ece8]/60 tracking-wide">2026</span>
           </div>
-          <p className="font-mono text-[10px] text-[#f0ece8]/30">
+          <p className="font-mono text-[10px] text-[#f0ece8]/55">
             This archive is a work in progress
           </p>
         </div>

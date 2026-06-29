@@ -146,15 +146,15 @@ export default function ProductDetail() {
       <div className="min-h-screen bg-[#0d0d0d] flex items-center justify-center">
         <div className="text-center px-4">
           <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Package className="w-8 h-8 text-[#888]" />
+            <Package className="w-8 h-8 text-[#a8a29a]" />
           </div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#888] mb-3">
+          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#a8a29a] mb-3">
             Specimen Missing
           </p>
           <h1 className="font-display text-3xl font-medium text-[#f0ece8] mb-3">
             Specimen not found
           </h1>
-          <p className="font-body text-sm text-[#999] mb-6 max-w-sm mx-auto">
+          <p className="font-body text-sm text-[#a8a29a] mb-6 max-w-sm mx-auto">
             This catalog number may have been removed, or the reference is
             incorrect.
           </p>
@@ -195,7 +195,7 @@ export default function ProductDetail() {
           {/* Back */}
           <button
             onClick={() => window.history.back()}
-            className="mb-6 flex items-center gap-1.5 font-body text-sm text-[#999] hover:text-[#f0ece8] transition-colors"
+            className="mb-6 flex items-center gap-1.5 font-body text-sm text-[#a8a29a] hover:text-[#f0ece8] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back
@@ -214,7 +214,7 @@ export default function ProductDetail() {
                 />
               </div>
               {hasRealImage && (
-                <p className="mt-3 font-body text-[11px] text-[#999] flex items-center gap-1.5">
+                <p className="mt-3 font-body text-[11px] text-[#a8a29a] flex items-center gap-1.5">
                   <Check className="w-3 h-3" />
                   Product imagery sourced
                 </p>
@@ -229,7 +229,7 @@ export default function ProductDetail() {
                 </span>
               </div>
               <div className="detail-item mb-1">
-                <span className="font-body text-[11px] uppercase tracking-[0.15em] text-[#999]">
+                <span className="font-body text-[11px] uppercase tracking-[0.15em] text-[#a8a29a]">
                   {product.brand}
                 </span>
               </div>
@@ -241,7 +241,7 @@ export default function ProductDetail() {
                   <span className={`w-1.5 h-1.5 rounded-full ${product.verified ? 'bg-[#228b68]' : 'bg-[#c85a32]'}`} />
                   {product.verified ? 'Verified brand & origin' : 'Community-sourced'}
                 </span>
-                <span className="font-body text-[11px] text-[#888] ml-3">
+                <span className="font-body text-[11px] text-[#a8a29a] ml-3">
                   {product.verified
                     ? 'Brand, manufacturer, and country confirmed against public sources. Product specifics may include editorial detail.'
                     : 'Brand and market confirmed; product details from field observation.'}
@@ -264,7 +264,7 @@ export default function ProductDetail() {
                       Softest:
                         "bg-[#c4728e]/10 text-[#c4728e] border-[#c4728e]/20",
                       "Editor Pick":
-                        "bg-[#888]/10 text-[#888] border-[#888]/20 ",
+                        "bg-[#888]/10 text-[#a8a29a] border-[#888]/20 ",
                       Premium:
                         "bg-[#c28223]/10 text-[#c28223] border-[#c28223]/20",
                       "Most Popular":
@@ -275,7 +275,7 @@ export default function ProductDetail() {
                     return (
                       <span
                         key={badge}
-                        className={`inline-flex items-center gap-1 font-body text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full font-medium border ${badgeStyles[badge] || "bg-white/5 text-[#888] border-white/10"}`}
+                        className={`inline-flex items-center gap-1 font-body text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full font-medium border ${badgeStyles[badge] || "bg-white/5 text-[#a8a29a] border-white/10"}`}
                       >
                         <span className="w-1 h-1 rounded-full bg-current opacity-50" />
                         {badge}
@@ -284,7 +284,7 @@ export default function ProductDetail() {
                   })}
                 </div>
               )}
-              <div className="detail-item flex items-center gap-1.5 text-[#999] mb-6">
+              <div className="detail-item flex items-center gap-1.5 text-[#a8a29a] mb-6">
                 <MapPin className="w-4 h-4" />
                 <span className="font-body text-sm">
                   {product.country} &middot; {product.city}
@@ -295,7 +295,7 @@ export default function ProductDetail() {
               <div className="detail-item border border-white/[0.06] rounded-2xl overflow-hidden mb-8">
                 <div className="px-5 py-3 border-b border-white/[0.06] flex items-center gap-2 bg-white/[0.02]">
                   <Archive className="w-3.5 h-3.5 text-[#c28223]" strokeWidth={1.5} />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888]">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#a8a29a]">
                     Accession Record
                   </span>
                 </div>
@@ -313,7 +313,7 @@ export default function ProductDetail() {
                       key={row.label}
                       className={`flex items-baseline gap-4 px-5 py-2.5 ${i % 2 === 1 ? "bg-white/[0.015]" : ""}`}
                     >
-                      <dt className="font-mono text-[10px] uppercase tracking-wider text-[#888] w-28 shrink-0">
+                      <dt className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] w-28 shrink-0">
                         {row.label}
                       </dt>
                       <dd className={`text-[13px] text-[#f0ece8] ${row.mono ? "font-mono tracking-[0.15em] text-[#c28223]" : "font-body"}`}>
@@ -328,7 +328,7 @@ export default function ProductDetail() {
                 <span className="font-display text-3xl font-medium text-[#f0ece8]">
                   {formatPrice(product.priceUSD)}
                 </span>
-                <span className="font-mono text-[10px] text-[#999] ml-2">
+                <span className="font-mono text-[10px] text-[#a8a29a] ml-2">
                   recorded retail · {product.localPrice} {product.currency} local
                 </span>
               </div>
@@ -339,11 +339,11 @@ export default function ProductDetail() {
                   {specs.map(spec => (
                     <div key={spec.label} className="flex items-start gap-3">
                       <spec.icon
-                        className="w-4 h-4 text-[#999] mt-0.5 shrink-0"
+                        className="w-4 h-4 text-[#a8a29a] mt-0.5 shrink-0"
                         strokeWidth={1.5}
                       />
                       <div>
-                        <p className="font-body text-[11px] text-[#999] mb-0.5">
+                        <p className="font-body text-[11px] text-[#a8a29a] mb-0.5">
                           {spec.label}
                         </p>
                         <p className="font-body text-sm text-[#f0ece8] leading-snug">
@@ -359,7 +359,7 @@ export default function ProductDetail() {
               {product.hotels.length > 0 && (
                 <div className="detail-item border-t border-white/5 pt-6 mb-6">
                   <div className="flex items-center gap-2 mb-4">
-                    <Hotel className="w-4 h-4 text-[#999]" strokeWidth={1.5} />
+                    <Hotel className="w-4 h-4 text-[#a8a29a]" strokeWidth={1.5} />
                     <span className="font-body text-sm font-medium text-[#f0ece8]">
                       Found at these hotels
                     </span>
@@ -368,7 +368,7 @@ export default function ProductDetail() {
                     {product.hotels.map(h => (
                       <span
                         key={h}
-                        className="inline-flex items-center gap-1.5 bg-white/5 rounded-lg px-3 py-2 font-body text-[12px] text-[#999]"
+                        className="inline-flex items-center gap-1.5 bg-white/5 rounded-lg px-3 py-2 font-body text-[12px] text-[#a8a29a]"
                       >
                         <Hotel className="w-3 h-3 text-[#c4bdb5]" />
                         {h}
@@ -380,7 +380,7 @@ export default function ProductDetail() {
 
               {product.notes && (
                 <div className="detail-item bg-white/5 rounded-xl p-4 mb-6">
-                  <p className="font-body text-[13px] text-[#888] leading-relaxed">
+                  <p className="font-body text-[13px] text-[#a8a29a] leading-relaxed">
                     {product.notes}
                   </p>
                 </div>
@@ -396,7 +396,7 @@ export default function ProductDetail() {
                       className="w-4 h-4 text-[#c28223]"
                       strokeWidth={1.5}
                     />
-                    <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888]">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#a8a29a]">
                       Archival Record
                     </span>
                   </div>
@@ -429,7 +429,7 @@ export default function ProductDetail() {
                           </span>
                         </div>
                         {product.lastObserved && (
-                          <p className="font-body text-[11px] text-[#999] ml-5">
+                          <p className="font-body text-[11px] text-[#a8a29a] ml-5">
                             Last observed in circulation:{" "}
                             <span className="text-[#f0ece8]">
                               {product.lastObserved}
@@ -442,9 +442,9 @@ export default function ProductDetail() {
                   <div className="grid grid-cols-2 gap-3 mb-4">
                     {product.acquisitionDate && (
                       <div className="flex items-start gap-2">
-                        <Calendar className="w-3.5 h-3.5 text-[#999] mt-0.5" />
+                        <Calendar className="w-3.5 h-3.5 text-[#a8a29a] mt-0.5" />
                         <div>
-                          <p className="font-mono text-[9px] uppercase tracking-wider text-[#999]">
+                          <p className="font-mono text-[9px] uppercase tracking-wider text-[#a8a29a]">
                             Acquired
                           </p>
                           <p className="font-body text-[12px] text-[#f0ece8]">
@@ -455,9 +455,9 @@ export default function ProductDetail() {
                     )}
                     {product.condition && (
                       <div className="flex items-start gap-2">
-                        <Package className="w-3.5 h-3.5 text-[#999] mt-0.5" />
+                        <Package className="w-3.5 h-3.5 text-[#a8a29a] mt-0.5" />
                         <div>
-                          <p className="font-mono text-[9px] uppercase tracking-wider text-[#999]">
+                          <p className="font-mono text-[9px] uppercase tracking-wider text-[#a8a29a]">
                             Condition
                           </p>
                           <p className="font-body text-[12px] text-[#f0ece8]">
@@ -468,9 +468,9 @@ export default function ProductDetail() {
                     )}
                     {product.rarity && (
                       <div className="flex items-start gap-2">
-                        <Eye className="w-3.5 h-3.5 text-[#999] mt-0.5" />
+                        <Eye className="w-3.5 h-3.5 text-[#a8a29a] mt-0.5" />
                         <div>
-                          <p className="font-mono text-[9px] uppercase tracking-wider text-[#999]">
+                          <p className="font-mono text-[9px] uppercase tracking-wider text-[#a8a29a]">
                             Rarity
                           </p>
                           <p className="font-body text-[12px] capitalize text-[#f0ece8]">
@@ -504,7 +504,7 @@ export default function ProductDetail() {
                   className={`flex-1 flex items-center justify-center gap-1.5 font-body text-sm px-6 py-3.5 rounded-full border transition-colors ${
                     comparing
                       ? "bg-[#f0ece8] text-[#0d0d0d] border-[#f0ece8]"
-                      : "bg-transparent text-[#888] border-white/10 hover:border-white/30"
+                      : "bg-transparent text-[#a8a29a] border-white/10 hover:border-white/30"
                   }`}
                 >
                   {comparing ? (
@@ -522,7 +522,7 @@ export default function ProductDetail() {
                 </button>
                 <button
                   onClick={() => window.print()}
-                  className="flex-1 font-body text-sm px-6 py-3.5 rounded-full border border-white/10 text-[#888] hover:text-[#f0ece8] hover:border-white/30 transition-all flex items-center justify-center gap-2"
+                  className="flex-1 font-body text-sm px-6 py-3.5 rounded-full border border-white/10 text-[#a8a29a] hover:text-[#f0ece8] hover:border-white/30 transition-all flex items-center justify-center gap-2"
                 >
                   <Printer className="w-4 h-4" strokeWidth={1.5} /> Print Card
                 </button>
@@ -541,7 +541,7 @@ export default function ProductDetail() {
           <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12">
             <div className="flex items-end justify-between mb-10">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mb-2">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#a8a29a] mb-2">
                   Related Specimens
                 </p>
                 <h2 className="font-display text-2xl font-medium text-[#f0ece8]">
@@ -550,7 +550,7 @@ export default function ProductDetail() {
               </div>
               <Link
                 to="/collection"
-                className="hidden sm:flex items-center gap-1 font-body text-sm text-[#888] hover:text-[#f0ece8] transition-colors"
+                className="hidden sm:flex items-center gap-1 font-body text-sm text-[#a8a29a] hover:text-[#f0ece8] transition-colors"
               >
                 View all
                 <ArrowUpRight className="w-4 h-4" />
@@ -577,7 +577,7 @@ export default function ProductDetail() {
             className={`flex items-center justify-center gap-1.5 font-body text-sm px-4 py-3 rounded-full border transition-colors ${
               comparing
                 ? "bg-[#f0ece8] text-[#0d0d0d] border-[#f0ece8]"
-                : "bg-transparent text-[#888] border-white/5"
+                : "bg-transparent text-[#a8a29a] border-white/5"
             }`}
           >
             {comparing ? (

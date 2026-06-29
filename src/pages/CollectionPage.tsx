@@ -18,10 +18,10 @@ export default function CollectionPage() {
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#0d0d0d]/95 backdrop-blur-md border-b border-white/5">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
-            <ArrowLeft className="w-4 h-4 text-[#888] group-hover:text-[#f0ece8] transition-colors" />
+            <ArrowLeft className="w-4 h-4 text-[#a8a29a] group-hover:text-[#f0ece8] transition-colors" />
             <span className="font-display text-[15px] font-medium tracking-[0.15em] uppercase text-[#f0ece8]">Roll Call</span>
           </Link>
-          <span className="font-mono text-[10px] text-[#888] uppercase tracking-wider hidden sm:block">Collection</span>
+          <span className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider hidden sm:block">Collection</span>
         </div>
       </nav>
 
@@ -29,10 +29,10 @@ export default function CollectionPage() {
       <header className="pt-32 pb-12 px-6 sm:px-8 max-w-[1200px] mx-auto">
         <div className="flex items-center gap-3 mb-3">
           <LayoutGrid className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
-          <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">01</p>
+          <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#a8a29a]">01</p>
         </div>
         <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4">The Archive Wall</h1>
-        <p className="font-body text-sm text-[#999] max-w-lg leading-relaxed">
+        <p className="font-body text-sm text-[#a8a29a] max-w-lg leading-relaxed">
           The complete collection as a single archival system — currently {specimenCount} specimens from {countryCount} countries. Filter by region, country, or brand, and open any specimen for its accession record.
         </p>
       </header>

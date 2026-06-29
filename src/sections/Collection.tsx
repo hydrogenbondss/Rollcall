@@ -94,7 +94,7 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
                 )}
                 {imgError && (
                   <div className="absolute inset-0 flex items-center justify-center z-30">
-                    <span className="font-body text-[10px] uppercase tracking-widest text-[#888]">Specimen unavailable</span>
+                    <span className="font-body text-[10px] uppercase tracking-widest text-[#a8a29a]">Specimen unavailable</span>
                   </div>
                 )}
               </>
@@ -104,8 +104,8 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
                 <div className="absolute top-4 left-4 w-6 h-px bg-white/15" />
                 <div className="absolute bottom-4 right-4 w-6 h-px bg-white/15" />
-                <span className="font-display text-[#f0ece8]/30 text-3xl mb-3">{getFlagEmoji(product.country)}</span>
-                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#f0ece8]/30">
+                <span className="font-display text-[#f0ece8]/55 text-3xl mb-3">{getFlagEmoji(product.country)}</span>
+                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#f0ece8]/55">
                   Documentation pending
                 </p>
               </div>
@@ -114,10 +114,10 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
 
           <div className="border-t border-white/[0.04] bg-[#0d0d0d] px-5 py-4">
             <div className="flex items-center justify-between mb-3">
-              <span className="font-mono text-[10px] tracking-[0.2em] text-[#888] uppercase">
+              <span className="font-mono text-[10px] tracking-[0.2em] text-[#a8a29a] uppercase">
                 {catalogNo}
               </span>
-              <span className="font-mono text-[10px] tracking-wider text-[#444]">
+              <span className="font-mono text-[10px] tracking-wider text-[#a8a29a]">
                 {product.verified ? 'Verified' : 'Community'}
               </span>
             </div>
@@ -125,24 +125,24 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
             <h3 className="font-display text-sm sm:text-base text-white/90 leading-snug mb-1">
               {highlightText(product.name, searchQuery)}
             </h3>
-            <p className="font-body text-[11px] text-[#999] mb-3">
+            <p className="font-body text-[11px] text-[#a8a29a] mb-3">
               {product.brand} · {product.country}
             </p>
 
             <div className="flex items-center gap-4 pt-3 border-t border-white/[0.04]">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#888]">Ply</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#a8a29a]">Ply</p>
                 <p className="font-display text-sm text-white/80">{product.ply}</p>
               </div>
               <div className="w-px h-6 bg-white/5" />
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#888]">Material</p>
-                <p className="font-body text-[11px] text-[#888]">{product.material}</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#a8a29a]">Material</p>
+                <p className="font-body text-[11px] text-[#a8a29a]">{product.material}</p>
               </div>
               <div className="w-px h-6 bg-white/5" />
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#888]">Origin</p>
-                <p className="font-body text-[11px] text-[#888]">{product.city}</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#a8a29a]">Origin</p>
+                <p className="font-body text-[11px] text-[#a8a29a]">{product.city}</p>
               </div>
             </div>
           </div>
@@ -251,23 +251,23 @@ export default function Collection() {
         <div className="sticky top-16 z-30 bg-[#0d0d0d]/95 backdrop-blur-md py-5 mb-12 border-b border-white/5">
           <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-xs">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#a8a29a]" />
               <input type="text" placeholder="Search specimens..." value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-9 pr-8 py-2.5 bg-white/5 border border-white/10 rounded-lg font-body text-[13px] focus:outline-none focus:border-[#b0a89e] text-white placeholder:text-[#888] backdrop-blur-sm transition-colors"
+                className="w-full pl-9 pr-8 py-2.5 bg-white/5 border border-white/10 rounded-lg font-body text-[13px] focus:outline-none focus:border-[#b0a89e] text-white placeholder:text-[#a8a29a] backdrop-blur-sm transition-colors"
               />
               {search && (
-                <button onClick={() => setSearch('')} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#888] hover:text-[#888]">
+                <button onClick={() => setSearch('')} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#a8a29a] hover:text-[#a8a29a]">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
             <button onClick={() => setShowFilters(!showFilters)}
-              className={`p-2.5 rounded-lg border transition-colors ${showFilters ? 'bg-white text-[#0d0d0d] border-white' : 'border-white/10 text-[#888] hover:bg-white/5'}`}>
+              className={`p-2.5 rounded-lg border transition-colors ${showFilters ? 'bg-white text-[#0d0d0d] border-white' : 'border-white/10 text-[#a8a29a] hover:bg-white/5'}`}>
               <SlidersHorizontal className="w-4 h-4" />
             </button>
             <select value={sort} onChange={(e) => setSort(e.target.value as SortOption)}
-              className="px-3 py-2.5 rounded-lg border border-white/10 bg-transparent font-body text-[13px] text-[#888] focus:outline-none cursor-pointer">
+              className="px-3 py-2.5 rounded-lg border border-white/10 bg-transparent font-body text-[13px] text-[#a8a29a] focus:outline-none cursor-pointer">
               <option value="popular">Popular</option>
               <option value="price-asc">Price ↑</option>
               <option value="price-desc">Price ↓</option>
@@ -279,17 +279,17 @@ export default function Collection() {
           {showFilters && (
             <div className="mt-4 pt-4 border-t border-white/5 flex flex-wrap items-center gap-2">
               <select value={filterRegion} onChange={(e) => setFilterRegion(e.target.value)}
-                className="px-3 py-1.5 rounded-lg border border-white/10 bg-transparent font-body text-[12px] text-[#888]">
+                className="px-3 py-1.5 rounded-lg border border-white/10 bg-transparent font-body text-[12px] text-[#a8a29a]">
                 <option value="All">All regions</option>
                 {REGIONS.map((r) => <option key={r} value={r}>{r}</option>)}
               </select>
               <select value={filterBrand} onChange={(e) => setFilterBrand(e.target.value)}
-                className="px-3 py-1.5 rounded-lg border border-white/10 bg-transparent font-body text-[12px] text-[#888]">
+                className="px-3 py-1.5 rounded-lg border border-white/10 bg-transparent font-body text-[12px] text-[#a8a29a]">
                 <option value="All">All brands</option>
                 {brands.map((b) => <option key={b} value={b}>{b}</option>)}
               </select>
               <select value={filterCountry} onChange={(e) => setFilterCountry(e.target.value)}
-                className="px-3 py-1.5 rounded-lg border border-white/10 bg-transparent font-body text-[12px] text-[#888]">
+                className="px-3 py-1.5 rounded-lg border border-white/10 bg-transparent font-body text-[12px] text-[#a8a29a]">
                 <option value="All">All countries</option>
                 {countries.map((c) => <option key={c} value={c}>{c}</option>)}
               </select>
@@ -300,22 +300,22 @@ export default function Collection() {
           {!showFilters && hasFilters && (
             <div className="mt-3 flex flex-wrap items-center gap-2">
               {filterRegion !== 'All' && (
-                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#999] bg-white/5 px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#a8a29a] bg-white/5 px-2.5 py-1 rounded-full">
                   {filterRegion} <button onClick={() => setFilterRegion('All')}><X className="w-3 h-3" /></button>
                 </span>
               )}
               {filterBrand !== 'All' && (
-                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#999] bg-white/5 px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#a8a29a] bg-white/5 px-2.5 py-1 rounded-full">
                   {filterBrand} <button onClick={() => setFilterBrand('All')}><X className="w-3 h-3" /></button>
                 </span>
               )}
               {filterCountry !== 'All' && (
-                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#999] bg-white/5 px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#a8a29a] bg-white/5 px-2.5 py-1 rounded-full">
                   {filterCountry} <button onClick={() => setFilterCountry('All')}><X className="w-3 h-3" /></button>
                 </span>
               )}
               {search && (
-                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#999] bg-white/5 px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#a8a29a] bg-white/5 px-2.5 py-1 rounded-full">
                   &quot;{search}&quot; <button onClick={() => setSearch('')}><X className="w-3 h-3" /></button>
                 </span>
               )}
@@ -339,7 +339,7 @@ export default function Collection() {
                   <div className="flex items-center gap-4 mb-8">
                     <span className="w-8 h-[1px]" style={{ backgroundColor: regionColors[region] }} />
                     <h3 className="font-display text-xl text-[#f0ece8]">{region}</h3>
-                    <span className="font-mono text-[10px] text-[#888]">{regionProducts.length} specimens</span>
+                    <span className="font-mono text-[10px] text-[#a8a29a]">{regionProducts.length} specimens</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {regionProducts.map((product, i) => (
@@ -364,7 +364,7 @@ export default function Collection() {
 
         {filteredProducts.length === 0 && (
           <div className="text-center py-24">
-            <p className="font-mono text-sm text-[#999]">No specimens found in this collection.</p>
+            <p className="font-mono text-sm text-[#a8a29a]">No specimens found in this collection.</p>
             <button onClick={clearAll} className="mt-4 font-body text-sm text-[#a09890] hover:text-[#f0ece8] transition-colors">Clear filters</button>
           </div>
         )}
@@ -376,10 +376,10 @@ export default function Collection() {
               onClick={() => setShowAll(!showAll)}
               className="group inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#141414] border border-white/[0.06] hover:border-[#c28223]/30 transition-all cursor-pointer"
             >
-              <span className="font-mono text-[10px] text-[#888] group-hover:text-[#c28223] uppercase tracking-wider transition-colors">
+              <span className="font-mono text-[10px] text-[#a8a29a] group-hover:text-[#c28223] uppercase tracking-wider transition-colors">
                 {showAll ? 'Show fewer' : 'Show the full archive'}
               </span>
-              <svg className={`w-3 h-3 text-[#888] group-hover:text-[#c28223] transition-all ${showAll ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className={`w-3 h-3 text-[#a8a29a] group-hover:text-[#c28223] transition-all ${showAll ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M6 9l6 6 6-6" />
               </svg>
             </button>

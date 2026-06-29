@@ -78,11 +78,11 @@ export default function WorldMap() {
       <div className="max-w-[860px] mx-auto px-6 sm:px-8">
         <div className="map-title mb-8">
           <div className="flex items-center gap-3 mb-3">
-            <MapPin className="w-4 h-4 text-[#888]" strokeWidth={1.5} />
-            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Coverage · supporting reference</p>
+            <MapPin className="w-4 h-4 text-[#a8a29a]" strokeWidth={1.5} />
+            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#a8a29a]">Coverage · supporting reference</p>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl text-[#f0ece8] tracking-tight leading-[1.05]">Where the archive reaches</h2>
-          <p className="font-body text-[13px] text-[#999] mt-3 max-w-md">
+          <p className="font-body text-[13px] text-[#a8a29a] mt-3 max-w-md">
             {countryCount} countries. Each dot marks a country in the archive; positions are approximate relative coordinates. The map supports the collection — it is not the collection.
           </p>
         </div>
@@ -99,13 +99,13 @@ export default function WorldMap() {
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-2 h-2 rounded-full" style={{ backgroundColor: d.color }} />
                   <span className="font-display text-sm text-[#f0ece8]">{d.country}</span>
-                  <span className="font-mono text-[9px] text-[#888] uppercase">{d.region}</span>
+                  <span className="font-mono text-[9px] text-[#a8a29a] uppercase">{d.region}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-[10px] text-[#999]"><strong className="text-[#f0ece8]">{d.count}</strong> specimen{d.count > 1 ? 's' : ''}</span>
-                  <span className="font-mono text-[10px] text-[#999]">Avg <strong className="text-[#f0ece8]">{d.avgPly}</strong>-ply</span>
+                  <span className="font-mono text-[10px] text-[#a8a29a]"><strong className="text-[#f0ece8]">{d.count}</strong> specimen{d.count > 1 ? 's' : ''}</span>
+                  <span className="font-mono text-[10px] text-[#a8a29a]">Avg <strong className="text-[#f0ece8]">{d.avgPly}</strong>-ply</span>
                 </div>
-                <p className="font-body text-[10px] text-[#888] mt-0.5">Top: {d.topBrand}</p>
+                <p className="font-body text-[10px] text-[#a8a29a] mt-0.5">Top: {d.topBrand}</p>
               </div>
             )
           })()}
@@ -159,12 +159,12 @@ export default function WorldMap() {
               <div key={region} className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
                 <span className="font-body text-[12px] text-[#a09890]">{region}</span>
-                <span className="font-mono text-[10px] text-[#666]">({Object.values(countryData).filter(d => d.region === region).length} countries)</span>
+                <span className="font-mono text-[10px] text-[#a8a29a]">({Object.values(countryData).filter(d => d.region === region).length} countries)</span>
               </div>
             ))}
             <div className="flex items-center gap-2 ml-4">
               <div className="w-2 h-2 rounded-full bg-[#555]" />
-              <span className="font-mono text-[10px] text-[#666]">Dot size = specimen count</span>
+              <span className="font-mono text-[10px] text-[#a8a29a]">Dot size = specimen count</span>
             </div>
           </div>
         </div>

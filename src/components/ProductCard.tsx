@@ -135,7 +135,7 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
             {imgError && (
               <div className="absolute inset-0 flex items-center justify-center bg-[#f5f0e8]/80 z-10">
                 <div className="text-center">
-                  <span className="font-body text-[10px] uppercase tracking-wider text-[#888] block mb-1">Image unavailable</span>
+                  <span className="font-body text-[10px] uppercase tracking-wider text-[#a8a29a] block mb-1">Image unavailable</span>
                   <span className="font-body text-[9px] text-[#c4bdb5]">{product.brand}</span>
                 </div>
               </div>
@@ -174,7 +174,7 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
                   'Eco Choice': 'bg-[#228b68]/10 text-[#228b68]/20',
                   'Best Value': 'bg-[#c28223]/10 text-[#c28223]/20',
                   'Softest': 'bg-[#c4728e]/10 text-[#c4728e]/20',
-                  'Editor Pick': 'bg-[#888]/10 text-[#888]',
+                  'Editor Pick': 'bg-[#888]/10 text-[#a8a29a]',
                   'Premium': 'bg-[#c28223]/10 text-[#c28223]/20',
                   'Most Popular': 'bg-[#c85a32]/10 text-[#c85a32]/20',
                   'Regional Pick': 'bg-[#c85a32]/10 text-[#c85a32]/20',
@@ -182,7 +182,7 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
                 return (
                   <span
                     key={badge}
-                    className={`font-body text-[8px] uppercase tracking-wider px-1.5 py-0.5 rounded-full font-medium ${badgeStyles[badge] || 'bg-white/5 text-[#888]'}`}
+                    className={`font-body text-[8px] uppercase tracking-wider px-1.5 py-0.5 rounded-full font-medium ${badgeStyles[badge] || 'bg-white/5 text-[#a8a29a]'}`}
                   >
                     {badge}
                   </span>
@@ -197,7 +197,7 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
               <p className="font-body text-[9px] uppercase tracking-[0.25em] text-[#a09890]">
                 {highlightText(product.brand, searchQuery)}
               </p>
-              <p className="font-body text-[9px] text-[#888]">
+              <p className="font-body text-[9px] text-[#a8a29a]">
                 {product.country}
               </p>
             </div>
@@ -214,7 +214,7 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
                 className={`flex items-center gap-1 font-body text-[10px] px-2.5 py-1.5 rounded-full border transition-all duration-300 ${
                   comparing
                     ? 'bg-[#f0ece8] text-[#0d0d0d] border-[#f0ece8]'
-                    : 'bg-transparent text-[#999] border-white/10 hover:border-white/30'
+                    : 'bg-transparent text-[#a8a29a] border-white/10 hover:border-white/30'
                 }`}
                 aria-label={comparing ? 'Remove from compare' : 'Add to compare'}
               >

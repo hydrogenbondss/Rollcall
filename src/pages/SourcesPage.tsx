@@ -58,10 +58,10 @@ export default function SourcesPage() {
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#0d0d0d]/95 backdrop-blur-md border-b border-white/5">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
-            <ArrowLeft className="w-4 h-4 text-[#888] group-hover:text-[#f0ece8] transition-colors" />
+            <ArrowLeft className="w-4 h-4 text-[#a8a29a] group-hover:text-[#f0ece8] transition-colors" />
             <span className="font-display text-[15px] font-medium tracking-[0.15em] uppercase text-[#f0ece8]">Roll Call</span>
           </Link>
-          <span className="font-mono text-[10px] text-[#888] uppercase tracking-wider hidden sm:block">Sources</span>
+          <span className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider hidden sm:block">Sources</span>
         </div>
       </nav>
 
@@ -69,12 +69,12 @@ export default function SourcesPage() {
         <header className="mb-16 source-item">
           <div className="flex items-center gap-3 mb-4">
             <BookMarked className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
-            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">05</p>
+            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#a8a29a]">05</p>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4 leading-[0.95]">
             Sources & Methodology Notes
           </h1>
-          <p className="font-serif-display text-lg text-[#888] italic">
+          <p className="font-serif-display text-lg text-[#a8a29a] italic">
             The archive is only as credible as its sources. This page documents how the data was gathered, what remains unconfirmed, and where the limits are.
           </p>
         </header>
@@ -105,7 +105,7 @@ export default function SourcesPage() {
         </section>
 
         <footer className="mt-16 pt-8 border-t border-white/[0.04] source-item">
-          <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider mb-2">
+          <p className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider mb-2">
             Found an error?
           </p>
           <Link to="/#community" className="font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors">

@@ -29,7 +29,7 @@ export default function WhyToiletPaper() {
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#c28223] mb-2">
                 {r.label}
               </p>
-              <p className="font-body text-[12px] text-[#999] leading-relaxed">{r.desc}</p>
+              <p className="font-body text-[12px] text-[#a8a29a] leading-relaxed">{r.desc}</p>
             </div>
           ))}
         </div>

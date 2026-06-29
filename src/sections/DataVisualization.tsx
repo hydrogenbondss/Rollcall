@@ -113,21 +113,21 @@ export default function DataVisualization() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <div className="viz-title mb-14">
           <div className="flex items-center gap-3 mb-3">
-            <BarChart3 className="w-4 h-4 text-[#888]" strokeWidth={1.5} />
-            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Data</p>
+            <BarChart3 className="w-4 h-4 text-[#a8a29a]" strokeWidth={1.5} />
+            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#a8a29a]">Data</p>
           </div>
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">
             {viewMode === 'price' ? 'Price vs. Ply' : 'GDP vs. Ply'}
           </h2>
-          <p className="font-body text-sm text-[#999] mt-4 max-w-lg">
+          <p className="font-body text-sm text-[#a8a29a] mt-4 max-w-lg">
             {viewMode === 'price'
               ? "How much does comfort cost? Each dot is a verified product. Color = region. X-axis = price in HKD."
               : "Wealthier nations use thicker paper. Each dot = one product positioned by its country's GDP per capita. X-axis = USD."
             }
           </p>
           <div className="flex items-center gap-2 mt-6">
-            <button onClick={() => setViewMode('price')} className={`px-4 py-2 rounded-full text-[11px] font-mono uppercase tracking-wider transition-all ${viewMode === 'price' ? 'bg-[#c28223]/15 text-[#c28223] border border-[#c28223]/20' : 'bg-white/5 text-[#888] border border-white/5 hover:border-white/15'}`}>Price View</button>
-            <button onClick={() => setViewMode('gdp')} className={`px-4 py-2 rounded-full text-[11px] font-mono uppercase tracking-wider transition-all ${viewMode === 'gdp' ? 'bg-[#c28223]/15 text-[#c28223] border border-[#c28223]/20' : 'bg-white/5 text-[#888] border border-white/5 hover:border-white/15'}`}>GDP View</button>
+            <button onClick={() => setViewMode('price')} className={`px-4 py-2 rounded-full text-[11px] font-mono uppercase tracking-wider transition-all ${viewMode === 'price' ? 'bg-[#c28223]/15 text-[#c28223] border border-[#c28223]/20' : 'bg-white/5 text-[#a8a29a] border border-white/5 hover:border-white/15'}`}>Price View</button>
+            <button onClick={() => setViewMode('gdp')} className={`px-4 py-2 rounded-full text-[11px] font-mono uppercase tracking-wider transition-all ${viewMode === 'gdp' ? 'bg-[#c28223]/15 text-[#c28223] border border-[#c28223]/20' : 'bg-white/5 text-[#a8a29a] border border-white/5 hover:border-white/15'}`}>GDP View</button>
           </div>
         </div>
 
@@ -217,8 +217,8 @@ export default function DataVisualization() {
               }}>
                 <div className="bg-[#1a1a1a] border border-white/10 rounded-xl px-4 py-3 shadow-2xl whitespace-nowrap">
                   <p className="font-display text-sm text-[#f0ece8]">{tooltip.product.brand}</p>
-                  <p className="font-body text-[11px] text-[#999]">{tooltip.product.country} · {tooltip.product.ply}-ply</p>
-                  <p className="font-body text-[11px] text-[#888] mt-0.5">HK${(tooltip.product.priceUSD * hkdRate).toFixed(2)}</p>
+                  <p className="font-body text-[11px] text-[#a8a29a]">{tooltip.product.country} · {tooltip.product.ply}-ply</p>
+                  <p className="font-body text-[11px] text-[#a8a29a] mt-0.5">HK${(tooltip.product.priceUSD * hkdRate).toFixed(2)}</p>
                   {tooltip.gdp && (
                     <p className="font-body text-[11px] text-[#c28223] mt-0.5">GDP: ${tooltip.gdp.toLocaleString()}</p>
                   )}
@@ -231,7 +231,7 @@ export default function DataVisualization() {
               {Object.entries(regionColors).map(([region, color]) => (
                 <div key={region} className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: color }} />
-                  <span className="font-body text-[11px] text-[#888]">{region}</span>
+                  <span className="font-body text-[11px] text-[#a8a29a]">{region}</span>
                 </div>
               ))}
             </div>
@@ -246,10 +246,10 @@ export default function DataVisualization() {
                   <h4 className="font-display text-base text-[#f0ece8]">{region}</h4>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
-                  <div><p className="font-display text-xl text-[#f0ece8]">{stats.count}</p><p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Products</p></div>
-                  <div><p className="font-display text-xl text-[#f0ece8]">{stats.avgPly}</p><p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Avg Ply</p></div>
+                  <div><p className="font-display text-xl text-[#f0ece8]">{stats.count}</p><p className="font-body text-[10px] text-[#a8a29a] uppercase tracking-wider">Products</p></div>
+                  <div><p className="font-display text-xl text-[#f0ece8]">{stats.avgPly}</p><p className="font-body text-[10px] text-[#a8a29a] uppercase tracking-wider">Avg Ply</p></div>
                   {viewMode === 'gdp' && (
-                    <div className="col-span-2"><p className="font-body text-[11px] text-[#888]">Avg GDP: <span className="text-[#f0ece8]">${stats.avgGdp.toLocaleString()}</span></p></div>
+                    <div className="col-span-2"><p className="font-body text-[11px] text-[#a8a29a]">Avg GDP: <span className="text-[#f0ece8]">${stats.avgGdp.toLocaleString()}</span></p></div>
                   )}
                 </div>
               </div>

@@ -60,18 +60,18 @@ export default function SubmissionForm() {
   }
 
   const inputClass = "w-full bg-[#0d0d0d] border border-white/10 rounded-lg px-4 py-3 font-body text-[13px] text-[#f0ece8] placeholder:text-[#555] focus:outline-none focus:border-[#c28223]/40 focus:ring-1 focus:ring-[#c28223]/20 transition-all"
-  const labelClass = "block font-mono text-[9px] uppercase tracking-[0.25em] text-[#888] mb-2"
+  const labelClass = "block font-mono text-[9px] uppercase tracking-[0.25em] text-[#a8a29a] mb-2"
 
   if (status === 'success') {
     return (
       <div className="bg-[#141414] border border-[#228b68]/20 rounded-2xl p-10 text-center">
         <CheckCircle className="w-12 h-12 text-[#228b68] mx-auto mb-4" />
         <h3 className="font-display text-2xl text-[#f0ece8] mb-2">Specimen Received</h3>
-        <p className="font-body text-sm text-[#999] mb-6 max-w-md mx-auto">
+        <p className="font-body text-sm text-[#a8a29a] mb-6 max-w-md mx-auto">
           Your submission has been catalogued and assigned for verification. 
           The archive team will review and contact you if further documentation is needed.
         </p>
-        <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">
+        <p className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider">
           Status: Pending Verification
         </p>
         <button
@@ -228,7 +228,7 @@ export default function SubmissionForm() {
 
         {/* Contributor info */}
         <div className="sm:col-span-2 pt-4 border-t border-white/5">
-          <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#888] mb-4">Contributor (Optional)</p>
+          <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#a8a29a] mb-4">Contributor (Optional)</p>
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
               <label className={labelClass}>Your Name</label>

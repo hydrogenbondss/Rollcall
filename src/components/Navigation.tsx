@@ -50,7 +50,7 @@ export default function Navigation() {
         <div className="max-w-[1200px] mx-auto w-full px-6 sm:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-baseline gap-3 group">
             <span className="font-display text-[15px] font-medium text-[#f0ece8] tracking-[0.15em] uppercase">ROLL CALL</span>
-            <span className="hidden sm:inline font-mono text-[9px] tracking-[0.2em] text-[#888] uppercase group-hover:text-[#999] transition-colors">Material Culture Archive</span>
+            <span className="hidden sm:inline font-mono text-[9px] tracking-[0.2em] text-[#a8a29a] uppercase group-hover:text-[#a8a29a] transition-colors">Material Culture Archive</span>
           </Link>
 
           {/* Desktop nav */}
@@ -59,8 +59,8 @@ export default function Navigation() {
               const isActive = location.pathname === link.to
               return (
                 <Link key={link.to} to={link.to} className="group relative py-1">
-                  <span className={`font-mono text-[9px] tracking-wider mr-2 transition-colors ${isActive ? 'text-[#c28223]' : 'text-[#888]'}`}>{link.num}</span>
-                  <span className={`font-body text-[13px] transition-colors ${isActive ? 'text-[#f0ece8]' : 'text-[#888] group-hover:text-[#f0ece8]'}`}>{link.label}</span>
+                  <span className={`font-mono text-[9px] tracking-wider mr-2 transition-colors ${isActive ? 'text-[#c28223]' : 'text-[#a8a29a]'}`}>{link.num}</span>
+                  <span className={`font-body text-[13px] transition-colors ${isActive ? 'text-[#f0ece8]' : 'text-[#a8a29a] group-hover:text-[#f0ece8]'}`}>{link.label}</span>
                   <span className={`absolute bottom-0 left-0 h-px bg-[#f0ece8] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                 </Link>
               )
@@ -68,10 +68,10 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center gap-1">
-            <button onClick={handleRandomRoll} className="hidden sm:flex items-center p-2 rounded-lg text-[#999] hover:text-[#f0ece8] hover:bg-white/5 transition-all" title="Random Roll" aria-label="Random Roll">
+            <button onClick={handleRandomRoll} className="hidden sm:flex items-center p-2 rounded-lg text-[#a8a29a] hover:text-[#f0ece8] hover:bg-white/5 transition-all" title="Random Roll" aria-label="Random Roll">
               <Dices className="w-4 h-4" />
             </button>
-            <button onClick={() => setMenuOpen(true)} className="md:hidden p-2 rounded-lg text-[#999] hover:text-[#f0ece8] hover:bg-white/5 transition-all" aria-label="Open menu">
+            <button onClick={() => setMenuOpen(true)} className="md:hidden p-2 rounded-lg text-[#a8a29a] hover:text-[#f0ece8] hover:bg-white/5 transition-all" aria-label="Open menu">
               <Menu className="w-5 h-5" />
             </button>
           </div>

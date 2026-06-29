@@ -61,8 +61,8 @@ export default function Methodology() {
             <div key={stat.label} className="method-stat bg-[#141414] border border-white/[0.04] rounded-xl p-6">
               <stat.icon className="w-5 h-5 text-[#c28223] mb-4" strokeWidth={1.5} />
               <p className="font-display text-3xl text-[#f0ece8] mb-1">{stat.value}</p>
-              <p className="font-body text-[11px] uppercase tracking-wider text-[#888] mb-2">{stat.label}</p>
-              <p className="font-body text-[11px] text-[#888] leading-relaxed">{stat.desc}</p>
+              <p className="font-body text-[11px] uppercase tracking-wider text-[#a8a29a] mb-2">{stat.label}</p>
+              <p className="font-body text-[11px] text-[#a8a29a] leading-relaxed">{stat.desc}</p>
             </div>
           ))}
         </div>
