@@ -42,20 +42,20 @@ export default function AboutPage() {
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#0d0d0d]/95 backdrop-blur-md border-b border-white/5">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
-            <ArrowLeft className="w-4 h-4 text-[#a8a29a] group-hover:text-[#f0ece8] transition-colors" />
+            <ArrowLeft className="w-4 h-4 text-[#b6b0a6] group-hover:text-[#f0ece8] transition-colors" />
             <span className="font-display text-[15px] font-medium tracking-[0.15em] uppercase text-[#f0ece8]">Roll Call</span>
           </Link>
-          <span className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider hidden sm:block">About</span>
+          <span className="font-mono text-[10px] text-[#b6b0a6] uppercase tracking-wider hidden sm:block">About</span>
         </div>
       </nav>
 
       {/* Header */}
-      <header className="pt-32 pb-12 px-6 sm:px-8 max-w-[1200px] mx-auto">
+      <header className="pt-28 pb-12 px-6 sm:px-8 max-w-[1200px] mx-auto">
         <div className="flex items-center gap-3 mb-3">
           <FileText className="w-4 h-4 text-[#c4728e]" strokeWidth={1.5} />
         </div>
         <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4">About</h1>
-        <p className="font-body text-sm text-[#a8a29a] max-w-lg leading-relaxed">
+        <p className="font-body text-sm text-[#b6b0a6] max-w-lg leading-relaxed">
           The story behind the archive. How it was built, what the data reveals, and how you can contribute.
         </p>
       </header>
@@ -67,10 +67,10 @@ export default function AboutPage() {
       <section className="about-section max-w-[800px] mx-auto px-6 sm:px-8 py-20 border-t border-white/[0.04]">
         <div className="about-item">
           <h2 className="font-display text-2xl text-[#f0ece8] mb-4">About the Creator</h2>
-          <p className="font-body text-[14px] text-[#a09890] leading-relaxed mb-4">
+          <p className="font-body text-[14px] text-[#b0a99d] leading-relaxed mb-4">
             Jeffrey Nicholas Tse is a Hong Kong-based interdisciplinary artist and researcher whose work examines systems of preservation, mediated identity, and cultural memory. Moving across archival practice, digital interfaces, writing, and interactive media, his projects investigate how value is assigned through classification, repetition, and observation.
           </p>
-          <p className="font-body text-[14px] text-[#a09890] leading-relaxed">
+          <p className="font-body text-[14px] text-[#b0a99d] leading-relaxed">
             His work often focuses on traces of human presence embedded within images, objects, and systems designed to outlast their original moment of use.
           </p>
         </div>

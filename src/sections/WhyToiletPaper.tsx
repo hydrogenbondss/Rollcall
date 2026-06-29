@@ -16,7 +16,7 @@ export default function WhyToiletPaper() {
         <h2 className="font-display text-4xl sm:text-5xl text-[#f0ece8] tracking-tight leading-[1.05] mb-8 max-w-[640px]">
           Not because it&rsquo;s funny. Because it&rsquo;s universal.
         </h2>
-        <p className="font-body text-[16px] sm:text-[17px] text-[#a09890] leading-[1.85] max-w-[640px] mb-12">
+        <p className="font-body text-[16px] sm:text-[17px] text-[#b0a99d] leading-[1.85] max-w-[640px] mb-12">
           Toilet paper is one of the few objects found in almost every household. Despite that
           universality, its packaging reflects differences in language, graphic design,
           manufacturing, economics, and culture across Asia. Roll Call treats these overlooked
@@ -29,7 +29,7 @@ export default function WhyToiletPaper() {
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#c28223] mb-2">
                 {r.label}
               </p>
-              <p className="font-body text-[12px] text-[#a8a29a] leading-relaxed">{r.desc}</p>
+              <p className="font-body text-[12px] text-[#b6b0a6] leading-relaxed">{r.desc}</p>
             </div>
           ))}
         </div>

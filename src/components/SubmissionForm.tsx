@@ -77,7 +77,7 @@ export default function SubmissionForm() {
   }
 
   const inputClass = "w-full bg-[#0d0d0d] border border-white/10 rounded-lg px-4 py-3 font-body text-[13px] text-[#f0ece8] placeholder:text-[#555] focus:outline-none focus:border-[#c28223]/40 focus:ring-1 focus:ring-[#c28223]/20 transition-all"
-  const labelClass = "block font-mono text-[9px] uppercase tracking-[0.25em] text-[#a8a29a] mb-2"
+  const labelClass = "block font-mono text-[9px] uppercase tracking-[0.25em] text-[#b6b0a6] mb-2"
 
   if (status === 'success' || status === 'mailto') {
     return (
@@ -86,7 +86,7 @@ export default function SubmissionForm() {
         <h3 className="font-display text-2xl text-[#f0ece8] mb-2">
           {status === 'mailto' ? 'Almost there' : 'Specimen Received'}
         </h3>
-        <p className="font-body text-sm text-[#a8a29a] mb-6 max-w-md mx-auto">
+        <p className="font-body text-sm text-[#b6b0a6] mb-6 max-w-md mx-auto">
           {status === 'mailto'
             ? 'Your email app should have opened with the details filled in — attach your specimen photo and hit send. Thank you for contributing.'
             : 'Your submission has been received for verification. The archive team will review it and follow up if further documentation is needed.'}
@@ -181,7 +181,7 @@ export default function SubmissionForm() {
           <label className={labelClass}>Specimen Photo {keyReady ? '' : '(attach in your email)'}</label>
           <label className={`${inputClass} flex items-center gap-3 cursor-pointer ${!keyReady ? 'opacity-50' : ''}`}>
             <ImagePlus className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
-            <span className="text-[#a8a29a] truncate">{fileName || (keyReady ? 'Upload a photo of the packaging…' : 'Available once the form backend is connected')}</span>
+            <span className="text-[#b6b0a6] truncate">{fileName || (keyReady ? 'Upload a photo of the packaging…' : 'Available once the form backend is connected')}</span>
             <input
               ref={fileRef}
               type="file"
@@ -201,7 +201,7 @@ export default function SubmissionForm() {
         </div>
 
         <div className="sm:col-span-2 pt-4 border-t border-white/5">
-          <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#a8a29a] mb-4">Contributor (Optional)</p>
+          <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#b6b0a6] mb-4">Contributor (Optional)</p>
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
               <label className={labelClass}>Your Name</label>
@@ -228,7 +228,7 @@ export default function SubmissionForm() {
           <><Send className="w-4 h-4" /> Submit Specimen</>
         )}
       </button>
-      <p className="font-body text-[11px] text-[#a8a29a] mt-4">Submissions are sent to {CONTACT_EMAIL}.</p>
+      <p className="font-body text-[11px] text-[#b6b0a6] mt-4">Submissions are sent to {CONTACT_EMAIL}.</p>
     </form>
   )
 }

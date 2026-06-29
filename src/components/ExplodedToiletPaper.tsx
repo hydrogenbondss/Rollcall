@@ -178,7 +178,7 @@ export default function ExplodedToiletPaper() {
                   {/* Label inside ellipse */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <span
-                      className="font-mono text-[8px] font-bold tracking-[0.2em] transition-colors"
+                      className="font-mono text-[9px] font-bold tracking-[0.2em] transition-colors"
                       style={{ color: activeIdx === i ? layer.color : `${layer.color}aa` }}
                     >
                       {layer.label}
@@ -234,7 +234,7 @@ export default function ExplodedToiletPaper() {
                   />
                   <div className="min-w-0">
                     <p className="font-body text-[11px] text-[#f0ece8] truncate">{layer.material}</p>
-                    <p className="font-mono text-[8px] truncate" style={{ color: `${layer.color}90` }}>{layer.desc}</p>
+                    <p className="font-mono text-[9px] truncate" style={{ color: `${layer.color}90` }}>{layer.desc}</p>
                   </div>
                 </div>
               </div>
@@ -244,7 +244,7 @@ export default function ExplodedToiletPaper() {
                 <div className="w-1 h-8 rounded-full shrink-0" style={{ backgroundColor: `${coreTube.color}50` }} />
                 <div>
                   <p className="font-body text-[11px] text-[#f0ece8]">{coreTube.material}</p>
-                  <p className="font-mono text-[8px] text-[#c4a97d]/60">{coreTube.desc}</p>
+                  <p className="font-mono text-[9px] text-[#c4a97d]/60">{coreTube.desc}</p>
                 </div>
               </div>
             </div>
@@ -253,7 +253,7 @@ export default function ExplodedToiletPaper() {
 
         {/* Bottom: Spec note */}
         <div className="mt-8 px-4 py-2 bg-[#141414]/50 rounded-lg border border-white/[0.03]">
-          <p className="font-mono text-[8px] text-[#555] uppercase tracking-wider text-center">
+          <p className="font-mono text-[9px] text-[#555] uppercase tracking-wider text-center">
             Not to scale · Specimen: RC-EA-JP-26-4-01 · Nepia Premium Soft
           </p>
         </div>

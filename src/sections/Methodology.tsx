@@ -51,7 +51,7 @@ export default function Methodology() {
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">
             Field Notes
           </h2>
-          <p className="font-body text-sm text-[#a09890] mt-4 max-w-md leading-relaxed">
+          <p className="font-body text-sm text-[#b0a99d] mt-4 max-w-md leading-relaxed">
             A research methodology built on transparency. The archive discloses what it knows, what it suspects, and what it cannot confirm.
           </p>
         </div>
@@ -61,13 +61,13 @@ export default function Methodology() {
             <div key={stat.label} className="method-stat bg-[#141414] border border-white/[0.04] rounded-xl p-6">
               <stat.icon className="w-5 h-5 text-[#c28223] mb-4" strokeWidth={1.5} />
               <p className="font-display text-3xl text-[#f0ece8] mb-1">{stat.value}</p>
-              <p className="font-body text-[11px] uppercase tracking-wider text-[#a8a29a] mb-2">{stat.label}</p>
-              <p className="font-body text-[11px] text-[#a8a29a] leading-relaxed">{stat.desc}</p>
+              <p className="font-body text-[11px] uppercase tracking-wider text-[#b6b0a6] mb-2">{stat.label}</p>
+              <p className="font-body text-[11px] text-[#b6b0a6] leading-relaxed">{stat.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="method-body space-y-6 font-body text-[15px] text-[#a09890] leading-[1.85]">
+        <div className="method-body space-y-6 font-body text-[15px] text-[#b0a99d] leading-[1.85]">
           <p>
             <strong className="text-[#f0ece8] font-medium">Verified</strong> — {verifiedCount} specimens whose brand, manufacturer, and country of origin are confirmed against manufacturer websites and official retailer listings (Watsons Hong Kong, FairPrice Singapore, NTPM Malaysia, Lotus&apos;s Thailand). Product imagery is sourced from official manufacturer channels and in-market field documentation. Some product-level specifics — seasonal scents, hotel placement, exact local pricing — are editorial or drawn from field observation rather than independently confirmed.
           </p>

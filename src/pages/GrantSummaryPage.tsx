@@ -33,7 +33,7 @@ export default function GrantSummaryPage() {
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-black/5 print:hidden">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
-            <ArrowLeft className="w-4 h-4 text-[#a8a29a] group-hover:text-[#1a1a1a] transition-colors" />
+            <ArrowLeft className="w-4 h-4 text-[#b6b0a6] group-hover:text-[#1a1a1a] transition-colors" />
             <span className="font-display text-[15px] font-medium tracking-[0.15em] uppercase text-[#1a1a1a]">Roll Call</span>
           </Link>
           <button
@@ -49,7 +49,7 @@ export default function GrantSummaryPage() {
       <article className="max-w-[800px] mx-auto px-8 sm:px-12 pt-28 pb-20 print:pt-8 print:pb-8">
         {/* Header */}
         <header className="mb-12 grant-item border-b border-black/10 pb-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#a8a29a] mb-3">Grant Summary · 2026</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#b6b0a6] mb-3">Grant Summary · 2026</p>
           <h1 className="font-display text-5xl sm:text-6xl tracking-tight leading-[0.95] mb-4">
             ROLL CALL
           </h1>
@@ -73,7 +73,7 @@ export default function GrantSummaryPage() {
             ].map((s) => (
               <div key={s.label} className="border border-black/10 rounded-xl p-4">
                 <p className="font-display text-3xl">{s.value}</p>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#a8a29a]">{s.label}</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#b6b0a6]">{s.label}</p>
               </div>
             ))}
           </div>
@@ -82,10 +82,10 @@ export default function GrantSummaryPage() {
         {/* Why this matters */}
         <section className="mb-12 grant-item">
           <h2 className="font-display text-lg uppercase tracking-wider mb-4">Why this project matters</h2>
-          <p className="font-body text-[15px] leading-relaxed text-[#a8a29a] mb-4">
+          <p className="font-body text-[15px] leading-relaxed text-[#b6b0a6] mb-4">
             Toilet paper is the most intimate mass-produced object on earth. It is also an index of infrastructure: a society's pipe diameter, water pressure, purchasing power, and cultural aspiration are all compressed into a few plies.
           </p>
-          <p className="font-body text-[15px] leading-relaxed text-[#a8a29a]">
+          <p className="font-body text-[15px] leading-relaxed text-[#b6b0a6]">
             <strong>ROLL CALL</strong> treats this ordinary object with the seriousness usually reserved for ceramics or textiles. By cataloguing specimens across East, Southeast, and South Asia, the project reveals how comfort is distributed — and who gets to be comfortable.
           </p>
         </section>
@@ -96,10 +96,10 @@ export default function GrantSummaryPage() {
             <BarChart3 className="w-4 h-4" />
             A first edition, not a final count
           </h2>
-          <p className="font-body text-[15px] leading-relaxed text-[#a8a29a] mb-4">
+          <p className="font-body text-[15px] leading-relaxed text-[#b6b0a6] mb-4">
             The first edition documents {specimenCount} verified specimens across {countryCount} countries and three regions — a proof of concept rather than an exhaustive inventory. The sample covers high-income economies (Japan, Singapore, Hong Kong), middle-income markets (Malaysia, Thailand, China), and lower-income contexts (Bangladesh, Nepal, Myanmar). It represents the archive at a specific moment in time and will continue to grow.
           </p>
-          <p className="font-body text-[15px] leading-relaxed text-[#a8a29a]">
+          <p className="font-body text-[15px] leading-relaxed text-[#b6b0a6]">
             At this scale, clear patterns already emerge: GDP correlates with ply count and softness; additive-enhanced premium papers (lotion, plant-derived squalane) cluster in East Asia; South Asia remains dominated by thin, infrastructure-compatible rolls. The archive demonstrates that a replicable methodology can generate cultural insight from a modest but geographically diverse sample.
           </p>
         </section>
@@ -115,7 +115,7 @@ export default function GrantSummaryPage() {
               'Sustainability claims (bamboo, recycled pulp) appear across all income tiers but trade off against comfort.',
               'Myanmar has a domestically manufactured brand, while Cambodia and Laos in this archive rely on imported products.',
             ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 font-body text-[15px] text-[#a8a29a] leading-relaxed">
+              <li key={i} className="flex items-start gap-3 font-body text-[15px] text-[#b6b0a6] leading-relaxed">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#c28223] mt-2.5 shrink-0" />
                 {item}
               </li>
@@ -129,7 +129,7 @@ export default function GrantSummaryPage() {
             <MapPin className="w-4 h-4" />
             Exhibition plan
           </h2>
-          <p className="font-body text-[15px] leading-relaxed text-[#a8a29a] mb-4">
+          <p className="font-body text-[15px] leading-relaxed text-[#b6b0a6] mb-4">
             The first physical presentation proposes a three-part route — the Archive Wall, the Living Specimen, and the Extinction Corner — housed in 60–120 m². Future-development elements (the Essay Room, Map Wall, and Submission Desk) are planned for a second phase.
           </p>
           <div className="grid sm:grid-cols-3 gap-4">
@@ -140,7 +140,7 @@ export default function GrantSummaryPage() {
             ].map((s) => (
               <div key={s.label} className="border border-black/10 rounded-xl p-4">
                 <p className="font-display text-2xl">{s.value}</p>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#a8a29a]">{s.label}</p>
+                <p className="font-mono text-[9px] uppercase tracking-wider text-[#b6b0a6]">{s.label}</p>
               </div>
             ))}
           </div>
@@ -161,7 +161,7 @@ export default function GrantSummaryPage() {
               { item: 'Contingency', pct: '5%' },
             ].map((row) => (
               <div key={row.item} className="flex items-center justify-between border-b border-black/5 py-2">
-                <span className="font-body text-[14px] text-[#a8a29a]">{row.item}</span>
+                <span className="font-body text-[14px] text-[#b6b0a6]">{row.item}</span>
                 <span className="font-mono text-[12px] text-[#c28223]">{row.pct}</span>
               </div>
             ))}
@@ -182,7 +182,7 @@ export default function GrantSummaryPage() {
             ].map((t) => (
               <div key={t.phase} className="flex items-start gap-4">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-[#c28223] w-24 shrink-0">{t.phase}</span>
-                <span className="font-body text-[14px] text-[#a8a29a]">{t.work}</span>
+                <span className="font-body text-[14px] text-[#b6b0a6]">{t.work}</span>
               </div>
             ))}
           </div>
@@ -194,16 +194,16 @@ export default function GrantSummaryPage() {
             <Send className="w-4 h-4" />
             Contact
           </h2>
-          <p className="font-body text-[15px] leading-relaxed mb-4 opacity-90 print:opacity-100 print:text-[#a8a29a]">
+          <p className="font-body text-[15px] leading-relaxed mb-4 opacity-90 print:opacity-100 print:text-[#b6b0a6]">
             For exhibition proposals, academic inquiries, and grant discussions, please use the correspondence form on the archive site.
           </p>
           <div className="grid sm:grid-cols-2 gap-4 mb-4">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-wider opacity-60 print:opacity-100 print:text-[#a8a29a]">Project Lead</p>
+              <p className="font-mono text-[9px] uppercase tracking-wider opacity-60 print:opacity-100 print:text-[#b6b0a6]">Project Lead</p>
               <p className="font-body text-[14px]">Jeffrey Nicholas Tse</p>
             </div>
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-wider opacity-60 print:opacity-100 print:text-[#a8a29a]">Project Origin</p>
+              <p className="font-mono text-[9px] uppercase tracking-wider opacity-60 print:opacity-100 print:text-[#b6b0a6]">Project Origin</p>
               <p className="font-body text-[14px]">Hong Kong, 2026</p>
             </div>
           </div>

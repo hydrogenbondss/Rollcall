@@ -180,7 +180,7 @@ function Scene() {
 function SpecLabel({ k, v, side }: { k: string; v: string; side: 'left' | 'right' }) {
   const text = (
     <div className={side === 'left' ? 'text-left' : 'text-right'}>
-      <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-[#5fd6ff]/70 mb-0.5">{k}</p>
+      <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#5fd6ff]/70 mb-0.5">{k}</p>
       <p className="font-body text-[12px] leading-snug text-[#eaf6ff]/95 line-clamp-2 max-w-[160px]">{v}</p>
     </div>
   )
@@ -234,7 +234,7 @@ export default function LivingSpecimenHologram({ specimen }: { specimen?: Produc
           {/* mobile: compact metadata strip (no leader lines) */}
           <div className="sm:hidden absolute top-3 left-3 right-3 flex flex-wrap justify-center gap-x-4 gap-y-1">
             {[`${specimen.ply}-ply`, specimen.scent, specimen.material].map((m, i) => (
-              <span key={i} className="font-mono text-[8px] uppercase tracking-[0.18em] text-[#9fdcff]/80 max-w-[45%] truncate">{m}</span>
+              <span key={i} className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#9fdcff]/80 max-w-[45%] truncate">{m}</span>
             ))}
           </div>
         </div>

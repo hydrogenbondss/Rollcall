@@ -60,7 +60,7 @@ export default function ExhibitionFloorPlan2D() {
         {zones.map((z) => (
           <div key={z.id} className="flex items-center gap-2">
             <span className="font-mono text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center" style={{ color: z.color, border: `1px solid ${z.color}` }}>{z.n}</span>
-            <span className="font-body text-[11px] text-[#a8a29a]">{z.label}</span>
+            <span className="font-body text-[11px] text-[#b6b0a6]">{z.label}</span>
           </div>
         ))}
       </div>

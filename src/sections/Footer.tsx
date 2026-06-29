@@ -16,16 +16,16 @@ export default function Footer() {
             <p className="font-body text-[15px] text-[#f0ece8]/60 leading-relaxed mb-2 max-w-sm">
               A material culture archive documenting toilet paper specimens from {countryCount} countries across contemporary Asia. Initiated in Hong Kong, 2026.
             </p>
-            <p className="font-body text-[13px] text-[#a8a29a] leading-relaxed mb-6 max-w-sm">
+            <p className="font-body text-[13px] text-[#b6b0a6] leading-relaxed mb-6 max-w-sm">
               By Jeffrey Nicholas Tse
             </p>
-            <Link to="/about" className="flex items-center gap-2 text-[#a8a29a] hover:text-[#f0ece8] transition-colors group mb-3">
+            <Link to="/about" className="flex items-center gap-2 text-[#b6b0a6] hover:text-[#f0ece8] transition-colors group mb-3">
               <Send className="w-3.5 h-3.5 group-hover:text-[#c28223]" />
               <p className="font-mono text-[11px]">
                 Contact &amp; submissions
               </p>
             </Link>
-            <Link to="/sources" className="flex items-center gap-2 text-[#a8a29a] hover:text-[#f0ece8] transition-colors group">
+            <Link to="/sources" className="flex items-center gap-2 text-[#b6b0a6] hover:text-[#f0ece8] transition-colors group">
               <BookMarked className="w-3.5 h-3.5 group-hover:text-[#c28223]" />
               <p className="font-mono text-[11px]">
                 Sources & methodology

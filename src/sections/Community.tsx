@@ -70,7 +70,7 @@ export default function Community() {
           <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05] mb-6">
             This Grows<br />With You
           </h2>
-          <p className="font-body text-sm text-[#a8a29a] max-w-lg leading-relaxed">
+          <p className="font-body text-sm text-[#b6b0a6] max-w-lg leading-relaxed">
             The archive is incomplete by design. It is open and growing — the next specimen could come from
             your hotel, your supermarket, your city.
           </p>
@@ -80,29 +80,29 @@ export default function Community() {
         <div className="comm-cities mb-16 pt-8 border-t border-white/[0.04]">
           <div className="grid sm:grid-cols-3 gap-8 mb-12">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mb-2">Current Status</p>
-              <p className="font-body text-[13px] text-[#a09890] leading-relaxed">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mb-2">Current Status</p>
+              <p className="font-body text-[13px] text-[#b0a99d] leading-relaxed">
                 {specimenCount} specimens catalogued. {countryCount} countries covered. The project launched in Hong Kong in early 2026.
               </p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mb-2">What We Need</p>
-              <p className="font-body text-[13px] text-[#a09890] leading-relaxed">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mb-2">What We Need</p>
+              <p className="font-body text-[13px] text-[#b0a99d] leading-relaxed">
                 First-hand photographs from Cambodia, Laos, Myanmar, and rural China. Verified product packaging from emerging markets.
               </p>
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mb-2">What We Offer</p>
-              <p className="font-body text-[13px] text-[#a09890] leading-relaxed">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mb-2">What We Offer</p>
+              <p className="font-body text-[13px] text-[#b0a99d] leading-relaxed">
                 Full credit for all contributors. A permanent record of your observation in a public cultural archive.
               </p>
             </div>
           </div>
 
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#a8a29a] mb-3">Territories Represented</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#b6b0a6] mb-3">Territories Represented</p>
           <div className="flex flex-wrap gap-2">
             {['Hong Kong', 'Tokyo', 'Singapore', 'Bangkok', 'Mumbai', 'Dhaka', 'Jakarta', 'Manila', 'Seoul', 'Taipei', 'Yangon', 'Kathmandu', 'Hanoi', 'Phnom Penh', 'Colombo', 'Karachi', 'Lahore', 'Kuala Lumpur', 'Beijing', 'Ulaanbaatar', 'Vientiane'].map((city) => (
-              <span key={city} className="font-body text-[11px] text-[#a8a29a] bg-white/[0.05] px-3 py-1 rounded-full">{city}</span>
+              <span key={city} className="font-body text-[11px] text-[#b6b0a6] bg-white/[0.05] px-3 py-1 rounded-full">{city}</span>
             ))}
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function Community() {
             <div key={mode.title} className="comm-card group bg-[#141414] border border-white/[0.04] rounded-xl p-6 sm:p-8 hover:border-white/[0.08] transition-colors">
               <mode.icon className="w-5 h-5 text-[#c28223] mb-5" strokeWidth={1.5} />
               <h3 className="font-display text-lg text-[#f0ece8] mb-3">{mode.title}</h3>
-              <p className="font-body text-[13px] text-[#a09890] leading-relaxed mb-6">{mode.description}</p>
+              <p className="font-body text-[13px] text-[#b0a99d] leading-relaxed mb-6">{mode.description}</p>
               {mode.href ? (
                 <a
                   href={mode.href}
@@ -129,7 +129,7 @@ export default function Community() {
                   <span className="w-4 h-px bg-current transition-all group-hover/link:w-6" />
                 </a>
               ) : (
-                <span className="inline-flex items-center gap-2 font-body text-[12px] text-[#a8a29a]">
+                <span className="inline-flex items-center gap-2 font-body text-[12px] text-[#b6b0a6]">
                   {mode.action}
                   <span className="w-4 h-px bg-current" />
                 </span>
@@ -144,7 +144,7 @@ export default function Community() {
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#c28223] mb-3">Colophon</p>
               <h3 className="font-display text-2xl text-[#f0ece8] mb-4">About this archive</h3>
-              <p className="font-body text-[14px] text-[#a09890] leading-relaxed mb-4">
+              <p className="font-body text-[14px] text-[#b0a99d] leading-relaxed mb-4">
                 Roll Call is a long-term archival project documenting everyday consumer packaging across Asia. It is presented as a public, evolving archive — open to contributions, corrections, and collaboration with museums, galleries, and cultural institutions.
               </p>
               <div className="flex flex-wrap items-center gap-4">
@@ -158,23 +158,23 @@ export default function Community() {
               </div>
             </div>
             <div className="bg-[#141414] border border-white/[0.04] rounded-2xl p-6">
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mb-4">At a glance</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mb-4">At a glance</p>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="font-display text-2xl text-[#f0ece8]">{specimenCount}</p>
-                  <p className="font-body text-[10px] text-[#a8a29a] uppercase tracking-wider">Specimens</p>
+                  <p className="font-body text-[10px] text-[#b6b0a6] uppercase tracking-wider">Specimens</p>
                 </div>
                 <div>
                   <p className="font-display text-2xl text-[#f0ece8]">{countryCount}</p>
-                  <p className="font-body text-[10px] text-[#a8a29a] uppercase tracking-wider">Countries</p>
+                  <p className="font-body text-[10px] text-[#b6b0a6] uppercase tracking-wider">Countries</p>
                 </div>
                 <div>
                   <p className="font-display text-2xl text-[#f0ece8]">3</p>
-                  <p className="font-body text-[10px] text-[#a8a29a] uppercase tracking-wider">Regions</p>
+                  <p className="font-body text-[10px] text-[#b6b0a6] uppercase tracking-wider">Regions</p>
                 </div>
                 <div>
                   <p className="font-display text-2xl text-[#f0ece8]">2026</p>
-                  <p className="font-body text-[10px] text-[#a8a29a] uppercase tracking-wider">Launched</p>
+                  <p className="font-body text-[10px] text-[#b6b0a6] uppercase tracking-wider">Launched</p>
                 </div>
               </div>
             </div>
@@ -184,7 +184,7 @@ export default function Community() {
         {/* Submission Form */}
         <div id="submission-form" className="mt-16 pt-16 border-t border-white/[0.04]">
           <div className="mb-8 text-center">
-            <p className="font-body text-[15px] text-[#a09890] leading-relaxed max-w-lg mx-auto mb-2">
+            <p className="font-body text-[15px] text-[#b0a99d] leading-relaxed max-w-lg mx-auto mb-2">
               This archive exists because one person started looking closely at an ordinary object.
               The next specimen could come from you.
             </p>

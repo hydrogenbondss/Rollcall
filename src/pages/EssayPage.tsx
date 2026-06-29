@@ -56,15 +56,15 @@ export default function EssayPage() {
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#0d0d0d]/95 backdrop-blur-md border-b border-white/5">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
-            <ArrowLeft className="w-4 h-4 text-[#a8a29a] group-hover:text-[#f0ece8] transition-colors" />
+            <ArrowLeft className="w-4 h-4 text-[#b6b0a6] group-hover:text-[#f0ece8] transition-colors" />
             <span className="font-display text-[15px] font-medium tracking-[0.15em] uppercase text-[#f0ece8]">Roll Call</span>
           </Link>
-          <span className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider hidden sm:block">Essay</span>
+          <span className="font-mono text-[10px] text-[#b6b0a6] uppercase tracking-wider hidden sm:block">Essay</span>
         </div>
       </nav>
 
       {/* Essay */}
-      <article className="max-w-[720px] mx-auto px-6 sm:px-8 pt-32 pb-20">
+      <article className="max-w-[720px] mx-auto px-6 sm:px-8 pt-28 pb-20">
         <header className="mb-16 essay-item">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-4 h-4 text-[#8b7ec8]" strokeWidth={1.5} />
@@ -72,10 +72,10 @@ export default function EssayPage() {
           <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4 leading-[0.95]">
             One-Ply Realism
           </h1>
-          <p className="font-serif-display text-lg text-[#a8a29a] italic mb-6">
+          <p className="font-serif-display text-lg text-[#b6b0a6] italic mb-6">
             On toilet paper as material culture and infrastructure.
           </p>
-          <div className="flex items-center gap-4 text-[#a8a29a]">
+          <div className="flex items-center gap-4 text-[#b6b0a6]">
             <span className="font-mono text-[10px] uppercase tracking-wider">Jeffrey Nicholas Tse</span>
             <span className="w-1 h-1 rounded-full bg-[#555]" />
             <span className="font-mono text-[10px] uppercase tracking-wider">Hong Kong, 2026</span>
@@ -85,7 +85,7 @@ export default function EssayPage() {
         {paragraphs.map((p, i) => (
           <p
             key={i}
-            className="essay-item font-body text-[15px] text-[#a09890] leading-[1.8] mb-8"
+            className="essay-item font-body text-[15px] text-[#b0a99d] leading-[1.8] mb-8"
           >
             {p}
           </p>
@@ -93,21 +93,21 @@ export default function EssayPage() {
 
         {/* Footnotes */}
         <footer className="mt-16 pt-8 border-t border-white/[0.04] essay-item">
-          <p className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider mb-4">
+          <p className="font-mono text-[10px] text-[#b6b0a6] uppercase tracking-wider mb-4">
             Notes
           </p>
           <ol className="space-y-3">
             {footnotes.map((fn) => (
               <li key={fn.id} id={`fn-${fn.id}`} className="flex items-start gap-3">
                 <sup className="font-mono text-[10px] text-[#c28223] mt-0.5">{fn.id}</sup>
-                <p className="font-body text-[12px] text-[#a8a29a] leading-relaxed">{fn.text}</p>
+                <p className="font-body text-[12px] text-[#b6b0a6] leading-relaxed">{fn.text}</p>
               </li>
             ))}
           </ol>
         </footer>
 
         <div className="mt-16 pt-8 border-t border-white/[0.04] essay-item">
-          <p className="essay-item font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider mb-2">
+          <p className="essay-item font-mono text-[10px] text-[#b6b0a6] uppercase tracking-wider mb-2">
             This essay accompanies the Roll Call archive
           </p>
           <Link to="/collection" className="essay-item font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors">

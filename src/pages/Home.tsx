@@ -93,9 +93,9 @@ export default function Home() {
         <section className="min-h-[82vh] flex flex-col items-center justify-center px-6 text-center">
           <div className="hero-item mb-10">
             <div className="flex items-center justify-center gap-4">
-              <span className="w-12 h-px bg-[#c28223]/40" />
+              <span className="w-12 h-px bg-white/15" />
               <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-[#c28223]/60">Est. 2026 &middot; Material Culture Archive</p>
-              <span className="w-12 h-px bg-[#c28223]/40" />
+              <span className="w-12 h-px bg-white/15" />
             </div>
           </div>
 
@@ -103,11 +103,11 @@ export default function Home() {
             What deserves<br className="hidden sm:block" /> to be archived?
           </h1>
 
-          <p className="hero-item font-serif-display text-lg sm:text-xl italic text-[#a09890] max-w-xl mt-8 leading-relaxed">
+          <p className="hero-item font-serif-display text-lg sm:text-xl italic text-[#b0a99d] max-w-xl mt-8 leading-relaxed">
             When does an everyday object stop being disposable and become cultural heritage?
           </p>
 
-          <p className="hero-item font-body text-[15px] sm:text-base text-[#a8a29a] max-w-[560px] mt-8 leading-relaxed">
+          <p className="hero-item font-body text-[15px] sm:text-base text-[#b6b0a6] max-w-[560px] mt-8 leading-relaxed">
             <span className="text-[#f0ece8]">Roll Call</span> is an evolving archive documenting everyday
             consumer packaging across Asia — beginning with the most universal object of all.
           </p>
@@ -139,22 +139,22 @@ export default function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-6">
             <div>
               <p className="font-display text-4xl sm:text-5xl text-[#f0ece8]">{specimenCount}</p>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mt-2">Archived Specimens</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mt-2">Archived Specimens</p>
             </div>
             <div>
               <p className="font-display text-4xl sm:text-5xl text-[#f0ece8]">{countryCount}</p>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mt-2">Countries</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mt-2">Countries</p>
             </div>
             <div>
               <p className="font-display text-4xl sm:text-5xl text-[#f0ece8]">3</p>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mt-2">Regions</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mt-2">Regions</p>
             </div>
             <div>
               <p className="font-display text-4xl sm:text-5xl text-[#c28223]">∞</p>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mt-2">Growing Archive</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mt-2">Growing Archive</p>
             </div>
           </div>
-          <p className="font-body text-[14px] leading-relaxed text-[#a8a29a] max-w-[640px] mt-10">
+          <p className="font-body text-[14px] leading-relaxed text-[#b6b0a6] max-w-[640px] mt-10">
             The first edition of Roll Call documents {specimenCount} verified specimens collected across {countryCount} Asian
             countries. Rather than a complete survey, this initial collection establishes the foundation of an
             archive intended to expand over time through continued research and public contribution.
@@ -167,7 +167,7 @@ export default function Home() {
         {/* The exhibition, in three parts */}
         <section className="nav-cards max-w-[1100px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
           <div className="flex items-center gap-3 mb-8">
-            <span className="w-8 h-px bg-[#c28223]/40" />
+            <span className="w-8 h-px bg-white/15" />
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223]">The exhibition, in three parts</p>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
@@ -179,18 +179,18 @@ export default function Home() {
               >
                 <div className="flex items-start justify-between mb-4">
                   <c.icon className="w-5 h-5" style={{ color: c.color }} strokeWidth={1.5} />
-                  <span className="font-mono text-[10px] text-[#a8a29a] tracking-[0.25em]">{c.num}</span>
+                  <span className="font-mono text-[10px] text-[#b6b0a6] tracking-[0.25em]">{c.num}</span>
                 </div>
                 <h2 className="font-display text-xl text-[#f0ece8] mb-2 group-hover:text-[#c28223] transition-colors">{c.title}</h2>
-                <p className="font-body text-[13px] text-[#a8a29a] leading-relaxed mb-6 flex-1">{c.desc}</p>
-                <ArrowRight className="w-4 h-4 text-[#a8a29a] group-hover:text-[#c28223] group-hover:translate-x-1 transition-all" strokeWidth={1.5} />
+                <p className="font-body text-[13px] text-[#b6b0a6] leading-relaxed mb-6 flex-1">{c.desc}</p>
+                <ArrowRight className="w-4 h-4 text-[#b6b0a6] group-hover:text-[#c28223] group-hover:translate-x-1 transition-all" strokeWidth={1.5} />
               </Link>
             ))}
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-8">
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#a8a29a]">Also</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#b6b0a6]">Also</span>
             {secondaryLinks.map((l) => (
-              <Link key={l.to} to={l.to} className="font-body text-[13px] text-[#a8a29a] hover:text-[#f0ece8] transition-colors">{l.label}</Link>
+              <Link key={l.to} to={l.to} className="font-body text-[13px] text-[#b6b0a6] hover:text-[#f0ece8] transition-colors">{l.label}</Link>
             ))}
           </div>
         </section>
@@ -203,10 +203,10 @@ export default function Home() {
             </div>
             <div>
               <p className="font-display text-sm text-[#f0ece8]">Jeffrey Nicholas Tse</p>
-              <p className="font-mono text-[9px] text-[#a8a29a] uppercase tracking-wider">Artist / Researcher / Hong Kong</p>
+              <p className="font-mono text-[9px] text-[#b6b0a6] uppercase tracking-wider">Artist / Researcher / Hong Kong</p>
             </div>
           </div>
-          <p className="font-body text-[13px] text-[#a8a29a] leading-relaxed italic">
+          <p className="font-body text-[13px] text-[#b6b0a6] leading-relaxed italic">
             Jeffrey Nicholas Tse is a Hong Kong-based interdisciplinary artist and researcher whose work examines systems of preservation, mediated identity, and cultural memory. Moving across archival practice, digital interfaces, writing, and interactive media, his projects investigate how value is assigned through classification, repetition, and observation.
           </p>
         </section>

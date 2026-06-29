@@ -44,7 +44,7 @@ function RenderPlaceholder({ label, tint }: { label: string; tint: string }) {
       <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '22px 22px' }} />
       <div className="text-center px-6">
         <div className="w-12 h-px mx-auto mb-4" style={{ backgroundColor: tint }} />
-        <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#a8a29a]">Render · {label}</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#b6b0a6]">Render · {label}</p>
       </div>
     </div>
   )
@@ -86,10 +86,10 @@ export default function ExhibitionPage() {
       <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#0d0d0d]/95 backdrop-blur-md border-b border-white/5">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
-            <ArrowLeft className="w-4 h-4 text-[#a8a29a] group-hover:text-[#f0ece8] transition-colors" />
+            <ArrowLeft className="w-4 h-4 text-[#b6b0a6] group-hover:text-[#f0ece8] transition-colors" />
             <span className="font-display text-[15px] font-medium tracking-[0.15em] uppercase text-[#f0ece8]">Roll Call</span>
           </Link>
-          <span className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider hidden sm:block">The Exhibition</span>
+          <span className="font-mono text-[10px] text-[#b6b0a6] uppercase tracking-wider hidden sm:block">The Exhibition</span>
         </div>
       </nav>
 
@@ -98,11 +98,11 @@ export default function ExhibitionPage() {
         <div className="max-w-[820px] mx-auto text-center">
           <p className="ex-item font-mono text-[10px] uppercase tracking-[0.5em] text-[#c28223] mb-6">Exhibition Proposal</p>
           <h1 className="ex-item font-display text-6xl sm:text-7xl md:text-8xl tracking-tighter leading-[0.85] mb-8">The Exhibition</h1>
-          <p className="ex-item font-body text-lg text-[#a09890] max-w-xl mx-auto leading-relaxed mb-12">
+          <p className="ex-item font-body text-lg text-[#b0a99d] max-w-xl mx-auto leading-relaxed mb-12">
             The exhibition translates a growing digital archive into physical space, inviting visitors to
             reconsider the cultural significance of everyday objects through observation, preservation, and documentation.
           </p>
-          <div className="ex-item flex items-center justify-center gap-6 text-[#a8a29a]">
+          <div className="ex-item flex items-center justify-center gap-6 text-[#b6b0a6]">
             <span className="font-mono text-[10px] uppercase tracking-wider">Observation</span>
             <span className="w-1 h-1 rounded-full bg-[#555]" />
             <span className="font-mono text-[10px] uppercase tracking-wider">Preservation</span>
@@ -117,7 +117,7 @@ export default function ExhibitionPage() {
         <div className="max-w-[820px] mx-auto px-6 sm:px-8">
           <p className="ex-item font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-4">The Experience</p>
           <h2 className="ex-item font-display text-4xl sm:text-5xl mb-8">How visitors move through the work</h2>
-          <p className="ex-item font-body text-[16px] text-[#a09890] leading-[1.85] max-w-[640px]">
+          <p className="ex-item font-body text-[16px] text-[#b0a99d] leading-[1.85] max-w-[640px]">
             Visitors enter through <span className="text-[#f0ece8]">The Archive Wall</span>, a quiet field of
             individually framed specimens to be read slowly. At the centre, <span className="text-[#f0ece8]">The Living
             Specimen</span> enlarges a single object into a rotating, dissected model. The journey ends at
@@ -133,11 +133,11 @@ export default function ExhibitionPage() {
           <div className="ex-item order-2 lg:order-1">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-4">The Physical Collection</p>
             <h2 className="font-display text-4xl sm:text-5xl mb-5">The Archive Wall</h2>
-            <p className="font-body text-[15px] text-[#a09890] leading-[1.85] mb-4">
+            <p className="font-body text-[15px] text-[#b0a99d] leading-[1.85] mb-4">
               A long wall lined with small museum-style vitrines. Each holds one physical specimen alongside a
               printed accession card, letting visitors engage slowly and notice subtle patterns across the collection.
             </p>
-            <p className="font-body text-[13px] text-[#a8a29a] leading-relaxed">
+            <p className="font-body text-[13px] text-[#b6b0a6] leading-relaxed">
               The physical collection — the everyday object presented with the attention usually reserved for artefacts.
             </p>
           </div>
@@ -153,7 +153,7 @@ export default function ExhibitionPage() {
           <div className="ex-item text-center max-w-[720px] mx-auto mb-12">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c4728e] mb-4">The Signature Installation</p>
             <h2 className="font-display text-5xl sm:text-6xl mb-6 leading-[0.95]">The Living Specimen</h2>
-            <p className="font-body text-[16px] text-[#a09890] leading-[1.85]">
+            <p className="font-body text-[16px] text-[#b0a99d] leading-[1.85]">
               A single archived specimen is presented as a volumetric digital object. As it slowly rotates, its
               physical components separate to reveal the layers, materials, and metadata normally hidden within an
               everyday object. By enlarging and dissecting the specimen, the installation invites visitors to examine
@@ -164,14 +164,14 @@ export default function ExhibitionPage() {
           <div className="ex-item" style={{ height: 480 }}>
             <Suspense fallback={
               <div className="w-full h-full flex items-center justify-center bg-[#0a0a0a] rounded-2xl border border-white/[0.04]">
-                <p className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider">Loading the specimen…</p>
+                <p className="font-mono text-[10px] text-[#b6b0a6] uppercase tracking-wider">Loading the specimen…</p>
               </div>
             }>
               <LivingSpecimen specimen={featuredSpecimen} />
             </Suspense>
           </div>
 
-          <p className="ex-item font-body text-[13px] text-[#a8a29a] leading-relaxed max-w-[640px] mx-auto text-center mt-8">
+          <p className="ex-item font-body text-[13px] text-[#b6b0a6] leading-relaxed max-w-[640px] mx-auto text-center mt-8">
             Like an anatomical model in a science museum, the installation exists not for spectacle but to reveal the
             hidden structure, materials, and information that make an ordinary object worthy of archival study. The
             object on display always reflects the current featured specimen — the archive is alive, and so is its centrepiece.
@@ -188,11 +188,11 @@ export default function ExhibitionPage() {
           <div className="ex-item">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c85a32] mb-4">What We Lose</p>
             <h2 className="font-display text-4xl sm:text-5xl mb-5">The Extinction Corner</h2>
-            <p className="font-body text-[15px] text-[#a09890] leading-[1.85] mb-4">
+            <p className="font-body text-[15px] text-[#b0a99d] leading-[1.85] mb-4">
               A dimly lit wall dedicated to discontinued or no-longer-produced packaging. The reduced atmosphere
               invites reflection on objects that have quietly disappeared from circulation.
             </p>
-            <p className="font-body text-[13px] text-[#a8a29a] leading-relaxed">
+            <p className="font-body text-[13px] text-[#b6b0a6] leading-relaxed">
               What an archive chooses to keep is also a record of what the world has already let go.
             </p>
           </div>
@@ -202,9 +202,9 @@ export default function ExhibitionPage() {
       {/* Future Development */}
       <section id="future-ideas" data-zone-section className="ex-section py-20 border-t border-white/[0.04] scroll-mt-28">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
-          <p className="ex-item font-mono text-[10px] uppercase tracking-[0.4em] text-[#a8a29a] mb-4">Looking Ahead</p>
+          <p className="ex-item font-mono text-[10px] uppercase tracking-[0.4em] text-[#b6b0a6] mb-4">Looking Ahead</p>
           <h2 className="ex-item font-display text-4xl sm:text-5xl mb-4">Future Development</h2>
-          <p className="ex-item font-body text-sm text-[#a8a29a] max-w-lg mb-12 leading-relaxed">
+          <p className="ex-item font-body text-sm text-[#b6b0a6] max-w-lg mb-12 leading-relaxed">
             Beyond the core route, several directions remain conceptually possible. These could be developed in future
             phases depending on available resources, venue partnerships, and opportunities for collaboration.
           </p>
@@ -214,7 +214,7 @@ export default function ExhibitionPage() {
               <div key={zone.title} className="ex-item bg-[#141414] border border-white/[0.04] rounded-2xl p-6 hover:border-white/[0.08] transition-all">
                 <h3 className="font-display text-xl text-[#f0ece8] mb-1">{zone.title}</h3>
                 <p className="font-body text-[13px] text-[#c28223] mb-3">{zone.blurb}</p>
-                <p className="font-body text-[12px] text-[#a8a29a] leading-relaxed">{zone.desc}</p>
+                <p className="font-body text-[12px] text-[#b6b0a6] leading-relaxed">{zone.desc}</p>
               </div>
             ))}
           </div>
@@ -223,10 +223,10 @@ export default function ExhibitionPage() {
           <div className="ex-item mt-14">
             <div className="flex items-center gap-3 mb-3">
               <MapPin className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
-              <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#a8a29a]">Spatial Thinking</p>
+              <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#b6b0a6]">Spatial Thinking</p>
             </div>
             <h3 className="ex-item font-display text-3xl mb-4">Floor Plan</h3>
-            <p className="ex-item font-body text-sm text-[#a8a29a] max-w-lg mb-6">
+            <p className="ex-item font-body text-sm text-[#b6b0a6] max-w-lg mb-6">
               A proposed layout moving visitors from the Archive Wall, through the Living Specimen, to the Extinction Corner.
             </p>
             <div className="ex-item">
@@ -241,10 +241,10 @@ export default function ExhibitionPage() {
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
           <div className="ex-item flex items-center gap-3 mb-3">
             <FileText className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
-            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#a8a29a]">Project Details</p>
+            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#b6b0a6]">Project Details</p>
           </div>
           <h2 className="ex-item font-display text-4xl sm:text-5xl mb-4">Possible Realization</h2>
-          <p className="ex-item font-body text-sm text-[#a8a29a] max-w-xl mb-12 leading-relaxed">
+          <p className="ex-item font-body text-sm text-[#b6b0a6] max-w-xl mb-12 leading-relaxed">
             A realistic breakdown of what it could take to move from a confirmed venue to a first public presentation.
             Figures are provisional and scale with venue partnership.
           </p>
@@ -256,9 +256,9 @@ export default function ExhibitionPage() {
               { title: 'Budget tier', value: 'HK$180k–420k', desc: 'Covers vitrine fabrication, printed accession cards, the Living Specimen projection, lighting, insurance, shipping of specimens, and a modest artist fee.' },
             ].map((item) => (
               <div key={item.title} className="ex-item bg-[#141414] border border-white/[0.04] rounded-2xl p-6">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-[#a8a29a] mb-2">{item.title}</p>
+                <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mb-2">{item.title}</p>
                 <p className="font-display text-3xl text-[#f0ece8] mb-3">{item.value}</p>
-                <p className="font-body text-[12px] text-[#a8a29a] leading-relaxed">{item.desc}</p>
+                <p className="font-body text-[12px] text-[#b6b0a6] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -276,13 +276,13 @@ export default function ExhibitionPage() {
               ].map((d) => (
                 <div key={d} className="flex items-start gap-3">
                   <span className="w-1 h-1 rounded-full bg-[#c28223] mt-2 shrink-0" />
-                  <p className="font-body text-[13px] text-[#a09890] leading-relaxed">{d}</p>
+                  <p className="font-body text-[13px] text-[#b0a99d] leading-relaxed">{d}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <p className="ex-item font-body text-[12px] text-[#a8a29a] mt-6 leading-relaxed max-w-2xl">
+          <p className="ex-item font-body text-[12px] text-[#b6b0a6] mt-6 leading-relaxed max-w-2xl">
             This section is intentionally provisional. A realized exhibition depends on the venue, audience, and funding
             context. The core principle is adaptability: the same archive can scale from a single vitrine wall in a
             library to a multi-room museum installation.
@@ -309,9 +309,9 @@ export default function ExhibitionPage() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-baseline gap-4">
               <span className="font-display text-[15px] font-medium tracking-[0.15em] uppercase text-[#f0ece8]">ROLL CALL</span>
-              <span className="font-mono text-[9px] tracking-[0.2em] text-[#a8a29a] uppercase">Material Culture Archive</span>
+              <span className="font-mono text-[9px] tracking-[0.2em] text-[#b6b0a6] uppercase">Material Culture Archive</span>
             </div>
-            <div className="flex items-center gap-6 text-[#a8a29a]">
+            <div className="flex items-center gap-6 text-[#b6b0a6]">
               <span className="font-mono text-[10px] text-[#f0ece8]/60 tracking-wide">Jeffrey Nicholas Tse</span>
               <span className="w-px h-3 bg-white/10" />
               <span className="font-mono text-[10px] text-[#f0ece8]/60 tracking-wide">{specimenCount} specimens</span>
