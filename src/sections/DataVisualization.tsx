@@ -140,7 +140,7 @@ export default function DataVisualization() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#c28223] mb-1">Key Finding</p>
               <p className="font-body text-sm text-[#f0ece8] leading-relaxed">
                 GDP per capita and toilet paper ply show a correlation of <strong className="text-[#c28223]">{correlation.toFixed(2)}</strong>.
-                {" "}Wealthier nations systematically use thicker toilet paper — Hong Kong (4-ply, GDP $49,755) vs Myanmar (1-ply, GDP $1,210).
+                {" "}Wealthier nations systematically use thicker, softer toilet paper — Singapore (4-ply, GDP $84,734) vs Myanmar (1-ply, GDP $1,210).
               </p>
             </div>
           </div>

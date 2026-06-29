@@ -100,7 +100,7 @@ export default function GrantSummaryPage() {
             The first edition documents {specimenCount} verified specimens across {countryCount} countries and three regions — a proof of concept rather than an exhaustive inventory. The sample covers high-income economies (Japan, Singapore, Hong Kong), middle-income markets (Malaysia, Thailand, China), and lower-income contexts (Bangladesh, Nepal, Myanmar). It represents the archive at a specific moment in time and will continue to grow.
           </p>
           <p className="font-body text-[15px] leading-relaxed text-[#444]">
-            At this scale, clear patterns already emerge: GDP correlates with ply count; scented and treated papers cluster in East Asia; South Asia remains dominated by thin, infrastructure-compatible rolls. The archive demonstrates that a replicable methodology can generate cultural insight from a modest but geographically diverse sample.
+            At this scale, clear patterns already emerge: GDP correlates with ply count and softness; additive-enhanced premium papers (lotion, plant-derived squalane) cluster in East Asia; South Asia remains dominated by thin, infrastructure-compatible rolls. The archive demonstrates that a replicable methodology can generate cultural insight from a modest but geographically diverse sample.
           </p>
         </section>
 
@@ -110,7 +110,7 @@ export default function GrantSummaryPage() {
           <ul className="space-y-3">
             {[
               'Hong Kong consumers pay roughly 5x more per roll than Bangladeshi consumers in this archive.',
-              'East Asian products dominate the premium segment: four-ply, scented, and additive-enhanced.',
+              'East Asian products dominate the premium segment: softer multi-ply rolls with moisturising additives and elaborate packaging.',
               'South Asian products are overwhelmingly thin (1–2 ply), reflecting older plumbing infrastructure.',
               'Sustainability claims (bamboo, recycled pulp) appear across all income tiers but trade off against comfort.',
               'Myanmar has a domestically manufactured brand, while Cambodia and Laos in this archive rely on imported products.',

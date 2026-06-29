@@ -32,9 +32,9 @@ const INNER = 0.72
 const HEIGHT = 2.7
 
 // cyan (bottom) -> white (middle) -> violet (top), matching a holographic display
-const COL_LOW = new THREE.Color('#5fd6ff')
+const COL_LOW = new THREE.Color('#4fd0ff')
 const COL_MID = new THREE.Color('#eaf6ff')
-const COL_HIGH = new THREE.Color('#9b8cff')
+const COL_HIGH = new THREE.Color('#a87dff')
 
 function buildCloud() {
   const pos: number[] = []
@@ -52,8 +52,8 @@ function buildCloud() {
     col.push(tmp.r, tmp.g, tmp.b)
   }
 
-  const RINGS = 120
-  const ROWS = 46
+  const RINGS = 150
+  const ROWS = 58
   // outer + inner cylindrical walls
   for (let i = 0; i < RINGS; i++) {
     const a = (i / RINGS) * Math.PI * 2
@@ -65,7 +65,7 @@ function buildCloud() {
     }
   }
   // top & bottom annulus caps
-  const CAP_R = 26, CAP_A = 90
+  const CAP_R = 30, CAP_A = 110
   for (let i = 0; i < CAP_A; i++) {
     const a = (i / CAP_A) * Math.PI * 2
     const cx = Math.cos(a), sz = Math.sin(a)
@@ -93,7 +93,7 @@ function Roll() {
       group.current.rotation.y = t * 0.18
       group.current.position.y = Math.sin(t * 0.6) * 0.06
     }
-    if (mat.current) mat.current.size = 0.052 + Math.sin(t * 1.6) * 0.006 // subtle shimmer
+    if (mat.current) mat.current.size = 0.044 + Math.sin(t * 1.6) * 0.006 // subtle shimmer
   })
 
   return (
@@ -107,7 +107,7 @@ function Roll() {
           ref={mat}
           map={glow}
           vertexColors
-          size={0.052}
+          size={0.044}
           sizeAttenuation
           transparent
           depthWrite={false}
@@ -130,7 +130,7 @@ function Projector() {
         side: THREE.DoubleSide,
         uniforms: { uColor: { value: new THREE.Color('#5fd6ff') } },
         vertexShader: `varying float vY; void main(){ vY = uv.y; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }`,
-        fragmentShader: `uniform vec3 uColor; varying float vY; void main(){ float a = pow(vY, 1.6) * 0.16; gl_FragColor = vec4(uColor, a); }`,
+        fragmentShader: `uniform vec3 uColor; varying float vY; void main(){ float a = pow(vY, 1.5) * 0.22; gl_FragColor = vec4(uColor, a); }`,
       }),
     []
   )

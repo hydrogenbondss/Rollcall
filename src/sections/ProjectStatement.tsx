@@ -53,7 +53,7 @@ export default function ProjectStatement() {
           </div>
 
           <p className="font-body text-[15px] text-[#a09890] leading-[1.85]">
-            In Hong Kong, four-ply scented tissue is aspirational. A home stocked with Tempo signals membership in a class that has upgraded from necessity to preference. In Mumbai, one-ply is not poverty — it is physics. Victorian-era pipework makes thicker paper an act of plumbing suicide. The product available is the product the infrastructure permits.
+            In Hong Kong, soft three-ply tissue is aspirational. A home stocked with Tempo signals membership in a class that has upgraded from necessity to preference. In Mumbai, one-ply is not poverty — it is physics. Victorian-era pipework makes thicker paper an act of plumbing suicide. The product available is the product the infrastructure permits.
           </p>
 
           <p className="font-body text-[15px] text-[#a09890] leading-[1.85]">
