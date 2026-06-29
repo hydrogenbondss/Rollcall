@@ -14,7 +14,6 @@
  * keeps its placeholder instead of showing a broken image (see ProductImage).
  */
 export const verifiedImageIds = new Set<string>([
-  'nepia-oshiri-celeb',
   'elleair-premium',
   'enevo-brunei',
   'khugjil-mongolia',
@@ -25,6 +24,8 @@ export const verifiedImageIds = new Set<string>([
 ])
 
 export const illustrativeImageIds = new Set<string>([
+  // Flagship (real photo replaced with a charcoal render for grid consistency)
+  'nepia-oshiri-celeb',
   // Batch 1
   'nepia-nepi-nepi',
   'scottie-toilet',

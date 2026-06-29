@@ -85,7 +85,7 @@ export const products: Product[] = [
     priceUSD: 3,
     currency: 'JPY',
     localPrice: '¥450',
-    image: './images/nepia-oshiri-celeb-photo.png',
+    image: './images/nepia-oshiri-celeb-render.png',
     hotels: [],
     retailers: ['Amazon Japan', 'AEON', 'Don Quijote'],
     category: 'Premium',
