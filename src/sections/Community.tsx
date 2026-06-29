@@ -117,6 +117,12 @@ export default function Community() {
               {mode.href ? (
                 <a
                   href={mode.href}
+                  onClick={(e) => {
+                    if (mode.href?.startsWith('#')) {
+                      e.preventDefault()
+                      document.getElementById(mode.href.slice(1))?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }}
                   className="inline-flex items-center gap-2 font-body text-[12px] text-[#c28223] hover:text-[#f0ece8] transition-colors group/link"
                 >
                   {mode.action}
