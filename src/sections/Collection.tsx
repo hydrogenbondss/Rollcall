@@ -4,7 +4,7 @@ import { Search, SlidersHorizontal, X } from 'lucide-react'
 import type { Product } from '../data/products'
 import { products, brands, countries, getRegion, getFlagEmoji } from '../data/products'
 import { accessionId } from '../data/accession'
-import { hasVerifiedImage } from '../data/imageStatus'
+import { hasSpecimenPhoto } from '../data/imageStatus'
 import { usePaperRustle } from '../hooks/usePaperRustle'
 
 type SortOption = 'popular' | 'price-asc' | 'price-desc' | 'ply-desc' | 'region'
@@ -24,7 +24,7 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
   const [imgError, setImgError] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const catalogNo = accessionId(product.id)
-  const photo = hasVerifiedImage(product.id)
+  const photo = hasSpecimenPhoto(product.id)
   const playRustle = usePaperRustle()
 
   const handleMouseEnter = () => {
@@ -75,32 +75,26 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
               }}
             />
 
-            {photo ? (
+            {photo && !imgError ? (
               <>
-                {!imageLoaded && !imgError && (
+                {!imageLoaded && (
                   <div className="absolute inset-0 bg-white/[0.03]">
                     <div className="absolute inset-0 backdrop-blur-xl" />
                   </div>
                 )}
-                {!imgError && (
-                  <img
-                    src={product.image}
-                    alt={`${product.brand} ${product.name}`}
-                    className={`img-zoom w-full h-full object-contain p-10 sm:p-14 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                    loading="lazy"
-                    onLoad={() => setImageLoaded(true)}
-                    onError={() => { setImgError(true); setImageLoaded(true) }}
-                  />
-                )}
-                {imgError && (
-                  <div className="absolute inset-0 flex items-center justify-center z-30">
-                    <span className="font-body text-[10px] uppercase tracking-widest text-[#a8a29a]">Specimen unavailable</span>
-                  </div>
-                )}
+                <img
+                  src={product.image}
+                  alt={`${product.brand} ${product.name}`}
+                  className={`img-zoom w-full h-full object-contain p-10 sm:p-14 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  loading="lazy"
+                  onLoad={() => setImageLoaded(true)}
+                  onError={() => { setImgError(true); setImageLoaded(true) }}
+                />
               </>
             ) : (
-              // Honest placeholder: image audit found this specimen's photo to be
-              // unverified (AI-generated/suspect) — awaiting real documentation.
+              // Honest placeholder: either the image audit found this specimen's
+              // photo unverified, or its render has not been uploaded yet. The
+              // onError above falls back here so nothing renders broken.
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
                 <div className="absolute top-4 left-4 w-6 h-px bg-white/15" />
                 <div className="absolute bottom-4 right-4 w-6 h-px bg-white/15" />

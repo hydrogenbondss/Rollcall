@@ -1,6 +1,6 @@
-import { memo } from 'react'
+import { memo, useState } from 'react'
 import { getFlagEmoji } from '../data/products'
-import { hasVerifiedImage } from '../data/imageStatus'
+import { hasSpecimenPhoto } from '../data/imageStatus'
 import type { Product } from '../data/products'
 
 const GENERIC_IMAGES = new Set([
@@ -28,21 +28,31 @@ interface ProductImageProps {
   className?: string
   aspectRatio?: 'square' | 'portrait' | 'auto'
   showLabel?: boolean
+  /** Called if the image file fails to load (e.g. a render not yet uploaded). */
+  onPhotoError?: () => void
 }
 
 const ProductImage = memo(function ProductImage({
-  product, className = '', aspectRatio = 'portrait', showLabel = true,
+  product, className = '', aspectRatio = 'portrait', showLabel = true, onPhotoError,
 }: ProductImageProps) {
-  // Only show the stored photo if it's a generic-but-real fallback OR a verified
-  // photograph. AI-generated/suspect images route to the archive placeholder.
+  // Show the stored image only for verified photos or researched renders. If the
+  // file 404s (e.g. a render hasn't been uploaded yet), fall back to the archive
+  // placeholder so nothing renders broken. Everything else stays a placeholder.
+  const [errored, setErrored] = useState(false)
   const isGeneric = GENERIC_IMAGES.has(product.image)
-  const showPhoto = !isGeneric && hasVerifiedImage(product.id)
+  const showPhoto = !isGeneric && hasSpecimenPhoto(product.id) && !errored
   const aspectClass = aspectRatio === 'square' ? 'aspect-square' : aspectRatio === 'portrait' ? 'aspect-[4/5]' : ''
 
   if (showPhoto) {
     return (
       <div className={`${aspectClass} w-full overflow-hidden bg-[#1a1a1a] ${className}`}>
-        <img src={product.image} alt={`${product.brand} ${product.name}`} className="w-full h-full object-cover" loading="lazy" />
+        <img
+          src={product.image}
+          alt={`${product.brand} ${product.name}`}
+          className="w-full h-full object-cover"
+          loading="lazy"
+          onError={() => { setErrored(true); onPhotoError?.() }}
+        />
       </div>
     )
   }
