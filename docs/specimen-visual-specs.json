@@ -1,0 +1,66 @@
+{
+  "_about": "Researched visual specs for the signature specimen set. Each entry was built from web research of the REAL product packaging, then used as a prompt for an AI render (Higgsfield) so the generated image resembles the actual product. Renders are illustrative reconstructions, not photographs. After generating, download from the Higgsfield gallery and upload to public/images/ using `targetFile`, then add the id to verifiedImageIds (or illustrativeImageIds).",
+  "_generator": "Higgsfield nano_banana_pro, aspect 3:4",
+  "specs": [
+    {
+      "id": "nepia-nepi-nepi",
+      "brand": "Nepia",
+      "targetFile": "nepia-nepi-nepi-render.png",
+      "confidence": "medium",
+      "palette": ["#FFFFFF", "#E6004C", "#EC6EA3", "#F8B8D0", "#8FC7E8", "#7AC143", "#FBE3EC"],
+      "description": "White biomass-film 12-roll double pack covered in a large symmetrical bright-pink/magenta floral motif with green leaves and soft blue accents; lowercase red 'nepia' wordmark at top, rounded katakana 'ネピネピ', Japanese spec callouts, single round carry-hole handle.",
+      "prompt": "Studio product photograph of one plastic-wrapped Nepia Nepi-Nepi 12-roll double toilet paper pack standing upright on a clean dark charcoal seamless background with soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4. The glossy biomass-film wrap is mostly white printed with a large bright pink and magenta symmetrical floral motif with small green leaves and soft blue accents, a lowercase red 'nepia' logo at top, cute rounded katakana 'ネピネピ' branding, small Japanese text callouts, and a single round carry-hole handle punched through the top. Soft realistic plastic wrinkles, gentle reflections, faint floor shadow, cheerful clean Japanese household design.",
+      "sources": ["https://www.nepia.co.jp/product/homeuse/toilet/nepinepi/", "https://e-nepia.com/products/nepinepi/", "https://www.amazon.co.jp/dp/B0088UKJIM"]
+    },
+    {
+      "id": "scottie-toilet",
+      "brand": "Scottie",
+      "targetFile": "scottie-flowerpack-render.png",
+      "confidence": "high",
+      "palette": ["#FFFFFF", "#E2001A", "#EC6FA0", "#F4B400", "#7AB648", "#9B59B6", "#F58220"],
+      "description": "Japanese 12-roll double pack, glossy white film printed edge-to-edge with a vivid colorful bouquet (tulips, pansies, gerbera/rose blooms, yellow mimosa, green eucalyptus, white baby's breath); bold red lowercase 'scottie' wordmark near top with 'フラワーパック' and Japanese spec/scent callouts.",
+      "prompt": "Studio product photograph of one plastic-wrapped 12-roll pack of Japanese Scottie Flower Pack double-ply toilet paper, standing upright on a clean dark charcoal seamless background with soft museum spotlighting and gentle reflections. The glossy film is white, printed edge to edge with a vivid colorful bouquet of tulips, pansies, gerbera and rose blooms, yellow mimosa, green eucalyptus and white baby's breath. A bold red lowercase 'scottie' logo sits near the top above smaller Japanese product text. Photorealistic e-commerce catalogue style, crisp detail, vertical 3:4 framing.",
+      "sources": ["https://scottie.crecia.jp/flowerpack/", "https://www.nipponpapergroup.com/sustainableproducts/flowerpack/", "https://www.amazon.co.jp/-/en/Scottie-Toilet-Paper-Flower-Longer/dp/B085GDK3FH"]
+    },
+    {
+      "id": "tempo-neutral",
+      "brand": "Tempo",
+      "targetFile": "tempo-neutral-render.png",
+      "confidence": "medium",
+      "palette": ["#FFFFFF", "#0A2D8C", "#3DA0E3", "#9FD4F2", "#1B4FA0", "#E8F4FC"],
+      "description": "Hong Kong Tempo 'Neutral' (純白/Pure White) 3-ply pack — predominantly white clear-plastic wrapper with sky-blue and navy accents, bright white rolls visible; lowercase italic 'tempo' wordmark in deep blue near top, soft blue wave graphics, bilingual English/Traditional-Chinese callouts (3-ply / 三層, Neutral / 純白無味).",
+      "prompt": "Studio product photograph of a single roll of Tempo 3-ply Neutral bathroom tissue, individually wrapped in glossy crisp white plastic film with soft sky-blue flowing wave graphics and a small lowercase italic 'tempo' wordmark in deep royal-navy blue, tiny bilingual English and Chinese text reading 3-ply, the bright white tissue faintly visible at the ends; clean dark charcoal seamless background, soft museum spotlighting with gentle reflections, photorealistic e-commerce catalogue style, crisp focus, premium gentle feel, vertical 3:4 composition.",
+      "sources": ["https://online-price-watch.consumer.org.hk/opw/product/P000003133", "https://en.wikipedia.org/wiki/Tempo_(brand)", "https://www.vinda.com/en/product/p1/tempo/index.html"]
+    },
+    {
+      "id": "vinda-ultra-strong",
+      "brand": "Vinda",
+      "targetFile": "vinda-classic-blue-render.png",
+      "confidence": "high",
+      "palette": ["#1B5FA8", "#0E3C77", "#3E8FD6", "#FFFFFF", "#E8B23A", "#F2C84B"],
+      "description": "Vinda Classic Blue (维达 蓝色经典) — glossy pack with a calming deep-to-azure blue background, white 'Vinda' wordmark + flowing wave/petal logo mark, Chinese name 维达 in Songti serif, elegant white African-daisy (gerbera) floral illustration, golden ribbon accents; bilingual Chinese/English.",
+      "prompt": "Studio product photograph of a single plastic-wrapped pack of Vinda Classic Blue 3-ply bathroom tissue, 10 rolls, standing upright. Glossy clear film over a calming chic blue background that shades from deep navy to brighter azure, decorated with an elegant white African daisy gerbera flower illustration and subtle golden ribbon accents. White 'Vinda' wordmark with the flowing wave logo and Chinese name 维达 in refined serif type. Clean dark charcoal seamless background, soft museum spotlighting, gentle highlights on the plastic, photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://www.vindatissue.com/products/family_care/p1/v4028.aspx", "https://www.vinda.com/en/product/p1/vinda/index.html"]
+    },
+    {
+      "id": "kleenex-ultrasoft",
+      "brand": "Kleenex",
+      "targetFile": "kleenex-ultrasoft-render.png",
+      "confidence": "medium",
+      "palette": ["#0033A0", "#0072CE", "#5BC2E7", "#FFFFFF", "#9DCAF0", "#1B1B6F"],
+      "description": "Kleenex Ultra Soft Cottony Clean 3-ply (Singapore) — horizontal multipack in Kleenex blues over a white-to-light-blue ground; white cursive Kleenex wordmark on the rounded blue cloud/banner badge near top, English 'Ultra Soft Cottony Clean 3 Ply', cotton-soft graphics and gentle blue swirls, plush white rolls visible, roll/sheet-count burst.",
+      "prompt": "Studio product photograph of a single plastic-wrapped Kleenex Ultra Soft Cottony Clean 3-Ply toilet tissue 20-roll multipack standing upright on a clean dark charcoal seamless background with soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4. Glossy semi-transparent wrap in Kleenex brand blues over a white-to-pale-blue gradient, the white cursive Kleenex wordmark on a rounded blue cloud banner near the top, English text reading Ultra Soft Cottony Clean 3 Ply, soft cotton and gentle swirl graphics, a 20 rolls 200 sheets burst, plush white rolls visible through the wrap, crisp reflections, subtle shadow.",
+      "sources": ["https://www.watsons.com.sg/kleenex-kleenex-ultra-soft-toilet-tissue-paper-cottony-clean-20-rolls-br/p/BP_23080", "https://www.kleenex.com.sg/bath-tissue"]
+    },
+    {
+      "id": "cellox-purify",
+      "brand": "Cellox",
+      "targetFile": "cellox-purify-render.png",
+      "confidence": "medium",
+      "palette": ["#0072CE", "#00A0DF", "#FFFFFF", "#7FD3F0", "#1B3A66", "#C0E8F7"],
+      "description": "Cellox Purify Premium 6-roll pack — clear plastic-wrapped bundle of six white 3-ply rolls visible through film; white-and-blue Cellox identity, lowercase blue 'Cellox' wordmark, 'Purify' sub-brand, prominent circular GermClear+ 99.9% antibacterial badge, white-to-blue gradient with water-droplet accents, mixed Thai/English text, clean clinical-premium look.",
+      "prompt": "Studio product photograph of one clear plastic-wrapped pack of Cellox Purify Premium 3-ply toilet tissue, six soft white embossed rolls visible through glossy transparent film. Clean white-to-sky-blue gradient label with lowercase blue 'Cellox' wordmark, 'Purify' sub-brand, and a bright circular GermClear+ 99.9% antibacterial badge; subtle water-droplet and fresh accents, mixed Thai and English text. Premium hygienic feel. Placed on clean dark charcoal seamless background, soft museum spotlighting, gentle reflections, photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://www.celloxpurify.com/toilet-tissue/cellox-purify-premium-3-ply/TH", "https://www.lotuss.com/en/product/cellox-purify-premium-3ply-roll-tissue-6-rolls-71071326"]
+    }
+  ]
+}
