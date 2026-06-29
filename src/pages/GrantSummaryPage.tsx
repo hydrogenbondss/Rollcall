@@ -207,13 +207,13 @@ export default function GrantSummaryPage() {
               <p className="font-body text-[14px]">Hong Kong, 2026</p>
             </div>
           </div>
-          <a
-            href="/#community"
+          <Link
+            to="/about"
             className="inline-flex items-center gap-2 font-body text-[12px] text-[#c28223] hover:text-[#f0ece8] transition-colors print:text-[#c28223]"
           >
             Open correspondence form
             <span className="w-4 h-px bg-current" />
-          </a>
+          </Link>
         </section>
 
         <footer className="grant-item pt-8 border-t border-black/10 text-center print:hidden">

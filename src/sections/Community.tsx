@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Link } from 'react-router'
 import { MapPin, Users, BookOpen, Camera } from 'lucide-react'
 import SubmissionForm from '../components/SubmissionForm'
 import { specimenCount, countryCount } from '../data/stats'
@@ -141,20 +142,13 @@ export default function Community() {
                 Roll Call is a long-term archival project documenting everyday consumer packaging across Asia. It is presented as a public, evolving archive — open to contributions, corrections, and collaboration with museums, galleries, and cultural institutions.
               </p>
               <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="/sources"
+                <Link
+                  to="/sources"
                   className="inline-flex items-center gap-2 font-body text-[12px] text-[#c28223] hover:text-[#f0ece8] transition-colors"
                 >
                   View sources & methodology
                   <span className="w-4 h-px bg-current" />
-                </a>
-                <a
-                  href="/grant"
-                  className="inline-flex items-center gap-2 font-body text-[12px] text-[#f0ece8] hover:text-[#c28223] transition-colors"
-                >
-                  Grant summary (printable)
-                  <span className="w-4 h-px bg-current" />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="bg-[#141414] border border-white/[0.04] rounded-2xl p-6">
