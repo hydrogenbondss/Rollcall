@@ -2,6 +2,8 @@ import { useMemo, useRef, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
+import { accessionId } from '../data/accession'
+import type { Product } from '../data/products'
 
 /**
  * The Living Specimen — a single archived toilet-roll rendered as a luminous
@@ -173,7 +175,29 @@ function Scene() {
   )
 }
 
-export default function LivingSpecimenHologram() {
+// One museum-style annotation: a small label with a thin leader line pointing
+// inward toward the floating specimen.
+function SpecLabel({ k, v, side }: { k: string; v: string; side: 'left' | 'right' }) {
+  const text = (
+    <div className={side === 'left' ? 'text-left' : 'text-right'}>
+      <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-[#5fd6ff]/70 mb-0.5">{k}</p>
+      <p className="font-body text-[12px] leading-snug text-[#eaf6ff]/95 line-clamp-2 max-w-[160px]">{v}</p>
+    </div>
+  )
+  const leader = <span className="h-px w-6 sm:w-10 bg-gradient-to-r from-[#5fd6ff]/0 via-[#5fd6ff]/40 to-[#5fd6ff]/60" />
+  const dot = <span className="w-1 h-1 rounded-full bg-[#5fd6ff]/80 shrink-0" />
+  return (
+    <div className="flex items-center gap-2">
+      {side === 'left' ? <>{text}{leader}{dot}</> : <>{dot}{leader}{text}</>}
+    </div>
+  )
+}
+
+export default function LivingSpecimenHologram({ specimen }: { specimen?: Product }) {
+  const caption = specimen
+    ? `${accessionId(specimen.id)} · ${specimen.brand} ${specimen.name} · Drag to orbit`
+    : 'Specimen 001 · Volumetric projection · Drag to orbit'
+
   return (
     <div
       style={{
@@ -191,9 +215,34 @@ export default function LivingSpecimenHologram() {
           <Scene />
         </Canvas>
       </Suspense>
-      <div style={{ position: 'absolute', bottom: '12px', left: 0, right: 0, textAlign: 'center', pointerEvents: 'none' }}>
-        <p style={{ fontFamily: 'monospace', fontSize: '8px', color: '#4a6a82', textTransform: 'uppercase', letterSpacing: '0.4em' }}>
-          Specimen 001 · Volumetric projection · Drag to orbit
+
+      {/* Museum annotation overlay — does not block orbit (pointer-events: none) */}
+      {specimen && (
+        <div className="absolute inset-0 pointer-events-none">
+          {/* left column */}
+          <div className="hidden sm:flex flex-col gap-6 absolute left-4 top-1/2 -translate-y-1/2">
+            <SpecLabel k="Archive ID" v={accessionId(specimen.id)} side="left" />
+            <SpecLabel k="Object" v="Toilet roll" side="left" />
+            <SpecLabel k="Ply" v={`${specimen.ply}-ply`} side="left" />
+          </div>
+          {/* right column */}
+          <div className="hidden sm:flex flex-col gap-6 absolute right-4 top-1/2 -translate-y-1/2 items-end">
+            <SpecLabel k="Material" v={specimen.material} side="right" />
+            <SpecLabel k="Scent" v={specimen.scent} side="right" />
+            <SpecLabel k="Origin" v={`${specimen.country} · ${specimen.city}`} side="right" />
+          </div>
+          {/* mobile: compact metadata strip (no leader lines) */}
+          <div className="sm:hidden absolute top-3 left-3 right-3 flex flex-wrap justify-center gap-x-4 gap-y-1">
+            {[`${specimen.ply}-ply`, specimen.scent, specimen.material].map((m, i) => (
+              <span key={i} className="font-mono text-[8px] uppercase tracking-[0.18em] text-[#9fdcff]/80 max-w-[45%] truncate">{m}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div style={{ position: 'absolute', bottom: '12px', left: 0, right: 0, textAlign: 'center', pointerEvents: 'none', padding: '0 12px' }}>
+        <p style={{ fontFamily: 'monospace', fontSize: '8px', color: '#4a6a82', textTransform: 'uppercase', letterSpacing: '0.3em' }}>
+          {caption}
         </p>
       </div>
     </div>

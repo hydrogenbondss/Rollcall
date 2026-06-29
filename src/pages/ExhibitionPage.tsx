@@ -4,6 +4,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link, useSearchParams } from 'react-router'
 import { ArrowLeft, FileText, MapPin } from 'lucide-react'
 import { specimenCount, countryCount } from '../data/stats'
+import { products } from '../data/products'
+
+// The Living Specimen reflects the archive's flagship specimen.
+const featuredSpecimen = products.find((p) => p.id === 'nepia-oshiri-celeb') ?? products[0]
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -163,7 +167,7 @@ export default function ExhibitionPage() {
                 <p className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider">Loading the specimen…</p>
               </div>
             }>
-              <LivingSpecimen />
+              <LivingSpecimen specimen={featuredSpecimen} />
             </Suspense>
           </div>
 
