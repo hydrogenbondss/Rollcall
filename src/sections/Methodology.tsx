@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MapPin, Layers, FileCheck } from 'lucide-react'
 import { products } from '../data/products'
+import { verifiedCount, communityCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -11,7 +12,7 @@ function useStats() {
     const verified = products.filter((p) => p.verified).length
     const community = products.filter((p) => !p.verified).length
     return [
-      { label: 'Verified', value: String(verified), icon: FileCheck, desc: 'Manufacturer websites, official retailer listings, and direct brand correspondence confirm these products exist and match our documentation.' },
+      { label: 'Verified', value: String(verified), icon: FileCheck, desc: 'Brand, manufacturer, and country of origin confirmed against manufacturer websites and official retailer listings. Some product-level specifics are editorial or drawn from field observation.' },
       { label: 'Community', value: String(community), icon: MapPin, desc: 'Brand names verified as real registered companies. Product details sourced from local market visits, contributor submissions, and regional e-commerce platforms.' },
       { label: 'Total', value: String(products.length), icon: Layers, desc: 'All specimens catalogued with the same metadata schema: provenance, material, ply, price, scent, manufacturing origin, and retail availability.' },
     ]
@@ -68,15 +69,15 @@ export default function Methodology() {
 
         <div className="method-body space-y-6 font-body text-[15px] text-[#a09890] leading-[1.85]">
           <p>
-            <strong className="text-[#f0ece8] font-medium">Verified</strong> — 30 specimens confirmed through manufacturer websites, official retailer listings (Watsons Hong Kong, FairPrice Singapore, Amazon Japan, NTPM Malaysia, Lotus's Thailand), and direct brand correspondence. Product imagery sourced from official manufacturer channels and in-market field documentation. These meet the archive's standard of documentary evidence.
+            <strong className="text-[#f0ece8] font-medium">Verified</strong> — {verifiedCount} specimens whose brand, manufacturer, and country of origin are confirmed against manufacturer websites and official retailer listings (Watsons Hong Kong, FairPrice Singapore, NTPM Malaysia, Lotus&apos;s Thailand). Product imagery is sourced from official manufacturer channels and in-market field documentation. Some product-level specifics — seasonal scents, hotel placement, exact local pricing — are editorial or drawn from field observation rather than independently confirmed.
           </p>
 
           <p>
-            <strong className="text-[#f0ece8] font-medium">Community</strong> — 13 specimens where the market is confirmed and brand names verified as real registered entities. Detailed product-level verification was limited by market access in emerging economies. The archive actively welcomes corrections from field correspondents.
+            <strong className="text-[#f0ece8] font-medium">Community</strong> — {communityCount} specimens where the market is confirmed and brand names verified as real registered entities. Detailed product-level verification was limited by market access in emerging economies. The archive actively welcomes corrections from field correspondents.
           </p>
 
           <p>
-            Each entry carries a consistent metadata schema: catalog number (RC-REGION-COUNTRY-YEAR-PLY-SEQ, e.g. RC-EA-JP-26-4-01), provenance (city, country), material composition, ply count, price at point of documentation, scent profile, manufacturing origin, retail availability, hotel presence, and environmental claims. The catalog number encodes region, country, year, and ply count — allowing cross-referenced analysis without opening the card.
+            Each entry carries a consistent metadata schema: an accession number (RC-REGION-COUNTRY-SEQ, e.g. RC-EA-JP-001), provenance (city, country), material composition, ply count, price at point of documentation, scent profile, manufacturing origin, retail availability, hotel presence, and environmental claims. The accession number encodes region, country, and sequence — allowing cross-referenced analysis without opening the card.
           </p>
 
           <p>

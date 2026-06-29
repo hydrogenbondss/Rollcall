@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { ArrowLeft, LayoutGrid } from 'lucide-react'
 import Collection from '../sections/Collection'
 import Footer from '../sections/Footer'
+import { specimenCount, countryCount } from '../data/stats'
 
 export default function CollectionPage() {
   const topRef = useRef<HTMLDivElement>(null)
@@ -30,9 +31,9 @@ export default function CollectionPage() {
           <LayoutGrid className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
           <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">01</p>
         </div>
-        <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4">The Collection</h1>
+        <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4">The Archive</h1>
         <p className="font-body text-sm text-[#999] max-w-lg leading-relaxed">
-          43 specimens from 21 countries. Filter by region, country, brand, or search by name. Click any specimen for full details.
+          Current collection: {specimenCount} archived specimens from {countryCount} countries. Filter by region, country, brand, or search by name. Click any specimen for its accession record.
         </p>
       </header>
 

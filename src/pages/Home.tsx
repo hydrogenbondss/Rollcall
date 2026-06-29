@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, lazy, Suspense } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link, useNavigate } from 'react-router'
@@ -6,9 +6,9 @@ import { ArrowRight, Dices, LayoutGrid, FileText, BookOpen, MapPin } from 'lucid
 import MatrixLanding from '../components/MatrixLanding'
 import Navigation from '../components/Navigation'
 import Footer from '../sections/Footer'
+import WhyToiletPaper from '../sections/WhyToiletPaper'
 import { products } from '../data/products'
-
-const HolographicToiletPaper = lazy(() => import('../components/HolographicToiletPaper'))
+import { specimenCount, countryCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -17,10 +17,10 @@ const pages = [
     to: '/collection',
     num: '01',
     title: 'Collection',
-    desc: '43 specimens across 21 Asian countries. Browse, filter, and explore the archive.',
+    desc: `${specimenCount} archived specimens across ${countryCount} Asian countries. Browse, filter, and explore the archive.`,
     icon: LayoutGrid,
     color: '#c28223',
-    stat: '43 specimens',
+    stat: 'The Archive',
   },
   {
     to: '/exhibition',
@@ -65,13 +65,10 @@ export default function Home() {
     if (!entered) return
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const ctx = gsap.context(() => {
-      gsap.to('.number-roll', {
-        innerText: 43,
-        duration: reduced ? 0.5 : 2.5,
-        snap: { innerText: 1 },
-        ease: 'power2.out',
-        scrollTrigger: { trigger: '.number-roll', start: 'top 85%' },
-      })
+      gsap.fromTo('.hero-item',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: reduced ? 0.3 : 0.9, stagger: 0.12, ease: 'power3.out' }
+      )
       gsap.fromTo('.nav-card',
         { opacity: 0, y: 40 },
         {
@@ -97,33 +94,33 @@ export default function Home() {
       <Navigation />
 
       <main ref={heroRef}>
-        {/* Hero */}
-        <section className="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center">
-          <div className="mb-10">
+        {/* Hero — idea first */}
+        <section className="min-h-[82vh] flex flex-col items-center justify-center px-6 text-center">
+          <div className="hero-item mb-10">
             <div className="flex items-center justify-center gap-4">
               <span className="w-12 h-px bg-[#c28223]/40" />
-              <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-[#c28223]/60">2026 &middot; Material Culture Archive</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-[#c28223]/60">Est. 2026 &middot; Material Culture Archive</p>
               <span className="w-12 h-px bg-[#c28223]/40" />
             </div>
           </div>
 
-          <h1 className="font-display text-[18vw] sm:text-[14vw] md:text-[11vw] lg:text-[9vw] text-[#f0ece8] leading-[0.78] uppercase" style={{ letterSpacing: '-0.05em' }}>
-            ROLL<br />CALL
+          <h1 className="hero-item font-display text-[10vw] sm:text-[8vw] md:text-[64px] lg:text-[76px] text-[#f0ece8] leading-[1.02] tracking-tight max-w-[14ch]">
+            What deserves<br className="hidden sm:block" /> to be archived?
           </h1>
 
-          <div className="flex items-center justify-center gap-3 my-10">
-            <span className="number-roll font-display text-5xl sm:text-6xl text-[#c28223]">0</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888] mt-4">verified specimens</span>
-          </div>
+          <p className="hero-item font-serif-display text-lg sm:text-xl italic text-[#a09890] max-w-xl mt-8 leading-relaxed">
+            When does an everyday object stop being disposable and become cultural heritage?
+          </p>
 
-          <p className="font-serif-display text-base sm:text-lg italic text-[#999] max-w-md mb-8">
-            What does a society value? Look not at its monuments, but at what it chooses to make soft.
+          <p className="hero-item font-body text-[15px] sm:text-base text-[#999] max-w-[560px] mt-8 leading-relaxed">
+            <span className="text-[#f0ece8]">Roll Call</span> is an evolving archive documenting everyday
+            consumer packaging across Asia — beginning with the most universal object of all.
           </p>
 
           {/* Two CTAs */}
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="hero-item flex flex-wrap items-center justify-center gap-4 mt-12">
             <Link to="/collection" className="group inline-flex items-center gap-3 px-6 py-3 bg-[#c28223] hover:bg-[#d49a3f] rounded-2xl transition-all">
-              <span className="font-body text-sm text-[#0d0d0d] font-medium">Browse Collection</span>
+              <span className="font-body text-sm text-[#0d0d0d] font-medium">Enter the Archive</span>
               <ArrowRight className="w-4 h-4 text-[#0d0d0d] group-hover:translate-x-1 transition-transform" strokeWidth={2} />
             </Link>
             <button
@@ -139,21 +136,38 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Right now (bridging line) */}
-        <section className="max-w-[800px] mx-auto px-6 sm:px-8 pt-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-3">
-            Right now
+        {/* Current Collection — a snapshot of a growing archive */}
+        <section className="max-w-[1000px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
+          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-8">
+            Current Collection
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-6">
+            <div>
+              <p className="font-display text-4xl sm:text-5xl text-[#f0ece8]">{specimenCount}</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mt-2">Archived Specimens</p>
+            </div>
+            <div>
+              <p className="font-display text-4xl sm:text-5xl text-[#f0ece8]">{countryCount}</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mt-2">Countries</p>
+            </div>
+            <div>
+              <p className="font-display text-4xl sm:text-5xl text-[#f0ece8]">3</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mt-2">Regions</p>
+            </div>
+            <div>
+              <p className="font-display text-4xl sm:text-5xl text-[#c28223]">∞</p>
+              <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mt-2">Growing Archive</p>
+            </div>
+          </div>
+          <p className="font-body text-[14px] leading-relaxed text-[#999] max-w-[640px] mt-10">
+            The first edition of Roll Call documents {specimenCount} verified specimens collected across {countryCount} Asian
+            countries. Rather than a complete survey, this initial collection establishes the foundation of an
+            archive intended to expand over time through continued research and public contribution.
           </p>
         </section>
 
-        {/* Current Stage */}
-        <section className="max-w-[800px] mx-auto px-6 sm:px-8 pb-16 border-t border-white/[0.04]">
-          <div className="max-w-[720px]">
-            <p className="font-body text-[15px] leading-relaxed text-[#999]">
-              ROLL CALL currently exists as a living digital archive. Physical specimens from across Asia have been collected, photographed, and catalogued, accompanied by critical writing. The project is actively growing through ongoing research and documentation. Physical presentations remain a longer-term vision and will be developed according to available resources, venue partnerships, and collaboration opportunities.
-            </p>
-          </div>
-        </section>
+        {/* Why toilet paper */}
+        <WhyToiletPaper />
 
         {/* Navigation Cards */}
         <section className="nav-cards max-w-[1000px] mx-auto px-6 sm:px-8 pb-12">
@@ -179,28 +193,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Holographic Material Study */}
-        <section className="max-w-[1100px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
-          <div className="flex items-center gap-3 mb-3">
-            <svg className="w-4 h-4 text-[#c28223]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-              <path d="M2 12h20" />
-            </svg>
-            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Material Study</p>
-          </div>
-          <h2 className="font-display text-4xl sm:text-5xl mb-4">Holographic Roll</h2>
-          <p className="font-body text-sm text-[#999] max-w-lg mb-8 leading-relaxed">
-            A material exploration of the archive's central object. Iridescent surface, fiber texture, and floating particles render the ordinary roll as an artifact.
-          </p>
-          <div style={{ height: '520px' }}>
-            <Suspense fallback={
-              <div className="w-full h-full bg-[#141414]/30 rounded-2xl border border-white/[0.04] flex items-center justify-center">
-                <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider">Loading 3D Model...</p>
-              </div>
-            }>
-              <HolographicToiletPaper />
-            </Suspense>
+        {/* The Living Specimen — teaser pointing to the Exhibition */}
+        <section className="max-w-[1000px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
+          <div className="bg-[#141414] border border-white/[0.04] rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div className="max-w-[520px]">
+              <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-3">The Living Specimen</p>
+              <h2 className="font-display text-3xl sm:text-4xl text-[#f0ece8] mb-3 leading-tight">An ordinary object, dissected like an artefact</h2>
+              <p className="font-body text-sm text-[#999] leading-relaxed">
+                The centrepiece of the exhibition: a single specimen enlarged into a volumetric model that
+                slowly separates to reveal the layers, materials, and metadata hidden inside everyday packaging.
+              </p>
+            </div>
+            <Link to="/exhibition" className="group inline-flex items-center gap-3 px-6 py-3 bg-[#0d0d0d] border border-white/[0.08] hover:border-[#c28223]/40 rounded-2xl transition-all shrink-0">
+              <span className="font-body text-sm text-[#f0ece8]">See the Exhibition</span>
+              <ArrowRight className="w-4 h-4 text-[#c28223] group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
+            </Link>
           </div>
         </section>
 

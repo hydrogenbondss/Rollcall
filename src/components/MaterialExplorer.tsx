@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ZoomIn, X, Layers, Droplets, Wind } from 'lucide-react'
+import { specimenCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -235,7 +236,7 @@ export default function MaterialExplorer() {
               </span>
               <span className="w-1 h-1 rounded-full bg-[#555]" />
               <span className="font-mono text-[10px] text-[#888] uppercase tracking-wider">
-                {Math.round((activeMaterial.products / 43) * 100)}% of collection
+                {Math.round((activeMaterial.products / specimenCount) * 100)}% of collection
               </span>
             </div>
           </div>

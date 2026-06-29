@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router'
 import { Crown, ArrowUpRight, MapPin, Layers } from 'lucide-react'
 import { products, getRegion } from '../data/products'
+import { specimenCount } from '../data/stats'
 import { useCurrency } from '../contexts/CurrencyContext'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -69,7 +70,7 @@ export default function RollOfTheWeek() {
                 {roll.name}
               </h2>
               <p className="font-body text-[15px] text-[#999] leading-relaxed mb-6">
-                This week&apos;s spotlighted roll from our archive of 43 verified products.
+                This week&apos;s spotlighted roll from our archive of {specimenCount} catalogued specimens.
                 {region && (
                   <>
                     {' '}{region} representative — {roll.ply}-ply {roll.material.toLowerCase()} construction.

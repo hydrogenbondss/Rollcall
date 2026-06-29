@@ -17,7 +17,7 @@ const paragraphs = [
   `What is striking about this archive is not the products themselves, but the system they index. Each roll tells you about water pressure, pipe diameter, purchasing power, and cultural aspiration. The Japanese product with added squalane is not just soft — it is a signal that your plumbing can handle anything. The Bangladeshi one-ply is not just cheap — it is an adaptation to infrastructure that has not changed in a century.`,
   `Toilet paper is infrastructure made tactile. Every sheet is a negotiation between comfort and cost, between what we want and what our pipes can handle. The archive records not products, but the invisible systems that shape daily life.`,
   `In Hong Kong, where this archive was initiated, the contrast is particularly sharp. Public housing estates are reported to stock one-ply recycled paper, while luxury apartments in Mid-Levels offer four-ply imported from Japan, marketed with cherry blossom imagery and "hotel quality" promises.⁴ Same city, different plumbing.`,
-  `The question this archive keeps returning to is simple: who gets to be comfortable? Not in theory, but in the specific, intimate moment when comfort is needed. The answer, indexed across 43 specimens, is that comfort is infrastructure. And infrastructure is politics.`,
+  `The question this archive keeps returning to is simple: who gets to be comfortable? Not in theory, but in the specific, intimate moment when comfort is needed. The answer, indexed across the whole archive, is that comfort is infrastructure. And infrastructure is politics.`,
 ]
 
 const footnotes = [

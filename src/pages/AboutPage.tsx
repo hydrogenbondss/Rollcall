@@ -4,6 +4,7 @@ import { ArrowLeft, FileText } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProjectStatement from '../sections/ProjectStatement'
+import WhyToiletPaper from '../sections/WhyToiletPaper'
 import WorldMap from '../sections/WorldMap'
 import DataVisualization from '../sections/DataVisualization'
 import Methodology from '../sections/Methodology'
@@ -61,6 +62,7 @@ export default function AboutPage() {
       </header>
 
       <ProjectStatement />
+      <WhyToiletPaper />
 
       {/* Bio strip */}
       <section className="about-section max-w-[800px] mx-auto px-6 sm:px-8 py-20 border-t border-white/[0.04]">

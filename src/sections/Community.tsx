@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MapPin, Users, BookOpen, Camera } from 'lucide-react'
 import SubmissionForm from '../components/SubmissionForm'
+import { specimenCount, countryCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -69,7 +70,7 @@ export default function Community() {
             This Grows<br />With You
           </h2>
           <p className="font-body text-sm text-[#888] max-w-lg leading-relaxed">
-            The archive is incomplete by design. 43 specimens document what we have found so far. 
+            The archive is incomplete by design. {specimenCount} specimens document what we have found so far.
             The remaining thousands await discovery — in your hotel, your supermarket, your city.
           </p>
         </div>
@@ -80,7 +81,7 @@ export default function Community() {
             <div>
               <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mb-2">Current Status</p>
               <p className="font-body text-[13px] text-[#a09890] leading-relaxed">
-                43 specimens catalogued. 21 countries covered. The project launched in Hong Kong in early 2026.
+                {specimenCount} specimens catalogued. {countryCount} countries covered. The project launched in Hong Kong in early 2026.
               </p>
             </div>
             <div>
@@ -160,11 +161,11 @@ export default function Community() {
               <p className="font-mono text-[10px] uppercase tracking-wider text-[#888] mb-4">At a glance</p>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="font-display text-2xl text-[#f0ece8]">43</p>
+                  <p className="font-display text-2xl text-[#f0ece8]">{specimenCount}</p>
                   <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Specimens</p>
                 </div>
                 <div>
-                  <p className="font-display text-2xl text-[#f0ece8]">21</p>
+                  <p className="font-display text-2xl text-[#f0ece8]">{countryCount}</p>
                   <p className="font-body text-[10px] text-[#999] uppercase tracking-wider">Countries</p>
                 </div>
                 <div>

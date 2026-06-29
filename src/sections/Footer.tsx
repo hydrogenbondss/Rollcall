@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { Send, BookMarked } from 'lucide-react'
+import { specimenCount, countryCount } from '../data/stats'
 
 export default function Footer() {
   return (
@@ -13,7 +14,7 @@ export default function Footer() {
               ROLL CALL
             </h3>
             <p className="font-body text-[15px] text-[#f0ece8]/60 leading-relaxed mb-2 max-w-sm">
-              A material culture archive documenting toilet paper specimens from 21 countries across contemporary Asia. Initiated in Hong Kong, 2026.
+              A material culture archive documenting toilet paper specimens from {countryCount} countries across contemporary Asia. Initiated in Hong Kong, 2026.
             </p>
             <p className="font-body text-[13px] text-[#888] leading-relaxed mb-6 max-w-sm">
               By Jeffrey Nicholas Tse
@@ -58,9 +59,9 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 py-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[10px] text-[#f0ece8]/40 tracking-wide">43 specimens</span>
+            <span className="font-mono text-[10px] text-[#f0ece8]/40 tracking-wide">{specimenCount} specimens</span>
             <span className="w-px h-3 bg-white/10" />
-            <span className="font-mono text-[10px] text-[#f0ece8]/40 tracking-wide">21 countries</span>
+            <span className="font-mono text-[10px] text-[#f0ece8]/40 tracking-wide">{countryCount} countries</span>
             <span className="w-px h-3 bg-white/10" />
             <span className="font-mono text-[10px] text-[#f0ece8]/40 tracking-wide">2026</span>
           </div>

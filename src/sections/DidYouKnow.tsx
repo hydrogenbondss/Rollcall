@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Lightbulb } from 'lucide-react'
+import { specimenCount, countryCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -52,7 +53,7 @@ export default function DidYouKnow() {
             Patterns
           </h2>
           <p className="font-body text-sm text-[#999] mt-4 max-w-lg">
-            Things that emerged while cataloguing 43 toilet paper specimens across 21 Asian countries.
+            Things that emerged while cataloguing {specimenCount} toilet paper specimens across {countryCount} Asian countries.
           </p>
         </div>
 

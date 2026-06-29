@@ -1,8 +1,9 @@
 export default function ExhibitionFloorPlan2D() {
   const zones = [
-    { id: 'vitrine', label: 'Vitrine Wall', x: 12, y: 20, w: 76, h: 12, color: '#c28223' },
-    { id: 'extinction', label: 'Extinction Corner', x: 70, y: 45, w: 18, h: 18, color: '#c85a32' },
-    { id: 'submission', label: 'Submission Desk', x: 12, y: 55, w: 20, h: 12, color: '#f0ece8' },
+    { id: 'archive', label: 'Archive Wall', x: 12, y: 20, w: 76, h: 12, color: '#c28223' },
+    { id: 'living', label: 'Living Specimen', x: 40, y: 42, w: 22, h: 18, color: '#c4728e' },
+    { id: 'extinction', label: 'Extinction Corner', x: 72, y: 70, w: 16, h: 16, color: '#c85a32' },
+    { id: 'submission', label: 'Submission Desk', x: 12, y: 70, w: 20, h: 12, color: '#f0ece8' },
     { id: 'entrance', label: 'Entrance', x: 45, y: 90, w: 10, h: 6, color: '#555' },
   ]
 

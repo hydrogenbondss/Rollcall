@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MapPin } from 'lucide-react'
 import { products, getRegion, getRegionColor } from '../data/products'
+import { countryCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -73,20 +74,20 @@ export default function WorldMap() {
   }
 
   return (
-    <section ref={sectionRef} id="map" className="w-full bg-[#0d0d0d] py-28">
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
-        <div className="map-title mb-14">
+    <section ref={sectionRef} id="map" className="w-full bg-[#0d0d0d] py-16">
+      <div className="max-w-[860px] mx-auto px-6 sm:px-8">
+        <div className="map-title mb-8">
           <div className="flex items-center gap-3 mb-3">
             <MapPin className="w-4 h-4 text-[#888]" strokeWidth={1.5} />
-            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Coverage</p>
+            <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#888]">Coverage · supporting reference</p>
           </div>
-          <h2 className="font-display text-5xl sm:text-6xl text-[#f0ece8] tracking-tight leading-[1.05]">The Map</h2>
-          <p className="font-body text-sm text-[#999] mt-4 max-w-md">
-            21 countries. Each dot represents a country in our archive; positions are approximate relative coordinates. Hover for details.
+          <h2 className="font-display text-3xl sm:text-4xl text-[#f0ece8] tracking-tight leading-[1.05]">Where the archive reaches</h2>
+          <p className="font-body text-[13px] text-[#999] mt-3 max-w-md">
+            {countryCount} countries. Each dot marks a country in the archive; positions are approximate relative coordinates. The map supports the collection — it is not the collection.
           </p>
         </div>
 
-        <div className="relative bg-[#141414] rounded-2xl border border-white/5 overflow-hidden p-6 sm:p-8">
+        <div className="relative bg-[#141414] rounded-2xl border border-white/5 overflow-hidden p-5 sm:p-6">
           {/* Tooltip */}
           {hoveredCountry && (() => {
             const d = getTooltipData(hoveredCountry)
@@ -109,7 +110,7 @@ export default function WorldMap() {
             )
           })()}
 
-          <svg viewBox="0 0 100 70" className="w-full h-auto" style={{ maxHeight: 500 }}>
+          <svg viewBox="0 0 100 70" className="w-full h-auto" style={{ maxHeight: 360 }}>
             {/* Grid */}
             <defs>
               <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">

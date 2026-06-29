@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { ArrowLeft, Printer, FileText, MapPin, BarChart3, Calendar, DollarSign, Send } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { specimenCount, countryCount, verifiedCount, communityCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -53,7 +54,7 @@ export default function GrantSummaryPage() {
             ROLL CALL
           </h1>
           <p className="font-serif-display text-xl italic text-[#555] max-w-lg">
-            A material culture archive documenting toilet paper specimens from 21 countries across contemporary Asia.
+            A material culture archive documenting toilet paper specimens from {countryCount} countries across contemporary Asia.
           </p>
         </header>
 
@@ -65,10 +66,10 @@ export default function GrantSummaryPage() {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { label: 'Specimens', value: '43' },
-              { label: 'Countries', value: '21' },
+              { label: 'Specimens', value: String(specimenCount) },
+              { label: 'Countries', value: String(countryCount) },
               { label: 'Regions', value: '3' },
-              { label: 'Verified', value: '30 / 13' },
+              { label: 'Verified / Community', value: `${verifiedCount} / ${communityCount}` },
             ].map((s) => (
               <div key={s.label} className="border border-black/10 rounded-xl p-4">
                 <p className="font-display text-3xl">{s.value}</p>
@@ -89,14 +90,14 @@ export default function GrantSummaryPage() {
           </p>
         </section>
 
-        {/* Why 43 specimens is enough */}
+        {/* A first edition, not a final count */}
         <section className="mb-12 grant-item bg-[#fafafa] border border-black/5 rounded-2xl p-6">
           <h2 className="font-display text-lg uppercase tracking-wider mb-4 flex items-center gap-2">
             <BarChart3 className="w-4 h-4" />
-            Why 43 specimens is enough
+            A first edition, not a final count
           </h2>
           <p className="font-body text-[15px] leading-relaxed text-[#444] mb-4">
-            Forty-three specimens is not an exhaustive inventory; it is a proof of concept. The sample spans 21 countries and three regions, covering high-income economies (Japan, Singapore, Hong Kong), middle-income markets (Malaysia, Thailand, China), and lower-income contexts (Bangladesh, Nepal, Myanmar).
+            The first edition documents {specimenCount} verified specimens across {countryCount} countries and three regions — a proof of concept rather than an exhaustive inventory. The sample covers high-income economies (Japan, Singapore, Hong Kong), middle-income markets (Malaysia, Thailand, China), and lower-income contexts (Bangladesh, Nepal, Myanmar). It represents the archive at a specific moment in time and will continue to grow.
           </p>
           <p className="font-body text-[15px] leading-relaxed text-[#444]">
             At this scale, clear patterns already emerge: GDP correlates with ply count; scented and treated papers cluster in East Asia; South Asia remains dominated by thin, infrastructure-compatible rolls. The archive demonstrates that a replicable methodology can generate cultural insight from a modest but geographically diverse sample.
@@ -129,7 +130,7 @@ export default function GrantSummaryPage() {
             Exhibition plan
           </h2>
           <p className="font-body text-[15px] leading-relaxed text-[#444] mb-4">
-            The first physical presentation proposes three core zones — the Vitrine Wall, the Extinction Corner, and the Submission Desk — housed in 60–120 m². Extended-vision elements (scatter-plot floor projection, Essay Room, Map Wall) are planned for a second phase.
+            The first physical presentation proposes a three-part route — the Archive Wall, the Living Specimen, and the Extinction Corner — housed in 60–120 m². Future-development elements (the Essay Room, Map Wall, and Submission Desk) are planned for a second phase.
           </p>
           <div className="grid sm:grid-cols-3 gap-4">
             {[

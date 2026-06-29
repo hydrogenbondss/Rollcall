@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { specimenCount, countryCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -67,7 +68,7 @@ export default function ScrollUnroll() {
             className="font-body text-sm text-[#f0ece8]/30 leading-relaxed transition-all duration-300"
             style={{ opacity: progress > 0.5 ? 1 : 0, transform: `translateY(${(1 - Math.min(1, (progress - 0.5) * 3)) * 20}px)` }}
           >
-            Scroll to unfurl the archive. 43 specimens. 21 countries. One object that everyone uses but no one documents.
+            Scroll to unfurl the archive. {specimenCount} specimens. {countryCount} countries. One object that everyone uses but no one documents.
           </p>
         </div>
       </div>
@@ -222,7 +223,7 @@ export default function ScrollUnroll() {
         style={{ opacity: progress > 0.6 ? 1 : 0 }}
       >
         <p className="font-mono text-[10px] text-[#888] uppercase tracking-wider mb-1">Specimens unfurled</p>
-        <p className="font-display text-3xl text-[#c28223]">{Math.round(progress * 43)}<span className="text-[#888] text-lg">/43</span></p>
+        <p className="font-display text-3xl text-[#c28223]">{Math.round(progress * specimenCount)}<span className="text-[#888] text-lg">/{specimenCount}</span></p>
       </div>
     </section>
   )

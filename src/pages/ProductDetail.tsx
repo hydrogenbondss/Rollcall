@@ -23,6 +23,8 @@ import {
   Printer,
 } from "lucide-react";
 import { products } from "../data/products";
+import { accessionId } from "../data/accession";
+import { archiveYear } from "../data/stats";
 import { useCurrency } from "../contexts/CurrencyContext";
 import { useCompare } from "../contexts/CompareContext";
 import Navigation from "../components/Navigation";
@@ -220,6 +222,11 @@ export default function ProductDetail() {
 
             {/* Info */}
             <div ref={rightRef}>
+              <div className="detail-item mb-2">
+                <span className="font-mono text-[11px] tracking-[0.2em] text-[#c28223]">
+                  {accessionId(product.id)}
+                </span>
+              </div>
               <div className="detail-item mb-1">
                 <span className="font-body text-[11px] uppercase tracking-[0.15em] text-[#999]">
                   {product.brand}
@@ -231,11 +238,11 @@ export default function ProductDetail() {
               <div className="detail-item mb-4">
                 <span className={`inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full border ${product.verified ? 'bg-[#228b68]/15 text-[#228b68] border-[#228b68]/20' : 'bg-[#c85a32]/15 text-[#c85a32] border-[#c85a32]/20'}`}>
                   <span className={`w-1.5 h-1.5 rounded-full ${product.verified ? 'bg-[#228b68]' : 'bg-[#c85a32]'}`} />
-                  {product.verified ? 'Verified specimen' : 'Community-sourced specimen'}
+                  {product.verified ? 'Verified brand & origin' : 'Community-sourced'}
                 </span>
                 <span className="font-body text-[11px] text-[#888] ml-3">
                   {product.verified
-                    ? 'Confirmed by manufacturer or retailer source.'
+                    ? 'Brand, manufacturer, and country confirmed against public sources. Product specifics may include editorial detail.'
                     : 'Brand and market confirmed; product details from field observation.'}
                 </span>
               </div>
@@ -282,6 +289,40 @@ export default function ProductDetail() {
                   {product.country} &middot; {product.city}
                 </span>
               </div>
+
+              {/* Accession Record */}
+              <div className="detail-item border border-white/[0.06] rounded-2xl overflow-hidden mb-8">
+                <div className="px-5 py-3 border-b border-white/[0.06] flex items-center gap-2 bg-white/[0.02]">
+                  <Archive className="w-3.5 h-3.5 text-[#c28223]" strokeWidth={1.5} />
+                  <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#888]">
+                    Accession Record
+                  </span>
+                </div>
+                <dl>
+                  {[
+                    { label: "Archive ID", value: accessionId(product.id), mono: true },
+                    { label: "Object", value: "Toilet Tissue Packaging" },
+                    { label: "Origin", value: `${product.country} · ${product.city}` },
+                    { label: "Material", value: product.material },
+                    { label: "Manufacturer", value: product.manufacturer },
+                    { label: "Collected", value: product.acquisitionDate || String(archiveYear) },
+                    { label: "Status", value: product.verified ? "Verified brand & origin" : "Community-sourced" },
+                  ].map((row, i) => (
+                    <div
+                      key={row.label}
+                      className={`flex items-baseline gap-4 px-5 py-2.5 ${i % 2 === 1 ? "bg-white/[0.015]" : ""}`}
+                    >
+                      <dt className="font-mono text-[10px] uppercase tracking-wider text-[#888] w-28 shrink-0">
+                        {row.label}
+                      </dt>
+                      <dd className={`text-[13px] text-[#f0ece8] ${row.mono ? "font-mono tracking-[0.15em] text-[#c28223]" : "font-body"}`}>
+                        {row.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
               <div className="detail-item mb-8">
                 <span className="font-display text-3xl font-medium text-[#f0ece8]">
                   {formatPrice(product.priceUSD)}
