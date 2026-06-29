@@ -16,15 +16,10 @@ import {
   Check,
   ArrowUpRight,
   Archive,
-  Calendar,
-  AlertTriangle,
-  Eye,
-  StickyNote,
   Printer,
 } from "lucide-react";
 import { products } from "../data/products";
 import { accessionId } from "../data/accession";
-import { archiveYear } from "../data/stats";
 import { useCurrency } from "../contexts/CurrencyContext";
 import { useCompare } from "../contexts/CompareContext";
 import Navigation from "../components/Navigation";
@@ -312,7 +307,6 @@ export default function ProductDetail() {
                     { label: "Origin", value: `${product.country} · ${product.city}` },
                     { label: "Material", value: product.material },
                     { label: "Manufacturer", value: product.manufacturer },
-                    { label: "Collected", value: product.acquisitionDate || String(archiveYear) },
                     { label: "Status", value: product.verified ? "Verified brand & origin" : "Community-sourced" },
                   ].map((row, i) => (
                     <div
@@ -389,117 +383,6 @@ export default function ProductDetail() {
                   <p className="font-body text-[13px] text-[#b6b0a6] leading-relaxed">
                     {product.notes}
                   </p>
-                </div>
-              )}
-
-              {/* Archival Metadata */}
-              {(product.acquisitionDate ||
-                product.archivalStatus ||
-                product.collectorNote) && (
-                <div className="detail-item border-t border-white/5 pt-6 mb-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Archive
-                      className="w-4 h-4 text-[#c28223]"
-                      strokeWidth={1.5}
-                    />
-                    <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#b6b0a6]">
-                      Archival Record
-                    </span>
-                  </div>
-
-                  {product.archivalStatus &&
-                    product.archivalStatus !== "active" && (
-                      <div
-                        className={`rounded-lg p-3 mb-4 ${
-                          product.archivalStatus === "extinct"
-                            ? "bg-[#8b2500]/10 border border-[#8b2500]/20"
-                            : "bg-[#c28223]/5 border border-[#c28223]/10"
-                        }`}
-                      >
-                        <div className="flex items-center gap-2 mb-1">
-                          {product.archivalStatus === "extinct" ? (
-                            <AlertTriangle className="w-3.5 h-3.5 text-[#c85a32]" />
-                          ) : (
-                            <Eye className="w-3.5 h-3.5 text-[#c28223]" />
-                          )}
-                          <span
-                            className={`font-mono text-[10px] uppercase tracking-wider ${
-                              product.archivalStatus === "extinct"
-                                ? "text-[#c85a32]"
-                                : "text-[#c28223]"
-                            }`}
-                          >
-                            {product.archivalStatus === "extinct"
-                              ? "Specimen Extinct"
-                              : `Status: ${product.archivalStatus}`}
-                          </span>
-                        </div>
-                        {product.lastObserved && (
-                          <p className="font-body text-[11px] text-[#b6b0a6] ml-5">
-                            Last observed in circulation:{" "}
-                            <span className="text-[#f0ece8]">
-                              {product.lastObserved}
-                            </span>
-                          </p>
-                        )}
-                      </div>
-                    )}
-
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    {product.acquisitionDate && (
-                      <div className="flex items-start gap-2">
-                        <Calendar className="w-3.5 h-3.5 text-[#b6b0a6] mt-0.5" />
-                        <div>
-                          <p className="font-mono text-[9px] uppercase tracking-wider text-[#b6b0a6]">
-                            Acquired
-                          </p>
-                          <p className="font-body text-[12px] text-[#f0ece8]">
-                            {product.acquisitionDate}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                    {product.condition && (
-                      <div className="flex items-start gap-2">
-                        <Package className="w-3.5 h-3.5 text-[#b6b0a6] mt-0.5" />
-                        <div>
-                          <p className="font-mono text-[9px] uppercase tracking-wider text-[#b6b0a6]">
-                            Condition
-                          </p>
-                          <p className="font-body text-[12px] text-[#f0ece8]">
-                            {product.condition}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                    {product.rarity && (
-                      <div className="flex items-start gap-2">
-                        <Eye className="w-3.5 h-3.5 text-[#b6b0a6] mt-0.5" />
-                        <div>
-                          <p className="font-mono text-[9px] uppercase tracking-wider text-[#b6b0a6]">
-                            Rarity
-                          </p>
-                          <p className="font-body text-[12px] capitalize text-[#f0ece8]">
-                            {product.rarity}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {product.collectorNote && (
-                    <div className="bg-white/[0.02] rounded-lg p-4 border-l-2 border-[#c28223]/30">
-                      <div className="flex items-center gap-2 mb-2">
-                        <StickyNote className="w-3.5 h-3.5 text-[#c28223]/60" />
-                        <span className="font-mono text-[9px] uppercase tracking-wider text-[#c28223]/60">
-                          Collector's Note
-                        </span>
-                      </div>
-                      <p className="font-body text-[12px] text-[#b0a99d] leading-relaxed italic">
-                        &ldquo;{product.collectorNote}&rdquo;
-                      </p>
-                    </div>
-                  )}
                 </div>
               )}
 

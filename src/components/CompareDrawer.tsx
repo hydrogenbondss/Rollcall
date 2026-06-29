@@ -15,7 +15,7 @@ export default function CompareDrawer() {
 
   const needsMore = compareList.length < 2
 
-  type SpecKey = 'ply' | 'thickness' | 'scent' | 'material' | 'manufacturedIn' | 'availableIn' | 'rating' | 'priceUSD'
+  type SpecKey = 'ply' | 'thickness' | 'scent' | 'material' | 'manufacturedIn' | 'availableIn' | 'priceUSD'
   type SpecValue = Product[SpecKey]
 
   const specs: { key: SpecKey; label: string; icon: LucideIcon; format: (v: SpecValue) => string }[] = [
@@ -25,7 +25,6 @@ export default function CompareDrawer() {
     { key: 'material', label: t('material'), icon: Factory, format: (v) => String(v) },
     { key: 'manufacturedIn', label: t('manufactured'), icon: MapPin, format: (v) => String(v) },
     { key: 'availableIn', label: t('availableIn'), icon: ShoppingBag, format: (v) => Array.isArray(v) ? v.join(', ') : String(v) },
-    { key: 'rating', label: t('rating'), icon: Star, format: (v) => `${v} (${(v as number) > 0 ? 'verified' : 'new'})` },
     { key: 'priceUSD', label: t('price'), icon: Star, format: (v) => formatPrice(v as number) },
   ]
 
