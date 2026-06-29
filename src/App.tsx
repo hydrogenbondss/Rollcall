@@ -26,7 +26,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <>
-      <a href="#collection" className="skip-link">Skip to collection</a>
+      <a href="#/collection" className="skip-link">Skip to the collection</a>
       <div className="grain-overlay" aria-hidden="true" />
       <ScrollProgress />
       <CustomCursor />

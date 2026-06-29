@@ -106,7 +106,7 @@ export default function SourcesPage() {
           <p className="font-mono text-[10px] text-[#a8a29a] uppercase tracking-wider mb-2">
             Found an error?
           </p>
-          <Link to="/#community" className="font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors">
+          <Link to="/about" className="font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors">
             Submit a correction via the correspondence form &rarr;
           </Link>
         </footer>
