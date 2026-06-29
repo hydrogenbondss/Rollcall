@@ -151,6 +151,90 @@
       "palette": ["white #FFFFFF", "brand blue #1B66C9", "teal #0FA3B1", "leaf green #2E9E5B"],
       "description": "JoySoft 3-ply 4-roll pack (Nepal, Riyaz Traders); clear flow-wrap in white and bright blue with teal/green accents, rounded 'JoySoft' wordmark, soft floral/water-drop motifs, white rolls visible.",
       "prompt": "Studio product photograph of ONE plastic-wrapped 4-roll pack of JoySoft 3-Ply Toilet Tissue from Nepal, standing upright on a clean dark charcoal seamless background with soft museum spotlighting and gentle reflection. Glossy clear flow-wrap printed in crisp white and bright brand blue with teal and leaf-green accents, the rounded friendly 'JoySoft' wordmark prominent, subtle soft floral and water-drop softness motifs, four white embossed tissue rolls visible. Photorealistic e-commerce catalogue style, sharp focus, vertical 3:4.",
-      "sources": ["https://joysoftnepal.com/product/joysoft-toilet-rolls-160gm-4-piece-pack", "https://joysoftnepal.com/product/toilet-tissue/"] }
+      "sources": ["https://joysoftnepal.com/product/joysoft-toilet-rolls-160gm-4-piece-pack", "https://joysoftnepal.com/product/toilet-tissue/"] },
+
+    { "id": "samjung-greu", "brand": "Samjung", "targetFile": "samjung-greu-render.png", "confidence": "medium",
+      "palette": ["kraft brown #A87B53", "tan #C9A87C", "forest green #6B8E4E", "cream #EFE6D6"],
+      "description": "Samjung Greu (그루/GREU) premium 3-ply UNBLEACHED toilet paper, 30 rolls (South Korea); natural light-brown/tan rolls, earthy nature branding (kraft brown, forest green, cream), tree/leaf motif.",
+      "prompt": "Studio product photo of ONE large plastic-wrapped 30-roll pack of Samjung Greu premium 3-ply UNBLEACHED toilet paper, standing upright on a clean dark charcoal seamless background with soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4. Glossy clear film printed with the Greu wordmark and earthy nature branding in warm kraft brown, forest green and cream, small tree/leaf motif; through the transparent wrap natural unbleached light brown/tan rolls visible in neat rows. Korean text. Premium natural look.",
+      "sources": ["https://greu.co.kr/", "https://samjungpulp.com/"] },
+
+    { "id": "andrex-family", "brand": "Andrex", "targetFile": "andrex-family-render.png", "confidence": "medium",
+      "palette": ["white #FFFFFF", "Andrex blue #0072CE", "teal #00A9CE", "Labrador tan #C9A24B"],
+      "description": "Andrex Family Soft 2-ply, 6 rolls (Hong Kong/皇冠 Andrex); everyday white pack with blue-to-teal band, navy/red Andrex wordmark, golden Labrador puppy mascot.",
+      "prompt": "Studio product photo of ONE plastic-wrapped pack of Andrex Family Soft 2-ply toilet roll, 6 rolls, standing upright on a clean dark charcoal seamless background with soft museum spotlighting. Glossy white film wrap with the bold Andrex script wordmark in navy and red, a light blue-to-teal everyday Family Soft color band, and the iconic golden Labrador retriever puppy photographed on the pack. White embossed toilet rolls visible through the wrap. Photorealistic e-commerce catalogue style, crisp reflections, vertical 3:4.",
+      "sources": ["https://www.andrex.co.uk/products/family-soft-toilet-tissue", "https://www.lalababy.com.hk/categories/andrex-%E7%9A%87%E5%86%A0"] },
+
+    { "id": "pursoft-unscented", "brand": "PurSoft", "targetFile": "pursoft-unscented-render.png", "confidence": "medium",
+      "palette": ["white #FFFFFF", "brand blue #1B6FB8", "sky blue #7FC4E8", "navy #0E3A66"],
+      "description": "PurSoft (NTUC FairPrice house brand, by NTPM) 4-ply unscented, 24 rolls (Singapore); clean blue-and-white house-brand styling, lowercase 'PurSoft' wordmark, OBA-free, FSC.",
+      "prompt": "Studio product photo of ONE large plastic-wrapped 24-roll pack of PurSoft 100% Virgin Pulp Unscented Bathroom Tissue, Singapore FairPrice house brand. Glossy clear-and-white plastic film wrapper in clean blue-and-white styling: lowercase 'PurSoft' wordmark in brand blue with a soft swoosh accent, bold '4-PLY' and '24 ROLLS' callouts, '100% Virgin Pulp', 'Unscented' and 'OBA Free' text, small green FSC logo, faint white roll shapes through film. Clean dark charcoal seamless background, soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://www.fairprice.com.sg/product/pursoft-bathroom-tissue-roll-unscented-4-ply-24-x-200-per-pack-13149822"] },
+
+    { "id": "premier-malaysia", "brand": "Premier", "targetFile": "premier-malaysia-render.png", "confidence": "high",
+      "palette": ["royal blue #1B4FA0", "red #E0182D", "white #FFFFFF", "floral pink #E5559B"],
+      "description": "Premier 3-ply Bathroom Tissue, 10 rolls (Malaysia, NTPM); blue-and-red brand identity, bold red 'PREMIER' wordmark, flower-embossed rolls, floral motifs.",
+      "prompt": "Studio product photo of ONE plastic-wrapped 10-roll pack of Premier 3-Ply Bathroom Tissue (NTPM, Malaysia) standing upright on a clean dark charcoal seamless background. Glossy clear film wrap revealing white flower-embossed rolls; deep royal-blue and white graphics with a bold red 'PREMIER' wordmark, soft pink floral motifs and gold accents, '3 PLY' and '10 ROLLS' callouts. Soft museum spotlighting, photorealistic e-commerce catalogue style, sharp focus, vertical 3:4.",
+      "sources": ["https://ntpm.com.my/product-premier-tissue/"] },
+
+    { "id": "mayflower-premium", "brand": "Mayflower", "targetFile": "mayflower-premium-render.png", "confidence": "medium",
+      "palette": ["white #FFFFFF", "brand blue #0A4DA2", "magenta #E2007A", "leaf green #2BAE66"],
+      "description": "Mayflower (五月花, YFY Paper) Premium 2-ply, 10 rolls (Philippines); white pack, cursive blue 'Mayflower' wordmark with petal-flower logo, pink/green floral accents.",
+      "prompt": "Studio product photo of ONE plastic-wrapped 10-roll pack of Mayflower Premium Bathroom Tissue, 2-Ply, standing upright on a clean dark charcoal seamless background with soft museum spotlighting and gentle reflection. Glossy white printed plastic wrap showing ten stacked white rolls through the film; cursive blue 'Mayflower' English wordmark with a stylized petal-flower logo, pink and green floral accents, '2-PLY / 10 ROLLS / UNSCENTED' callouts. Photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://www.yfycpg.com/en/about-us"] },
+
+    { "id": "paseo-kingsize", "brand": "Paseo", "targetFile": "paseo-kingsize-render.png", "confidence": "high",
+      "palette": ["Paseo blue #1565C0", "teardrop red-orange #F4511E", "white #FFFFFF", "navy #0D47A1"],
+      "description": "Paseo King Size 4-ply (APP/Sinar Mas, Indonesia); blue pack, lowercase blue 'paseo' wordmark with red-orange teardrop dot, 'King Size' callout, white quilted roll inset.",
+      "prompt": "Studio product photo of ONE plastic-wrapped Paseo King Size 4-Ply toilet paper pack, standing upright on a clean dark charcoal seamless background with soft museum spotlighting and gentle reflections. Glossy blue plastic wrap with white and deep-navy zones; large lowercase blue 'paseo' wordmark with the small red-orange teardrop dot; bold 'King Size' and '4 Ply' callouts; an inset image of a soft delicately embossed pure-white toilet roll. Photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://paseo.co.id/", "https://paseo.com.sg/brand-story/"] },
+
+    { "id": "emos-classic", "brand": "E'mos", "targetFile": "emos-classic-render.png", "confidence": "high",
+      "palette": ["leaf green #4CAF50", "emerald #2E9E4F", "white #FFFFFF", "sky blue #6EC6E6"],
+      "description": "E'mos Classic 2-ply, 12 rolls (Unicharm Vietnam); clear PE wrap in bright leaf-green, white 'E'mos Classic' wordmark, cheerful cartoon baby illustration, value family branding.",
+      "prompt": "Studio product photo of ONE plastic-wrapped 12-roll pack of E'mos Classic 2-Ply toilet paper standing upright on a clean dark charcoal seamless background, soft museum spotlighting. Glossy translucent PE shrink-wrap in bright leaf-green showing white rolls beneath; large white 'E'mos Classic' wordmark with apostrophe, a small cheerful cartoon baby illustration, soft green floral and leaf motifs, '2 Ply' and '12 rolls' callouts. Photorealistic e-commerce catalogue style, vertical 3:4, authentic Vietnamese retail packaging.",
+      "sources": ["https://www.bachhoaxanh.com/giay-ve-sinh/gvs-emos-classic-xanh-10-cuon-2-lop-6-loc"] },
+
+    { "id": "premier-vn", "brand": "Premier", "targetFile": "premier-vn-render.png", "confidence": "medium",
+      "palette": ["royal blue #0A3D91", "mid blue #1565C0", "red #E2231A", "gold #C9A227"],
+      "description": "Premier Deluxe 3-ply, 20 rolls (Vietnam, NTPM); deep royal-blue film, bold red italic 'Premier' wordmark, gold/white 'Deluxe' script, window showing white embossed rolls.",
+      "prompt": "Studio product photo of ONE large plastic-wrapped 20-roll pack of Premier Deluxe 3-Ply toilet paper, Vietnam retail packaging, on a clean dark charcoal seamless background with soft museum spotlighting. Glossy printed film: deep royal-blue field fading to pale blue, bold red italic 'Premier' wordmark, gold-and-white 'Deluxe' script, '3-Ply' and '20 Rolls' callouts, small leaf/wave motif, clear window panel revealing soft embossed pure-white tissue rolls. Photorealistic e-commerce catalogue style, sharp focus, vertical 3:4.",
+      "sources": ["https://www.ntpm.com.vn/en/products/premier-deluxe/tr-premier-deluxe-3ply"] },
+
+    { "id": "vinda-taiwan", "brand": "Vinda", "targetFile": "vinda-taiwan-render.png", "confidence": "medium",
+      "palette": ["royal blue #0A4EA3", "mid blue #1F6FCE", "gerbera orange #FF7A3C", "gold #E8A23B"],
+      "description": "Vinda Deluxe Soft 3-ply, 10 rolls (Taiwan); royal-blue pack, white 'Vinda'/維達, orange-yellow gerbera flower illustration, gold ribbon accent.",
+      "prompt": "Studio product photo of ONE plastic-wrapped pack of Vinda Deluxe Soft 3-Ply toilet paper, 10 individually wrapped rolls, standing upright. Glossy royal-blue film wrap with large white 'Vinda' wordmark and 維達 Chinese characters, an elegant orange-and-yellow gerbera (African daisy) flower illustration, a slim gold ribbon accent, small white '3 PLY / Deluxe Soft' text. Clean dark charcoal seamless background, soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://www.vinda.com/tw/product/p1/vinda/index.html"] },
+
+    { "id": "fresh-bangladesh", "brand": "Fresh", "targetFile": "fresh-bangladesh-render.png", "confidence": "medium",
+      "palette": ["metallic gold #C8A24B", "light gold #E8C766", "white #FFFFFF", "Fresh red #D11E2A"],
+      "description": "Fresh Toilet Tissue Gold 2-ply, 218 sheets (Bangladesh, Meghna Group); single clear-wrapped white roll with gold accents, red 'Fresh' script wordmark, Bangla/English text.",
+      "prompt": "Studio product photo of ONE single roll of Fresh Toilet Tissue Gold standing upright on a clean dark charcoal seamless background, soft museum spotlighting from upper left, gentle reflection. The white toilet roll is sheathed in glossy clear plastic film printed with metallic gold accents and bands; a bold red 'Fresh' script wordmark on the front with small white-and-gold Bangla and English text reading '218 Sheets 2 Ply'. Photorealistic e-commerce catalogue style, crisp focus, vertical 3:4.",
+      "sources": ["https://www.mgi.org/businessverticals/tissue-paper", "https://www.shwapno.com/fresh-toilet-tissue-gold?lang=en"] },
+
+    { "id": "eko-fresh-srilanka", "brand": "Eko Fresh", "targetFile": "eko-fresh-srilanka-render.png", "confidence": "medium",
+      "palette": ["green #1E8A4C", "leaf green #8DC63F", "white #FFFFFF", "blue #2E6DB4"],
+      "description": "Eko Fresh 2-ply, 4 rolls (Sri Lanka, ICL Brands); eco-themed green/white pack, green 'Eko Fresh' wordmark, leaf motifs, white rolls visible.",
+      "prompt": "Studio product photo of ONE clear plastic-wrapped 4-roll pack of 'Eko Fresh' 2-ply toilet tissue, standing upright on a clean dark charcoal seamless background with soft museum spotlighting. Glossy printed film wrap in fresh leaf-green and white with the green 'Eko Fresh' wordmark, eco leaf motifs and a '2 Ply / 4 Rolls' callout; four soft pure-white rolls visible through the film. Photorealistic e-commerce catalogue style, crisp focus, vertical 3:4.",
+      "sources": ["https://www.iclbrands.lk/brands/eko-fresh"] },
+
+    { "id": "myanmar-yangon-tissue", "brand": "Yangon International", "targetFile": "myanmar-yangon-tissue-render.png", "confidence": "low", "form": "reconstructed (extinct specimen)",
+      "palette": ["cobalt blue #0050A0", "vermilion red #D81E2C", "white #FFFFFF", "clear film"],
+      "description": "RECONSTRUCTED: no surviving packaging found for this extinct Myanmar specimen; render is a plausible regional economy pack — clear heat-sealed film, simple 2-color flexo print, bilingual Burmese/English, by the real maker Myanmar Tissue World.",
+      "prompt": "Studio product photograph of ONE basic economy Myanmar toilet-roll pack on a clean dark charcoal seamless background, soft museum spotlighting. A clear heat-sealed plastic film sleeve holding ten white 2-ply toilet rolls in two stacked rows of five, rolls visible through the film with crinkled folds and crimped ends. Simple flat two-color flexographic print: bold cobalt-blue and vermilion-red English wordmark 'Yangon International' above larger white-outlined Burmese script, modest red banner accents, faint registration imperfections. No-frills regional discount-store look. Photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://myanmartissueworld.com/"] },
+
+    { "id": "lency-cambodia", "brand": "Lency", "targetFile": "lency-cambodia-render.png", "confidence": "medium",
+      "palette": ["sky blue #1CA9E0", "leaf green #4CAF50", "white #FFFFFF", "pink #F48FB1"],
+      "description": "Lency 2-ply, 10 coreless rolls (Cambodia, Thuan Phat); bright sky-blue/green value sleeve, rounded 'Lency' wordmark, white rolls visible.",
+      "prompt": "Studio product photograph of ONE plastic-wrapped pack of Lency 2-ply toilet paper, 10 coreless white rolls, on a clean dark charcoal seamless background. Glossy printed polyethylene sleeve in bright sky-blue and fresh green with clean white panels and soft pink and gold accents; bold rounded 'Lency' brand wordmark on the front, small '2 ply / 10 rolls' text, white tissue rolls faintly visible. Soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://www.bachhoaxanh.com/giay-ve-sinh/gvs-lency-cao-cap-10-cuon"] },
+
+    { "id": "lency-laos", "brand": "Lency", "targetFile": "lency-laos-render.png", "confidence": "medium",
+      "palette": ["sky blue #2BA8E0", "royal blue #1463B0", "magenta #E5388A", "green #4CAF50"],
+      "description": "Lency 2-ply, 6 rolls (Laos, Thuan Phat); same value brand, bright blue sleeve with magenta/green swirls and a yellow '6' burst, rounded white 'Lency' wordmark in a blue oval.",
+      "prompt": "Studio product photo of ONE plastic-wrapped 6-roll pack of Lency 2-ply toilet paper, standing upright on a clean dark charcoal seamless background with soft museum spotlighting. Glossy printed polypropylene sleeve in bright sky-blue with a royal-blue band, magenta-pink and leaf-green accent swirls, and a yellow burst reading '6'. Bold rounded white 'Lency' wordmark in a blue oval, small '2 PLY' and flower-water-droplet motifs. White embossed toilet rolls visible through a clear window. Photorealistic e-commerce catalogue style, vertical 3:4.",
+      "sources": ["https://www.lottemart.vn/vi-nsg/product/lency-3-ply-coreless-premium-bath-tissue-10-rolls-8936020760643-p18307"] }
   ]
 }

@@ -48,6 +48,21 @@ export const illustrativeImageIds = new Set<string>([
   'bashundhara-pink',
   'rose-petal-pakistan',
   'joysoft-nepal',
+  // Batch 3 (final)
+  'samjung-greu',
+  'andrex-family',
+  'pursoft-unscented',
+  'premier-malaysia',
+  'mayflower-premium',
+  'paseo-kingsize',
+  'emos-classic',
+  'premier-vn',
+  'vinda-taiwan',
+  'fresh-bangladesh',
+  'eko-fresh-srilanka',
+  'myanmar-yangon-tissue',
+  'lency-cambodia',
+  'lency-laos',
 ])
 
 export function hasVerifiedImage(id: string): boolean {
