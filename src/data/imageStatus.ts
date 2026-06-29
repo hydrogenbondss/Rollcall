@@ -6,6 +6,7 @@
  * sourced. As real images are added, append the specimen id here.
  */
 export const verifiedImageIds = new Set<string>([
+  'nepia-oshiri-celeb',
   'elleair-premium',
   'enevo-brunei',
   'khugjil-mongolia',
