@@ -61,6 +61,96 @@
       "description": "Cellox Purify Premium 6-roll pack — clear plastic-wrapped bundle of six white 3-ply rolls visible through film; white-and-blue Cellox identity, lowercase blue 'Cellox' wordmark, 'Purify' sub-brand, prominent circular GermClear+ 99.9% antibacterial badge, white-to-blue gradient with water-droplet accents, mixed Thai/English text, clean clinical-premium look.",
       "prompt": "Studio product photograph of one clear plastic-wrapped pack of Cellox Purify Premium 3-ply toilet tissue, six soft white embossed rolls visible through glossy transparent film. Clean white-to-sky-blue gradient label with lowercase blue 'Cellox' wordmark, 'Purify' sub-brand, and a bright circular GermClear+ 99.9% antibacterial badge; subtle water-droplet and fresh accents, mixed Thai and English text. Premium hygienic feel. Placed on clean dark charcoal seamless background, soft museum spotlighting, gentle reflections, photorealistic e-commerce catalogue style, vertical 3:4.",
       "sources": ["https://www.celloxpurify.com/toilet-tissue/cellox-purify-premium-3-ply/TH", "https://www.lotuss.com/en/product/cellox-purify-premium-3ply-roll-tissue-6-rolls-71071326"]
-    }
+    },
+
+    { "id": "samjung-living", "brand": "Samjung", "targetFile": "samjung-living-render.png", "confidence": "medium",
+      "palette": ["cream #F4E9D6", "blush #E8A6B0", "peony rose #C9607A", "warm gold #C9A24B"],
+      "description": "Korean Samjung 'Living Creamy Soft' 3-ply, 30-roll recycled-pulp pack; cream-to-beige base with feminine peony floral motif, 'Living' sub-brand, Korean 한글 + English text.",
+      "prompt": "A studio product photograph of ONE large plastic-wrapped 30-roll pack of Korean Samjung 'Living Creamy Soft' 3-ply toilet paper, standing upright on a clean dark charcoal seamless background with soft museum spotlighting and gentle reflections. Glossy creamy-beige wrap with blush-pink and peony-rose floral motifs, warm gold accents, white roll shapes faintly visible through the plastic. Clean rounded Korean brand text with smaller English 'Living' and 'Creamy Soft' lettering. Photorealistic e-commerce catalogue style, sharp focus, soft shadows, vertical 3:4.",
+      "sources": ["https://www.ssg.com/item/itemView.ssg?itemId=1000293562418", "https://samjungpulp.com/"] },
+
+    { "id": "tempo-applewood", "brand": "Tempo", "targetFile": "tempo-applewood-render.png", "confidence": "medium",
+      "palette": ["honey amber #E8A33D", "caramel brown #C77F2A", "apple red #C0392B", "leaf green #6E8B3D"],
+      "description": "Hong Kong Tempo Applewood 3-ply 10-roll pack; warm amber/honey-brown vs the white Neutral, with red apples, green leaves and wood-grain motifs, lowercase italic 'tempo' wordmark, bilingual EN/Traditional-Chinese.",
+      "prompt": "Studio product photograph of ONE plastic-wrapped Tempo Applewood 3-ply bathroom tissue 10-roll pack standing upright, on a clean dark charcoal seamless background with soft museum spotlighting. Glossy translucent film in warm honey-amber and golden caramel-brown tones, lowercase italic 'tempo' wordmark in a rounded colored panel, illustrated red apples with green leaves and soft wood-grain branch motifs, bilingual English and Traditional Chinese text, embossed tissue rolls faintly visible. Photorealistic e-commerce catalogue style, gentle reflections, vertical 3:4.",
+      "sources": ["https://www.watsons.com.hk/en/bathroom-tissue-3ply-applewood/p/BP_386971", "https://online-price-watch.consumer.org.hk/opw/product/P000002020?lang=en"] },
+
+    { "id": "andrex-ultimate", "brand": "Andrex", "targetFile": "andrex-ultimate-render.png", "confidence": "medium",
+      "palette": ["deep plum #4B2E5E", "violet purple #6A3F8C", "metallic gold #C9A227", "Labrador tan #D9A75A"],
+      "description": "Andrex Ultimate/Supreme Quilts premium 3-ply quilted range (HK 皇冠 Andrex); rich plum/purple with gold accents, white 'Andrex' wordmark, gold 'Ultimate Quilts' lettering, golden Labrador puppy mascot.",
+      "prompt": "Studio product photograph of ONE plastic-wrapped Andrex Ultimate Quilts 3-ply toilet roll pack standing upright on a clean dark charcoal seamless background, soft museum spotlighting, gentle reflections, photorealistic e-commerce catalogue style, vertical 3:4. The glossy film wrap is a rich deep plum-to-violet purple with metallic gold-foil accents and ribbon swoosh; crisp white 'Andrex' wordmark and gold 'Ultimate Quilts' lettering; a cute golden Labrador retriever puppy printed on the front; a soft white quilted roll shown through the pack. Premium luxury feel, sharp focus.",
+      "sources": ["https://www.andrex.co.uk/products/ultimate-quilts-toilet-tissue", "https://www.lalababy.com.hk/categories/andrex-%E7%9A%87%E5%86%A0"] },
+
+    { "id": "cloversoft-bamboo", "brand": "Cloversoft", "targetFile": "cloversoft-bamboo-render.png", "confidence": "high",
+      "palette": ["kraft brown #A67B4D", "tan #C7A678", "eco green #4C8C3F", "white #FFFFFF"],
+      "description": "Singapore Cloversoft unbleached bamboo 3-ply, 10-roll pack; natural kraft-brown rolls in a white film with leaf-green wordmark, clover-leaf logo, eco callouts and a polar bear motif.",
+      "prompt": "Studio product photograph of ONE pack of Cloversoft unbleached bamboo toilet tissues, ten natural kraft-brown 3-ply rolls bundled in a glossy white plastic-film wrap, on a clean dark charcoal seamless background. Soft museum spotlighting, gentle reflections, photorealistic e-commerce catalogue style, vertical 3:4. Wrap printed with minimalist leaf-green Cloversoft wordmark and small clover-leaf logo, subtle green eco callouts and a tiny polar bear motif, brown bamboo rolls visible. Warm natural-brown tones, green accents, premium eco minimalist branding.",
+      "sources": ["https://cloversoft.com.sg/product/unbleached-bamboo-toilet-tissues-3-ply/", "https://www.fairprice.com.sg/product/cloversoft-plant-based-unbleached-bamboo-toilet-tissues-roll-10-x-200-per-pack-13065548"] },
+
+    { "id": "premier-sg", "brand": "Premier", "targetFile": "premier-sg-render.png", "confidence": "medium",
+      "palette": ["royal blue #1565C0", "deep navy #0D3B66", "red #D32F2F", "white #FFFFFF"],
+      "description": "NTPM Premier Deluxe 3-ply 10-roll pack (Singapore); blue-and-red brand identity, bold 'Premier' wordmark + 'Deluxe' sub-label, floral motifs, white rolls visible through clear film.",
+      "prompt": "Studio product photograph of ONE clear plastic-wrapped 10-roll pack of Premier Deluxe 3-ply bathroom tissue standing upright on a clean dark charcoal seamless background, soft museum spotlighting with gentle reflection. Glossy transparent film printed in royal blue and deep navy with a bold red and white 'Premier' wordmark, 'Deluxe' sub-label, delicate soft-pink and white floral motifs; white embossed tissue rolls visible through the film. Photorealistic e-commerce catalogue style, crisp packaging detail, vertical 3:4.",
+      "sources": ["https://ntpm.com.my/product-premier-tissue/", "https://www.amazon.sg/Premier-Deluxe-Bathroom-Tissue-200ct/dp/B0741D9PT5"] },
+
+    { "id": "cutie-soft", "brand": "Cutie Soft", "targetFile": "cutie-soft-render.png", "confidence": "medium",
+      "palette": ["sky blue #4FB6E8", "royal blue #1565C0", "bubblegum pink #F45C9B", "white #FFFFFF"],
+      "description": "NTPM Cutie Soft twin-ply 10-roll pack (Malaysia); blue wrapper with playful 'Cutie' wordmark and large pink 'Soft' lettering, cute flowers/hearts/dots, 'Buy More Tissue Not Air' tagline.",
+      "prompt": "Studio product photograph of ONE plastic-wrapped 10-roll pack of Cutie Soft twin-ply toilet tissue standing upright on a clean dark charcoal seamless background, soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4. Glossy translucent wrapper in bright sky-blue and royal blue, showing white toilet rolls through clear plastic. Front graphic features a rounded playful 'Cutie' wordmark and large bubblegum-pink 'Soft' lettering, scattered cute white flowers, hearts and dots, small green and yellow accents; cheerful, soft, family-friendly mood, crisp detail.",
+      "sources": ["https://ntpm.com.my/product-cutie/", "https://www.timeout.com/kuala-lumpur/blog/battle-of-the-toilet-paper-rolls-040116"] },
+
+    { "id": "royal-gold", "brand": "Royal Gold", "targetFile": "royal-gold-render.png", "confidence": "medium", "form": "box tissue",
+      "palette": ["regal maroon #7B1416", "metallic gold #C8A14B", "champagne #E3C778", "white #FFFFFF"],
+      "description": "NTPM Royal Gold Luxurious Interleaf 3-ply rectangular cardboard TISSUE BOX (Malaysia); white/cream with maroon-red and gold, crown/laurel emblem, 'Royal Gold' script wordmark, oval top dispensing slit.",
+      "prompt": "Studio product photograph of ONE rectangular cardboard facial tissue BOX standing upright on a clean dark charcoal seamless background, soft museum spotlighting and gentle reflection. Premium Malaysian 'Royal Gold' luxury packaging: crisp white and warm cream box with deep regal maroon-red panels, metallic gold borders, fine gold filigree scrollwork, and a small gold crown/laurel emblem above an elegant 'Royal Gold' script-and-serif wordmark; an oval top dispensing slit with one white tissue peeking out. Photorealistic e-commerce catalogue style, sharp focus, gold-foil sheen, vertical 3:4.",
+      "sources": ["https://ntpm.com.my/product-royal-goal/"] },
+
+    { "id": "cellox-satin", "brand": "Cellox", "targetFile": "cellox-satin-render.png", "confidence": "medium", "form": "facial soft pack",
+      "palette": ["pastel sky blue #BFE0F2", "white #FFFFFF", "Cellox blue #1E6FB5", "satin grey #C7D2DC"],
+      "description": "Cellox Satin Soft 3-ply facial tissue flat SOFT PACK (Thailand); pastel sky-blue/white with a flowing silvery satin ribbon motif, lowercase blue 'cellox' wordmark, 'Satin Soft' line, Thai/English text, top oval slit.",
+      "prompt": "Studio product photograph of ONE flat rectangular plastic soft-pack of facial tissues standing on a clean dark charcoal seamless background, soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4. Glossy flexible film pack in soft pastel sky-blue and clean white with a flowing silvery satin-fabric ribbon motif draped across the front. Lowercase blue 'cellox' wordmark top-left, elegant 'Satin Soft' line name, small Thai script, central oval dispensing slit along the top. Premium, gentle, luxurious tissue branding.",
+      "sources": ["https://www.tops.co.th/en/cellox-satin-soft-facial-tissue-3ply-soft-pack-70sheets-pack-4-8850046339761", "https://www.celloxpurify.com/facial-tissue/cellox-purify-satin-soft/TH"] },
+
+    { "id": "sanica-ecolayers", "brand": "Sanicare", "targetFile": "sanica-ecolayers-render.png", "confidence": "medium",
+      "palette": ["Sanicare blue #0B6FB8", "leaf green #2E9E4F", "eco green #7BC043", "white #FFFFFF"],
+      "description": "SCPA Sanicare Ecolayers 3-ply bathroom tissue (Philippines); clear-wrapped white rolls, blue flowing script wordmark, 'Ecolayers' label, green leaf/recycle eco motifs.",
+      "prompt": "Studio product photograph of ONE clear plastic-wrapped pack of Sanicare Ecolayers 3-Ply Bathroom Tissue, soft white toilet rolls visible through the transparent film, on a clean dark charcoal seamless background with soft museum spotlighting. The wrapper shows Sanicare's flowing blue script wordmark, 'Ecolayers' label, fresh green leaf and recycle eco-motifs, in green and charcoal on white and soft cream tones. Photorealistic e-commerce catalogue style, crisp reflections, gentle shadow, vertical 3:4 framing.",
+      "sources": ["https://scpa.com.ph/care-made-more-sustainable-sanicares-sustainability-shift", "https://www.landers.ph/household-laundry/sanicare-ecolayers-3-ply-bathroom-tissue-600s-15-3-rolls-146191-43590"] },
+
+    { "id": "paseo-elegant", "brand": "Paseo", "targetFile": "paseo-elegant-render.png", "confidence": "medium",
+      "palette": ["white #FFFFFF", "Paseo blue #1565C0", "red-orange dot #E53935", "silver #C0C0C0"],
+      "description": "APP/Sinar Mas Paseo Elegant 3-ply 12-roll pack (Indonesia); white wrapper, blue 'Paseo' wordmark with red-orange teardrop dot, silver/gold cursive 'Elegant' sub-brand, white rolls visible.",
+      "prompt": "Studio product photograph of ONE plastic-wrapped pack of Paseo Elegant 3-Ply toilet tissue, 12 white rolls visible through glossy clear film, on a clean dark charcoal seamless background with soft museum spotlighting. Predominantly white wrapper with a glossy blue 'Paseo' wordmark accented by a small red-orange teardrop dot, an elegant silver-and-gold cursive 'Elegant' sub-brand, and refined blue 'International Premium 3-Ply' text. Photorealistic e-commerce catalogue style, crisp reflections, premium hygienic look, vertical 3:4.",
+      "sources": ["https://paseo.co.id/produk-paseo/-/detail/product/paseo-elegant-toilet-core-non-emboss-1-roll-510-s", "https://app.co.id/our-products"] },
+
+    { "id": "pulppy-supreme", "brand": "Pulppy", "targetFile": "pulppy-supreme-render.png", "confidence": "medium",
+      "palette": ["azure blue #1B5FAA", "deep navy #0E2C66", "metallic gold #C9A227", "white #FFFFFF"],
+      "description": "New Toyo Pulppy Supreme 3-ply 10-roll pack (Vietnam); royal azure-blue with white and gold accents, rounded 'Pulppy' wordmark, 'Supreme' descriptor, polar-bear (mother+cub) brand mascot.",
+      "prompt": "Studio product photograph of ONE plastic-wrapped 10-roll pack of Pulppy Supreme 3-Ply Bathroom Tissue on a clean dark charcoal seamless background, soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4. Glossy translucent plastic film over ten white individually-wrapped toilet rolls. Premium royal azure-blue and deep navy packaging with crisp white and metallic-gold accents; rounded friendly sans-serif 'Pulppy' wordmark with 'Supreme 3-Ply' descriptor; small soft polar-bear (mother and cub) motif and imagery of pillowy white tissue; subtle gold trim, sharp focus.",
+      "sources": ["https://www.pulppy.com/en/product/supreme-3-ply-bathroom-tissue/", "https://www.pulppy.com/en/our-brand-story/"] },
+
+    { "id": "hengan-premium", "brand": "Hengan", "targetFile": "hengan-premium-render.png", "confidence": "medium",
+      "palette": ["sky blue #7EC8E3", "white #FFFFFF", "Hearttex purple #6E5BA6", "heart red #E23B4E"],
+      "description": "Hengan's Hearttex (心相印) cloud-soft 云感柔肤 3-ply 12-roll premium pack (China); sky-blue-to-white gradient with fluffy cloud motifs, purple 心相印 wordmark with red peach-heart accent, cloud-embossed rolls.",
+      "prompt": "Studio product photograph of ONE plastic-wrapped pack of 12 premium Chinese toilet paper rolls, standing upright on a clean dark charcoal seamless background with soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4. Glossy printed film with a light sky-blue to white gradient and soft fluffy white cloud motifs. Flowing deep-purple Chinese brand wordmark with a tiny red peach-heart accent, smaller English 'Hearttex', visible cloud-embossed white roll graphic, premium soft clean look.",
+      "sources": ["https://www.hengan.com/column/83/", "https://www.smzdm.com/p/103869475/"] },
+
+    { "id": "bashundhara-pink", "brand": "Bashundhara", "targetFile": "bashundhara-pink-render.png", "confidence": "medium",
+      "palette": ["rose pink #F4A6C0", "magenta #E5337E", "brand red #D81E2C", "white #FFFFFF"],
+      "description": "Bashundhara Toilet Tissue Pink 2-ply 4-roll savings pack (Bangladesh); clear-wrapped pale rose-pink rolls, red 'Bashundhara' wordmark + Bangla script, pink/white graphics.",
+      "prompt": "Studio product photograph of ONE clear plastic-wrapped 4-roll pack of Bashundhara Toilet Tissue Pink, standing upright on a clean dark charcoal seamless background with soft museum spotlighting. Four pale rose-pink tissue rolls visible through glossy transparent film. Pink-and-white wrapper with bold red 'Bashundhara' wordmark plus matching Bangla script, soft floral-pink accents and white highlights. Photorealistic e-commerce catalogue style, crisp film reflections, gentle shadow, vertical 3:4, color-accurate pinks and brand red.",
+      "sources": ["https://www.bashundharapapermills.com/product/bashundhara-toilet-tissue-pink", "https://www.shwapno.com/bashundhara-toilet-tissue-pink?lang=en"] },
+
+    { "id": "rose-petal-pakistan", "brand": "Rose Petal", "targetFile": "rose-petal-pakistan-render.png", "confidence": "medium",
+      "palette": ["violet #5B2A86", "royal blue #2E3192", "rose pink #E5468B", "white #FFFFFF"],
+      "description": "Rose Petal Maxob Ultra Soft 2-ply 4-roll pack (Pakistan, Packages Ltd); cool violet-to-blue film, cursive pink 'Rose Petal' rose logo, bold white 'Maxob', 'Liquilock' badge, rose/leaf motifs.",
+      "prompt": "Studio product photograph of ONE plastic-wrapped pack of four white toilet rolls on a clean dark charcoal seamless background, soft museum spotlighting, photorealistic e-commerce catalogue style, vertical 3:4. Glossy printed film in a cool deep-violet-to-royal-blue gradient with white panels; cursive pink 'Rose Petal' logo with a small rose flower icon at top, large bold white 'Maxob' brand name, '2-PLY ULTRA SOFT' and 'Liquilock' callout badges, delicate pink-rose and green-leaf motifs. Four embossed white rolls visible through clear wrap windows.",
+      "sources": ["https://rosepetal.com.pk/product/maxob/", "https://www.packages.com.pk/ourstory/rose-petal/"] },
+
+    { "id": "joysoft-nepal", "brand": "JoySoft", "targetFile": "joysoft-nepal-render.png", "confidence": "medium",
+      "palette": ["white #FFFFFF", "brand blue #1B66C9", "teal #0FA3B1", "leaf green #2E9E5B"],
+      "description": "JoySoft 3-ply 4-roll pack (Nepal, Riyaz Traders); clear flow-wrap in white and bright blue with teal/green accents, rounded 'JoySoft' wordmark, soft floral/water-drop motifs, white rolls visible.",
+      "prompt": "Studio product photograph of ONE plastic-wrapped 4-roll pack of JoySoft 3-Ply Toilet Tissue from Nepal, standing upright on a clean dark charcoal seamless background with soft museum spotlighting and gentle reflection. Glossy clear flow-wrap printed in crisp white and bright brand blue with teal and leaf-green accents, the rounded friendly 'JoySoft' wordmark prominent, subtle soft floral and water-drop softness motifs, four white embossed tissue rolls visible. Photorealistic e-commerce catalogue style, sharp focus, vertical 3:4.",
+      "sources": ["https://joysoftnepal.com/product/joysoft-toilet-rolls-160gm-4-piece-pack", "https://joysoftnepal.com/product/toilet-tissue/"] }
   ]
 }

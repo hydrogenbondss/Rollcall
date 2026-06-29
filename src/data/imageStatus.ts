@@ -25,12 +25,29 @@ export const verifiedImageIds = new Set<string>([
 ])
 
 export const illustrativeImageIds = new Set<string>([
+  // Batch 1
   'nepia-nepi-nepi',
   'scottie-toilet',
   'tempo-neutral',
   'vinda-ultra-strong',
   'kleenex-ultrasoft',
   'cellox-purify',
+  // Batch 2
+  'samjung-living',
+  'tempo-applewood',
+  'andrex-ultimate',
+  'cloversoft-bamboo',
+  'premier-sg',
+  'cutie-soft',
+  'royal-gold',
+  'cellox-satin',
+  'sanica-ecolayers',
+  'paseo-elegant',
+  'pulppy-supreme',
+  'hengan-premium',
+  'bashundhara-pink',
+  'rose-petal-pakistan',
+  'joysoft-nepal',
 ])
 
 export function hasVerifiedImage(id: string): boolean {
