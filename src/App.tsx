@@ -1,20 +1,21 @@
 import { Routes, Route, useLocation } from 'react-router'
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import Home from './pages/Home'
-import CollectionPage from './pages/CollectionPage'
-import ProductDetail from './pages/ProductDetail'
-import ExhibitionPage from './pages/ExhibitionPage'
-import AboutPage from './pages/AboutPage'
-import EssayPage from './pages/EssayPage'
-import SourcesPage from './pages/SourcesPage'
-import GrantSummaryPage from './pages/GrantSummaryPage'
-import NotFound from './pages/NotFound'
+// Route-level code splitting: each page (and heavy deps like three.js on the
+// Exhibition page) loads only when visited. Home stays eager as the landing.
+const CollectionPage = lazy(() => import('./pages/CollectionPage'))
+const ProductDetail = lazy(() => import('./pages/ProductDetail'))
+const ExhibitionPage = lazy(() => import('./pages/ExhibitionPage'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const EssayPage = lazy(() => import('./pages/EssayPage'))
+const SourcesPage = lazy(() => import('./pages/SourcesPage'))
+const GrantSummaryPage = lazy(() => import('./pages/GrantSummaryPage'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+import PageTransition from './components/PageTransition'
 import BackToTop from './components/BackToTop'
-
 import CustomCursor from './components/CustomCursor'
 import CompareDrawer from './components/CompareDrawer'
 import CompareIndicator from './components/CompareIndicator'
-import PageTransition from './components/PageTransition'
 import ScrollProgress from './components/ScrollProgress'
 
 function ScrollToTop() {
@@ -34,6 +35,7 @@ export default function App() {
       <CompareIndicator />
       <ScrollToTop />
       <PageTransition>
+        <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collection" element={<CollectionPage />} />
@@ -45,6 +47,7 @@ export default function App() {
           <Route path="/grant" element={<GrantSummaryPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </PageTransition>
       <BackToTop />
     </>

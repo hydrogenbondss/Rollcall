@@ -28,12 +28,10 @@ export default defineConfig(({ mode }) => ({
     outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
     chunkSizeWarningLimit: 1300,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          three: ['three', '@react-three/fiber', '@react-three/drei'],
-        },
-      },
-    },
+    // No manual chunks: the only consumer of three.js is the Exhibition
+    // hologram, which is dynamically imported. Letting Vite auto-split keeps
+    // three.js behind that dynamic boundary so it never loads on other pages.
+    // (A manual `three` chunk pulled shared helpers/React into it, making the
+    // 1MB bundle a render-blocking dependency of every page.)
   },
 }));

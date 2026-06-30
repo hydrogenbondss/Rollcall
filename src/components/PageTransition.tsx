@@ -1,27 +1,18 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import { useLocation } from 'react-router'
-import { gsap } from 'gsap'
 
+// CSS-only page fade (no gsap on the critical path). The first render paints
+// immediately with no animation class so first contentful paint isn't delayed;
+// subsequent navigations replay the fade via the remount key.
 export default function PageTransition({ children }: { children: ReactNode }) {
   const location = useLocation()
-  const containerRef = useRef<HTMLDivElement>(null)
-  const isFirstRender = useRef(true)
+  const isFirst = useRef(true)
+  const cls = isFirst.current ? undefined : 'page-fade'
 
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false
-      return
-    }
-
-    const el = containerRef.current
-    if (!el) return
-
-    // Fade in
-    gsap.fromTo(el, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' })
-  }, [location.pathname])
+  useEffect(() => { isFirst.current = false }, [])
 
   return (
-    <div ref={containerRef}>
+    <div key={location.pathname} className={cls}>
       {children}
     </div>
   )

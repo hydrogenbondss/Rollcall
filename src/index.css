@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+/* Fonts are loaded asynchronously from index.html (non-render-blocking) so
+   first paint never waits on the Google Fonts request. */
 
 @tailwind base;
 @tailwind components;
@@ -101,6 +100,20 @@ html {
   animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* Route change fade (CSS, replaces gsap on the critical path) */
+.page-fade { animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* MatrixLanding reveal — CSS so the landing ships no gsap on first paint.
+   The title (the LCP element) animates transform only, never opacity, so it
+   paints immediately and LCP is not delayed by the reveal. */
+.ml-title { animation: mlTitleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes mlTitleIn { from { transform: translateY(12px); } to { transform: translateY(0); } }
+.ml-line { transform: scaleX(0); transform-origin: left; animation: mlLine 0.5s cubic-bezier(0.45, 0, 0.55, 1) 0.45s forwards; }
+.ml-sub { opacity: 0; animation: mlFade 0.4s ease-out 0.6s forwards; }
+.ml-hint { opacity: 0; animation: mlFade 0.4s ease-out 0.75s forwards; }
+@keyframes mlLine { to { transform: scaleX(1); } }
+@keyframes mlFade { to { opacity: 1; } }
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
@@ -143,7 +156,8 @@ html, body, div, section, nav, footer, button, a, input, select, h1, h2, h3, h4,
   z-index: 9998;
   opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  animation: grain 0.5s steps(1) infinite;
+  /* Static grain. A perpetual shimmer here repaints the whole viewport
+     forever, which tanks performance/Speed Index for no real visual gain. */
 }
 
 @keyframes grain {
