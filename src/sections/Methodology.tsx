@@ -77,7 +77,7 @@ export default function Methodology() {
           </p>
 
           <p>
-            Each entry carries a consistent metadata schema: an accession number (RC-REGION-COUNTRY-SEQ, e.g. RC-EA-JP-001), provenance (city, country), material composition, ply count, price at point of documentation, scent profile, manufacturing origin, retail availability, hotel presence, and environmental claims. The accession number encodes region, country, and sequence — allowing cross-referenced analysis without opening the card.
+            Each entry carries a consistent metadata schema: an accession number (RC-REGION-COUNTRY-SEQ, e.g. RC-EA-JP-001), provenance (city, country), material composition, ply count, price at point of documentation, scent profile, manufacturing origin, retail availability, and environmental claims. The accession number encodes region, country, and sequence — allowing cross-referenced analysis without opening the card.
           </p>
 
           <p>
