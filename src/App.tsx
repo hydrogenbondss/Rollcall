@@ -13,7 +13,6 @@ const GrantSummaryPage = lazy(() => import('./pages/GrantSummaryPage'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 import PageTransition from './components/PageTransition'
 import BackToTop from './components/BackToTop'
-import CustomCursor from './components/CustomCursor'
 import CompareDrawer from './components/CompareDrawer'
 import CompareIndicator from './components/CompareIndicator'
 import ScrollProgress from './components/ScrollProgress'
@@ -40,7 +39,6 @@ export default function App() {
       <a href="#/collection" className="skip-link">Skip to the collection</a>
       <div className="grain-overlay" aria-hidden="true" />
       <ScrollProgress />
-      <CustomCursor />
       <CompareDrawer />
       <CompareIndicator />
       <ScrollToTop />
