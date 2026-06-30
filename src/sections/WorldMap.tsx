@@ -137,7 +137,8 @@ export default function WorldMap() {
               return (
                 <g key={country} className="cursor-pointer"
                   onMouseEnter={() => setHoveredCountry(country)}
-                  onMouseLeave={() => setHoveredCountry(null)}>
+                  onMouseLeave={() => setHoveredCountry(null)}
+                  onClick={() => setHoveredCountry(isHovered ? null : country)}>
                   {/* Large invisible hit area */}
                   <circle cx={pos.x} cy={pos.y} r={radius + 4} fill="transparent" />
                   {/* Visible dot */}
@@ -154,7 +155,7 @@ export default function WorldMap() {
           </svg>
 
           {/* Legend below map */}
-          <div className="flex items-center justify-center gap-8 mt-4 pt-4 border-t border-white/5">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-4 pt-4 border-t border-white/5">
             {Object.entries(regionColors).map(([region, color]) => (
               <div key={region} className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />

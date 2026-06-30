@@ -5,6 +5,7 @@ import { Link, useSearchParams } from 'react-router'
 import { ArrowLeft, FileText, MapPin } from 'lucide-react'
 import { specimenCount, countryCount } from '../data/stats'
 import { products } from '../data/products'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 // The Living Specimen reflects the archive's flagship specimen.
 const featuredSpecimen = products.find((p) => p.id === 'nepia-oshiri-celeb') ?? products[0]
@@ -53,6 +54,7 @@ function RenderPlaceholder({ label, tint }: { label: string; tint: string }) {
 export default function ExhibitionPage() {
   const pageRef = useRef<HTMLDivElement>(null)
   const [searchParams] = useSearchParams()
+  useDocumentTitle('The Exhibition — Roll Call', 'The exhibition in three parts: the Archive Wall, the Living Specimen, and the Extinction Corner.')
 
   // Deep-link: /exhibition?zone=zone-living scrolls to that component on arrival.
   useEffect(() => {

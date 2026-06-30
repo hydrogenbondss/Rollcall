@@ -10,11 +10,13 @@ import DataVisualization from '../sections/DataVisualization'
 import Methodology from '../sections/Methodology'
 import Community from '../sections/Community'
 import Footer from '../sections/Footer'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function AboutPage() {
   const pageRef = useRef<HTMLDivElement>(null)
+  useDocumentTitle('About — Roll Call', 'About Roll Call: methodology, world map, data visualisation, and how to contribute specimens.')
 
   useEffect(() => {
     window.scrollTo(0, 0)

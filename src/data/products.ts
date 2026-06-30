@@ -137,7 +137,7 @@ export const products: Product[] = [
     priceUSD: 5,
     currency: 'JPY',
     localPrice: '¥720',
-    image: './images/elleair-single-real.jpg',
+    image: './images/elleair-premium-render.png',
     hotels: [],
     retailers: ['Amazon Japan', 'AEON', 'Don Quijote'],
     category: 'Standard',

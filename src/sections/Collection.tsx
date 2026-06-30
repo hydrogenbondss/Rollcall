@@ -249,21 +249,21 @@ export default function Collection() {
           <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-xs">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#b6b0a6]" />
-              <input type="text" placeholder="Search specimens..." value={search}
+              <input type="text" aria-label="Search specimens" placeholder="Search specimens..." value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full pl-9 pr-8 py-2.5 bg-white/5 border border-white/10 rounded-lg font-body text-[13px] focus:outline-none focus:border-[#b0a89e] text-white placeholder:text-[#b6b0a6] backdrop-blur-sm transition-colors"
               />
               {search && (
-                <button onClick={() => setSearch('')} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#b6b0a6] hover:text-[#b6b0a6]">
+                <button onClick={() => setSearch('')} aria-label="Clear search" className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#b6b0a6] hover:text-[#b6b0a6]">
                   <X className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
-            <button onClick={() => setShowFilters(!showFilters)}
+            <button onClick={() => setShowFilters(!showFilters)} aria-label="Toggle filters" aria-pressed={showFilters}
               className={`p-2.5 rounded-lg border transition-colors ${showFilters ? 'bg-white text-[#0d0d0d] border-white' : 'border-white/10 text-[#b6b0a6] hover:bg-white/5'}`}>
               <SlidersHorizontal className="w-4 h-4" />
             </button>
-            <select value={sort} onChange={(e) => setSort(e.target.value as SortOption)}
+            <select value={sort} aria-label="Sort specimens" onChange={(e) => setSort(e.target.value as SortOption)}
               className="px-3 py-2.5 rounded-lg border border-white/10 bg-transparent font-body text-[13px] text-[#b6b0a6] focus:outline-none cursor-pointer">
               <option value="popular">Popular</option>
               <option value="price-asc">Price ↑</option>
@@ -275,17 +275,17 @@ export default function Collection() {
 
           {showFilters && (
             <div className="mt-4 pt-4 border-t border-white/5 flex flex-wrap items-center gap-2">
-              <select value={filterRegion} onChange={(e) => setFilterRegion(e.target.value)}
+              <select value={filterRegion} aria-label="Filter by region" onChange={(e) => setFilterRegion(e.target.value)}
                 className="px-3 py-1.5 rounded-lg border border-white/10 bg-transparent font-body text-[12px] text-[#b6b0a6]">
                 <option value="All">All regions</option>
                 {REGIONS.map((r) => <option key={r} value={r}>{r}</option>)}
               </select>
-              <select value={filterBrand} onChange={(e) => setFilterBrand(e.target.value)}
+              <select value={filterBrand} aria-label="Filter by brand" onChange={(e) => setFilterBrand(e.target.value)}
                 className="px-3 py-1.5 rounded-lg border border-white/10 bg-transparent font-body text-[12px] text-[#b6b0a6]">
                 <option value="All">All brands</option>
                 {brands.map((b) => <option key={b} value={b}>{b}</option>)}
               </select>
-              <select value={filterCountry} onChange={(e) => setFilterCountry(e.target.value)}
+              <select value={filterCountry} aria-label="Filter by country" onChange={(e) => setFilterCountry(e.target.value)}
                 className="px-3 py-1.5 rounded-lg border border-white/10 bg-transparent font-body text-[12px] text-[#b6b0a6]">
                 <option value="All">All countries</option>
                 {countries.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -298,22 +298,22 @@ export default function Collection() {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               {filterRegion !== 'All' && (
                 <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#b6b0a6] bg-white/5 px-2.5 py-1 rounded-full">
-                  {filterRegion} <button onClick={() => setFilterRegion('All')}><X className="w-3 h-3" /></button>
+                  {filterRegion} <button onClick={() => setFilterRegion('All')} aria-label={`Remove ${filterRegion} region filter`}><X className="w-3 h-3" /></button>
                 </span>
               )}
               {filterBrand !== 'All' && (
                 <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#b6b0a6] bg-white/5 px-2.5 py-1 rounded-full">
-                  {filterBrand} <button onClick={() => setFilterBrand('All')}><X className="w-3 h-3" /></button>
+                  {filterBrand} <button onClick={() => setFilterBrand('All')} aria-label={`Remove ${filterBrand} brand filter`}><X className="w-3 h-3" /></button>
                 </span>
               )}
               {filterCountry !== 'All' && (
                 <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#b6b0a6] bg-white/5 px-2.5 py-1 rounded-full">
-                  {filterCountry} <button onClick={() => setFilterCountry('All')}><X className="w-3 h-3" /></button>
+                  {filterCountry} <button onClick={() => setFilterCountry('All')} aria-label={`Remove ${filterCountry} country filter`}><X className="w-3 h-3" /></button>
                 </span>
               )}
               {search && (
                 <span className="inline-flex items-center gap-1 font-body text-[11px] text-[#b6b0a6] bg-white/5 px-2.5 py-1 rounded-full">
-                  &quot;{search}&quot; <button onClick={() => setSearch('')}><X className="w-3 h-3" /></button>
+                  &quot;{search}&quot; <button onClick={() => setSearch('')} aria-label="Clear search"><X className="w-3 h-3" /></button>
                 </span>
               )}
               <button onClick={clearAll} className="font-body text-[11px] text-[#b0a89e] hover:text-[#f0ece8] transition-colors">Clear all</button>
@@ -323,31 +323,40 @@ export default function Collection() {
 
         {sort === 'region' && groupedByRegion ? (
           <div ref={gridRef} key={filterKey} className="space-y-20">
-            {REGIONS.map((region) => {
-              const regionProducts = groupedByRegion[region] || []
-              if (regionProducts.length === 0) return null
-              const regionColors: Record<string, string> = {
-                'East Asia': '#c4728e',
-                'Southeast Asia': '#228b68',
-                'South Asia': '#c85a32',
-              }
-              return (
-                <div key={region}>
-                  <div className="flex items-center gap-4 mb-8">
-                    <span className="w-8 h-[1px]" style={{ backgroundColor: regionColors[region] }} />
-                    <h3 className="font-display text-xl text-[#f0ece8]">{region}</h3>
-                    <span className="font-mono text-[10px] text-[#b6b0a6]">{regionProducts.length} specimens</span>
+            {(() => {
+              // Global running index across regions so data-index values are
+              // unique — otherwise the reveal observer treats every region's
+              // card #0 as the same element.
+              let gi = 0
+              return REGIONS.map((region) => {
+                const regionProducts = groupedByRegion[region] || []
+                if (regionProducts.length === 0) return null
+                const regionColors: Record<string, string> = {
+                  'East Asia': '#c4728e',
+                  'Southeast Asia': '#228b68',
+                  'South Asia': '#c85a32',
+                }
+                return (
+                  <div key={region}>
+                    <div className="flex items-center gap-4 mb-8">
+                      <span className="w-8 h-[1px]" style={{ backgroundColor: regionColors[region] }} />
+                      <h3 className="font-display text-xl text-[#f0ece8]">{region}</h3>
+                      <span className="font-mono text-[10px] text-[#b6b0a6]">{regionProducts.length} specimens</span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {regionProducts.map((product) => {
+                        const idx = gi++
+                        return (
+                          <div key={product.id} data-index={idx}>
+                            <SpecimenCard product={product} index={idx} isVisible={visibleSet.has(idx)} searchQuery={debouncedSearch} />
+                          </div>
+                        )
+                      })}
+                    </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {regionProducts.map((product, i) => (
-                      <div key={product.id} data-index={i}>
-                        <SpecimenCard product={product} index={i} isVisible={visibleSet.has(i)} searchQuery={debouncedSearch} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
+                )
+              })
+            })()}
           </div>
         ) : (
           <div ref={gridRef} key={filterKey} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

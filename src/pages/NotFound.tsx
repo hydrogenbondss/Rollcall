@@ -1,7 +1,9 @@
 import { Link } from 'react-router'
 import { Package, ArrowLeft } from 'lucide-react'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 export default function NotFound() {
+  useDocumentTitle('Specimen Not Found — Roll Call')
   return (
     <div className="min-h-screen bg-[#0d0d0d] flex items-center justify-center px-6">
       <div className="text-center max-w-md">

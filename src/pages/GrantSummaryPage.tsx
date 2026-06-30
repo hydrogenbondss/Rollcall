@@ -4,11 +4,13 @@ import { ArrowLeft, Printer, FileText, MapPin, BarChart3, Calendar, DollarSign, 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { specimenCount, countryCount, verifiedCount, communityCount } from '../data/stats'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function GrantSummaryPage() {
   const pageRef = useRef<HTMLDivElement>(null)
+  useDocumentTitle('Grant Summary — Roll Call', 'Project summary for exhibition and grant review: scope, methodology, budget, and timeline.')
 
   useEffect(() => {
     window.scrollTo(0, 0)

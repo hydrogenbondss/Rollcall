@@ -4,6 +4,7 @@ import { ArrowLeft, BookMarked } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Footer from '../sections/Footer'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -36,6 +37,7 @@ const notes = [
 
 export default function SourcesPage() {
   const pageRef = useRef<HTMLDivElement>(null)
+  useDocumentTitle('Sources & Methodology — Roll Call', 'How the archive was researched: sources, verification status, and disclosed limitations.')
 
   useEffect(() => {
     window.scrollTo(0, 0)

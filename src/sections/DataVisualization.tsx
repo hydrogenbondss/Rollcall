@@ -154,7 +154,15 @@ export default function DataVisualization() {
         <div className="viz-chart grid lg:grid-cols-3 gap-8">
           {/* SVG Chart */}
           <div className="lg:col-span-2 bg-[#141414] rounded-2xl border border-white/5 p-6 sm:p-8 relative">
-            <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="w-full h-auto" style={{ maxHeight: 450 }}>
+            <svg
+              viewBox={`0 0 ${chartWidth} ${chartHeight}`}
+              className="w-full h-auto"
+              style={{ maxHeight: 450 }}
+              role="img"
+              aria-label={viewMode === 'price'
+                ? `Scatter plot of ${products.length} specimens: price in HKD (horizontal) against ply count (vertical), coloured by region.`
+                : `Scatter plot of ${products.length} specimens: country GDP per capita in USD (horizontal) against ply count (vertical). GDP and ply correlate at ${correlation.toFixed(2)}.`}
+            >
               {/* Grid */}
               {xTicks.map(t => (
                 <line key={`xgrid-${t}`} x1={scaleX(t)} y1={padding.top} x2={scaleX(t)} y2={padding.top + plotHeight} stroke="rgba(255,255,255,0.05)" strokeDasharray="3,3" />

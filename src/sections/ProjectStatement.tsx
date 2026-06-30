@@ -61,7 +61,7 @@ export default function ProjectStatement() {
           </p>
 
           <p className="font-body text-[15px] text-[#b0a99d] leading-[1.85]">
-            The accompanying essay, <em>One-Ply Realism</em>, examines South Asia's thinnest rolls as evidence of how infrastructure shapes intimacy. The data visualization maps price against thickness across three regions. The world chart documents an incomplete geography — a project still being unrolled.
+            The accompanying essay, <em>One-Ply Realism</em>, examines how South Asia's thin economy rolls reveal the way infrastructure shapes intimacy. The data visualisation maps price against thickness across three regions. The world chart documents an incomplete geography — a project still being unrolled.
           </p>
 
           <div className="w-12 h-px bg-[#c28223]/20" />

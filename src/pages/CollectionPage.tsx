@@ -4,9 +4,11 @@ import { ArrowLeft, LayoutGrid } from 'lucide-react'
 import Collection from '../sections/Collection'
 import Footer from '../sections/Footer'
 import { specimenCount, countryCount } from '../data/stats'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 export default function CollectionPage() {
   const topRef = useRef<HTMLDivElement>(null)
+  useDocumentTitle('The Archive Wall — Roll Call', `Browse all ${specimenCount} catalogued toilet paper specimens from ${countryCount} Asian countries.`)
 
   useEffect(() => {
     window.scrollTo(0, 0)

@@ -26,6 +26,7 @@ import Navigation from "../components/Navigation";
 import ProductCard from "../components/ProductCard";
 import ProductImage from "../components/ProductImage";
 import { hasSpecimenPhoto, hasIllustrativeImage } from "../data/imageStatus";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,6 +56,11 @@ export default function ProductDetail() {
   const [showMobileBar, setShowMobileBar] = useState(false);
   const [toast, setToast] = useState({ message: "", visible: false });
   const [imgFailed, setImgFailed] = useState(false);
+
+  useDocumentTitle(
+    product ? `${product.brand} ${product.name} — Roll Call` : 'Specimen Not Found — Roll Call',
+    product ? `${product.brand} — ${product.name}. ${product.ply}-ply, ${product.country}.` : undefined,
+  );
 
   const relatedProducts = useMemo(() => {
     if (!product) return [];
@@ -463,6 +469,8 @@ export default function ProductDetail() {
         <div className="flex items-center gap-3">
           <button
             onClick={handleCompareToggle}
+            aria-label={comparing ? "Remove from compare" : "Add to compare"}
+            aria-pressed={comparing}
             className={`flex items-center justify-center gap-1.5 font-body text-sm px-4 py-3 rounded-full border transition-colors ${
               comparing
                 ? "bg-[#f0ece8] text-[#0d0d0d] border-[#f0ece8]"

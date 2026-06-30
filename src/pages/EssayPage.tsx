@@ -4,12 +4,13 @@ import { ArrowLeft, BookOpen } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Footer from '../sections/Footer'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const paragraphs = [
   `This archive spans three distinct regions of Asia — East, Southeast, and South — each with its own relationship to the roll. Japan obsesses over softness — squalane-infused, moisturising premium rolls. Singapore experiments with bamboo sustainability. Hong Kong has turned the soft, finely branded roll into lifestyle signalling. But nowhere is the gap between comfort and infrastructure more visible than in South Asia.`,
-  `In much of India, Bangladesh, and Pakistan, one-ply remains the standard. Not by choice, but by necessity. Plumbing systems in older buildings cannot handle thicker paper. The product is a technical compromise between human comfort and Victorian-era pipe diameter.`,
+  `In much of India, Bangladesh, and Pakistan, thin economy-ply rolls remain the everyday default — not by choice, but by necessity. Plumbing systems in older buildings cannot handle thicker paper. The product is a technical compromise between human comfort and Victorian-era pipe diameter. The premium three-ply rolls in this archive are the aspirational exception, not the norm.`,
   `Indian brand Origami has built a business around this constraint. Their "Luxuria" line — marketed with imagery of balance and intention¹ — manages to make three-ply feel like a conscious lifestyle choice rather than an infrastructural luxury.`,
   `At some high-end hotels in Mumbai, guests find three-ply imported tissue. Where the plumbing has been retrofitted to accommodate it, this small fact — that luxury in South Asia sometimes means a toilet that can handle toilet paper — reveals how deeply infrastructure shapes even our most intimate routines.²`,
   `Selpak, the Turkish brand, has found surprising traction in Indian cities. Its three-ply rolls are positioned as an affordable upgrade for the growing middle class on e-commerce platforms such as BigBasket and Blinkit.³`,
@@ -29,6 +30,7 @@ const footnotes = [
 
 export default function EssayPage() {
   const pageRef = useRef<HTMLDivElement>(null)
+  useDocumentTitle('One-Ply Realism — Roll Call', 'An essay on toilet paper as material culture and infrastructure across Asia.')
 
   useEffect(() => {
     window.scrollTo(0, 0)

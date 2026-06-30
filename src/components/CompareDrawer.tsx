@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import type { LucideIcon } from 'lucide-react'
 import { X, Star, MapPin, Layers, Ruler, Droplets, Factory, ShoppingBag, ArrowRight, Plus } from 'lucide-react'
 import { useCompare } from '../contexts/CompareContext'
@@ -10,6 +11,13 @@ export default function CompareDrawer() {
   const { compareList, removeFromCompare, clearCompare, isOpen, setIsOpen } = useCompare()
   const { formatPrice } = useCurrency()
   const { t } = useLanguage()
+
+  useEffect(() => {
+    if (!isOpen) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setIsOpen(false) }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [isOpen, setIsOpen])
 
   if (!isOpen || compareList.length === 0) return null
 
@@ -30,10 +38,10 @@ export default function CompareDrawer() {
 
   return (
     <div className="fixed inset-0 z-[200] flex justify-end">
-      <div className="absolute inset-0 bg-black/30" onClick={() => setIsOpen(false)} />
-      <div className="relative w-full max-w-[900px] bg-white h-full overflow-y-auto shadow-2xl">
+      <div className="absolute inset-0 bg-black/30" onClick={() => setIsOpen(false)} aria-hidden="true" />
+      <div role="dialog" aria-modal="true" aria-labelledby="compare-title" className="relative w-full max-w-[900px] bg-white h-full overflow-y-auto shadow-2xl">
         <div className="sticky top-0 bg-white border-b border-[#e5e5e5] px-6 py-4 flex items-center justify-between z-10">
-          <h2 className="font-display text-xl font-bold text-[#1A1A1A]">{t('compareProducts')}</h2>
+          <h2 id="compare-title" className="font-display text-xl font-bold text-[#1A1A1A]">{t('compareProducts')}</h2>
           <div className="flex items-center gap-3">
             <button
               onClick={clearCompare}
@@ -41,7 +49,7 @@ export default function CompareDrawer() {
             >
               {t('clearAll')}
             </button>
-            <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-[#f5f5f5] rounded-full transition-colors">
+            <button onClick={() => setIsOpen(false)} aria-label="Close comparison" className="p-2 hover:bg-[#f5f5f5] rounded-full transition-colors">
               <X className="w-5 h-5" />
             </button>
           </div>
