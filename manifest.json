@@ -1,27 +1,21 @@
 {
   "name": "Roll Call — Asian Toilet Paper Museum",
   "short_name": "Roll Call",
-  "description": "A cultural index of Asia through its most universal object. 43 verified toilet paper products across 21 Asian countries.",
-  "start_url": "/",
+  "description": "A material culture archive of contemporary Asia through its most universal object. 43 specimens across 21 Asian countries.",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#FAF6F1",
-  "theme_color": "#1a1614",
+  "background_color": "#0d0d0d",
+  "theme_color": "#0d0d0d",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/icons/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icons/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],
   "categories": ["education", "lifestyle", "reference"],
   "lang": "en",
-  "scope": "/"
+  "scope": "./"
 }
