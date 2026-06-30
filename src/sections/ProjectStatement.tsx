@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { specimenCount, countryCount } from '../data/stats'
+import { specimenCount, countryCount, verifiedCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -48,7 +48,7 @@ export default function ProjectStatement() {
           <div className="bg-[#141414] border border-white/[0.04] rounded-2xl p-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#c28223] mb-2">A first edition, not a final count</p>
             <p className="font-body text-[14px] text-[#b0a99d] leading-relaxed">
-              The first edition of Roll Call documents {specimenCount} verified specimens collected across {countryCount} Asian countries. Rather than representing a complete survey, this initial collection establishes the foundation of an archive intended to expand over time through continued research and public contribution. The number reflects the current state of the archive at the time of exhibition — like any living archive, the collection remains intentionally open to future additions as new specimens are documented.
+              The first edition of Roll Call documents {specimenCount} specimens across {countryCount} Asian countries — {verifiedCount} verified against primary sources, the rest community-sourced. Rather than representing a complete survey, this initial collection establishes the foundation of an archive intended to expand over time through continued research and public contribution. The number reflects the current state of the archive at the time of exhibition — like any living archive, the collection remains intentionally open to future additions as new specimens are documented.
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export default function ProjectStatement() {
           </p>
 
           <p className="font-body text-[15px] text-[#b0a99d] leading-[1.85]">
-            This project was initiated in Hong Kong in 2026. It operates at the intersection of ethnographic observation, material culture studies, and editorial design. Each specimen carries a catalog number, provenance, material composition, and verification status. The archive is presented as both a permanent cultural record and an invitation — the collection is incomplete by design, awaiting contributions from field correspondents across the continent.
+            This project was initiated in Hong Kong in 2026. It operates at the intersection of ethnographic observation, material culture studies, and editorial design. Each specimen carries a catalogue number, provenance, material composition, and verification status. The archive is presented as both a permanent cultural record and an invitation — the collection is incomplete by design, awaiting contributions from field correspondents across the continent.
           </p>
 
           <p className="font-body text-[15px] text-[#b0a99d] leading-[1.85]">

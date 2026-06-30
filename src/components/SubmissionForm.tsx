@@ -118,61 +118,61 @@ export default function SubmissionForm() {
       <div className="grid sm:grid-cols-2 gap-5">
         <div className="sm:col-span-2">
           <label className={labelClass}>Brand *</label>
-          <input type="text" required placeholder="e.g., Nepia, Tempo, Vinda" className={inputClass}
+          <input type="text" required aria-label="Brand" placeholder="e.g., Nepia, Tempo, Vinda" className={inputClass}
             value={form.brand} onChange={e => setForm(f => ({ ...f, brand: e.target.value }))} />
         </div>
 
         <div className="sm:col-span-2">
           <label className={labelClass}>Product Name *</label>
-          <input type="text" required placeholder="e.g., Oshiri Celeb Premium 2-Ply" className={inputClass}
+          <input type="text" required aria-label="Product name" placeholder="e.g., Oshiri Celeb Premium 2-Ply" className={inputClass}
             value={form.productName} onChange={e => setForm(f => ({ ...f, productName: e.target.value }))} />
         </div>
 
         <div>
           <label className={labelClass}>Country *</label>
-          <input type="text" required placeholder="e.g., Japan, Hong Kong" className={inputClass}
+          <input type="text" required aria-label="Country" placeholder="e.g., Japan, Hong Kong" className={inputClass}
             value={form.country} onChange={e => setForm(f => ({ ...f, country: e.target.value }))} />
         </div>
 
         <div>
           <label className={labelClass}>City</label>
-          <input type="text" placeholder="e.g., Tokyo, Singapore" className={inputClass}
+          <input type="text" aria-label="City" placeholder="e.g., Tokyo, Singapore" className={inputClass}
             value={form.city} onChange={e => setForm(f => ({ ...f, city: e.target.value }))} />
         </div>
 
         <div>
           <label className={labelClass}>Ply Count</label>
-          <input type="number" min={1} max={10} placeholder="e.g., 3" className={inputClass}
+          <input type="number" min={1} max={10} aria-label="Ply count" placeholder="e.g., 3" className={inputClass}
             value={form.ply} onChange={e => setForm(f => ({ ...f, ply: e.target.value }))} />
         </div>
 
         <div>
           <label className={labelClass}>Scent</label>
-          <input type="text" placeholder="e.g., Unscented, Floral" className={inputClass}
+          <input type="text" aria-label="Scent" placeholder="e.g., Unscented, Floral" className={inputClass}
             value={form.scent} onChange={e => setForm(f => ({ ...f, scent: e.target.value }))} />
         </div>
 
         <div>
           <label className={labelClass}>Material</label>
-          <input type="text" placeholder="e.g., Virgin Pulp, Bamboo" className={inputClass}
+          <input type="text" aria-label="Material" placeholder="e.g., Virgin Pulp, Bamboo" className={inputClass}
             value={form.material} onChange={e => setForm(f => ({ ...f, material: e.target.value }))} />
         </div>
 
         <div>
           <label className={labelClass}>Price (Local)</label>
-          <input type="text" placeholder="e.g., 35" className={inputClass}
+          <input type="text" aria-label="Local price" placeholder="e.g., 35" className={inputClass}
             value={form.priceLocal} onChange={e => setForm(f => ({ ...f, priceLocal: e.target.value }))} />
         </div>
 
         <div>
           <label className={labelClass}>Currency</label>
-          <input type="text" placeholder="e.g., HKD, JPY" className={inputClass}
+          <input type="text" aria-label="Currency" placeholder="e.g., HKD, JPY" className={inputClass}
             value={form.currency} onChange={e => setForm(f => ({ ...f, currency: e.target.value }))} />
         </div>
 
         <div>
           <label className={labelClass}>Retailer</label>
-          <input type="text" placeholder="e.g., Watsons, Don Quijote" className={inputClass}
+          <input type="text" aria-label="Retailer" placeholder="e.g., Watsons, Don Quijote" className={inputClass}
             value={form.retailer} onChange={e => setForm(f => ({ ...f, retailer: e.target.value }))} />
         </div>
 
@@ -186,6 +186,7 @@ export default function SubmissionForm() {
               ref={fileRef}
               type="file"
               accept="image/*"
+              aria-label="Specimen photo"
               disabled={!keyReady}
               className="hidden"
               onChange={e => setFileName(e.target.files?.[0]?.name || '')}
@@ -195,7 +196,7 @@ export default function SubmissionForm() {
 
         <div className="sm:col-span-2">
           <label className={labelClass}>Collector Notes</label>
-          <textarea rows={3} placeholder="Where did you find it? Any observations about packaging, texture, or local context?"
+          <textarea rows={3} aria-label="Collector notes" placeholder="Where did you find it? Any observations about packaging, texture, or local context?"
             className={`${inputClass} resize-none`} value={form.notes}
             onChange={e => setForm(f => ({ ...f, notes: e.target.value }))} />
         </div>
@@ -205,12 +206,12 @@ export default function SubmissionForm() {
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
               <label className={labelClass}>Your Name</label>
-              <input type="text" placeholder="Field correspondent" className={inputClass}
+              <input type="text" aria-label="Your name" placeholder="Field correspondent" className={inputClass}
                 value={form.contributorName} onChange={e => setForm(f => ({ ...f, contributorName: e.target.value }))} />
             </div>
             <div>
               <label className={labelClass}>Your Email</label>
-              <input type="email" placeholder="For follow-up questions" className={inputClass}
+              <input type="email" aria-label="Your email" placeholder="For follow-up questions" className={inputClass}
                 value={form.contributorEmail} onChange={e => setForm(f => ({ ...f, contributorEmail: e.target.value }))} />
             </div>
           </div>

@@ -13,11 +13,11 @@ export default function NotFound() {
           Specimen Not Found
         </h1>
         <p className="font-body text-[15px] text-[#b6b0a6] leading-relaxed mb-10">
-          This catalog number may have been removed, or the reference is incorrect. 
+          This catalogue number may have been removed, or the reference is incorrect.
           Every specimen in our archive is documented — browse the collection to find it.
         </p>
         <Link
-          to="/"
+          to="/collection"
           className="inline-flex items-center gap-2 font-body text-sm px-8 py-4 rounded-full bg-[#f0ece8] text-[#0d0d0d] hover:opacity-80 transition-opacity"
         >
           <ArrowLeft className="w-4 h-4" />Return to Collection

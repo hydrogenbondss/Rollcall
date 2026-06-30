@@ -8,7 +8,7 @@ import Footer from '../sections/Footer'
 gsap.registerPlugin(ScrollTrigger)
 
 const paragraphs = [
-  `This archive spans three distinct regions of Asia — East, Southeast, and South — each with its own relationship to the roll. Japan obsesses over softness — squalane-infused, moisturising premium rolls. Singapore experiments with bamboo sustainability. Hong Kong has turned the soft, finely branded roll into lifestyle signaling. But nowhere is the gap between comfort and infrastructure more visible than in South Asia.`,
+  `This archive spans three distinct regions of Asia — East, Southeast, and South — each with its own relationship to the roll. Japan obsesses over softness — squalane-infused, moisturising premium rolls. Singapore experiments with bamboo sustainability. Hong Kong has turned the soft, finely branded roll into lifestyle signalling. But nowhere is the gap between comfort and infrastructure more visible than in South Asia.`,
   `In much of India, Bangladesh, and Pakistan, one-ply remains the standard. Not by choice, but by necessity. Plumbing systems in older buildings cannot handle thicker paper. The product is a technical compromise between human comfort and Victorian-era pipe diameter.`,
   `Indian brand Origami has built a business around this constraint. Their "Luxuria" line — marketed with imagery of balance and intention¹ — manages to make three-ply feel like a conscious lifestyle choice rather than an infrastructural luxury.`,
   `At some high-end hotels in Mumbai, guests find three-ply imported tissue. Where the plumbing has been retrofitted to accommodate it, this small fact — that luxury in South Asia sometimes means a toilet that can handle toilet paper — reveals how deeply infrastructure shapes even our most intimate routines.²`,
@@ -67,7 +67,7 @@ export default function EssayPage() {
       <article className="max-w-[720px] mx-auto px-6 sm:px-8 pt-28 pb-20">
         <header className="mb-16 essay-item">
           <div className="flex items-center gap-3 mb-4">
-            <BookOpen className="w-4 h-4 text-[#8b7ec8]" strokeWidth={1.5} />
+            <BookOpen className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
           </div>
           <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4 leading-[0.95]">
             One-Ply Realism

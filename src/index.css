@@ -186,6 +186,14 @@ html, body, div, section, nav, footer, button, a, input, select, h1, h2, h3, h4,
   html {
     scroll-behavior: auto;
   }
+  /* Safety net: scroll-reveal items are hidden (opacity:0) by GSAP until their
+     trigger fires. Reduced-motion users get no animation, so force them visible
+     instead of leaving content stuck blank. */
+  .ex-item, .about-item, .grant-item, .source-item, .essay-item,
+  .detail-item, .insight-card, .viz-chart, .hero-item, .nav-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Focus styles for keyboard navigation */

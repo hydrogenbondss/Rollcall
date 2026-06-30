@@ -81,7 +81,7 @@ export default function Methodology() {
           </p>
 
           <p>
-            Price is treated not as commercial information but as a socioeconomic indicator. The same three-ply roll costs $0.18 in Dhaka and $5.90 in Hong Kong. That $5.72 differential encodes infrastructure quality, import tariffs, purchasing power, and supply chain complexity. The archive documents these differentials because they tell a story the product itself cannot.
+            Price is treated not as commercial information but as a socioeconomic indicator. A basic roll sells for well under a dollar in Dhaka and several dollars in Hong Kong — an order-of-magnitude gap for what is functionally the same object. That differential encodes infrastructure quality, import tariffs, purchasing power, and supply chain complexity. The archive documents these differentials because they tell a story the product itself cannot.
           </p>
 
           <p>

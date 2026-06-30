@@ -79,14 +79,19 @@ export default function DataVisualization() {
     : [0, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000]
   const yTicks = [1, 2, 3, 4]
 
-  // Correlation
-  const gdpValues = products.map(p => COUNTRY_GDP[p.country] || 0).filter(g => g > 0)
-  const plyValues = products.map(p => p.ply)
-  const n = gdpValues.length
-  const avgGdp = gdpValues.reduce((a, b) => a + b, 0) / n
-  const avgPly = plyValues.reduce((a, b) => a + b, 0) / n
-  const num = gdpValues.reduce((s, g, i) => s + (g - avgGdp) * (plyValues[i] - avgPly), 0)
-  const den = Math.sqrt(gdpValues.reduce((s, g) => s + (g - avgGdp) ** 2, 0) * plyValues.reduce((s, p) => s + (p - avgPly) ** 2, 0))
+  // Correlation — pair GDP with ply per specimen, keeping them aligned (only
+  // specimens whose country has a known GDP contribute to both sides).
+  const pairs = products
+    .map(p => ({ gdp: COUNTRY_GDP[p.country] || 0, ply: p.ply }))
+    .filter(x => x.gdp > 0)
+  const n = pairs.length
+  const avgGdp = pairs.reduce((a, b) => a + b.gdp, 0) / n
+  const avgPly = pairs.reduce((a, b) => a + b.ply, 0) / n
+  const num = pairs.reduce((s, x) => s + (x.gdp - avgGdp) * (x.ply - avgPly), 0)
+  const den = Math.sqrt(
+    pairs.reduce((s, x) => s + (x.gdp - avgGdp) ** 2, 0) *
+    pairs.reduce((s, x) => s + (x.ply - avgPly) ** 2, 0)
+  )
   const correlation = den > 0 ? num / den : 0
 
   const regionStats = useMemo(() => {
@@ -121,8 +126,8 @@ export default function DataVisualization() {
           </h2>
           <p className="font-body text-sm text-[#b6b0a6] mt-4 max-w-lg">
             {viewMode === 'price'
-              ? "How much does comfort cost? Each dot is a verified product. Color = region. X-axis = price in HKD."
-              : "Wealthier nations use thicker paper. Each dot = one product positioned by its country's GDP per capita. X-axis = USD."
+              ? "How much does comfort cost? Each dot is one specimen. Color = region. X-axis = price in HKD."
+              : "Wealthier nations use thicker paper. Each dot = one specimen positioned by its country's GDP per capita. X-axis = USD."
             }
           </p>
           <div className="flex items-center gap-2 mt-6">
@@ -140,7 +145,7 @@ export default function DataVisualization() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#c28223] mb-1">Key Finding</p>
               <p className="font-body text-sm text-[#f0ece8] leading-relaxed">
                 GDP per capita and toilet paper ply show a correlation of <strong className="text-[#c28223]">{correlation.toFixed(2)}</strong>.
-                {" "}Wealthier nations systematically use thicker, softer toilet paper — Singapore (4-ply, GDP $84,734) vs Myanmar (1-ply, GDP $1,210).
+                {" "}Wealthier nations tend toward thicker, softer toilet paper — Singapore tops the range at 4-ply, while the archive's single 1-ply specimen comes from Mongolia.
               </p>
             </div>
           </div>

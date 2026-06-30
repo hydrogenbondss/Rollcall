@@ -76,7 +76,7 @@ export const products: Product[] = [
     ply: 2,
     thickness: 'Premium',
     scent: 'Unscented',
-    material: '100% Virgin Wood Pulp, with plant-derived squalane (moisturizing)',
+    material: '100% Virgin Wood Pulp, with plant-derived squalane (moisturising)',
     manufacturedIn: 'Japan',
     manufacturer: 'Oji Nepia Co., Ltd.',
     availableIn: ['Japan'],

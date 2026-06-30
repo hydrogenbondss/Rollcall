@@ -17,11 +17,21 @@ import CustomCursor from './components/CustomCursor'
 import CompareDrawer from './components/CompareDrawer'
 import CompareIndicator from './components/CompareIndicator'
 import ScrollProgress from './components/ScrollProgress'
+import ErrorBoundary from './components/ErrorBoundary'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
   return null
+}
+
+// Minimal, layout-stable fallback while a lazy route chunk loads.
+function RouteFallback() {
+  return (
+    <div className="min-h-screen bg-[#0d0d0d] flex items-center justify-center" aria-busy="true">
+      <span className="w-2 h-2 rounded-full bg-[#c28223]/70 animate-pulse" />
+    </div>
+  )
 }
 
 export default function App() {
@@ -35,7 +45,8 @@ export default function App() {
       <CompareIndicator />
       <ScrollToTop />
       <PageTransition>
-        <Suspense fallback={null}>
+        <ErrorBoundary>
+        <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collection" element={<CollectionPage />} />
@@ -48,6 +59,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
         </Suspense>
+        </ErrorBoundary>
       </PageTransition>
       <BackToTop />
     </>

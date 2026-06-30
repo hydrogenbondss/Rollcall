@@ -13,9 +13,15 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[150] flex flex-col items-center justify-center"
+      role="button"
+      tabIndex={0}
+      aria-label="Enter Roll Call"
+      className="fixed inset-0 z-[150] flex flex-col items-center justify-center focus:outline-none"
       style={{ backgroundColor: '#080808' }}
       onClick={handleEnter}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleEnter() }
+      }}
     >
       {/* Subtle warm glow */}
       <div className="absolute inset-0 pointer-events-none opacity-30"

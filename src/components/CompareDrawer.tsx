@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
-import { X, Star, MapPin, Layers, Ruler, Droplets, Factory, ShoppingBag, Hotel, ArrowRight, Plus } from 'lucide-react'
+import { X, Star, MapPin, Layers, Ruler, Droplets, Factory, ShoppingBag, ArrowRight, Plus } from 'lucide-react'
 import { useCompare } from '../contexts/CompareContext'
 import { useCurrency } from '../contexts/CurrencyContext'
 import { useLanguage } from '../contexts/LanguageContext'
@@ -60,8 +60,10 @@ export default function CompareDrawer() {
         </div>
 
         <div className="p-6">
+          <div className="overflow-x-auto -mx-6 px-6">
+          <div style={{ minWidth: `${110 + compareList.length * 130}px` }}>
           {/* Product headers */}
-          <div className="grid gap-4 mb-6" style={{ gridTemplateColumns: `150px repeat(${compareList.length}, 1fr)` }}>
+          <div className="grid gap-4 mb-6" style={{ gridTemplateColumns: `110px repeat(${compareList.length}, minmax(120px, 1fr))` }}>
             <div />
             {compareList.map((p) => (
               <div key={p.id} className="text-center">
@@ -72,6 +74,7 @@ export default function CompareDrawer() {
                 <p className="font-body text-sm font-semibold text-[#1A1A1A] line-clamp-2 mb-2">{p.name}</p>
                 <Link
                   to={`/product/${p.id}`}
+                  onClick={() => setIsOpen(false)}
                   className="inline-flex items-center gap-1 font-body text-xs text-[#1A1A1A] hover:underline"
                 >
                   View <ArrowRight className="w-3 h-3" />
@@ -91,7 +94,7 @@ export default function CompareDrawer() {
             <div
               key={spec.key}
               className="grid gap-4 border-t border-[#e5e5e5] py-3"
-              style={{ gridTemplateColumns: `150px repeat(${compareList.length}, 1fr)` }}
+              style={{ gridTemplateColumns: `110px repeat(${compareList.length}, minmax(120px, 1fr))` }}
             >
               <div className="flex items-center gap-2 text-[#6B6B6B]">
                 <spec.icon className="w-4 h-4" strokeWidth={1.5} />
@@ -107,26 +110,9 @@ export default function CompareDrawer() {
               })}
             </div>
           ))}
-
-          {/* Hotels row */}
-          <div
-            className="grid gap-4 border-t border-[#e5e5e5] py-3"
-            style={{ gridTemplateColumns: `150px repeat(${compareList.length}, 1fr)` }}
-          >
-            <div className="flex items-center gap-2 text-[#6B6B6B]">
-              <Hotel className="w-4 h-4" strokeWidth={1.5} />
-              <span className="font-body text-sm font-medium">{t('hotels')}</span>
-            </div>
-            {compareList.map((p) => (
-              <div key={p.id} className="flex flex-wrap gap-1 justify-center">
-                {p.hotels.map((h) => (
-                  <span key={h} className="bg-[#f0f0f0] text-[#1A1A1A] font-body text-[10px] px-2 py-0.5 rounded-full">
-                    {h}
-                  </span>
-                ))}
-              </div>
-            ))}
           </div>
+          </div>
+
         </div>
       </div>
     </div>

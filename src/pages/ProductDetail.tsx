@@ -152,11 +152,11 @@ export default function ProductDetail() {
             Specimen not found
           </h1>
           <p className="font-body text-sm text-[#b6b0a6] mb-6 max-w-sm mx-auto">
-            This catalog number may have been removed, or the reference is
+            This catalogue number may have been removed, or the reference is
             incorrect.
           </p>
           <Link
-            to="/"
+            to="/collection"
             className="inline-flex items-center gap-2 bg-[#f0ece8] text-[#0d0d0d] font-body text-sm px-6 py-3 rounded-full hover:opacity-80 transition-opacity"
           >
             <ArrowLeft className="w-4 h-4" />
