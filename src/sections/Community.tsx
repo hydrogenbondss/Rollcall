@@ -5,8 +5,13 @@ import { Link } from 'react-router'
 import { MapPin, Users, BookOpen, Camera } from 'lucide-react'
 import SubmissionForm from '../components/SubmissionForm'
 import { specimenCount, countryCount } from '../data/stats'
+import { products } from '../data/products'
 
 gsap.registerPlugin(ScrollTrigger)
+
+// Derived from the actual catalogue so the list always reflects real
+// specimens — never a hardcoded set that can drift from the data.
+const territories = Array.from(new Set(products.map((p) => p.city))).sort()
 
 const engagementModes = [
   {
@@ -101,7 +106,7 @@ export default function Community() {
 
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#b6b0a6] mb-3">Territories Represented</p>
           <div className="flex flex-wrap gap-2">
-            {['Hong Kong', 'Tokyo', 'Singapore', 'Bangkok', 'Mumbai', 'Dhaka', 'Jakarta', 'Manila', 'Seoul', 'Taipei', 'Yangon', 'Kathmandu', 'Hanoi', 'Phnom Penh', 'Colombo', 'Karachi', 'Lahore', 'Kuala Lumpur', 'Beijing', 'Ulaanbaatar', 'Vientiane'].map((city) => (
+            {territories.map((city) => (
               <span key={city} className="font-body text-[11px] text-[#b6b0a6] bg-white/[0.05] px-3 py-1 rounded-full">{city}</span>
             ))}
           </div>

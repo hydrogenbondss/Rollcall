@@ -69,7 +69,7 @@ export default function Methodology() {
 
         <div className="method-body space-y-6 font-body text-[15px] text-[#b0a99d] leading-[1.85]">
           <p>
-            <strong className="text-[#f0ece8] font-medium">Verified</strong> — {verifiedCount} specimens whose brand, manufacturer, and country of origin are confirmed against manufacturer websites and official retailer listings (Watsons Hong Kong, FairPrice Singapore, NTPM Malaysia, Lotus&apos;s Thailand). Product imagery is sourced from official manufacturer channels and in-market field documentation. Some product-level specifics — seasonal scents, hotel placement, exact local pricing — are editorial or drawn from field observation rather than independently confirmed.
+            <strong className="text-[#f0ece8] font-medium">Verified</strong> — {verifiedCount} specimens whose brand, manufacturer, and country of origin are confirmed against manufacturer websites and official retailer listings (Watsons Hong Kong, FairPrice Singapore, NTPM Malaysia, Lotus&apos;s Thailand). Product imagery is sourced from official manufacturer channels, in-market field documentation, and faithful illustrative reconstructions noted on the card. Some product-level specifics — seasonal scents and exact local pricing — are editorial or drawn from field observation rather than independently confirmed.
           </p>
 
           <p>
