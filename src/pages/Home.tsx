@@ -8,7 +8,7 @@ import Navigation from '../components/Navigation'
 import Footer from '../sections/Footer'
 import WhyToiletPaper from '../sections/WhyToiletPaper'
 import { products } from '../data/products'
-import { specimenCount, countryCount } from '../data/stats'
+import { specimenCount, countryCount, verifiedCount } from '../data/stats'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -155,9 +155,10 @@ export default function Home() {
             </div>
           </div>
           <p className="font-body text-[14px] leading-relaxed text-[#b6b0a6] max-w-[640px] mt-10">
-            The first edition of Roll Call documents {specimenCount} verified specimens collected across {countryCount} Asian
-            countries. Rather than a complete survey, this initial collection establishes the foundation of an
-            archive intended to expand over time through continued research and public contribution.
+            The first edition of Roll Call documents {specimenCount} specimens across {countryCount} Asian
+            countries — {verifiedCount} verified against primary sources, the rest community-sourced. Rather than a
+            complete survey, this initial collection establishes the foundation of an archive intended to expand
+            over time through continued research and public contribution.
           </p>
         </section>
 
