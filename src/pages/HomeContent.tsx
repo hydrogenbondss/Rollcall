@@ -8,8 +8,19 @@ import Footer from '../sections/Footer'
 import WhyToiletPaper from '../sections/WhyToiletPaper'
 import { products } from '../data/products'
 import { specimenCount, countryCount, verifiedCount } from '../data/stats'
+import { accessionId } from '../data/accession'
 
 gsap.registerPlugin(ScrollTrigger)
+
+// A hand-picked, region-diverse row of visually strong charcoal renders —
+// the archive's own objects, surfaced on the front page.
+const stripIds = [
+  'nepia-oshiri-celeb', 'samjung-living', 'tempo-applewood', 'andrex-ultimate',
+  'pursoft-unscented', 'cellox-purify', 'tisyu-mega', 'bashundhara-pink',
+]
+const stripSpecimens = stripIds
+  .map((id) => products.find((p) => p.id === id))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p))
 
 const components = [
   {
@@ -111,6 +122,37 @@ export default function HomeContent() {
               <Dices className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
               <span className="font-body text-sm text-[#f0ece8]">Random Specimen</span>
             </button>
+          </div>
+        </section>
+
+        {/* Specimen strip — the archive's objects, on the front page */}
+        <section className="py-14 border-t border-white/[0.04] overflow-hidden">
+          <div className="max-w-[1100px] mx-auto px-6 sm:px-8 flex items-baseline justify-between mb-8">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223]">From the archive</p>
+            <Link to="/collection" className="font-body text-[12px] text-[#b6b0a6] hover:text-[#f0ece8] transition-colors">All {specimenCount} specimens &rarr;</Link>
+          </div>
+          <div className="flex gap-4 overflow-x-auto px-6 sm:px-8 pb-4 snap-x [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {stripSpecimens.map((s) => (
+              <Link
+                key={s.id}
+                to={`/product/${s.id}`}
+                className="group shrink-0 w-[150px] sm:w-[170px] snap-start"
+              >
+                <div
+                  className="aspect-[3/4] rounded-xl overflow-hidden border border-white/[0.05] group-hover:border-white/[0.14] transition-colors"
+                  style={{ background: 'radial-gradient(115% 100% at 50% 0%, #1b1b1d 0%, #0c0c0d 78%)' }}
+                >
+                  <img
+                    src={s.image}
+                    alt={`${s.brand} — ${s.name}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  />
+                </div>
+                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#b6b0a6] mt-2.5">{accessionId(s.id)}</p>
+                <p className="font-body text-[12px] text-[#f0ece8] leading-snug mt-0.5 line-clamp-1">{s.brand}</p>
+              </Link>
+            ))}
           </div>
         </section>
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef, Suspense, lazy } from 'react'
+import { useEffect, useRef, useState, Suspense, lazy } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link, useSearchParams } from 'react-router'
@@ -33,7 +33,13 @@ const futureZones = [
   },
 ]
 
-function RenderPlaceholder({ label, tint }: { label: string; tint: string }) {
+// Fail-safe spatial visualization: shows the architectural render once the
+// image file exists; until then (or if it fails to load) it keeps the quiet
+// placeholder so the page never shows a broken image.
+function RenderPlaceholder({ label, tint, src }: { label: string; tint: string; src?: string }) {
+  const [loaded, setLoaded] = useState(false)
+  const [failed, setFailed] = useState(false)
+  const showImage = src && !failed
   return (
     <div
       className="relative w-full rounded-2xl border border-white/[0.06] overflow-hidden flex items-center justify-center"
@@ -42,11 +48,30 @@ function RenderPlaceholder({ label, tint }: { label: string; tint: string }) {
         background: `radial-gradient(120% 120% at 50% 0%, ${tint}22 0%, #0a0a0a 60%)`,
       }}
     >
-      <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '22px 22px' }} />
-      <div className="text-center px-6">
-        <div className="w-12 h-px mx-auto mb-4" style={{ backgroundColor: tint }} />
-        <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#b6b0a6]">Render · {label}</p>
-      </div>
+      {showImage && (
+        <img
+          src={src}
+          alt={`Concept visualization — ${label}`}
+          loading="lazy"
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+        />
+      )}
+      {!(showImage && loaded) && (
+        <>
+          <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '22px 22px' }} />
+          <div className="text-center px-6">
+            <div className="w-12 h-px mx-auto mb-4" style={{ backgroundColor: tint }} />
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#b6b0a6]">Render · {label}</p>
+          </div>
+        </>
+      )}
+      {showImage && loaded && (
+        <p className="absolute bottom-3 right-4 font-mono text-[9px] uppercase tracking-[0.25em] text-white/40">
+          Concept visualization
+        </p>
+      )}
     </div>
   )
 }
@@ -144,7 +169,7 @@ export default function ExhibitionPage() {
             </p>
           </div>
           <div className="ex-item order-1 lg:order-2">
-            <RenderPlaceholder label="The Archive Wall" tint="#c28223" />
+            <RenderPlaceholder label="The Archive Wall" tint="#c28223" src="./images/exhibition-archive-wall.png" />
           </div>
         </div>
       </section>
@@ -185,7 +210,7 @@ export default function ExhibitionPage() {
       <section id="zone-extinct" data-zone-section className="ex-section py-20 border-t border-white/[0.04] scroll-mt-28">
         <div className="max-w-[1100px] mx-auto px-6 sm:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <div className="ex-item">
-            <RenderPlaceholder label="The Extinction Corner" tint="#c85a32" />
+            <RenderPlaceholder label="The Extinction Corner" tint="#c85a32" src="./images/exhibition-extinction-corner.png" />
           </div>
           <div className="ex-item">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c85a32] mb-4">What We Lose</p>

@@ -89,16 +89,12 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
     >
       <Link to={`/product/${product.id}`} className="block" onClick={handleTap}>
         <div
-          className="relative rounded-2xl overflow-hidden border border-white/[0.04]"
+          className="relative rounded-2xl overflow-hidden border border-white/[0.05]"
           style={{
-            background: hovered
-              ? 'linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.65) 100%)'
-              : 'linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.35) 100%)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
+            background: 'radial-gradient(120% 100% at 50% 0%, #1a1a1c 0%, #101011 80%)',
             boxShadow: hovered
-              ? '0 25px 50px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3)'
-              : '0 8px 20px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.2)',
+              ? '0 25px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06)'
+              : '0 8px 20px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04)',
             transition: 'all 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
           }}
         >
@@ -115,12 +111,11 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
 
           {/* Image */}
           <div className="relative aspect-square overflow-hidden bg-white/5">
-            {/* Blur placeholder */}
+            {/* Loading placeholder */}
             <div
-              className={`absolute inset-0 bg-[#f5f0e8] transition-opacity duration-700 ${imageLoaded && !imgError ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute inset-0 bg-[#141414] transition-opacity duration-700 ${imageLoaded && !imgError ? 'opacity-0' : 'opacity-100'}`}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#e8e2d9]/30 to-[#f0ece8]/10 animate-pulse" />
-              <div className="absolute inset-0 backdrop-blur-xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent animate-pulse" />
             </div>
             {!imgError && (
               <img
@@ -133,7 +128,7 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
               />
             )}
             {imgError && (
-              <div className="absolute inset-0 flex items-center justify-center bg-[#f5f0e8]/80 z-10">
+              <div className="absolute inset-0 flex items-center justify-center bg-[#141414] z-10">
                 <div className="text-center">
                   <span className="font-body text-[10px] uppercase tracking-wider text-[#b6b0a6] block mb-1">Image unavailable</span>
                   <span className="font-body text-[9px] text-[#c4bdb5]">{product.brand}</span>
@@ -224,9 +219,9 @@ const ProductCard = memo(function ProductCard({ product, index, isVisible = true
             </div>
           </div>
 
-          {/* Glass edge highlight */}
+          {/* Subtle edge highlight */}
           <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.05) 100%)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.02) 100%)',
           }} />
         </div>
       </Link>

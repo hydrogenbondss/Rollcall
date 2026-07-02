@@ -5,20 +5,30 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Footer from '../sections/Footer'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { accessionId } from '../data/accession'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const paragraphs = [
-  `This archive spans three distinct regions of Asia — East, Southeast, and South — each with its own relationship to the roll. Japan obsesses over softness — squalane-infused, moisturising premium rolls. Singapore experiments with bamboo sustainability. Hong Kong has turned the soft, finely branded roll into lifestyle signalling. But nowhere is the gap between comfort and infrastructure more visible than in South Asia.`,
-  `In much of India, Bangladesh, and Pakistan, thin economy-ply rolls remain the everyday default — not by choice, but by necessity. Plumbing systems in older buildings cannot handle thicker paper. The product is a technical compromise between human comfort and Victorian-era pipe diameter. The premium three-ply rolls in this archive are the aspirational exception, not the norm.`,
-  `Indian brand Origami has built a business around this constraint. Their "Luxuria" line — marketed with imagery of balance and intention¹ — manages to make three-ply feel like a conscious lifestyle choice rather than an infrastructural luxury.`,
-  `At some high-end hotels in Mumbai, guests find three-ply imported tissue. Where the plumbing has been retrofitted to accommodate it, this small fact — that luxury in South Asia sometimes means a toilet that can handle toilet paper — reveals how deeply infrastructure shapes even our most intimate routines.²`,
-  `Selpak, the Turkish brand, has found surprising traction in Indian cities. Its three-ply rolls are positioned as an affordable upgrade for the growing middle class on e-commerce platforms such as BigBasket and Blinkit.³`,
-  `And then there is the environmental paradox. Origami's "Good Karma" line — 100% recycled, unbleached, three-ply — is one of the most genuinely sustainable toilet papers on the continent. It is also one of the least comfortable. The eco-conscious South Asian consumer faces a choice their Japanese counterpart never has to make: save the planet, or save your skin.`,
-  `What is striking about this archive is not the products themselves, but the system they index. Each roll tells you about water pressure, pipe diameter, purchasing power, and cultural aspiration. The Japanese product with added squalane is not just soft — it is a signal that your plumbing can handle anything. The Bangladeshi two-ply is not just cheap — it is an adaptation to infrastructure that has not changed in a century.`,
-  `Toilet paper is infrastructure made tactile. Every sheet is a negotiation between comfort and cost, between what we want and what our pipes can handle. The archive records not products, but the invisible systems that shape daily life.`,
-  `In Hong Kong, where this archive was initiated, the contrast is particularly sharp. Public housing estates are reported to stock one-ply recycled paper, while luxury apartments in Mid-Levels offer soft multi-ply rolls imported from Japan, marketed with delicate packaging and "hotel quality" promises.⁴ Same city, different plumbing.`,
-  `The question this archive keeps returning to is simple: who gets to be comfortable? Not in theory, but in the specific, intimate moment when comfort is needed. The answer, indexed across the whole archive, is that comfort is infrastructure. And infrastructure is politics.`,
+type EssayBlock =
+  | { type: 'p'; text: string }
+  | { type: 'figure'; src: string; alt: string; caption: string; to: string }
+  | { type: 'pullquote'; text: string }
+
+const blocks: EssayBlock[] = [
+  { type: 'p', text: `This archive spans three distinct regions of Asia — East, Southeast, and South — each with its own relationship to the roll. Japan obsesses over softness — squalane-infused, moisturising premium rolls. Singapore experiments with bamboo sustainability. Hong Kong has turned the soft, finely branded roll into lifestyle signalling. But nowhere is the gap between comfort and infrastructure more visible than in South Asia.` },
+  { type: 'figure', src: './images/nepia-oshiri-celeb-render.png', alt: 'Nepia Oshiri Celeb premium toilet roll packaging', caption: `${accessionId('nepia-oshiri-celeb')} · Nepia Oshiri Celeb — squalane-infused 2-ply, Tokyo. Illustrative reconstruction.`, to: '/product/nepia-oshiri-celeb' },
+  { type: 'p', text: `In much of India, Bangladesh, and Pakistan, thin economy-ply rolls remain the everyday default — not by choice, but by necessity. Plumbing systems in older buildings cannot handle thicker paper. The product is a technical compromise between human comfort and Victorian-era pipe diameter. The premium three-ply rolls in this archive are the aspirational exception, not the norm.` },
+  { type: 'p', text: `Indian brand Origami has built a business around this constraint. Their "Luxuria" line — marketed with imagery of balance and intention¹ — manages to make three-ply feel like a conscious lifestyle choice rather than an infrastructural luxury.` },
+  { type: 'figure', src: './images/origami-india-real.jpg', alt: 'Origami Luxuria toilet tissue packaging', caption: `${accessionId('origami-luxuria')} · Origami Luxuria — 3-ply as a conscious lifestyle choice, Mumbai.`, to: '/product/origami-luxuria' },
+  { type: 'p', text: `At some high-end hotels in Mumbai, guests find three-ply imported tissue. Where the plumbing has been retrofitted to accommodate it, this small fact — that luxury in South Asia sometimes means a toilet that can handle toilet paper — reveals how deeply infrastructure shapes even our most intimate routines.²` },
+  { type: 'p', text: `Selpak, the Turkish brand, has found surprising traction in Indian cities. Its three-ply rolls are positioned as an affordable upgrade for the growing middle class on e-commerce platforms such as BigBasket and Blinkit.³` },
+  { type: 'p', text: `And then there is the environmental paradox. Origami's "Good Karma" line — 100% recycled, unbleached, three-ply — is one of the most genuinely sustainable toilet papers on the continent. It is also one of the least comfortable. The eco-conscious South Asian consumer faces a choice their Japanese counterpart never has to make: save the planet, or save your skin.` },
+  { type: 'figure', src: './images/origami-karma-real.jpg', alt: 'Origami Good Karma recycled toilet tissue packaging', caption: `${accessionId('origami-karma')} · Origami Good Karma — 100% recycled, unbleached. Sustainability at the cost of comfort.`, to: '/product/origami-karma' },
+  { type: 'p', text: `What is striking about this archive is not the products themselves, but the system they index. Each roll tells you about water pressure, pipe diameter, purchasing power, and cultural aspiration. The Japanese product with added squalane is not just soft — it is a signal that your plumbing can handle anything. The Bangladeshi two-ply is not just cheap — it is an adaptation to infrastructure that has not changed in a century.` },
+  { type: 'pullquote', text: 'Toilet paper is infrastructure made tactile.' },
+  { type: 'p', text: `Every sheet is a negotiation between comfort and cost, between what we want and what our pipes can handle. The archive records not products, but the invisible systems that shape daily life.` },
+  { type: 'p', text: `In Hong Kong, where this archive was initiated, the contrast is particularly sharp. Public housing estates are reported to stock one-ply recycled paper, while luxury apartments in Mid-Levels offer soft multi-ply rolls imported from Japan, marketed with delicate packaging and "hotel quality" promises.⁴ Same city, different plumbing.` },
+  { type: 'p', text: `The question this archive keeps returning to is simple: who gets to be comfortable? Not in theory, but in the specific, intimate moment when comfort is needed. The answer, indexed across the whole archive, is that comfort is infrastructure. And infrastructure is politics.` },
 ]
 
 const footnotes = [
@@ -84,14 +94,47 @@ export default function EssayPage() {
           </div>
         </header>
 
-        {paragraphs.map((p, i) => (
-          <p
-            key={i}
-            className="essay-item font-body text-[15px] text-[#b0a99d] leading-[1.8] mb-8"
-          >
-            {p}
-          </p>
-        ))}
+        {blocks.map((b, i) => {
+          if (b.type === 'pullquote') {
+            return (
+              <blockquote key={i} className="essay-item my-14 border-l-2 border-[#c28223]/50 pl-6 sm:pl-8">
+                <p className="font-serif-display text-2xl sm:text-3xl italic text-[#f0ece8] leading-snug">
+                  {b.text}
+                </p>
+              </blockquote>
+            )
+          }
+          if (b.type === 'figure') {
+            return (
+              <figure key={i} className="essay-item my-12">
+                <Link to={b.to} className="group block">
+                  <div
+                    className="rounded-2xl overflow-hidden border border-white/[0.05] flex items-center justify-center py-8"
+                    style={{ background: 'radial-gradient(115% 100% at 50% 0%, #1b1b1d 0%, #0c0c0d 78%)' }}
+                  >
+                    <img
+                      src={b.src}
+                      alt={b.alt}
+                      loading="lazy"
+                      className="max-h-[340px] w-auto max-w-[70%] object-contain rounded-lg group-hover:scale-[1.02] transition-transform duration-500"
+                    />
+                  </div>
+                </Link>
+                <figcaption className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#b6b0a6] mt-3 leading-relaxed">
+                  {b.caption}
+                </figcaption>
+              </figure>
+            )
+          }
+          return (
+            <p
+              key={i}
+              className="essay-item font-body text-[15px] text-[#b0a99d] leading-[1.8] mb-8"
+            >
+              {b.text}
+            </p>
+          )
+        })}
 
         {/* Footnotes */}
         <footer className="mt-16 pt-8 border-t border-white/[0.04] essay-item">
