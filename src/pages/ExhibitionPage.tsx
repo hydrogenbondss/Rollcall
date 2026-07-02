@@ -169,7 +169,7 @@ export default function ExhibitionPage() {
             </p>
           </div>
           <div className="ex-item order-1 lg:order-2">
-            <RenderPlaceholder label="The Archive Wall" tint="#c28223" src="./images/exhibition-archive-wall.png" />
+            <RenderPlaceholder label="The Archive Wall" tint="#c28223" src="./images/exhibition-archive-wall.webp" />
           </div>
         </div>
       </section>
@@ -210,7 +210,7 @@ export default function ExhibitionPage() {
       <section id="zone-extinct" data-zone-section className="ex-section py-20 border-t border-white/[0.04] scroll-mt-28">
         <div className="max-w-[1100px] mx-auto px-6 sm:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <div className="ex-item">
-            <RenderPlaceholder label="The Extinction Corner" tint="#c85a32" src="./images/exhibition-extinction-corner.png" />
+            <RenderPlaceholder label="The Extinction Corner" tint="#c85a32" src="./images/exhibition-extinction-corner.webp" />
           </div>
           <div className="ex-item">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c85a32] mb-4">What We Lose</p>

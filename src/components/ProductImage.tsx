@@ -4,8 +4,8 @@ import { hasSpecimenPhoto } from '../data/imageStatus'
 import type { Product } from '../data/products'
 
 const GENERIC_IMAGES = new Set([
-  './images/hero-roll-1.jpg', './images/hero-roll-2.jpg', './images/hero-roll-3.jpg',
-  './images/hero-roll-4.jpg', './images/hero-roll-5.jpg', './images/hero-roll-6.jpg',
+  './images/hero-roll-1.webp', './images/hero-roll-2.webp', './images/hero-roll-3.webp',
+  './images/hero-roll-4.webp', './images/hero-roll-5.webp', './images/hero-roll-6.webp',
 ])
 
 // Dark, moody tints for each brand — ensures white text is readable
