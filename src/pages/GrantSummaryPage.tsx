@@ -102,7 +102,7 @@ export default function GrantSummaryPage() {
             The first edition documents {specimenCount} specimens across {countryCount} countries and three regions — {verifiedCount} verified against primary sources, the rest community-sourced — a proof of concept rather than an exhaustive inventory. The sample covers high-income economies (Japan, Singapore, Hong Kong), middle-income markets (Malaysia, Thailand, China), and lower-income contexts (Bangladesh, Nepal, Myanmar). It represents the archive at a specific moment in time and will continue to grow.
           </p>
           <p className="font-body text-[15px] leading-relaxed text-[#4a4a4a]">
-            At this scale, clear patterns already emerge: GDP correlates with ply count and softness; additive-enhanced premium papers (lotion, plant-derived squalane) cluster in East Asia; South Asia remains dominated by thin, infrastructure-compatible rolls. The archive demonstrates that a replicable methodology can generate cultural insight from a modest but geographically diverse sample.
+            At this scale, clear patterns already emerge: GDP correlates with ply count and softness; the archive's one additive-enhanced paper — a squalane-infused Japanese roll — sits at the East Asian premium pole; South Asia's everyday market remains defined by thin, infrastructure-compatible rolls. The archive demonstrates that a replicable methodology can generate cultural insight from a modest but geographically diverse sample.
           </p>
         </section>
 
@@ -111,11 +111,11 @@ export default function GrantSummaryPage() {
           <h2 className="font-display text-lg uppercase tracking-wider mb-4">Key findings</h2>
           <ul className="space-y-3">
             {[
-              'Hong Kong consumers pay roughly 5x more per roll than Bangladeshi consumers in this archive.',
-              'East Asian products dominate the premium segment: softer multi-ply rolls with moisturising additives and elaborate packaging.',
-              'South Asian products are overwhelmingly thin (1–2 ply), reflecting older plumbing infrastructure.',
+              'Hong Kong consumers pay roughly 5x more per pack than Bangladeshi consumers in this archive.',
+              'East Asian products dominate the premium segment: softer multi-ply rolls, refined packaging, and the archive\'s only additive-enhanced paper.',
+              'South Asian everyday rolls split between 2-ply economy packs and 3-ply aspirational lines, reflecting older plumbing infrastructure.',
               'Sustainability claims (bamboo, recycled pulp) appear across all income tiers but trade off against comfort.',
-              'Myanmar has a domestically manufactured brand, while Cambodia and Laos in this archive rely on imported products.',
+              'Frontier markets in this archive — Myanmar, Cambodia, Laos — are served by imported or OEM-produced brands rather than domestic manufacture.',
             ].map((item, i) => (
               <li key={i} className="flex items-start gap-3 font-body text-[15px] text-[#4a4a4a] leading-relaxed">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#c28223] mt-2.5 shrink-0" />

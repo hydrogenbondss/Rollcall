@@ -61,7 +61,7 @@ export default function CompareDrawer() {
               <Plus className="w-4 h-4 text-[#c28223] mt-0.5 shrink-0" />
               <div>
                 <p className="font-body text-sm text-[#1A1A1A]">Add one more product</p>
-                <p className="font-body text-[11px] text-[#6B6B6B] mt-0.5">Compare works best with 2 or more rolls. Browse the collection and click Compare on another product.</p>
+                <p className="font-body text-[11px] text-[#6B6B6B] mt-0.5">Compare works best with 2 or more rolls. Open another specimen and press Compare on its page.</p>
               </div>
             </div>
           )}

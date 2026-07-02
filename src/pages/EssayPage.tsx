@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { ArrowLeft, BookOpen } from 'lucide-react'
 import { gsap } from 'gsap'
@@ -17,9 +17,9 @@ type EssayBlock =
 const blocks: EssayBlock[] = [
   { type: 'p', text: `This archive spans three distinct regions of Asia — East, Southeast, and South — each with its own relationship to the roll. Japan obsesses over softness — squalane-infused, moisturising premium rolls. Singapore experiments with bamboo sustainability. Hong Kong has turned the soft, finely branded roll into lifestyle signalling. But nowhere is the gap between comfort and infrastructure more visible than in South Asia.` },
   { type: 'figure', src: './images/nepia-oshiri-celeb-render.png', alt: 'Nepia Oshiri Celeb premium toilet roll packaging', caption: `${accessionId('nepia-oshiri-celeb')} · Nepia Oshiri Celeb — squalane-infused 2-ply, Tokyo. Illustrative reconstruction.`, to: '/product/nepia-oshiri-celeb' },
-  { type: 'p', text: `In much of India, Bangladesh, and Pakistan, thin economy-ply rolls remain the everyday default — not by choice, but by necessity. Plumbing systems in older buildings cannot handle thicker paper. The product is a technical compromise between human comfort and Victorian-era pipe diameter. The premium three-ply rolls in this archive are the aspirational exception, not the norm.` },
+  { type: 'p', text: `In much of India, Bangladesh, and Pakistan, thin economy-ply rolls remain the everyday default — not by choice, but by necessity. Plumbing systems in older buildings cannot handle thicker paper. The product is a technical compromise between human comfort and Victorian-era pipe diameter. In these markets, premium three-ply remains the aspirational exception, not the everyday norm.` },
   { type: 'p', text: `Indian brand Origami has built a business around this constraint. Their "Luxuria" line — marketed with imagery of balance and intention¹ — manages to make three-ply feel like a conscious lifestyle choice rather than an infrastructural luxury.` },
-  { type: 'figure', src: './images/origami-india-real.jpg', alt: 'Origami Luxuria toilet tissue packaging', caption: `${accessionId('origami-luxuria')} · Origami Luxuria — 3-ply as a conscious lifestyle choice, Mumbai.`, to: '/product/origami-luxuria' },
+  { type: 'figure', src: './images/origami-luxuria-render.png', alt: 'Origami Luxuria toilet tissue packaging', caption: `${accessionId('origami-luxuria')} · Origami Luxuria — 3-ply as a conscious lifestyle choice, Mumbai. Illustrative reconstruction.`, to: '/product/origami-luxuria' },
   { type: 'p', text: `At some high-end hotels in Mumbai, guests find three-ply imported tissue. Where the plumbing has been retrofitted to accommodate it, this small fact — that luxury in South Asia sometimes means a toilet that can handle toilet paper — reveals how deeply infrastructure shapes even our most intimate routines.²` },
   { type: 'p', text: `Selpak, the Turkish brand, has found surprising traction in Indian cities. Its three-ply rolls are positioned as an affordable upgrade for the growing middle class on e-commerce platforms such as BigBasket and Blinkit.³` },
   { type: 'p', text: `And then there is the environmental paradox. Origami's "Good Karma" line — 100% recycled, unbleached, three-ply — is one of the most genuinely sustainable toilet papers on the continent. It is also one of the least comfortable. The eco-conscious South Asian consumer faces a choice their Japanese counterpart never has to make: save the planet, or save your skin.` },
@@ -37,6 +37,36 @@ const footnotes = [
   { id: 3, text: 'Pricing and positioning observed on e-commerce listings at the time of documentation; market conditions change.' },
   { id: 4, text: 'Public housing procurement reported through informal correspondence; no official government tender was reviewed for this essay.' },
 ]
+
+// Catalogue figure with a mounted-print treatment (framed on the charcoal
+// panel so light-background imagery sits quietly in the dark page). Fail-safe:
+// if the image file is missing or fails, the whole figure is omitted rather
+// than showing a broken frame.
+function EssayFigure({ src, alt, caption, to }: { src: string; alt: string; caption: string; to: string }) {
+  const [failed, setFailed] = useState(false)
+  if (failed) return null
+  return (
+    <figure className="essay-item my-12">
+      <Link to={to} className="group block">
+        <div
+          className="rounded-2xl overflow-hidden border border-white/[0.05] flex items-center justify-center py-10"
+          style={{ background: 'radial-gradient(115% 100% at 50% 0%, #1b1b1d 0%, #0c0c0d 78%)' }}
+        >
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            onError={() => setFailed(true)}
+            className="max-h-[300px] w-auto max-w-[62%] object-contain rounded-lg ring-1 ring-white/10 shadow-2xl group-hover:scale-[1.02] transition-transform duration-500"
+          />
+        </div>
+      </Link>
+      <figcaption className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#b6b0a6] mt-3 leading-relaxed">
+        {caption}
+      </figcaption>
+    </figure>
+  )
+}
 
 export default function EssayPage() {
   const pageRef = useRef<HTMLDivElement>(null)
@@ -105,26 +135,7 @@ export default function EssayPage() {
             )
           }
           if (b.type === 'figure') {
-            return (
-              <figure key={i} className="essay-item my-12">
-                <Link to={b.to} className="group block">
-                  <div
-                    className="rounded-2xl overflow-hidden border border-white/[0.05] flex items-center justify-center py-8"
-                    style={{ background: 'radial-gradient(115% 100% at 50% 0%, #1b1b1d 0%, #0c0c0d 78%)' }}
-                  >
-                    <img
-                      src={b.src}
-                      alt={b.alt}
-                      loading="lazy"
-                      className="max-h-[340px] w-auto max-w-[70%] object-contain rounded-lg group-hover:scale-[1.02] transition-transform duration-500"
-                    />
-                  </div>
-                </Link>
-                <figcaption className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#b6b0a6] mt-3 leading-relaxed">
-                  {b.caption}
-                </figcaption>
-              </figure>
-            )
+            return <EssayFigure key={i} {...b} />
           }
           return (
             <p

@@ -53,7 +53,7 @@ export default function ProjectStatement() {
           </div>
 
           <p className="font-body text-[15px] text-[#b0a99d] leading-[1.85]">
-            In Hong Kong, soft three-ply tissue is aspirational. A home stocked with Tempo signals membership in a class that has upgraded from necessity to preference. In Mumbai, one-ply is not poverty — it is physics. Victorian-era pipework makes thicker paper an act of plumbing suicide. The product available is the product the infrastructure permits.
+            In Hong Kong, soft three-ply tissue is aspirational. A home stocked with Tempo signals membership in a class that has upgraded from necessity to preference. In Mumbai, thin economy-ply is not poverty — it is physics. Victorian-era pipework makes thicker paper an act of plumbing suicide. The product available is the product the infrastructure permits.
           </p>
 
           <p className="font-body text-[15px] text-[#b0a99d] leading-[1.85]">
@@ -77,7 +77,7 @@ export default function ProjectStatement() {
           <div className="pt-4">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#b0a89e] mb-2">Practices</p>
             <p className="font-body text-[13px] text-[#b0a99d]">
-              Material Culture Research · Editorial Design · Data Visualization · Web Installation
+              Material Culture Research · Editorial Design · Data Visualisation · Web Installation
             </p>
           </div>
 

@@ -51,7 +51,7 @@ function RenderPlaceholder({ label, tint, src }: { label: string; tint: string; 
       {showImage && (
         <img
           src={src}
-          alt={`Concept visualization — ${label}`}
+          alt={`Concept visualisation — ${label}`}
           loading="lazy"
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
@@ -69,7 +69,7 @@ function RenderPlaceholder({ label, tint, src }: { label: string; tint: string; 
       )}
       {showImage && loaded && (
         <p className="absolute bottom-3 right-4 font-mono text-[9px] uppercase tracking-[0.25em] text-white/40">
-          Concept visualization
+          Concept visualisation
         </p>
       )}
     </div>
@@ -148,8 +148,8 @@ export default function ExhibitionPage() {
             Visitors enter through <span className="text-[#f0ece8]">The Archive Wall</span>, a quiet field of
             individually framed specimens to be read slowly. At the centre, <span className="text-[#f0ece8]">The Living
             Specimen</span> enlarges a single object into a rotating, dissected model. The journey ends at
-            <span className="text-[#f0ece8]"> The Extinction Corner</span> — objects that have already disappeared from
-            circulation. The route moves from the everyday, to the examined, to the lost.
+            <span className="text-[#f0ece8]"> The Extinction Corner</span> — a space reserved for packaging that
+            leaves circulation. The route moves from the everyday, to the examined, to the lost.
           </p>
         </div>
       </section>
@@ -216,8 +216,9 @@ export default function ExhibitionPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c85a32] mb-4">What We Lose</p>
             <h2 className="font-display text-4xl sm:text-5xl mb-5">The Extinction Corner</h2>
             <p className="font-body text-[15px] text-[#b0a99d] leading-[1.85] mb-4">
-              A dimly lit wall dedicated to discontinued or no-longer-produced packaging. The reduced atmosphere
-              invites reflection on objects that have quietly disappeared from circulation.
+              A dimly lit wall reserved for packaging that leaves circulation. As the archive documents
+              discontinuations over time, retired specimens will move here — the reduced atmosphere
+              invites reflection on objects the market has quietly let go.
             </p>
             <p className="font-body text-[13px] text-[#b6b0a6] leading-relaxed">
               What an archive chooses to keep is also a record of what the world has already let go.
@@ -263,14 +264,14 @@ export default function ExhibitionPage() {
         </div>
       </section>
 
-      {/* Possible Realization */}
+      {/* Possible Realisation */}
       <section id="practical-info" data-zone-section className="ex-section py-20 border-t border-white/[0.04] scroll-mt-28">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
           <div className="ex-item flex items-center gap-3 mb-3">
             <FileText className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
             <p className="font-body text-[10px] uppercase tracking-[0.4em] text-[#b6b0a6]">Project Details</p>
           </div>
-          <h2 className="ex-item font-display text-4xl sm:text-5xl mb-4">Possible Realization</h2>
+          <h2 className="ex-item font-display text-4xl sm:text-5xl mb-4">Possible Realisation</h2>
           <p className="ex-item font-body text-sm text-[#b6b0a6] max-w-xl mb-12 leading-relaxed">
             A realistic breakdown of what it could take to move from a confirmed venue to a first public presentation.
             Figures are provisional and scale with venue partnership.
@@ -297,9 +298,7 @@ export default function ExhibitionPage() {
                 '15–20 physical specimens in museum-style vitrines',
                 'Printed accession cards matching the digital archive schema',
                 'The Living Specimen: a projected, rotating dissected model',
-                'Annotated Asia map locating all documented countries',
-                'Submission desk with contributor guidelines and photography kit',
-                'Extinction Corner lighting and discontinued-specimen display',
+                'Extinction Corner lighting and reserved display case',
               ].map((d) => (
                 <div key={d} className="flex items-start gap-3">
                   <span className="w-1 h-1 rounded-full bg-[#c28223] mt-2 shrink-0" />

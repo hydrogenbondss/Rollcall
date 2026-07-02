@@ -7,7 +7,6 @@ import {
   Layers,
   Droplets,
   Factory,
-  Hotel,
   Globe,
   Package,
   ArrowLeft,
@@ -18,7 +17,7 @@ import {
   Archive,
   Printer,
 } from "lucide-react";
-import { products } from "../data/products";
+import { products, getRegion } from "../data/products";
 import { accessionId } from "../data/accession";
 import { useCurrency } from "../contexts/CurrencyContext";
 import { useCompare } from "../contexts/CompareContext";
@@ -64,16 +63,15 @@ export default function ProductDetail() {
 
   const relatedProducts = useMemo(() => {
     if (!product) return [];
-    const sameBrand = products.filter(
-      p => p.brand === product.brand && p.id !== product.id
-    );
-    const sameCountry = products.filter(
-      p =>
-        p.country === product.country &&
-        p.id !== product.id &&
-        p.brand !== product.brand
-    );
-    return [...sameBrand, ...sameCountry].slice(0, 8);
+    const seen = new Set<string>([product.id]);
+    const take = (list: typeof products) => list.filter(p => !seen.has(p.id)).map(p => { seen.add(p.id); return p });
+    // Same brand, then same country, then same region — so the section never
+    // renders a lonely one-card row for single-specimen countries.
+    const sameBrand = take(products.filter(p => p.brand === product.brand));
+    const sameCountry = take(products.filter(p => p.country === product.country));
+    const region = getRegion(product.country);
+    const sameRegion = take(products.filter(p => getRegion(p.country) === region));
+    return [...sameBrand, ...sameCountry, ...sameRegion].slice(0, 6);
   }, [product]);
   useEffect(() => {
     const handleScroll = () => {
@@ -361,29 +359,6 @@ export default function ProductDetail() {
                 </div>
               </div>
 
-              {/* Hotels (only when documented) */}
-              {product.hotels.length > 0 && (
-                <div className="detail-item border-t border-white/5 pt-6 mb-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Hotel className="w-4 h-4 text-[#b6b0a6]" strokeWidth={1.5} />
-                    <span className="font-body text-sm font-medium text-[#f0ece8]">
-                      Found at these hotels
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {product.hotels.map(h => (
-                      <span
-                        key={h}
-                        className="inline-flex items-center gap-1.5 bg-white/5 rounded-lg px-3 py-2 font-body text-[12px] text-[#b6b0a6]"
-                      >
-                        <Hotel className="w-3 h-3 text-[#c4bdb5]" />
-                        {h}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {product.notes && (
                 <div className="detail-item bg-white/5 rounded-xl p-4 mb-6">
                   <p className="font-body text-[13px] text-[#b6b0a6] leading-relaxed">
@@ -440,7 +415,7 @@ export default function ProductDetail() {
                   Related Specimens
                 </p>
                 <h2 className="font-display text-2xl font-medium text-[#f0ece8]">
-                  Same Region
+                  From the Archive
                 </h2>
               </div>
               <Link

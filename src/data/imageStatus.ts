@@ -1,29 +1,28 @@
 /**
- * Image provenance.
+ * Image provenance & presentation.
  *
- * `verifiedImageIds` — specimens with a genuine, verified product photograph.
+ * `brandImageIds` — specimens shown with genuine manufacturer product imagery
+ * (sourced from the brand's own published material). Currently only Origami
+ * Good Karma. Their detail page notes "Product imagery sourced".
  *
- * `illustrativeImageIds` — specimens shown with an AI render reconstructed from
- * researched real packaging (see docs/specimen-visual-specs.json). These are
- * presented as the specimen image but carry a small "illustrative
- * reconstruction" note on the detail page so the archive stays honest that they
- * are researched renders, not photographs.
+ * `illustrativeImageIds` — specimens shown with an illustrative reconstruction
+ * researched from real packaging (see docs/specimen-visual-specs.json). Their
+ * detail page carries the "illustrative reconstruction — not a photograph"
+ * note so the archive stays honest about provenance.
  *
- * Everything else falls back to a "documentation pending" placeholder. Image
- * loading is fail-safe: if a render file has not been uploaded yet, the card
- * keeps its placeholder instead of showing a broken image (see ProductImage).
+ * `framedImageIds` — PRESENTATION ONLY: images with a light background that the
+ * collection grid mounts as framed prints instead of full-bleed, so they don't
+ * break the dark vitrine wall. Orthogonal to provenance.
+ *
+ * Image loading is fail-safe: if a file is missing, the card keeps its
+ * "documentation pending" placeholder instead of a broken image (ProductImage).
  */
-export const verifiedImageIds = new Set<string>([
-  'enevo-brunei',
-  'khugjil-mongolia',
+export const brandImageIds = new Set<string>([
   'origami-karma',
-  'origami-luxuria',
-  'picok-ultra',
-  'selpak-supersoft',
 ])
 
 export const illustrativeImageIds = new Set<string>([
-  // Flagship (real photo replaced with a charcoal render for grid consistency)
+  // Flagship
   'nepia-oshiri-celeb',
   'elleair-premium',
   // Batch 1
@@ -49,7 +48,7 @@ export const illustrativeImageIds = new Set<string>([
   'bashundhara-pink',
   'rose-petal-pakistan',
   'joysoft-nepal',
-  // Batch 3 (final)
+  // Batch 3
   'samjung-greu',
   'andrex-family',
   'pursoft-unscented',
@@ -64,17 +63,31 @@ export const illustrativeImageIds = new Set<string>([
   'smile-myanmar',
   'lency-cambodia',
   'lency-laos',
+  // Reclassified: staged mock-ups formerly mislabelled as verified photos
+  'enevo-brunei',
+  'khugjil-mongolia',
+  'picok-ultra',
+  'selpak-supersoft',
+  'origami-luxuria',
 ])
 
-export function hasVerifiedImage(id: string): boolean {
-  return verifiedImageIds.has(id)
+/** Light-background images mounted as framed prints in the dark grid. */
+export const framedImageIds = new Set<string>([
+  'origami-karma',
+  'enevo-brunei',
+  'khugjil-mongolia',
+  'picok-ultra',
+])
+
+export function hasFramedImage(id: string): boolean {
+  return framedImageIds.has(id)
 }
 
 export function hasIllustrativeImage(id: string): boolean {
   return illustrativeImageIds.has(id)
 }
 
-/** Whether a specimen should attempt to show an image (verified or render). */
+/** Whether a specimen should attempt to show an image at all. */
 export function hasSpecimenPhoto(id: string): boolean {
-  return verifiedImageIds.has(id) || illustrativeImageIds.has(id)
+  return brandImageIds.has(id) || illustrativeImageIds.has(id)
 }

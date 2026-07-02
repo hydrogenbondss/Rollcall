@@ -43,7 +43,7 @@ const components = [
     to: '/exhibition?zone=zone-extinct',
     num: 'III',
     title: 'The Extinction Corner',
-    desc: 'A quieter space for discontinued packaging — objects that have already disappeared from circulation.',
+    desc: 'A quieter space reserved for packaging that leaves circulation, as the archive documents discontinuations over time.',
     icon: MapPin,
     color: '#c85a32',
   },
@@ -175,7 +175,7 @@ export default function HomeContent() {
               <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mt-2">Regions</p>
             </div>
             <div>
-              <p className="font-display text-4xl sm:text-5xl text-[#c28223]">∞</p>
+              <p className="font-display text-4xl sm:text-5xl text-[#f0ece8]">∞</p>
               <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mt-2">Growing Archive</p>
             </div>
           </div>

@@ -176,22 +176,30 @@ export default function SubmissionForm() {
             value={form.retailer} onChange={e => setForm(f => ({ ...f, retailer: e.target.value }))} />
         </div>
 
-        {/* Specimen photo */}
+        {/* Specimen photo — the upload control only appears when a form
+            backend is configured; otherwise we simply ask for an email
+            attachment instead of exposing a disabled internal state. */}
         <div className="sm:col-span-2">
-          <label className={labelClass}>Specimen Photo {keyReady ? '' : '(attach in your email)'}</label>
-          <label className={`${inputClass} flex items-center gap-3 cursor-pointer ${!keyReady ? 'opacity-50' : ''}`}>
-            <ImagePlus className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
-            <span className="text-[#b6b0a6] truncate">{fileName || (keyReady ? 'Upload a photo of the packaging…' : 'Available once the form backend is connected')}</span>
-            <input
-              ref={fileRef}
-              type="file"
-              accept="image/*"
-              aria-label="Specimen photo"
-              disabled={!keyReady}
-              className="hidden"
-              onChange={e => setFileName(e.target.files?.[0]?.name || '')}
-            />
-          </label>
+          <label className={labelClass}>Specimen Photo{keyReady ? '' : ' — attach to your email'}</label>
+          {keyReady ? (
+            <label className={`${inputClass} flex items-center gap-3 cursor-pointer`}>
+              <ImagePlus className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
+              <span className="text-[#b6b0a6] truncate">{fileName || 'Upload a photo of the packaging…'}</span>
+              <input
+                ref={fileRef}
+                type="file"
+                accept="image/*"
+                aria-label="Specimen photo"
+                className="hidden"
+                onChange={e => setFileName(e.target.files?.[0]?.name || '')}
+              />
+            </label>
+          ) : (
+            <p className={`${inputClass} flex items-center gap-3 text-[#b6b0a6]`}>
+              <ImagePlus className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
+              Include a clear photo of the packaging with your email submission.
+            </p>
+          )}
         </div>
 
         <div className="sm:col-span-2">

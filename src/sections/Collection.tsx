@@ -4,7 +4,7 @@ import { Search, SlidersHorizontal, X } from 'lucide-react'
 import type { Product } from '../data/products'
 import { products, brands, countries, getRegion, getFlagEmoji } from '../data/products'
 import { accessionId } from '../data/accession'
-import { hasSpecimenPhoto, hasVerifiedImage } from '../data/imageStatus'
+import { hasSpecimenPhoto, hasFramedImage } from '../data/imageStatus'
 import { usePaperRustle } from '../hooks/usePaperRustle'
 
 type SortOption = 'popular' | 'price-asc' | 'price-desc' | 'ply-desc' | 'region'
@@ -28,7 +28,7 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
   // Real photographs are studio-shot on light backgrounds; show them as clean
   // full-bleed tiles. Renders carry their own charcoal background, so they
   // float in the dark vitrine.
-  const framed = hasVerifiedImage(product.id)
+  const framed = hasFramedImage(product.id)
   const playRustle = usePaperRustle()
 
   const handleMouseEnter = () => {
@@ -48,14 +48,14 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
 
   return (
     <div
-      className={`group ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}
+      className={`group h-full ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}
       style={{ animationDelay: `${Math.min(index * 0.06, 0.6)}s` }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link to={`/product/${product.id}`} className="block">
+      <Link to={`/product/${product.id}`} className="block h-full">
         <div
-          className="specimen-card relative bg-[#141414] border border-white/[0.04] overflow-hidden"
+          className="specimen-card relative h-full flex flex-col bg-[#141414] border border-white/[0.04] overflow-hidden"
           style={{
             borderColor: isHovered ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.04)',
           }}
@@ -109,7 +109,7 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
             )}
           </div>
 
-          <div className="border-t border-white/[0.04] bg-[#0d0d0d] px-5 py-4">
+          <div className="border-t border-white/[0.04] bg-[#0d0d0d] px-5 py-4 flex-1 flex flex-col">
             <div className="flex items-center justify-between mb-3">
               <span className="font-mono text-[10px] tracking-[0.2em] text-[#b6b0a6] uppercase">
                 {catalogNo}
@@ -126,7 +126,7 @@ function SpecimenCard({ product, index, isVisible, searchQuery }: SpecimenCardPr
               {product.brand} · {product.country}
             </p>
 
-            <div className="flex items-center gap-4 pt-3 border-t border-white/[0.04]">
+            <div className="flex items-center gap-4 pt-3 mt-auto border-t border-white/[0.04]">
               <div>
                 <p className="font-mono text-[9px] uppercase tracking-wider text-[#b6b0a6]">Ply</p>
                 <p className="font-display text-sm text-white/80">{product.ply}</p>

@@ -81,7 +81,7 @@ export default function Methodology() {
           </p>
 
           <p>
-            Price is treated not as commercial information but as a socioeconomic indicator. A basic roll sells for well under a dollar in Dhaka and several dollars in Hong Kong — an order-of-magnitude gap for what is functionally the same object. That differential encodes infrastructure quality, import tariffs, purchasing power, and supply chain complexity. The archive documents these differentials because they tell a story the product itself cannot.
+            Price is treated not as commercial information but as a socioeconomic indicator. A standard pack sells for well under a dollar in Dhaka and several dollars in Hong Kong — a multi-fold gap for what is functionally the same object. That differential encodes infrastructure quality, import tariffs, purchasing power, and supply chain complexity. The archive documents these differentials because they tell a story the product itself cannot.
           </p>
 
           <p>

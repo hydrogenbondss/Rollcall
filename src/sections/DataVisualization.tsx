@@ -126,7 +126,7 @@ export default function DataVisualization() {
           </h2>
           <p className="font-body text-sm text-[#b6b0a6] mt-4 max-w-lg">
             {viewMode === 'price'
-              ? "How much does comfort cost? Each dot is one specimen. Color = region. X-axis = price in HKD."
+              ? "How much does comfort cost? Each dot is one specimen. Colour = region. X-axis = price in HKD."
               : "Wealthier nations use thicker paper. Each dot = one specimen positioned by its country's GDP per capita. X-axis = USD."
             }
           </p>
@@ -145,7 +145,7 @@ export default function DataVisualization() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#c28223] mb-1">Key Finding</p>
               <p className="font-body text-sm text-[#f0ece8] leading-relaxed">
                 GDP per capita and toilet paper ply show a correlation of <strong className="text-[#c28223]">{correlation.toFixed(2)}</strong>.
-                {" "}Wealthier nations tend toward thicker, softer toilet paper — Singapore tops the range at 4-ply, while the archive's single 1-ply specimen comes from Mongolia.
+                {" "}Wealthier nations tend toward thicker, softer toilet paper — Singapore and Indonesia share the 4-ply top of the range, while the archive's single 1-ply specimen comes from Mongolia.
               </p>
             </div>
           </div>

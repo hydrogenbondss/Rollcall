@@ -14,7 +14,7 @@ const primarySources = [
     'Elleair / Daio Paper product listings',
     'Scottie by Nippon Paper Group',
     'Samjung Greu / Living Creamy Soft product pages',
-    'Tempo Hong Kong (Watsons, ParknShop, Wellcome listings)',
+    'Tempo Hong Kong (Watsons, ParknShop, HKTVmall listings)',
     'Andrex UK and Hong Kong distributor listings',
     'PurSoft, Cloversoft, Kleenex, Premier — Singapore FairPrice / Lazada / Shopee listings',
   ]},
@@ -30,9 +30,9 @@ const primarySources = [
 
 const notes = [
   'Prices are recorded at the time of documentation and reflect single-unit or standard-pack retail pricing. They should be treated as snapshots, not live market data.',
-  'Seasonal scents and limited releases are noted where confirmed by manufacturer or retailer channels. Unconfirmed seasonal variants are marked as reported.',
+  'Scents are recorded as printed on packaging or listed by the manufacturer at the time of documentation.',
   'Manufacturing origin is taken from packaging text or brand correspondence. Some products list multiple possible origins; these are recorded as reported.',
-  'Verification status is shown on each specimen card. "Verified" means the product, price, and specifications were confirmed against at least one primary source. "Community" means the brand and market are confirmed, but full product-level verification was limited by access.',
+  'Verification status is shown on each specimen card. "Verified" means the brand, manufacturer, and country of origin were confirmed against at least one primary source; product-level specifics may include editorial detail. "Community" means the brand and market are confirmed, but full product-level verification was limited by access.',
 ]
 
 export default function SourcesPage() {
