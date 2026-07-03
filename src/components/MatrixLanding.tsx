@@ -1,12 +1,43 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 interface MatrixLandingProps {
   onEnter: () => void
 }
 
+interface RollEntry {
+  id: string
+  brand: string
+}
+
 // Landing gate. Reveal is pure CSS (see .ml-* in index.css) so the entry
 // bundle ships no animation library on first paint.
 export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
+  // The roll call: the archive takes attendance, one specimen at a time.
+  // Data is loaded via dynamic import AFTER first paint so the landing keeps
+  // its minimal critical bundle; if the import fails, the line simply stays
+  // empty (fixed height, no layout shift).
+  const [roll, setRoll] = useState<RollEntry[]>([])
+  const [tick, setTick] = useState(0)
+
+  useEffect(() => {
+    let cancelled = false
+    let timer: ReturnType<typeof setInterval> | undefined
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    Promise.all([import('../data/products'), import('../data/accession')])
+      .then(([p, a]) => {
+        if (cancelled) return
+        const entries = p.products.map((prod) => ({ id: a.accessionId(prod.id), brand: prod.brand }))
+        setRoll(entries)
+        if (!reduced && entries.length > 1) {
+          timer = setInterval(() => setTick((n) => (n + 1) % entries.length), 2400)
+        }
+      })
+      .catch(() => {})
+    return () => { cancelled = true; if (timer) clearInterval(timer) }
+  }, [])
+
+  const current = roll.length ? roll[tick] : null
+
   const handleEnter = useCallback(() => {
     onEnter()
   }, [onEnter])
@@ -43,6 +74,18 @@ export default function MatrixLanding({ onEnter }: MatrixLandingProps) {
         <p className="ml-sub font-body text-[10px] uppercase tracking-[0.6em] text-[#f0ece8]/50">
           Material culture of contemporary Asia
         </p>
+
+        {/* The roll call — attendance, one specimen at a time */}
+        <div className="h-5 mt-7" aria-hidden="true">
+          {current && (
+            <p
+              key={current.id}
+              className="ml-tick font-mono text-[10px] uppercase tracking-[0.3em] text-[#f0ece8]/35"
+            >
+              {current.id} · {current.brand} — <span className="text-[#c28223]/75">present</span>
+            </p>
+          )}
+        </div>
       </div>
 
       {/* Click hint */}

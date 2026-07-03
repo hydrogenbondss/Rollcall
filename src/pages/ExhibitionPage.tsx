@@ -3,9 +3,10 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link, useSearchParams } from 'react-router'
 import { ArrowLeft, FileText, MapPin } from 'lucide-react'
-import { specimenCount, countryCount } from '../data/stats'
 import { products } from '../data/products'
+import { specimenCount } from '../data/stats'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import Footer from '../sections/Footer'
 
 // The Living Specimen reflects the archive's flagship specimen.
 const featuredSpecimen = products.find((p) => p.id === 'nepia-oshiri-celeb') ?? products[0]
@@ -223,6 +224,9 @@ export default function ExhibitionPage() {
             <p className="font-body text-[13px] text-[#b6b0a6] leading-relaxed">
               What an archive chooses to keep is also a record of what the world has already let go.
             </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#c85a32]/80 mt-6">
+              Attendance, 2026 — {specimenCount} of {specimenCount} present. The corner waits.
+            </p>
           </div>
         </div>
       </section>
@@ -329,27 +333,7 @@ export default function ExhibitionPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-white/[0.04]">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="flex items-baseline gap-4">
-              <span className="font-display text-[15px] font-medium tracking-[0.15em] uppercase text-[#f0ece8]">ROLL CALL</span>
-              <span className="font-mono text-[9px] tracking-[0.2em] text-[#b6b0a6] uppercase">Material Culture Archive</span>
-            </div>
-            <div className="flex items-center gap-6 text-[#b6b0a6]">
-              <span className="font-mono text-[10px] text-[#f0ece8]/60 tracking-wide">Jeffrey Nicholas Tse</span>
-              <span className="w-px h-3 bg-white/10" />
-              <span className="font-mono text-[10px] text-[#f0ece8]/60 tracking-wide">{specimenCount} specimens</span>
-              <span className="w-px h-3 bg-white/10" />
-              <span className="font-mono text-[10px] text-[#f0ece8]/60 tracking-wide">{countryCount} countries</span>
-              <span className="w-px h-3 bg-white/10" />
-              <span className="font-mono text-[10px] text-[#f0ece8]/60 tracking-wide">Est. 2026</span>
-            </div>
-          </div>
-          <p className="font-mono text-[10px] text-[#f0ece8]/55 text-center mt-8">This archive is a work in progress. It will remain incomplete by design.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

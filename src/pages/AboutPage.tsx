@@ -4,7 +4,6 @@ import { ArrowLeft, FileText } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProjectStatement from '../sections/ProjectStatement'
-import WhyToiletPaper from '../sections/WhyToiletPaper'
 import WorldMap from '../sections/WorldMap'
 import DataVisualization from '../sections/DataVisualization'
 import Methodology from '../sections/Methodology'
@@ -62,8 +61,27 @@ export default function AboutPage() {
         </p>
       </header>
 
+      {/* Curator's note — the project in the first person */}
+      <section className="max-w-[800px] mx-auto px-6 sm:px-8 pb-14">
+        <div className="border-l-2 border-[#c28223]/40 pl-6 sm:pl-8 py-2">
+          <p className="font-serif-display text-xl sm:text-2xl italic text-[#f0ece8] leading-relaxed mb-5">
+            Roll Call began as a suspicion: that the objects we refuse to look at describe us
+            more honestly than the ones we frame.
+          </p>
+          <p className="font-body text-[15px] text-[#b0a99d] leading-[1.85] mb-6">
+            So I gave the most overlooked object in Asia the treatment we reserve for
+            treasures — accession numbers, vitrines, provenance — and let the machinery of
+            value show itself. This archive is not finally about toilet paper. It is about
+            who decides what is worth remembering, and what that decision costs the things
+            left off the list.
+          </p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#b6b0a6]">
+            — Jeffrey Nicholas Tse · Hong Kong, 2026
+          </p>
+        </div>
+      </section>
+
       <ProjectStatement />
-      <WhyToiletPaper />
 
       {/* Bio strip */}
       <section className="about-section max-w-[800px] mx-auto px-6 sm:px-8 py-20 border-t border-white/[0.04]">
