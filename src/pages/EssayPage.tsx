@@ -110,7 +110,6 @@ export default function EssayPage() {
         <header className="mb-16 essay-item">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
-            <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-[#c28223]">Critical essay</span>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl text-[#f0ece8] mb-4 leading-[0.95]">
             One-Ply Realism
@@ -164,23 +163,12 @@ export default function EssayPage() {
         </footer>
 
         <div className="mt-16 pt-8 border-t border-white/[0.04] essay-item">
-          <p className="font-mono text-[10px] text-[#b6b0a6] uppercase tracking-wider mb-3">
+          <p className="font-mono text-[10px] text-[#b6b0a6] uppercase tracking-wider mb-2">
             This essay accompanies the Roll Call archive
           </p>
-          <p className="font-body text-[14px] text-[#b6b0a6] leading-relaxed max-w-[520px] mb-6">
-            It is the critical spine of the project — reading catalogued specimens as evidence about infrastructure, class, and what societies choose to make soft.
-          </p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link to="/collection" className="font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors">
-              Browse the collection &rarr;
-            </Link>
-            <Link to="/about" className="font-body text-sm text-[#b6b0a6] hover:text-[#f0ece8] transition-colors">
-              About the project
-            </Link>
-            <Link to="/grant" className="font-body text-sm text-[#b6b0a6] hover:text-[#f0ece8] transition-colors">
-              Grant summary
-            </Link>
-          </div>
+          <Link to="/collection" className="font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors">
+            Browse the collection &rarr;
+          </Link>
         </div>
       </article>
 

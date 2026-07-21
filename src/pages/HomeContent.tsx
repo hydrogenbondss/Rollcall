@@ -112,7 +112,7 @@ export default function HomeContent() {
           </p>
 
           <p className="hero-item relative font-body text-[15px] sm:text-base text-[#b6b0a6] max-w-[520px] mt-6 leading-relaxed">
-            An evolving archive of everyday packaging across Asia — beginning with toilet paper as material culture, infrastructure, and class.
+            An evolving archive documenting everyday consumer packaging across Asia — beginning with the most universal object of all.
           </p>
 
           <div className="hero-item relative flex flex-wrap items-center justify-center gap-4 mt-12">
@@ -120,20 +120,15 @@ export default function HomeContent() {
               <span className="font-body text-sm text-[#0d0d0d] font-medium">Enter the Archive</span>
               <ArrowRight className="w-4 h-4 text-[#0d0d0d] group-hover:translate-x-1 transition-transform" strokeWidth={2} />
             </Link>
-            <Link to="/essay" className="group inline-flex items-center gap-3 px-6 py-3 bg-[#141414] border border-white/[0.06] hover:border-[#c28223]/30 rounded-2xl transition-all">
-              <span className="font-body text-sm text-[#f0ece8]">Read the Essay</span>
-              <ArrowRight className="w-4 h-4 text-[#c28223] group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
-            </Link>
             <button
               onClick={() => {
                 const p = products[Math.floor(Math.random() * products.length)]
                 navigate(`/product/${p.id}`)
               }}
-              className="group inline-flex items-center gap-2 px-4 py-3 text-[#b6b0a6] hover:text-[#f0ece8] transition-colors cursor-pointer"
-              aria-label="Open a random specimen"
+              className="group inline-flex items-center gap-3 px-6 py-3 bg-[#141414] border border-white/[0.06] hover:border-[#c28223]/30 rounded-2xl transition-all cursor-pointer"
             >
-              <Dices className="w-4 h-4" strokeWidth={1.5} />
-              <span className="font-body text-[13px]">Random</span>
+              <Dices className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
+              <span className="font-body text-sm text-[#f0ece8]">Random Specimen</span>
             </button>
           </div>
         </section>
@@ -202,29 +197,6 @@ export default function HomeContent() {
 
         {/* Why toilet paper */}
         <WhyToiletPaper />
-
-        {/* Critical writing — make the essay impossible to miss on a skim */}
-        <section className="max-w-[900px] mx-auto px-6 sm:px-8 py-20 border-t border-white/[0.04]">
-          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-5">
-            Critical writing
-          </p>
-          <h2 className="font-display text-3xl sm:text-4xl text-[#f0ece8] tracking-tight leading-[1.05] mb-6 max-w-[18ch]">
-            One-Ply Realism
-          </h2>
-          <p className="font-serif-display text-lg sm:text-xl italic text-[#b0a99d] max-w-[34rem] leading-relaxed mb-8">
-            Toilet paper is infrastructure made tactile.
-          </p>
-          <p className="font-body text-[15px] text-[#b6b0a6] leading-relaxed max-w-[560px] mb-10">
-            The project&rsquo;s critical essay reads everyday rolls as indexes of pipe diameter, purchasing power, and cultural aspiration — arguing that comfort is infrastructure, and infrastructure is politics.
-          </p>
-          <Link
-            to="/essay"
-            className="group inline-flex items-center gap-3 font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors"
-          >
-            Read the full essay
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
-          </Link>
-        </section>
 
         {/* The exhibition, in three parts */}
         <section className="nav-cards max-w-[1100px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">

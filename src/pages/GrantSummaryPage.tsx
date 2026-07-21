@@ -126,20 +126,6 @@ export default function GrantSummaryPage() {
           </p>
         </section>
 
-        {/* Critical framework — surface the essay for grant reviewers */}
-        <section className="mb-12 grant-item border border-black/10 rounded-2xl p-6 sm:p-8">
-          <h2 className="font-display text-lg uppercase tracking-wider mb-4">Critical framework</h2>
-          <p className="font-serif-display text-xl italic text-[#1a1a1a] leading-snug mb-4">
-            &ldquo;Toilet paper is infrastructure made tactile.&rdquo;
-          </p>
-          <p className="font-body text-[15px] leading-relaxed text-[#4a4a4a] mb-4">
-            The accompanying critical essay, <em>One-Ply Realism: On Toilet Paper as Material Culture and Infrastructure</em>, examines everyday rolls as indexes of class, plumbing systems, and cultural aspiration across Asia. The archive is not only a collection of objects — it is a critical argument about what societies choose to soften, and who is allowed comfort.
-          </p>
-          <Link to="/essay" className="inline-flex items-center gap-2 font-body text-[13px] text-[#c28223] hover:text-[#1a1a1a] transition-colors">
-            Read One-Ply Realism &rarr;
-          </Link>
-        </section>
-
         {/* A first edition, not a final count */}
         <section className="mb-12 grant-item bg-[#fafafa] border border-black/5 rounded-2xl p-6">
           <h2 className="font-display text-lg uppercase tracking-wider mb-4 flex items-center gap-2">
