@@ -79,6 +79,21 @@ export default function AboutPage() {
             — Jeffrey Nicholas Tse · Hong Kong, 2026
           </p>
         </div>
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <Link
+            to="/essay"
+            className="group inline-flex items-center gap-2 font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors"
+          >
+            Read the critical essay — One-Ply Realism
+            <span className="w-4 h-px bg-current group-hover:w-6 transition-all" />
+          </Link>
+          <Link
+            to="/grant"
+            className="font-body text-[13px] text-[#b6b0a6] hover:text-[#f0ece8] transition-colors"
+          >
+            Grant summary
+          </Link>
+        </div>
       </section>
 
       <ProjectStatement />

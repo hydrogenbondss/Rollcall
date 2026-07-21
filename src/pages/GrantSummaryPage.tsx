@@ -3,10 +3,17 @@ import { Link } from 'react-router'
 import { ArrowLeft, Printer, FileText, MapPin, BarChart3, Calendar, DollarSign, Send } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { specimenCount, countryCount, verifiedCount, communityCount } from '../data/stats'
+import { specimenCount, countryCount, regionCount, verifiedCount, communityCount } from '../data/stats'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { products } from '../data/products'
+import { accessionId } from '../data/accession'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const grantSpecimenIds = ['nepia-oshiri-celeb', 'origami-luxuria', 'tempo-applewood', 'bashundhara-pink']
+const grantSpecimens = grantSpecimenIds
+  .map((id) => products.find((p) => p.id === id))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p))
 
 export default function GrantSummaryPage() {
   const pageRef = useRef<HTMLDivElement>(null)
@@ -70,13 +77,40 @@ export default function GrantSummaryPage() {
             {[
               { label: 'Specimens', value: String(specimenCount) },
               { label: 'Countries', value: String(countryCount) },
-              { label: 'Regions', value: '3' },
+              { label: 'Regions', value: String(regionCount) },
               { label: 'Verified / Community', value: `${verifiedCount} / ${communityCount}` },
             ].map((s) => (
               <div key={s.label} className="border border-black/10 rounded-xl p-4">
                 <p className="font-display text-3xl">{s.value}</p>
                 <p className="font-mono text-[9px] uppercase tracking-wider text-[#4a4a4a]">{s.label}</p>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Specimens from the archive — visual evidence for reviewers */}
+        <section className="mb-12 grant-item">
+          <h2 className="font-display text-lg uppercase tracking-wider mb-4">From the archive</h2>
+          <p className="font-body text-[15px] leading-relaxed text-[#4a4a4a] mb-6">
+            Each specimen is catalogued with accession number, provenance, material composition, and verification status — treated with the seriousness usually reserved for ceramics or textiles.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {grantSpecimens.map((s) => (
+              <Link key={s.id} to={`/product/${s.id}`} className="group block">
+                <div
+                  className="aspect-[3/4] rounded-xl overflow-hidden border border-black/10 group-hover:border-black/25 transition-colors"
+                  style={{ background: 'radial-gradient(115% 100% at 50% 0%, #1b1b1d 0%, #0c0c0d 78%)' }}
+                >
+                  <img
+                    src={s.image}
+                    alt={`${s.brand} — ${s.name}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  />
+                </div>
+                <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-[#4a4a4a] mt-2">{accessionId(s.id)}</p>
+                <p className="font-body text-[12px] text-[#1a1a1a] leading-snug mt-0.5">{s.brand}</p>
+              </Link>
             ))}
           </div>
         </section>
@@ -92,6 +126,20 @@ export default function GrantSummaryPage() {
           </p>
         </section>
 
+        {/* Critical framework — surface the essay for grant reviewers */}
+        <section className="mb-12 grant-item border border-black/10 rounded-2xl p-6 sm:p-8">
+          <h2 className="font-display text-lg uppercase tracking-wider mb-4">Critical framework</h2>
+          <p className="font-serif-display text-xl italic text-[#1a1a1a] leading-snug mb-4">
+            &ldquo;Toilet paper is infrastructure made tactile.&rdquo;
+          </p>
+          <p className="font-body text-[15px] leading-relaxed text-[#4a4a4a] mb-4">
+            The accompanying critical essay, <em>One-Ply Realism: On Toilet Paper as Material Culture and Infrastructure</em>, examines everyday rolls as indexes of class, plumbing systems, and cultural aspiration across Asia. The archive is not only a collection of objects — it is a critical argument about what societies choose to soften, and who is allowed comfort.
+          </p>
+          <Link to="/essay" className="inline-flex items-center gap-2 font-body text-[13px] text-[#c28223] hover:text-[#1a1a1a] transition-colors">
+            Read One-Ply Realism &rarr;
+          </Link>
+        </section>
+
         {/* A first edition, not a final count */}
         <section className="mb-12 grant-item bg-[#fafafa] border border-black/5 rounded-2xl p-6">
           <h2 className="font-display text-lg uppercase tracking-wider mb-4 flex items-center gap-2">
@@ -99,7 +147,7 @@ export default function GrantSummaryPage() {
             A first edition, not a final count
           </h2>
           <p className="font-body text-[15px] leading-relaxed text-[#4a4a4a] mb-4">
-            The first edition documents {specimenCount} specimens across {countryCount} countries and three regions — {verifiedCount} verified against primary sources, the rest community-sourced — a proof of concept rather than an exhaustive inventory. The sample covers high-income economies (Japan, Singapore, Hong Kong), middle-income markets (Malaysia, Thailand, China), and lower-income contexts (Bangladesh, Nepal, Myanmar). It represents the archive at a specific moment in time and will continue to grow.
+            The first edition documents {specimenCount} specimens across {countryCount} countries and {regionCount} regions — {verifiedCount} verified against primary sources, the rest community-sourced — a proof of concept rather than an exhaustive inventory. The sample covers high-income economies (Japan, Singapore, Hong Kong), middle-income markets (Malaysia, Thailand, China), and lower-income contexts (Bangladesh, Nepal, Myanmar). It represents the archive at a specific moment in time and will continue to grow.
           </p>
           <p className="font-body text-[15px] leading-relaxed text-[#4a4a4a]">
             At this scale, clear patterns already emerge: GDP correlates with ply count and softness; the archive's one additive-enhanced paper — a squalane-infused Japanese roll — sits at the East Asian premium pole; South Asia's everyday market remains defined by thin, infrastructure-compatible rolls. The archive demonstrates that a replicable methodology can generate cultural insight from a modest but geographically diverse sample.

@@ -1,3 +1,5 @@
+import { Link } from 'react-router'
+
 const reasons = [
   { label: 'Language', desc: 'Every market prints it in its own tongue, script, and register.' },
   { label: 'Design', desc: 'Graphic conventions, mascots, and colour shift across each border.' },
@@ -33,6 +35,14 @@ export default function WhyToiletPaper() {
             </div>
           ))}
         </div>
+
+        <p className="font-body text-[14px] text-[#b6b0a6] leading-relaxed max-w-[560px] mt-10">
+          These five lenses are developed further in the critical essay{' '}
+          <Link to="/essay" className="text-[#f0ece8] underline decoration-[#c28223]/40 underline-offset-4 hover:decoration-[#c28223] transition-colors">
+            One-Ply Realism
+          </Link>
+          — reading the roll as an index of infrastructure, class, and cultural aspiration.
+        </p>
       </div>
     </section>
   )

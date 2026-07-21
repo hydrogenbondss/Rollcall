@@ -7,7 +7,7 @@ import Navigation from '../components/Navigation'
 import Footer from '../sections/Footer'
 import WhyToiletPaper from '../sections/WhyToiletPaper'
 import { products } from '../data/products'
-import { specimenCount, countryCount, verifiedCount } from '../data/stats'
+import { specimenCount, countryCount, regionCount, verifiedCount } from '../data/stats'
 import { accessionId } from '../data/accession'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -83,44 +83,57 @@ export default function HomeContent() {
       <Navigation />
 
       <main ref={heroRef}>
-        {/* Hero — idea first */}
-        <section className="min-h-[82vh] flex flex-col items-center justify-center px-6 text-center">
-          <div className="hero-item mb-10">
-            <div className="flex items-center justify-center gap-4">
-              <span className="w-12 h-px bg-white/15" />
-              <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-[#c28223]/60">Est. 2026 &middot; Material Culture Archive</p>
-              <span className="w-12 h-px bg-white/15" />
-            </div>
+        {/* Hero — brand first, one question, one sentence, one CTA group */}
+        <section className="relative min-h-[88vh] flex flex-col items-center justify-center px-6 text-center overflow-hidden">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-40"
+            style={{
+              background:
+                'radial-gradient(ellipse 80% 55% at 50% 35%, rgba(194,130,35,0.07) 0%, transparent 62%), radial-gradient(ellipse 50% 40% at 70% 80%, rgba(196,114,142,0.04) 0%, transparent 55%)',
+            }}
+            aria-hidden="true"
+          />
+
+          <div className="hero-item relative mb-8">
+            <p className="font-mono text-[10px] uppercase tracking-[0.5em] text-[#c28223]/70">
+              Est. 2026 &middot; Material Culture Archive
+            </p>
           </div>
 
-          <h1 className="hero-item font-display text-[10vw] sm:text-[8vw] md:text-[64px] lg:text-[76px] text-[#f0ece8] leading-[1.02] tracking-tight max-w-[14ch]">
-            What deserves<br className="hidden sm:block" /> to be archived?
+          <h1
+            className="hero-item relative font-display text-[18vw] sm:text-[14vw] md:text-[110px] lg:text-[128px] text-[#f0ece8] leading-[0.82] tracking-tighter uppercase"
+            style={{ letterSpacing: '-0.04em' }}
+          >
+            Roll<br className="sm:hidden" /> Call
           </h1>
 
-          <p className="hero-item font-serif-display text-lg sm:text-xl italic text-[#b0a99d] max-w-xl mt-8 leading-relaxed">
-            When does an everyday object stop being disposable and become cultural heritage?
+          <p className="hero-item relative font-serif-display text-lg sm:text-xl italic text-[#b0a99d] max-w-lg mt-10 leading-relaxed">
+            What deserves to be archived?
           </p>
 
-          <p className="hero-item font-body text-[15px] sm:text-base text-[#b6b0a6] max-w-[560px] mt-8 leading-relaxed">
-            <span className="text-[#f0ece8]">Roll Call</span> is an evolving archive documenting everyday
-            consumer packaging across Asia — beginning with the most universal object of all.
+          <p className="hero-item relative font-body text-[15px] sm:text-base text-[#b6b0a6] max-w-[520px] mt-6 leading-relaxed">
+            An evolving archive of everyday packaging across Asia — beginning with toilet paper as material culture, infrastructure, and class.
           </p>
 
-          {/* Two CTAs */}
-          <div className="hero-item flex flex-wrap items-center justify-center gap-4 mt-12">
+          <div className="hero-item relative flex flex-wrap items-center justify-center gap-4 mt-12">
             <Link to="/collection" className="group inline-flex items-center gap-3 px-6 py-3 bg-[#c28223] hover:bg-[#d49a3f] rounded-2xl transition-all">
               <span className="font-body text-sm text-[#0d0d0d] font-medium">Enter the Archive</span>
               <ArrowRight className="w-4 h-4 text-[#0d0d0d] group-hover:translate-x-1 transition-transform" strokeWidth={2} />
+            </Link>
+            <Link to="/essay" className="group inline-flex items-center gap-3 px-6 py-3 bg-[#141414] border border-white/[0.06] hover:border-[#c28223]/30 rounded-2xl transition-all">
+              <span className="font-body text-sm text-[#f0ece8]">Read the Essay</span>
+              <ArrowRight className="w-4 h-4 text-[#c28223] group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
             </Link>
             <button
               onClick={() => {
                 const p = products[Math.floor(Math.random() * products.length)]
                 navigate(`/product/${p.id}`)
               }}
-              className="group inline-flex items-center gap-3 px-6 py-3 bg-[#141414] border border-white/[0.06] hover:border-[#c28223]/30 rounded-2xl transition-all cursor-pointer"
+              className="group inline-flex items-center gap-2 px-4 py-3 text-[#b6b0a6] hover:text-[#f0ece8] transition-colors cursor-pointer"
+              aria-label="Open a random specimen"
             >
-              <Dices className="w-4 h-4 text-[#c28223]" strokeWidth={1.5} />
-              <span className="font-body text-sm text-[#f0ece8]">Random Specimen</span>
+              <Dices className="w-4 h-4" strokeWidth={1.5} />
+              <span className="font-body text-[13px]">Random</span>
             </button>
           </div>
         </section>
@@ -171,7 +184,7 @@ export default function HomeContent() {
               <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mt-2">Countries</p>
             </div>
             <div>
-              <p className="font-display text-4xl sm:text-5xl text-[#f0ece8]">3</p>
+              <p className="font-display text-4xl sm:text-5xl text-[#f0ece8]">{regionCount}</p>
               <p className="font-mono text-[10px] uppercase tracking-wider text-[#b6b0a6] mt-2">Regions</p>
             </div>
             <div>
@@ -189,6 +202,29 @@ export default function HomeContent() {
 
         {/* Why toilet paper */}
         <WhyToiletPaper />
+
+        {/* Critical writing — make the essay impossible to miss on a skim */}
+        <section className="max-w-[900px] mx-auto px-6 sm:px-8 py-20 border-t border-white/[0.04]">
+          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-[#c28223] mb-5">
+            Critical writing
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl text-[#f0ece8] tracking-tight leading-[1.05] mb-6 max-w-[18ch]">
+            One-Ply Realism
+          </h2>
+          <p className="font-serif-display text-lg sm:text-xl italic text-[#b0a99d] max-w-[34rem] leading-relaxed mb-8">
+            Toilet paper is infrastructure made tactile.
+          </p>
+          <p className="font-body text-[15px] text-[#b6b0a6] leading-relaxed max-w-[560px] mb-10">
+            The project&rsquo;s critical essay reads everyday rolls as indexes of pipe diameter, purchasing power, and cultural aspiration — arguing that comfort is infrastructure, and infrastructure is politics.
+          </p>
+          <Link
+            to="/essay"
+            className="group inline-flex items-center gap-3 font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors"
+          >
+            Read the full essay
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
+          </Link>
+        </section>
 
         {/* The exhibition, in three parts */}
         <section className="nav-cards max-w-[1100px] mx-auto px-6 sm:px-8 py-16 border-t border-white/[0.04]">
