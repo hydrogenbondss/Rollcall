@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react'
+import { Link } from 'react-router'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { specimenCount, countryCount, verifiedCount } from '../data/stats'
@@ -61,7 +62,11 @@ export default function ProjectStatement() {
           </p>
 
           <p className="font-body text-[15px] text-[#b0a99d] leading-[1.85]">
-            The accompanying essay, <em>One-Ply Realism</em>, examines how South Asia's thin economy rolls reveal the way infrastructure shapes intimacy. The data visualisation maps price against thickness across three regions. The world chart documents an incomplete geography — a project still being unrolled.
+            The accompanying essay,{' '}
+            <Link to="/essay" className="text-[#f0ece8] underline decoration-[#c28223]/40 underline-offset-4 hover:decoration-[#c28223] transition-colors">
+              <em>One-Ply Realism</em>
+            </Link>
+            , examines how South Asia&rsquo;s thin economy rolls reveal the way infrastructure shapes intimacy. The data visualisation maps price against thickness across three regions. The world chart documents an incomplete geography — a project still being unrolled.
           </p>
 
           <div className="w-12 h-px bg-[#c28223]/20" />

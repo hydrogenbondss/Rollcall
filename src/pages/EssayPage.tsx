@@ -163,10 +163,10 @@ export default function EssayPage() {
         </footer>
 
         <div className="mt-16 pt-8 border-t border-white/[0.04] essay-item">
-          <p className="essay-item font-mono text-[10px] text-[#b6b0a6] uppercase tracking-wider mb-2">
+          <p className="font-mono text-[10px] text-[#b6b0a6] uppercase tracking-wider mb-2">
             This essay accompanies the Roll Call archive
           </p>
-          <Link to="/collection" className="essay-item font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors">
+          <Link to="/collection" className="font-body text-sm text-[#c28223] hover:text-[#f0ece8] transition-colors">
             Browse the collection &rarr;
           </Link>
         </div>
